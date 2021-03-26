@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.kirshi'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    maven {
+        name "aliyunmaven"
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'com.tonystark.android:socket:4.2.3'
+    implementation 'com.tonystark.android:socket-server:4.2.3'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.google.protobuf:protobuf-java:3.5.1'
+    implementation 'com.google.protobuf:protoc:3.5.1'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+    implementation group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+bootJar {
+    mainClassName = 'com.kirshi.freya.server.FreyaServerApplication'
+}
