@@ -14,8 +14,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author Finger
+ * Copyright (c) 2021
+ * @Project:FreyaServer
+ * @Author:Finger
+ * @FileName:FreyaServerApplication.java
+ * @LastModified:2021-03-27T01:09:45.804+08:00
  */
+
 @SpringBootApplication
 public class FreyaServerApplication {
 

@@ -4,11 +4,11 @@ import com.kirshi.protocol.HandShakeProto;
 import com.xuhao.didi.socket.common.interfaces.common_interfacies.server.IClient;
 
 /**
- * Copyright (c) 2021  Spianmo, Inc. All rights reserved.
- * @Project TrackerServer
- * @Author Finger
- * @FileName ClientInfoBean.java
- * @LastModified 2021-03-04 22:56:49
+ * Copyright (c) 2021
+ * @Project:FreyaServer
+ * @Author:Finger
+ * @FileName:ClientInfoBean.java
+ * @LastModified:2021-03-27T01:09:45.782+08:00
  */
 
 public class ClientInfoBean {

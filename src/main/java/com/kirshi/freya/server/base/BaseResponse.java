@@ -3,6 +3,14 @@ package com.kirshi.freya.server.base;
 import lombok.Data;
 
 /**
+ * Copyright (c) 2021
+ * @Project:FreyaServer
+ * @Author:Finger
+ * @FileName:BaseResponse.java
+ * @LastModified:2021-03-27T01:09:45.725+08:00
+ */
+
+/**
  * @ClassName BaseResponseEntity
  * @Description TODO
  * @Author Finger

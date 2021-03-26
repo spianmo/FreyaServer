@@ -3,1880 +3,2017 @@
 
 package com.kirshi.protocol;
 
+/**
+ * Copyright (c) 2021
+ * @Project:FreyaServer
+ * @Author:Finger
+ * @FileName:HandShakeProto.java
+ * @LastModified:2021-03-27T01:09:45.870+08:00
+ */
+
 public final class HandShakeProto {
-  private HandShakeProto() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    private HandShakeProto() {
+    }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  /**
-   * Protobuf enum {@code com.kirshi.protocol.Type}
-   */
-  public enum Type
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>CLIENT = 0;</code>
-     */
-    CLIENT(0),
-    /**
-     * <code>MASTER = 1;</code>
-     */
-    MASTER(1),
-    UNRECOGNIZED(-1),
-    ;
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
 
-    /**
-     * <code>CLIENT = 0;</code>
-     */
-    public static final int CLIENT_VALUE = 0;
-    /**
-     * <code>MASTER = 1;</code>
-     */
-    public static final int MASTER_VALUE = 1;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
     }
 
     /**
-     * @deprecated Use {@link #forNumber(int)} instead.
+     * Protobuf enum {@code com.kirshi.protocol.Type}
      */
-    @Deprecated
-    public static Type valueOf(int value) {
-      return forNumber(value);
-    }
+    public enum Type
+            implements com.google.protobuf.ProtocolMessageEnum {
+        /**
+         * <code>CLIENT = 0;</code>
+         */
+        CLIENT(0),
+        /**
+         * <code>MASTER = 1;</code>
+         */
+        MASTER(1),
+        UNRECOGNIZED(-1),
+        ;
 
-    public static Type forNumber(int value) {
-      switch (value) {
-        case 0: return CLIENT;
-        case 1: return MASTER;
-        default: return null;
-      }
-    }
+        /**
+         * <code>CLIENT = 0;</code>
+         */
+        public static final int CLIENT_VALUE = 0;
+        /**
+         * <code>MASTER = 1;</code>
+         */
+        public static final int MASTER_VALUE = 1;
 
-    public static com.google.protobuf.Internal.EnumLiteMap<Type>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        Type> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-            public Type findValueByNumber(int number) {
-              return Type.forNumber(number);
+
+        public final int getNumber() {
+            if (this == UNRECOGNIZED) {
+                throw new IllegalArgumentException(
+                        "Can't get the number of an unknown enum value.");
             }
-          };
+            return value;
+        }
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return com.kirshi.protocol.HandShakeProto.getDescriptor().getEnumTypes().get(0);
-    }
+        /**
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @Deprecated
+        public static Type valueOf(int value) {
+            return forNumber(value);
+        }
 
-    private static final Type[] VALUES = values();
-
-    public static Type valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private Type(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.Type)
-  }
-
-  /**
-   * Protobuf enum {@code com.kirshi.protocol.HandShakeStatus}
-   */
-  public enum HandShakeStatus
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>SUCCESS = 0;</code>
-     */
-    SUCCESS(0),
-    /**
-     * <code>DEVICEBUSY = 1;</code>
-     */
-    DEVICEBUSY(1),
-    /**
-     * <code>DEVICEOFFINE = 2;</code>
-     */
-    DEVICEOFFINE(2),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>SUCCESS = 0;</code>
-     */
-    public static final int SUCCESS_VALUE = 0;
-    /**
-     * <code>DEVICEBUSY = 1;</code>
-     */
-    public static final int DEVICEBUSY_VALUE = 1;
-    /**
-     * <code>DEVICEOFFINE = 2;</code>
-     */
-    public static final int DEVICEOFFINE_VALUE = 2;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @Deprecated
-    public static HandShakeStatus valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static HandShakeStatus forNumber(int value) {
-      switch (value) {
-        case 0: return SUCCESS;
-        case 1: return DEVICEBUSY;
-        case 2: return DEVICEOFFINE;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<HandShakeStatus>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        HandShakeStatus> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<HandShakeStatus>() {
-            public HandShakeStatus findValueByNumber(int number) {
-              return HandShakeStatus.forNumber(number);
+        public static Type forNumber(int value) {
+            switch (value) {
+                case 0: return CLIENT;
+                case 1: return MASTER;
+                default: return null;
             }
-          };
+        }
 
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        public static com.google.protobuf.Internal.EnumLiteMap<Type>
+        internalGetValueMap() {
+            return internalValueMap;
+        }
+
+        private static final com.google.protobuf.Internal.EnumLiteMap<
+                Type> internalValueMap =
+                new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+                    public Type findValueByNumber(int number) {
+                        return Type.forNumber(number);
+                    }
+                };
+
+        public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
+            return getDescriptor().getValues().get(ordinal());
+        }
+
+        public final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
+            return getDescriptor();
+        }
+
+        public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.kirshi.protocol.HandShakeProto.getDescriptor().getEnumTypes().get(1);
+            return com.kirshi.protocol.HandShakeProto.getDescriptor().getEnumTypes().get(0);
+        }
+
+        private static final Type[] VALUES = values();
+
+        public static Type valueOf(
+                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+            if (desc.getType() != getDescriptor()) {
+                throw new IllegalArgumentException(
+                        "EnumValueDescriptor is not for this type.");
+            }
+            if (desc.getIndex() == -1) {
+                return UNRECOGNIZED;
+            }
+            return VALUES[desc.getIndex()];
+        }
+
+        private final int value;
+
+        private Type(int value) {
+            this.value = value;
+        }
+
+        // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.Type)
     }
-
-    private static final HandShakeStatus[] VALUES = values();
-
-    public static HandShakeStatus valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private HandShakeStatus(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.HandShakeStatus)
-  }
-
-  public interface HandShakeMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.HandShakeMessage)
-      com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string scode = 2;</code>
+     * Protobuf enum {@code com.kirshi.protocol.HandShakeStatus}
      */
-    String getScode();
-    /**
-     * <code>string scode = 2;</code>
-     */
-    com.google.protobuf.ByteString
+    public enum HandShakeStatus
+            implements com.google.protobuf.ProtocolMessageEnum {
+        /**
+         * <code>SUCCESS = 0;</code>
+         */
+        SUCCESS(0),
+        /**
+         * <code>DEVICEBUSY = 1;</code>
+         */
+        DEVICEBUSY(1),
+        /**
+         * <code>DEVICEOFFINE = 2;</code>
+         */
+        DEVICEOFFINE(2),
+        UNRECOGNIZED(-1),
+        ;
+
+        /**
+         * <code>SUCCESS = 0;</code>
+         */
+        public static final int SUCCESS_VALUE = 0;
+        /**
+         * <code>DEVICEBUSY = 1;</code>
+         */
+        public static final int DEVICEBUSY_VALUE = 1;
+        /**
+         * <code>DEVICEOFFINE = 2;</code>
+         */
+        public static final int DEVICEOFFINE_VALUE = 2;
+
+
+        public final int getNumber() {
+            if (this == UNRECOGNIZED) {
+                throw new IllegalArgumentException(
+                        "Can't get the number of an unknown enum value.");
+            }
+            return value;
+        }
+
+        /**
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @Deprecated
+        public static HandShakeStatus valueOf(int value) {
+            return forNumber(value);
+        }
+
+        public static HandShakeStatus forNumber(int value) {
+            switch (value) {
+                case 0: return SUCCESS;
+                case 1: return DEVICEBUSY;
+                case 2: return DEVICEOFFINE;
+                default: return null;
+            }
+        }
+
+        public static com.google.protobuf.Internal.EnumLiteMap<HandShakeStatus>
+        internalGetValueMap() {
+            return internalValueMap;
+        }
+
+        private static final com.google.protobuf.Internal.EnumLiteMap<
+                HandShakeStatus> internalValueMap =
+                new com.google.protobuf.Internal.EnumLiteMap<HandShakeStatus>() {
+                    public HandShakeStatus findValueByNumber(int number) {
+                        return HandShakeStatus.forNumber(number);
+                    }
+                };
+
+        public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+            return getDescriptor().getValues().get(ordinal());
+        }
+
+        public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+            return getDescriptor();
+        }
+
+        public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+            return com.kirshi.protocol.HandShakeProto.getDescriptor().getEnumTypes().get(1);
+        }
+
+        private static final HandShakeStatus[] VALUES = values();
+
+        public static HandShakeStatus valueOf(
+                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+            if (desc.getType() != getDescriptor()) {
+                throw new IllegalArgumentException(
+                        "EnumValueDescriptor is not for this type.");
+            }
+            if (desc.getIndex() == -1) {
+                return UNRECOGNIZED;
+            }
+            return VALUES[desc.getIndex()];
+        }
+
+        private final int value;
+
+        private HandShakeStatus(int value) {
+            this.value = value;
+        }
+
+        // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.HandShakeStatus)
+    }
+
+    public interface HandShakeMessageOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.HandShakeMessage)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>string scode = 2;</code>
+         */
+        String getScode();
+
+        /**
+         * <code>string scode = 2;</code>
+         */
+        com.google.protobuf.ByteString
         getScodeBytes();
 
-    /**
-     * <code>string uid = 3;</code>
-     */
-    String getUid();
-    /**
-     * <code>string uid = 3;</code>
-     */
-    com.google.protobuf.ByteString
+        /**
+         * <code>string uid = 3;</code>
+         */
+        String getUid();
+
+        /**
+         * <code>string uid = 3;</code>
+         */
+        com.google.protobuf.ByteString
         getUidBytes();
 
-    /**
-     * <code>.com.kirshi.protocol.Type type = 4;</code>
-     */
-    int getTypeValue();
-    /**
-     * <code>.com.kirshi.protocol.Type type = 4;</code>
-     */
-    com.kirshi.protocol.HandShakeProto.Type getType();
+        /**
+         * <code>.com.kirshi.protocol.Type type = 4;</code>
+         */
+        int getTypeValue();
 
-    /**
-     * <code>string helloinfo = 5;</code>
-     */
-    String getHelloinfo();
-    /**
-     * <code>string helloinfo = 5;</code>
-     */
-    com.google.protobuf.ByteString
+        /**
+         * <code>.com.kirshi.protocol.Type type = 4;</code>
+         */
+        com.kirshi.protocol.HandShakeProto.Type getType();
+
+        /**
+         * <code>string helloinfo = 5;</code>
+         */
+        String getHelloinfo();
+
+        /**
+         * <code>string helloinfo = 5;</code>
+         */
+        com.google.protobuf.ByteString
         getHelloinfoBytes();
-  }
-  /**
-   * Protobuf type {@code com.kirshi.protocol.HandShakeMessage}
-   */
-  public  static final class HandShakeMessage extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.HandShakeMessage)
-      HandShakeMessageOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use HandShakeMessage.newBuilder() to construct.
-    private HandShakeMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private HandShakeMessage() {
-      scode_ = "";
-      uid_ = "";
-      type_ = 0;
-      helloinfo_ = "";
     }
 
-    @Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private HandShakeMessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 18: {
-              String s = input.readStringRequireUtf8();
-
-              scode_ = s;
-              break;
-            }
-            case 26: {
-              String s = input.readStringRequireUtf8();
-
-              uid_ = s;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 42: {
-              String s = input.readStringRequireUtf8();
-
-              helloinfo_ = s;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_descriptor;
-    }
-
-    protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.kirshi.protocol.HandShakeProto.HandShakeMessage.class, com.kirshi.protocol.HandShakeProto.HandShakeMessage.Builder.class);
-    }
-
-    public static final int SCODE_FIELD_NUMBER = 2;
-    private volatile Object scode_;
-    /**
-     * <code>string scode = 2;</code>
-     */
-    public String getScode() {
-      Object ref = scode_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        scode_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string scode = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getScodeBytes() {
-      Object ref = scode_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        scode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int UID_FIELD_NUMBER = 3;
-    private volatile Object uid_;
-    /**
-     * <code>string uid = 3;</code>
-     */
-    public String getUid() {
-      Object ref = uid_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        uid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string uid = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getUidBytes() {
-      Object ref = uid_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        uid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TYPE_FIELD_NUMBER = 4;
-    private int type_;
-    /**
-     * <code>.com.kirshi.protocol.Type type = 4;</code>
-     */
-    public int getTypeValue() {
-      return type_;
-    }
-    /**
-     * <code>.com.kirshi.protocol.Type type = 4;</code>
-     */
-    public com.kirshi.protocol.HandShakeProto.Type getType() {
-      com.kirshi.protocol.HandShakeProto.Type result = com.kirshi.protocol.HandShakeProto.Type.valueOf(type_);
-      return result == null ? com.kirshi.protocol.HandShakeProto.Type.UNRECOGNIZED : result;
-    }
-
-    public static final int HELLOINFO_FIELD_NUMBER = 5;
-    private volatile Object helloinfo_;
-    /**
-     * <code>string helloinfo = 5;</code>
-     */
-    public String getHelloinfo() {
-      Object ref = helloinfo_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        helloinfo_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string helloinfo = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getHelloinfoBytes() {
-      Object ref = helloinfo_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        helloinfo_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getScodeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, scode_);
-      }
-      if (!getUidBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, uid_);
-      }
-      if (type_ != com.kirshi.protocol.HandShakeProto.Type.CLIENT.getNumber()) {
-        output.writeEnum(4, type_);
-      }
-      if (!getHelloinfoBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, helloinfo_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getScodeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, scode_);
-      }
-      if (!getUidBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, uid_);
-      }
-      if (type_ != com.kirshi.protocol.HandShakeProto.Type.CLIENT.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(4, type_);
-      }
-      if (!getHelloinfoBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, helloinfo_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @Override
-    public boolean equals(final Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.kirshi.protocol.HandShakeProto.HandShakeMessage)) {
-        return super.equals(obj);
-      }
-      com.kirshi.protocol.HandShakeProto.HandShakeMessage other = (com.kirshi.protocol.HandShakeProto.HandShakeMessage) obj;
-
-      boolean result = true;
-      result = result && getScode()
-          .equals(other.getScode());
-      result = result && getUid()
-          .equals(other.getUid());
-      result = result && type_ == other.type_;
-      result = result && getHelloinfo()
-          .equals(other.getHelloinfo());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + SCODE_FIELD_NUMBER;
-      hash = (53 * hash) + getScode().hashCode();
-      hash = (37 * hash) + UID_FIELD_NUMBER;
-      hash = (53 * hash) + getUid().hashCode();
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + type_;
-      hash = (37 * hash) + HELLOINFO_FIELD_NUMBER;
-      hash = (53 * hash) + getHelloinfo().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.kirshi.protocol.HandShakeProto.HandShakeMessage prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code com.kirshi.protocol.HandShakeMessage}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.HandShakeMessage)
-        com.kirshi.protocol.HandShakeProto.HandShakeMessageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_descriptor;
-      }
+    public  static final class HandShakeMessage extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.HandShakeMessage)
+            HandShakeMessageOrBuilder {
+        private static final long serialVersionUID = 0L;
 
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.kirshi.protocol.HandShakeProto.HandShakeMessage.class, com.kirshi.protocol.HandShakeProto.HandShakeMessage.Builder.class);
-      }
-
-      // Construct using com.kirshi.protocol.HandShakeProto.HandShakeMessage.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        // Use HandShakeMessage.newBuilder() to construct.
+        private HandShakeMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-      }
-      public Builder clear() {
-        super.clear();
-        scode_ = "";
 
-        uid_ = "";
-
-        type_ = 0;
-
-        helloinfo_ = "";
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_descriptor;
-      }
-
-      public com.kirshi.protocol.HandShakeProto.HandShakeMessage getDefaultInstanceForType() {
-        return com.kirshi.protocol.HandShakeProto.HandShakeMessage.getDefaultInstance();
-      }
-
-      public com.kirshi.protocol.HandShakeProto.HandShakeMessage build() {
-        com.kirshi.protocol.HandShakeProto.HandShakeMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        private HandShakeMessage() {
+            scode_ = "";
+            uid_ = "";
+            type_ = 0;
+            helloinfo_ = "";
         }
-        return result;
-      }
 
-      public com.kirshi.protocol.HandShakeProto.HandShakeMessage buildPartial() {
-        com.kirshi.protocol.HandShakeProto.HandShakeMessage result = new com.kirshi.protocol.HandShakeProto.HandShakeMessage(this);
-        result.scode_ = scode_;
-        result.uid_ = uid_;
-        result.type_ = type_;
-        result.helloinfo_ = helloinfo_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.kirshi.protocol.HandShakeProto.HandShakeMessage) {
-          return mergeFrom((com.kirshi.protocol.HandShakeProto.HandShakeMessage)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
+        @Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
         }
-      }
 
-      public Builder mergeFrom(com.kirshi.protocol.HandShakeProto.HandShakeMessage other) {
-        if (other == com.kirshi.protocol.HandShakeProto.HandShakeMessage.getDefaultInstance()) return this;
-        if (!other.getScode().isEmpty()) {
-          scode_ = other.scode_;
-          onChanged();
-        }
-        if (!other.getUid().isEmpty()) {
-          uid_ = other.uid_;
-          onChanged();
-        }
-        if (other.type_ != 0) {
-          setTypeValue(other.getTypeValue());
-        }
-        if (!other.getHelloinfo().isEmpty()) {
-          helloinfo_ = other.helloinfo_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.kirshi.protocol.HandShakeProto.HandShakeMessage parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.kirshi.protocol.HandShakeProto.HandShakeMessage) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private Object scode_ = "";
-      /**
-       * <code>string scode = 2;</code>
-       */
-      public String getScode() {
-        Object ref = scode_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          scode_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>string scode = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getScodeBytes() {
-        Object ref = scode_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          scode_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string scode = 2;</code>
-       */
-      public Builder setScode(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        scode_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string scode = 2;</code>
-       */
-      public Builder clearScode() {
-        
-        scode_ = getDefaultInstance().getScode();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string scode = 2;</code>
-       */
-      public Builder setScodeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        scode_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Object uid_ = "";
-      /**
-       * <code>string uid = 3;</code>
-       */
-      public String getUid() {
-        Object ref = uid_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          uid_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>string uid = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getUidBytes() {
-        Object ref = uid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          uid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string uid = 3;</code>
-       */
-      public Builder setUid(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        uid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string uid = 3;</code>
-       */
-      public Builder clearUid() {
-        
-        uid_ = getDefaultInstance().getUid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string uid = 3;</code>
-       */
-      public Builder setUidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        uid_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int type_ = 0;
-      /**
-       * <code>.com.kirshi.protocol.Type type = 4;</code>
-       */
-      public int getTypeValue() {
-        return type_;
-      }
-      /**
-       * <code>.com.kirshi.protocol.Type type = 4;</code>
-       */
-      public Builder setTypeValue(int value) {
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.com.kirshi.protocol.Type type = 4;</code>
-       */
-      public com.kirshi.protocol.HandShakeProto.Type getType() {
-        com.kirshi.protocol.HandShakeProto.Type result = com.kirshi.protocol.HandShakeProto.Type.valueOf(type_);
-        return result == null ? com.kirshi.protocol.HandShakeProto.Type.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.com.kirshi.protocol.Type type = 4;</code>
-       */
-      public Builder setType(com.kirshi.protocol.HandShakeProto.Type value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        
-        type_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.com.kirshi.protocol.Type type = 4;</code>
-       */
-      public Builder clearType() {
-        
-        type_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private Object helloinfo_ = "";
-      /**
-       * <code>string helloinfo = 5;</code>
-       */
-      public String getHelloinfo() {
-        Object ref = helloinfo_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          helloinfo_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>string helloinfo = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getHelloinfoBytes() {
-        Object ref = helloinfo_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          helloinfo_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string helloinfo = 5;</code>
-       */
-      public Builder setHelloinfo(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        helloinfo_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string helloinfo = 5;</code>
-       */
-      public Builder clearHelloinfo() {
-        
-        helloinfo_ = getDefaultInstance().getHelloinfo();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string helloinfo = 5;</code>
-       */
-      public Builder setHelloinfoBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        helloinfo_ = value;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.HandShakeMessage)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.HandShakeMessage)
-    private static final com.kirshi.protocol.HandShakeProto.HandShakeMessage DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.kirshi.protocol.HandShakeProto.HandShakeMessage();
-    }
-
-    public static com.kirshi.protocol.HandShakeProto.HandShakeMessage getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<HandShakeMessage>
-        PARSER = new com.google.protobuf.AbstractParser<HandShakeMessage>() {
-      public HandShakeMessage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HandShakeMessage(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<HandShakeMessage> parser() {
-      return PARSER;
-    }
-
-    @Override
-    public com.google.protobuf.Parser<HandShakeMessage> getParserForType() {
-      return PARSER;
-    }
-
-    public com.kirshi.protocol.HandShakeProto.HandShakeMessage getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface HandShakeRespMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.HandShakeRespMessage)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-     */
-    int getCmdValue();
-    /**
-     * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-     */
-    com.kirshi.protocol.CmdProto.CmdAction getCmd();
-
-    /**
-     * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
-     */
-    int getStatusValue();
-    /**
-     * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
-     */
-    com.kirshi.protocol.HandShakeProto.HandShakeStatus getStatus();
-
-    /**
-     * <code>string msg = 3;</code>
-     */
-    String getMsg();
-    /**
-     * <code>string msg = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getMsgBytes();
-  }
-  /**
-   * Protobuf type {@code com.kirshi.protocol.HandShakeRespMessage}
-   */
-  public  static final class HandShakeRespMessage extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.HandShakeRespMessage)
-      HandShakeRespMessageOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use HandShakeRespMessage.newBuilder() to construct.
-    private HandShakeRespMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private HandShakeRespMessage() {
-      cmd_ = 0;
-      status_ = 0;
-      msg_ = "";
-    }
-
-    @Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private HandShakeRespMessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
+        private HandShakeMessage(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new NullPointerException();
             }
-            case 8: {
-              int rawValue = input.readEnum();
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        default: {
+                            if (!parseUnknownFieldProto3(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                        case 18: {
+                            String s = input.readStringRequireUtf8();
 
-              cmd_ = rawValue;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
+                            scode_ = s;
+                            break;
+                        }
+                        case 26: {
+                            String s = input.readStringRequireUtf8();
 
-              status_ = rawValue;
-              break;
-            }
-            case 26: {
-              String s = input.readStringRequireUtf8();
+                            uid_ = s;
+                            break;
+                        }
+                        case 32: {
+                            int rawValue = input.readEnum();
 
-              msg_ = s;
-              break;
+                            type_ = rawValue;
+                            break;
+                        }
+                        case 42: {
+                            String s = input.readStringRequireUtf8();
+
+                            helloinfo_ = s;
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
             }
-          }
         }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
+
+        public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor;
-    }
+            return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_descriptor;
+        }
 
-    protected FieldAccessorTable
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.class, com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.Builder.class);
+            return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.kirshi.protocol.HandShakeProto.HandShakeMessage.class, com.kirshi.protocol.HandShakeProto.HandShakeMessage.Builder.class);
+        }
+
+        public static final int SCODE_FIELD_NUMBER = 2;
+        private volatile Object scode_;
+
+        /**
+         * <code>string scode = 2;</code>
+         */
+        public String getScode() {
+            Object ref = scode_;
+            if (ref instanceof String) {
+                return (String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                scode_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string scode = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getScodeBytes() {
+            Object ref = scode_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                scode_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int UID_FIELD_NUMBER = 3;
+        private volatile Object uid_;
+
+        /**
+         * <code>string uid = 3;</code>
+         */
+        public String getUid() {
+            Object ref = uid_;
+            if (ref instanceof String) {
+                return (String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                uid_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string uid = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+        getUidBytes() {
+            Object ref = uid_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                uid_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        public static final int TYPE_FIELD_NUMBER = 4;
+        private int type_;
+
+        /**
+         * <code>.com.kirshi.protocol.Type type = 4;</code>
+         */
+        public int getTypeValue() {
+            return type_;
+        }
+
+        /**
+         * <code>.com.kirshi.protocol.Type type = 4;</code>
+         */
+        public com.kirshi.protocol.HandShakeProto.Type getType() {
+            com.kirshi.protocol.HandShakeProto.Type result = com.kirshi.protocol.HandShakeProto.Type.valueOf(type_);
+            return result == null ? com.kirshi.protocol.HandShakeProto.Type.UNRECOGNIZED : result;
+        }
+
+        public static final int HELLOINFO_FIELD_NUMBER = 5;
+        private volatile Object helloinfo_;
+
+        /**
+         * <code>string helloinfo = 5;</code>
+         */
+        public String getHelloinfo() {
+            Object ref = helloinfo_;
+            if (ref instanceof String) {
+                return (String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                helloinfo_ = s;
+                return s;
+            }
+        }
+
+        /**
+         * <code>string helloinfo = 5;</code>
+         */
+        public com.google.protobuf.ByteString
+        getHelloinfoBytes() {
+            Object ref = helloinfo_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                helloinfo_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        private byte memoizedIsInitialized = -1;
+
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!getScodeBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, scode_);
+            }
+            if (!getUidBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, uid_);
+            }
+            if (type_ != com.kirshi.protocol.HandShakeProto.Type.CLIENT.getNumber()) {
+                output.writeEnum(4, type_);
+            }
+            if (!getHelloinfoBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 5, helloinfo_);
+            }
+            unknownFields.writeTo(output);
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!getScodeBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, scode_);
+            }
+            if (!getUidBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, uid_);
+            }
+            if (type_ != com.kirshi.protocol.HandShakeProto.Type.CLIENT.getNumber()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeEnumSize(4, type_);
+            }
+            if (!getHelloinfoBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, helloinfo_);
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @Override
+        public boolean equals(final Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.kirshi.protocol.HandShakeProto.HandShakeMessage)) {
+                return super.equals(obj);
+            }
+            com.kirshi.protocol.HandShakeProto.HandShakeMessage other = (com.kirshi.protocol.HandShakeProto.HandShakeMessage) obj;
+
+            boolean result = true;
+            result = result && getScode()
+                    .equals(other.getScode());
+            result = result && getUid()
+                    .equals(other.getUid());
+            result = result && type_ == other.type_;
+            result = result && getHelloinfo()
+                    .equals(other.getHelloinfo());
+            result = result && unknownFields.equals(other.unknownFields);
+            return result;
+        }
+
+        @Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + SCODE_FIELD_NUMBER;
+            hash = (53 * hash) + getScode().hashCode();
+            hash = (37 * hash) + UID_FIELD_NUMBER;
+            hash = (53 * hash) + getUid().hashCode();
+            hash = (37 * hash) + TYPE_FIELD_NUMBER;
+            hash = (53 * hash) + type_;
+            hash = (37 * hash) + HELLOINFO_FIELD_NUMBER;
+            hash = (53 * hash) + getHelloinfo().hashCode();
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.kirshi.protocol.HandShakeProto.HandShakeMessage prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @Override
+        protected Builder newBuilderForType(
+                BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * Protobuf type {@code com.kirshi.protocol.HandShakeMessage}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.HandShakeMessage)
+                com.kirshi.protocol.HandShakeProto.HandShakeMessageOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_descriptor;
+            }
+
+            protected FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.kirshi.protocol.HandShakeProto.HandShakeMessage.class, com.kirshi.protocol.HandShakeProto.HandShakeMessage.Builder.class);
+            }
+
+            // Construct using com.kirshi.protocol.HandShakeProto.HandShakeMessage.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            public Builder clear() {
+                super.clear();
+                scode_ = "";
+
+                uid_ = "";
+
+                type_ = 0;
+
+                helloinfo_ = "";
+
+                return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeMessage_descriptor;
+            }
+
+            public com.kirshi.protocol.HandShakeProto.HandShakeMessage getDefaultInstanceForType() {
+                return com.kirshi.protocol.HandShakeProto.HandShakeMessage.getDefaultInstance();
+            }
+
+            public com.kirshi.protocol.HandShakeProto.HandShakeMessage build() {
+                com.kirshi.protocol.HandShakeProto.HandShakeMessage result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public com.kirshi.protocol.HandShakeProto.HandShakeMessage buildPartial() {
+                com.kirshi.protocol.HandShakeProto.HandShakeMessage result = new com.kirshi.protocol.HandShakeProto.HandShakeMessage(this);
+                result.scode_ = scode_;
+                result.uid_ = uid_;
+                result.type_ = type_;
+                result.helloinfo_ = helloinfo_;
+                onBuilt();
+                return result;
+            }
+
+            public Builder clone() {
+                return (Builder) super.clone();
+            }
+
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.setField(field, value);
+            }
+
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+            }
+
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+            }
+
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+            }
+
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+            }
+
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.kirshi.protocol.HandShakeProto.HandShakeMessage) {
+                    return mergeFrom((com.kirshi.protocol.HandShakeProto.HandShakeMessage)other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(com.kirshi.protocol.HandShakeProto.HandShakeMessage other) {
+                if (other == com.kirshi.protocol.HandShakeProto.HandShakeMessage.getDefaultInstance()) return this;
+                if (!other.getScode().isEmpty()) {
+                    scode_ = other.scode_;
+                    onChanged();
+                }
+                if (!other.getUid().isEmpty()) {
+                    uid_ = other.uid_;
+                    onChanged();
+                }
+                if (other.type_ != 0) {
+                    setTypeValue(other.getTypeValue());
+                }
+                if (!other.getHelloinfo().isEmpty()) {
+                    helloinfo_ = other.helloinfo_;
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                com.kirshi.protocol.HandShakeProto.HandShakeMessage parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (com.kirshi.protocol.HandShakeProto.HandShakeMessage) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private Object scode_ = "";
+
+            /**
+             * <code>string scode = 2;</code>
+             */
+            public String getScode() {
+                Object ref = scode_;
+                if (!(ref instanceof String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    String s = bs.toStringUtf8();
+                    scode_ = s;
+                    return s;
+                } else {
+                    return (String) ref;
+                }
+            }
+
+            /**
+             * <code>string scode = 2;</code>
+             */
+            public com.google.protobuf.ByteString
+            getScodeBytes() {
+                Object ref = scode_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (String) ref);
+                    scode_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string scode = 2;</code>
+             */
+            public Builder setScode(
+                    String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                scode_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string scode = 2;</code>
+             */
+            public Builder clearScode() {
+
+                scode_ = getDefaultInstance().getScode();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string scode = 2;</code>
+             */
+            public Builder setScodeBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                scode_ = value;
+                onChanged();
+                return this;
+            }
+
+            private Object uid_ = "";
+
+            /**
+             * <code>string uid = 3;</code>
+             */
+            public String getUid() {
+                Object ref = uid_;
+                if (!(ref instanceof String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    String s = bs.toStringUtf8();
+                    uid_ = s;
+                    return s;
+                } else {
+                    return (String) ref;
+                }
+            }
+
+            /**
+             * <code>string uid = 3;</code>
+             */
+            public com.google.protobuf.ByteString
+            getUidBytes() {
+                Object ref = uid_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (String) ref);
+                    uid_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string uid = 3;</code>
+             */
+            public Builder setUid(
+                    String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                uid_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string uid = 3;</code>
+             */
+            public Builder clearUid() {
+
+                uid_ = getDefaultInstance().getUid();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string uid = 3;</code>
+             */
+            public Builder setUidBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                uid_ = value;
+                onChanged();
+                return this;
+            }
+
+            private int type_ = 0;
+
+            /**
+             * <code>.com.kirshi.protocol.Type type = 4;</code>
+             */
+            public int getTypeValue() {
+                return type_;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.Type type = 4;</code>
+             */
+            public Builder setTypeValue(int value) {
+                type_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.Type type = 4;</code>
+             */
+            public com.kirshi.protocol.HandShakeProto.Type getType() {
+                com.kirshi.protocol.HandShakeProto.Type result = com.kirshi.protocol.HandShakeProto.Type.valueOf(type_);
+                return result == null ? com.kirshi.protocol.HandShakeProto.Type.UNRECOGNIZED : result;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.Type type = 4;</code>
+             */
+            public Builder setType(com.kirshi.protocol.HandShakeProto.Type value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                type_ = value.getNumber();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.Type type = 4;</code>
+             */
+            public Builder clearType() {
+
+                type_ = 0;
+                onChanged();
+                return this;
+            }
+
+            private Object helloinfo_ = "";
+
+            /**
+             * <code>string helloinfo = 5;</code>
+             */
+            public String getHelloinfo() {
+                Object ref = helloinfo_;
+                if (!(ref instanceof String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    String s = bs.toStringUtf8();
+                    helloinfo_ = s;
+                    return s;
+                } else {
+                    return (String) ref;
+                }
+            }
+
+            /**
+             * <code>string helloinfo = 5;</code>
+             */
+            public com.google.protobuf.ByteString
+            getHelloinfoBytes() {
+                Object ref = helloinfo_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (String) ref);
+                    helloinfo_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string helloinfo = 5;</code>
+             */
+            public Builder setHelloinfo(
+                    String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                helloinfo_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string helloinfo = 5;</code>
+             */
+            public Builder clearHelloinfo() {
+
+                helloinfo_ = getDefaultInstance().getHelloinfo();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string helloinfo = 5;</code>
+             */
+            public Builder setHelloinfoBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                helloinfo_ = value;
+                onChanged();
+                return this;
+            }
+
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFieldsProto3(unknownFields);
+            }
+
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.HandShakeMessage)
+        }
+
+        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.HandShakeMessage)
+        private static final com.kirshi.protocol.HandShakeProto.HandShakeMessage DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new com.kirshi.protocol.HandShakeProto.HandShakeMessage();
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeMessage getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<HandShakeMessage>
+                PARSER = new com.google.protobuf.AbstractParser<HandShakeMessage>() {
+            public HandShakeMessage parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new HandShakeMessage(input, extensionRegistry);
+            }
+        };
+
+        public static com.google.protobuf.Parser<HandShakeMessage> parser() {
+            return PARSER;
+        }
+
+        @Override
+        public com.google.protobuf.Parser<HandShakeMessage> getParserForType() {
+            return PARSER;
+        }
+
+        public com.kirshi.protocol.HandShakeProto.HandShakeMessage getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
     }
 
-    public static final int CMD_FIELD_NUMBER = 1;
-    private int cmd_;
-    /**
-     * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-     */
-    public int getCmdValue() {
-      return cmd_;
-    }
-    /**
-     * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-     */
-    public com.kirshi.protocol.CmdProto.CmdAction getCmd() {
-      com.kirshi.protocol.CmdProto.CmdAction result = com.kirshi.protocol.CmdProto.CmdAction.valueOf(cmd_);
-      return result == null ? com.kirshi.protocol.CmdProto.CmdAction.UNRECOGNIZED : result;
+    public interface HandShakeRespMessageOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.HandShakeRespMessage)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+         */
+        int getCmdValue();
+
+        /**
+         * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+         */
+        com.kirshi.protocol.CmdProto.CmdAction getCmd();
+
+        /**
+         * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
+         */
+        int getStatusValue();
+
+        /**
+         * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
+         */
+        com.kirshi.protocol.HandShakeProto.HandShakeStatus getStatus();
+
+        /**
+         * <code>string msg = 3;</code>
+         */
+        String getMsg();
+
+        /**
+         * <code>string msg = 3;</code>
+         */
+        com.google.protobuf.ByteString
+        getMsgBytes();
     }
 
-    public static final int STATUS_FIELD_NUMBER = 2;
-    private int status_;
-    /**
-     * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
-     */
-    public int getStatusValue() {
-      return status_;
-    }
-    /**
-     * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
-     */
-    public com.kirshi.protocol.HandShakeProto.HandShakeStatus getStatus() {
-      com.kirshi.protocol.HandShakeProto.HandShakeStatus result = com.kirshi.protocol.HandShakeProto.HandShakeStatus.valueOf(status_);
-      return result == null ? com.kirshi.protocol.HandShakeProto.HandShakeStatus.UNRECOGNIZED : result;
-    }
-
-    public static final int MSG_FIELD_NUMBER = 3;
-    private volatile Object msg_;
-    /**
-     * <code>string msg = 3;</code>
-     */
-    public String getMsg() {
-      Object ref = msg_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        msg_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string msg = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getMsgBytes() {
-      Object ref = msg_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        msg_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (cmd_ != com.kirshi.protocol.CmdProto.CmdAction.TK_ACTION_HANDSHAKE.getNumber()) {
-        output.writeEnum(1, cmd_);
-      }
-      if (status_ != com.kirshi.protocol.HandShakeProto.HandShakeStatus.SUCCESS.getNumber()) {
-        output.writeEnum(2, status_);
-      }
-      if (!getMsgBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, msg_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (cmd_ != com.kirshi.protocol.CmdProto.CmdAction.TK_ACTION_HANDSHAKE.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, cmd_);
-      }
-      if (status_ != com.kirshi.protocol.HandShakeProto.HandShakeStatus.SUCCESS.getNumber()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(2, status_);
-      }
-      if (!getMsgBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, msg_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @Override
-    public boolean equals(final Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.kirshi.protocol.HandShakeProto.HandShakeRespMessage)) {
-        return super.equals(obj);
-      }
-      com.kirshi.protocol.HandShakeProto.HandShakeRespMessage other = (com.kirshi.protocol.HandShakeProto.HandShakeRespMessage) obj;
-
-      boolean result = true;
-      result = result && cmd_ == other.cmd_;
-      result = result && status_ == other.status_;
-      result = result && getMsg()
-          .equals(other.getMsg());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CMD_FIELD_NUMBER;
-      hash = (53 * hash) + cmd_;
-      hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + status_;
-      hash = (37 * hash) + MSG_FIELD_NUMBER;
-      hash = (53 * hash) + getMsg().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.kirshi.protocol.HandShakeProto.HandShakeRespMessage prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code com.kirshi.protocol.HandShakeRespMessage}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.HandShakeRespMessage)
-        com.kirshi.protocol.HandShakeProto.HandShakeRespMessageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor;
-      }
+    public  static final class HandShakeRespMessage extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.HandShakeRespMessage)
+            HandShakeRespMessageOrBuilder {
+        private static final long serialVersionUID = 0L;
 
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.class, com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.Builder.class);
-      }
-
-      // Construct using com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        // Use HandShakeRespMessage.newBuilder() to construct.
+        private HandShakeRespMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-      }
-      public Builder clear() {
-        super.clear();
-        cmd_ = 0;
 
-        status_ = 0;
-
-        msg_ = "";
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor;
-      }
-
-      public com.kirshi.protocol.HandShakeProto.HandShakeRespMessage getDefaultInstanceForType() {
-        return com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.getDefaultInstance();
-      }
-
-      public com.kirshi.protocol.HandShakeProto.HandShakeRespMessage build() {
-        com.kirshi.protocol.HandShakeProto.HandShakeRespMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        private HandShakeRespMessage() {
+            cmd_ = 0;
+            status_ = 0;
+            msg_ = "";
         }
-        return result;
-      }
 
-      public com.kirshi.protocol.HandShakeProto.HandShakeRespMessage buildPartial() {
-        com.kirshi.protocol.HandShakeProto.HandShakeRespMessage result = new com.kirshi.protocol.HandShakeProto.HandShakeRespMessage(this);
-        result.cmd_ = cmd_;
-        result.status_ = status_;
-        result.msg_ = msg_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.kirshi.protocol.HandShakeProto.HandShakeRespMessage) {
-          return mergeFrom((com.kirshi.protocol.HandShakeProto.HandShakeRespMessage)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
+        @Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
         }
-      }
 
-      public Builder mergeFrom(com.kirshi.protocol.HandShakeProto.HandShakeRespMessage other) {
-        if (other == com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.getDefaultInstance()) return this;
-        if (other.cmd_ != 0) {
-          setCmdValue(other.getCmdValue());
+        private HandShakeRespMessage(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new NullPointerException();
+            }
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        default: {
+                            if (!parseUnknownFieldProto3(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                        case 8: {
+                            int rawValue = input.readEnum();
+
+                            cmd_ = rawValue;
+                            break;
+                        }
+                        case 16: {
+                            int rawValue = input.readEnum();
+
+                            status_ = rawValue;
+                            break;
+                        }
+                        case 26: {
+                            String s = input.readStringRequireUtf8();
+
+                            msg_ = s;
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
         }
-        if (other.status_ != 0) {
-          setStatusValue(other.getStatusValue());
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor;
         }
-        if (!other.getMsg().isEmpty()) {
-          msg_ = other.msg_;
-          onChanged();
+
+        protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.class, com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.Builder.class);
         }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
 
-      public final boolean isInitialized() {
-        return true;
-      }
+        public static final int CMD_FIELD_NUMBER = 1;
+        private int cmd_;
 
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.kirshi.protocol.HandShakeProto.HandShakeRespMessage) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
+        /**
+         * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+         */
+        public int getCmdValue() {
+            return cmd_;
         }
-        return this;
-      }
 
-      private int cmd_ = 0;
-      /**
-       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-       */
-      public int getCmdValue() {
-        return cmd_;
-      }
-      /**
-       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-       */
-      public Builder setCmdValue(int value) {
-        cmd_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-       */
-      public com.kirshi.protocol.CmdProto.CmdAction getCmd() {
-        com.kirshi.protocol.CmdProto.CmdAction result = com.kirshi.protocol.CmdProto.CmdAction.valueOf(cmd_);
-        return result == null ? com.kirshi.protocol.CmdProto.CmdAction.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-       */
-      public Builder setCmd(com.kirshi.protocol.CmdProto.CmdAction value) {
-        if (value == null) {
-          throw new NullPointerException();
+        /**
+         * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+         */
+        public com.kirshi.protocol.CmdProto.CmdAction getCmd() {
+            com.kirshi.protocol.CmdProto.CmdAction result = com.kirshi.protocol.CmdProto.CmdAction.valueOf(cmd_);
+            return result == null ? com.kirshi.protocol.CmdProto.CmdAction.UNRECOGNIZED : result;
         }
-        
-        cmd_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-       */
-      public Builder clearCmd() {
-        
-        cmd_ = 0;
-        onChanged();
-        return this;
-      }
 
-      private int status_ = 0;
-      /**
-       * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
-       */
-      public int getStatusValue() {
-        return status_;
-      }
-      /**
-       * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
-       */
-      public Builder setStatusValue(int value) {
-        status_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
-       */
-      public com.kirshi.protocol.HandShakeProto.HandShakeStatus getStatus() {
-        com.kirshi.protocol.HandShakeProto.HandShakeStatus result = com.kirshi.protocol.HandShakeProto.HandShakeStatus.valueOf(status_);
-        return result == null ? com.kirshi.protocol.HandShakeProto.HandShakeStatus.UNRECOGNIZED : result;
-      }
-      /**
-       * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
-       */
-      public Builder setStatus(com.kirshi.protocol.HandShakeProto.HandShakeStatus value) {
-        if (value == null) {
-          throw new NullPointerException();
+        public static final int STATUS_FIELD_NUMBER = 2;
+        private int status_;
+
+        /**
+         * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
+         */
+        public int getStatusValue() {
+            return status_;
         }
-        
-        status_ = value.getNumber();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
-       */
-      public Builder clearStatus() {
-        
-        status_ = 0;
-        onChanged();
-        return this;
-      }
 
-      private Object msg_ = "";
-      /**
-       * <code>string msg = 3;</code>
-       */
-      public String getMsg() {
-        Object ref = msg_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          msg_ = s;
-          return s;
-        } else {
-          return (String) ref;
+        /**
+         * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
+         */
+        public com.kirshi.protocol.HandShakeProto.HandShakeStatus getStatus() {
+            com.kirshi.protocol.HandShakeProto.HandShakeStatus result = com.kirshi.protocol.HandShakeProto.HandShakeStatus.valueOf(status_);
+            return result == null ? com.kirshi.protocol.HandShakeProto.HandShakeStatus.UNRECOGNIZED : result;
         }
-      }
-      /**
-       * <code>string msg = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getMsgBytes() {
-        Object ref = msg_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          msg_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+
+        public static final int MSG_FIELD_NUMBER = 3;
+        private volatile Object msg_;
+
+        /**
+         * <code>string msg = 3;</code>
+         */
+        public String getMsg() {
+            Object ref = msg_;
+            if (ref instanceof String) {
+                return (String) ref;
+            } else {
+                com.google.protobuf.ByteString bs =
+                        (com.google.protobuf.ByteString) ref;
+                String s = bs.toStringUtf8();
+                msg_ = s;
+                return s;
+            }
         }
-      }
-      /**
-       * <code>string msg = 3;</code>
-       */
-      public Builder setMsg(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        msg_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string msg = 3;</code>
-       */
-      public Builder clearMsg() {
-        
-        msg_ = getDefaultInstance().getMsg();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string msg = 3;</code>
-       */
-      public Builder setMsgBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        msg_ = value;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
 
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
+        /**
+         * <code>string msg = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+        getMsgBytes() {
+            Object ref = msg_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b =
+                        com.google.protobuf.ByteString.copyFromUtf8(
+                                (String) ref);
+                msg_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        private byte memoizedIsInitialized = -1;
+
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (cmd_ != com.kirshi.protocol.CmdProto.CmdAction.TK_ACTION_HANDSHAKE.getNumber()) {
+                output.writeEnum(1, cmd_);
+            }
+            if (status_ != com.kirshi.protocol.HandShakeProto.HandShakeStatus.SUCCESS.getNumber()) {
+                output.writeEnum(2, status_);
+            }
+            if (!getMsgBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, msg_);
+            }
+            unknownFields.writeTo(output);
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (cmd_ != com.kirshi.protocol.CmdProto.CmdAction.TK_ACTION_HANDSHAKE.getNumber()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeEnumSize(1, cmd_);
+            }
+            if (status_ != com.kirshi.protocol.HandShakeProto.HandShakeStatus.SUCCESS.getNumber()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeEnumSize(2, status_);
+            }
+            if (!getMsgBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, msg_);
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @Override
+        public boolean equals(final Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.kirshi.protocol.HandShakeProto.HandShakeRespMessage)) {
+                return super.equals(obj);
+            }
+            com.kirshi.protocol.HandShakeProto.HandShakeRespMessage other = (com.kirshi.protocol.HandShakeProto.HandShakeRespMessage) obj;
+
+            boolean result = true;
+            result = result && cmd_ == other.cmd_;
+            result = result && status_ == other.status_;
+            result = result && getMsg()
+                    .equals(other.getMsg());
+            result = result && unknownFields.equals(other.unknownFields);
+            return result;
+        }
+
+        @Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + CMD_FIELD_NUMBER;
+            hash = (53 * hash) + cmd_;
+            hash = (37 * hash) + STATUS_FIELD_NUMBER;
+            hash = (53 * hash) + status_;
+            hash = (37 * hash) + MSG_FIELD_NUMBER;
+            hash = (53 * hash) + getMsg().hashCode();
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.kirshi.protocol.HandShakeProto.HandShakeRespMessage prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @Override
+        protected Builder newBuilderForType(
+                BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * Protobuf type {@code com.kirshi.protocol.HandShakeRespMessage}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.HandShakeRespMessage)
+                com.kirshi.protocol.HandShakeProto.HandShakeRespMessageOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor;
+            }
+
+            protected FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.class, com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.Builder.class);
+            }
+
+            // Construct using com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            public Builder clear() {
+                super.clear();
+                cmd_ = 0;
+
+                status_ = 0;
+
+                msg_ = "";
+
+                return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.kirshi.protocol.HandShakeProto.internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor;
+            }
+
+            public com.kirshi.protocol.HandShakeProto.HandShakeRespMessage getDefaultInstanceForType() {
+                return com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.getDefaultInstance();
+            }
+
+            public com.kirshi.protocol.HandShakeProto.HandShakeRespMessage build() {
+                com.kirshi.protocol.HandShakeProto.HandShakeRespMessage result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public com.kirshi.protocol.HandShakeProto.HandShakeRespMessage buildPartial() {
+                com.kirshi.protocol.HandShakeProto.HandShakeRespMessage result = new com.kirshi.protocol.HandShakeProto.HandShakeRespMessage(this);
+                result.cmd_ = cmd_;
+                result.status_ = status_;
+                result.msg_ = msg_;
+                onBuilt();
+                return result;
+            }
+
+            public Builder clone() {
+                return (Builder) super.clone();
+            }
+
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.setField(field, value);
+            }
+
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+            }
+
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+            }
+
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+            }
+
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+            }
+
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.kirshi.protocol.HandShakeProto.HandShakeRespMessage) {
+                    return mergeFrom((com.kirshi.protocol.HandShakeProto.HandShakeRespMessage)other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(com.kirshi.protocol.HandShakeProto.HandShakeRespMessage other) {
+                if (other == com.kirshi.protocol.HandShakeProto.HandShakeRespMessage.getDefaultInstance()) return this;
+                if (other.cmd_ != 0) {
+                    setCmdValue(other.getCmdValue());
+                }
+                if (other.status_ != 0) {
+                    setStatusValue(other.getStatusValue());
+                }
+                if (!other.getMsg().isEmpty()) {
+                    msg_ = other.msg_;
+                    onChanged();
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                com.kirshi.protocol.HandShakeProto.HandShakeRespMessage parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (com.kirshi.protocol.HandShakeProto.HandShakeRespMessage) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private int cmd_ = 0;
+
+            /**
+             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+             */
+            public int getCmdValue() {
+                return cmd_;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+             */
+            public Builder setCmdValue(int value) {
+                cmd_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+             */
+            public com.kirshi.protocol.CmdProto.CmdAction getCmd() {
+                com.kirshi.protocol.CmdProto.CmdAction result = com.kirshi.protocol.CmdProto.CmdAction.valueOf(cmd_);
+                return result == null ? com.kirshi.protocol.CmdProto.CmdAction.UNRECOGNIZED : result;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+             */
+            public Builder setCmd(com.kirshi.protocol.CmdProto.CmdAction value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                cmd_ = value.getNumber();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+             */
+            public Builder clearCmd() {
+
+                cmd_ = 0;
+                onChanged();
+                return this;
+            }
+
+            private int status_ = 0;
+
+            /**
+             * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
+             */
+            public int getStatusValue() {
+                return status_;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
+             */
+            public Builder setStatusValue(int value) {
+                status_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
+             */
+            public com.kirshi.protocol.HandShakeProto.HandShakeStatus getStatus() {
+                com.kirshi.protocol.HandShakeProto.HandShakeStatus result = com.kirshi.protocol.HandShakeProto.HandShakeStatus.valueOf(status_);
+                return result == null ? com.kirshi.protocol.HandShakeProto.HandShakeStatus.UNRECOGNIZED : result;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
+             */
+            public Builder setStatus(com.kirshi.protocol.HandShakeProto.HandShakeStatus value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                status_ = value.getNumber();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.HandShakeStatus status = 2;</code>
+             */
+            public Builder clearStatus() {
+
+                status_ = 0;
+                onChanged();
+                return this;
+            }
+
+            private Object msg_ = "";
+
+            /**
+             * <code>string msg = 3;</code>
+             */
+            public String getMsg() {
+                Object ref = msg_;
+                if (!(ref instanceof String)) {
+                    com.google.protobuf.ByteString bs =
+                            (com.google.protobuf.ByteString) ref;
+                    String s = bs.toStringUtf8();
+                    msg_ = s;
+                    return s;
+                } else {
+                    return (String) ref;
+                }
+            }
+
+            /**
+             * <code>string msg = 3;</code>
+             */
+            public com.google.protobuf.ByteString
+            getMsgBytes() {
+                Object ref = msg_;
+                if (ref instanceof String) {
+                    com.google.protobuf.ByteString b =
+                            com.google.protobuf.ByteString.copyFromUtf8(
+                                    (String) ref);
+                    msg_ = b;
+                    return b;
+                } else {
+                    return (com.google.protobuf.ByteString) ref;
+                }
+            }
+
+            /**
+             * <code>string msg = 3;</code>
+             */
+            public Builder setMsg(
+                    String value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                msg_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string msg = 3;</code>
+             */
+            public Builder clearMsg() {
+
+                msg_ = getDefaultInstance().getMsg();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>string msg = 3;</code>
+             */
+            public Builder setMsgBytes(
+                    com.google.protobuf.ByteString value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+                checkByteStringIsUtf8(value);
+
+                msg_ = value;
+                onChanged();
+                return this;
+            }
+
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFieldsProto3(unknownFields);
+            }
+
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
 
 
-      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.HandShakeRespMessage)
-    }
+            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.HandShakeRespMessage)
+        }
 
-    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.HandShakeRespMessage)
-    private static final com.kirshi.protocol.HandShakeProto.HandShakeRespMessage DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.kirshi.protocol.HandShakeProto.HandShakeRespMessage();
-    }
+        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.HandShakeRespMessage)
+        private static final com.kirshi.protocol.HandShakeProto.HandShakeRespMessage DEFAULT_INSTANCE;
 
-    public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
+        static {
+            DEFAULT_INSTANCE = new com.kirshi.protocol.HandShakeProto.HandShakeRespMessage();
+        }
 
-    private static final com.google.protobuf.Parser<HandShakeRespMessage>
-        PARSER = new com.google.protobuf.AbstractParser<HandShakeRespMessage>() {
-      public HandShakeRespMessage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HandShakeRespMessage(input, extensionRegistry);
-      }
-    };
+        public static com.kirshi.protocol.HandShakeProto.HandShakeRespMessage getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
 
-    public static com.google.protobuf.Parser<HandShakeRespMessage> parser() {
-      return PARSER;
-    }
-
-    @Override
-    public com.google.protobuf.Parser<HandShakeRespMessage> getParserForType() {
-      return PARSER;
-    }
-
-    public com.kirshi.protocol.HandShakeProto.HandShakeRespMessage getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_kirshi_protocol_HandShakeMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_kirshi_protocol_HandShakeMessage_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_kirshi_protocol_HandShakeRespMessage_fieldAccessorTable;
-
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    String[] descriptorData = {
-      "\n\017HandShake.proto\022\023com.kirshi.protocol\032\t" +
-      "Cmd.proto\"j\n\020HandShakeMessage\022\r\n\005scode\030\002" +
-      " \001(\t\022\013\n\003uid\030\003 \001(\t\022\'\n\004type\030\004 \001(\0162\031.com.ki" +
-      "rshi.protocol.Type\022\021\n\thelloinfo\030\005 \001(\t\"\206\001" +
-      "\n\024HandShakeRespMessage\022+\n\003cmd\030\001 \001(\0162\036.co" +
-      "m.kirshi.protocol.CmdAction\0224\n\006status\030\002 " +
-      "\001(\0162$.com.kirshi.protocol.HandShakeStatu" +
-      "s\022\013\n\003msg\030\003 \001(\t*\036\n\004Type\022\n\n\006CLIENT\020\000\022\n\n\006MA" +
-      "STER\020\001*@\n\017HandShakeStatus\022\013\n\007SUCCESS\020\000\022\016" +
-      "\n\nDEVICEBUSY\020\001\022\020\n\014DEVICEOFFINE\020\002B\020B\016Hand" +
-      "ShakeProtob\006proto3"
-    };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
+        private static final com.google.protobuf.Parser<HandShakeRespMessage>
+                PARSER = new com.google.protobuf.AbstractParser<HandShakeRespMessage>() {
+            public HandShakeRespMessage parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new HandShakeRespMessage(input, extensionRegistry);
+            }
         };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.kirshi.protocol.CmdProto.getDescriptor(),
-        }, assigner);
-    internal_static_com_kirshi_protocol_HandShakeMessage_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_com_kirshi_protocol_HandShakeMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_kirshi_protocol_HandShakeMessage_descriptor,
-        new String[] { "Scode", "Uid", "Type", "Helloinfo", });
-    internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_com_kirshi_protocol_HandShakeRespMessage_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor,
-        new String[] { "Cmd", "Status", "Msg", });
-    com.kirshi.protocol.CmdProto.getDescriptor();
-  }
 
-  // @@protoc_insertion_point(outer_class_scope)
+        public static com.google.protobuf.Parser<HandShakeRespMessage> parser() {
+            return PARSER;
+        }
+
+        @Override
+        public com.google.protobuf.Parser<HandShakeRespMessage> getParserForType() {
+            return PARSER;
+        }
+
+        public com.kirshi.protocol.HandShakeProto.HandShakeRespMessage getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+    }
+
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_kirshi_protocol_HandShakeMessage_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_kirshi_protocol_HandShakeMessage_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_kirshi_protocol_HandShakeRespMessage_fieldAccessorTable;
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    private static  com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
+
+    static {
+        String[] descriptorData = {
+                "\n\017HandShake.proto\022\023com.kirshi.protocol\032\t" +
+                        "Cmd.proto\"j\n\020HandShakeMessage\022\r\n\005scode\030\002" +
+                        " \001(\t\022\013\n\003uid\030\003 \001(\t\022\'\n\004type\030\004 \001(\0162\031.com.ki" +
+                        "rshi.protocol.Type\022\021\n\thelloinfo\030\005 \001(\t\"\206\001" +
+                        "\n\024HandShakeRespMessage\022+\n\003cmd\030\001 \001(\0162\036.co" +
+                        "m.kirshi.protocol.CmdAction\0224\n\006status\030\002 " +
+                        "\001(\0162$.com.kirshi.protocol.HandShakeStatu" +
+                        "s\022\013\n\003msg\030\003 \001(\t*\036\n\004Type\022\n\n\006CLIENT\020\000\022\n\n\006MA" +
+                        "STER\020\001*@\n\017HandShakeStatus\022\013\n\007SUCCESS\020\000\022\016" +
+                        "\n\nDEVICEBUSY\020\001\022\020\n\014DEVICEOFFINE\020\002B\020B\016Hand" +
+                        "ShakeProtob\006proto3"
+        };
+        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+                new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
+                            com.google.protobuf.Descriptors.FileDescriptor root) {
+                        descriptor = root;
+                        return null;
+                    }
+                };
+        com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[] {
+                                com.kirshi.protocol.CmdProto.getDescriptor(),
+                        }, assigner);
+        internal_static_com_kirshi_protocol_HandShakeMessage_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_com_kirshi_protocol_HandShakeMessage_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_kirshi_protocol_HandShakeMessage_descriptor,
+                new String[] { "Scode", "Uid", "Type", "Helloinfo", });
+        internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor =
+                getDescriptor().getMessageTypes().get(1);
+        internal_static_com_kirshi_protocol_HandShakeRespMessage_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_kirshi_protocol_HandShakeRespMessage_descriptor,
+                new String[] { "Cmd", "Status", "Msg", });
+        com.kirshi.protocol.CmdProto.getDescriptor();
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

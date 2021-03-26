@@ -4,6 +4,14 @@ import com.kirshi.freya.server.bean.User;
 
 import java.util.List;
 
+/**
+ * Copyright (c) 2021
+ * @Project:FreyaServer
+ * @Author:Finger
+ * @FileName:AccountService.java
+ * @LastModified:2021-03-27T01:09:45.760+08:00
+ */
+
 public interface AccountService {
 
     List<User> queryExistUser(String version, User user);

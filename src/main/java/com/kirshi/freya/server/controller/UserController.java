@@ -22,6 +22,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Copyright (c) 2021
+ * @Project:FreyaServer
+ * @Author:Finger
+ * @FileName:UserController.java
+ * @LastModified:2021-03-27T01:09:45.753+08:00
+ */
+
+/**
  * @ClassName ClientController
  * @Description TODO
  * @Author Finger

@@ -8,11 +8,11 @@ import java.nio.ByteOrder;
 import java.nio.charset.Charset;
 
 /**
- * Copyright (c) 2021  Spianmo, Inc. All rights reserved.
- * @Project TrackerServer
- * @Author Finger
- * @FileName MsgWriteBean.java
- * @LastModified 2021-03-04 22:56:49
+ * Copyright (c) 2021
+ * @Project:FreyaServer
+ * @Author:Finger
+ * @FileName:MsgWriteBean.java
+ * @LastModified:2021-03-27T01:09:45.785+08:00
  */
 
 /**

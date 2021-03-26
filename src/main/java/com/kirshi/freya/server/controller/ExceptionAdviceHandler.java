@@ -20,6 +20,14 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 import java.io.IOException;
 
 /**
+ * Copyright (c) 2021
+ * @Project:FreyaServer
+ * @Author:Finger
+ * @FileName:ExceptionAdviceHandler.java
+ * @LastModified:2021-03-27T01:09:45.749+08:00
+ */
+
+/**
  * @author Finger
  * @Description: 控制并统一处理异常类
  * @ExceptionHandler标注的方法优先级问题，它会找到异常的最近继承关系，也就是继承关系最浅的注解方法

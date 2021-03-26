@@ -1,6 +1,14 @@
 package com.kirshi.freya.server.base;
 
 /**
+ * Copyright (c) 2021
+ * @Project:FreyaServer
+ * @Author:Finger
+ * @FileName:HttpStatusMsg.java
+ * @LastModified:2021-03-27T01:09:45.740+08:00
+ */
+
+/**
  * @Description: 自定义状态码异常枚举类
  * @ProjectName: spring-parent
  * @Package: com.yaomy.common.HttpStatusMsg
