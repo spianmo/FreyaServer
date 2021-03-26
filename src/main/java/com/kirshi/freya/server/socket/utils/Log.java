@@ -1,6 +1,7 @@
 package com.kirshi.freya.server.socket.utils;
 
-import com.tracker.server.TrackerServerApplication;
+
+import com.kirshi.freya.server.FreyaServerApplication;
 
 /**
  * Copyright (c) 2021  Spianmo, Inc. All rights reserved.
@@ -13,19 +14,19 @@ import com.tracker.server.TrackerServerApplication;
 public class Log {
 
     public static void i(String log) {
-        TrackerServerApplication.logger.info(log);
+        FreyaServerApplication.logger.info(log);
     }
 
     public static void e(String log) {
-        TrackerServerApplication.logger.error(log);
+        FreyaServerApplication.logger.error(log);
     }
 
     public static void d(String log) {
-        TrackerServerApplication.logger.debug(log);
+        FreyaServerApplication.logger.debug(log);
     }
 
     public static void w(String log) {
-        TrackerServerApplication.logger.warn(log);
+        FreyaServerApplication.logger.warn(log);
     }
 
 }

@@ -2,13 +2,13 @@ package com.kirshi.freya.server.socket.callback;
 
 import com.google.protobuf.Any;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.kirshi.protocol.BizResponseProto;
+import com.kirshi.protocol.CmdProto;
+import com.kirshi.protocol.CommandProto;
+import com.kirshi.protocol.HandShakeProto;
 import com.kirshi.freya.server.socket.packet.BaseProtoPacket;
 import com.kirshi.freya.server.socket.pojo.ClientInfoBean;
 import com.kirshi.freya.server.socket.utils.Log;
-import com.trap.protocols.BizResponseProto;
-import com.trap.protocols.CmdProto;
-import com.trap.protocols.CommandProto;
-import com.trap.protocols.HandShakeProto;
 import com.xuhao.didi.core.iocore.interfaces.ISendable;
 import com.xuhao.didi.core.pojo.OriginalData;
 import com.xuhao.didi.socket.common.interfaces.common_interfacies.server.IClient;
@@ -17,6 +17,7 @@ import com.xuhao.didi.socket.common.interfaces.common_interfacies.server.IClient
 
 import java.util.concurrent.ConcurrentHashMap;
 
+import static com.kirshi.freya.server.socket.callback.ServerReceiver.mClientInfoBeanList;
 
 
 /**

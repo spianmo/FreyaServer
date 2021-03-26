@@ -1,5 +1,6 @@
 package com.kirshi.freya.server.socket.pojo;
 
+import com.kirshi.protocol.HandShakeProto;
 import com.xuhao.didi.socket.common.interfaces.common_interfacies.server.IClient;
 
 /**

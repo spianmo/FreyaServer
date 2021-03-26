@@ -1,6 +1,9 @@
 package com.kirshi.freya.server.socket.callback;
 
 import com.google.protobuf.Any;
+import com.kirshi.protocol.CmdProto;
+import com.kirshi.protocol.CommandProto;
+import com.kirshi.protocol.HandShakeProto;
 import com.kirshi.freya.server.socket.WatchdogThread;
 import com.kirshi.freya.server.socket.packet.BaseProtoPacket;
 import com.kirshi.freya.server.socket.pojo.ClientInfoBean;

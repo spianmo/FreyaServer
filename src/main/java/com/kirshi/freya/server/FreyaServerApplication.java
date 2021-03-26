@@ -10,7 +10,6 @@ import com.xuhao.didi.socket.common.interfaces.common_interfacies.server.IServer
 import com.xuhao.didi.socket.server.impl.OkServerOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -21,8 +20,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FreyaServerApplication {
 
     public static Logger logger;
-    @Value("$(oksocket.port)")
-    private static int FREYA_SOCKET_PORT;
+    private static final int SOCKET_PORT = 9089;
 
     public static void main(String[] args) {
         logger = LoggerFactory.getLogger(FreyaServerApplication.class);
@@ -39,8 +37,8 @@ public class FreyaServerApplication {
         OkSocketOptions.setIsDebug(false);
         SLog.setIsDebug(false);
 
-        ServerReceiver serverReceiver = new ServerReceiver(FREYA_SOCKET_PORT);
-        IServerManager serverManager = OkSocket.server(FREYA_SOCKET_PORT).registerReceiver(serverReceiver);
+        ServerReceiver serverReceiver = new ServerReceiver(SOCKET_PORT);
+        IServerManager serverManager = OkSocket.server(SOCKET_PORT).registerReceiver(serverReceiver);
         serverReceiver.setServerManager(serverManager);
         serverManager.listen();
     }
