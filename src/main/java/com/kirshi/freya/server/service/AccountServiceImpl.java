@@ -3,7 +3,6 @@ package com.kirshi.freya.server.service;
 import com.kirshi.freya.server.bean.User;
 import com.kirshi.freya.server.dao.UserDao;
 import org.springframework.stereotype.Service;
-import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AccountServiceImpl.java
- * @LastModified:2021-03-27T01:09:45.763+08:00
+ * @LastModified:2021-03-29T17:17:13.249+08:00
  */
 
 /**
@@ -41,5 +40,15 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public boolean checkPasswd(User user) {
         return mUserDao.selectUser(user.getAccount(), user.getPasswd()).size() == 1;
+    }
+
+    @Override
+    public boolean insertUser(User user) {
+        return mUserDao.insertUser(user);
+    }
+
+    @Override
+    public boolean isUserExist(String condition, String str) {
+        return mUserDao.selectUser(str).size() == 0;
     }
 }

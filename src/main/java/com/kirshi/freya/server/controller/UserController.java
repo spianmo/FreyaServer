@@ -2,31 +2,23 @@ package com.kirshi.freya.server.controller;
 
 import com.kirshi.freya.server.base.BaseResponse;
 import com.kirshi.freya.server.base.CodeConstant;
+import com.kirshi.freya.server.base.UserActionCallback;
 import com.kirshi.freya.server.bean.User;
 import com.kirshi.freya.server.service.AccountService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.util.DigestUtils;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.UnexpectedTypeException;
-import java.util.HashMap;
+import javax.validation.Valid;
+import java.sql.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Copyright (c) 2021
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:UserController.java
- * @LastModified:2021-03-27T01:09:45.753+08:00
+ * @LastModified:2021-03-29T17:17:13.234+08:00
  */
 
 /**
@@ -55,13 +47,33 @@ public class UserController {
             if ("social".equals(version)) {
                 return new BaseResponse<>(CodeConstant.Success, users.get(0));
             } else if ("common".equals(version)) {
-                if (mAccountService.checkPasswd(user)){
-                    return new BaseResponse<>(CodeConstant.Success,"登陆成功",users.get(0));
-                }else {
+                if (mAccountService.checkPasswd(user)) {
+                    return new BaseResponse<>(CodeConstant.Success, "登陆成功", users.get(0));
+                } else {
                     return new BaseResponse<>(CodeConstant.Faild, "账号或密码错误");
                 }
             }
         }
         return new BaseResponse<>(CodeConstant.ArgumentNotValid, "参数错误");
+    }
+
+    @PostMapping(value = "/reg", produces = "application/json;charset=UTF-8")
+    public UserActionCallback<User> reg(@Valid @RequestBody User user) {
+        user.setPasswd(DigestUtils.md5DigestAsHex(user.getPasswd().getBytes()));
+        if (mAccountService.isUserExist("OPEN_ID", user.getOpenid())) {
+            if (mAccountService.isUserExist("ACCOUNT", user.getAccount())) {
+                user.setRegTime(new Date(System.currentTimeMillis()));
+                if (mAccountService.insertUser(user)) {
+                    return new UserActionCallback<User>(CodeConstant.Success, user);
+                } else {
+                    new UserActionCallback<>(CodeConstant.UserRegError, "注册失败");
+                }
+            } else {
+                return new UserActionCallback<>(CodeConstant.UserRegedited, "用户已被注册");
+            }
+        } else {
+            return new UserActionCallback<>(CodeConstant.UserRegedited, "当前QQ账号已绑定另一Freya账号，请不要重复注册");
+        }
+        return new UserActionCallback<>(CodeConstant.ArgumentNotValid, "参数错误");
     }
 }

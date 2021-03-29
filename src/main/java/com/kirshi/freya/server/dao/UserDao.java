@@ -1,11 +1,11 @@
 package com.kirshi.freya.server.dao;
 
 import com.kirshi.freya.server.bean.User;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
+import com.kirshi.freya.server.db.DBManager;
+import org.intellij.lang.annotations.Language;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -13,7 +13,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:UserDao.java
- * @LastModified:2021-03-27T01:09:45.756+08:00
+ * @LastModified:2021-03-29T17:17:13.239+08:00
  */
 
 /**
@@ -24,25 +24,32 @@ import java.util.List;
  **/
 @Repository
 public class UserDao {
-    @Resource
-    private final JdbcTemplate jdbcTemplate;
-
-    public UserDao(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    @Autowired
+    private DBManager db;
 
     public List<User> selectUserByAccount(String account) {
-        String sql = "SELECT * FROM t_user WHERE account = ?";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class),account);
+        @Language("MySQL") String sql = "SELECT * FROM t_user WHERE account = ?";
+        return db.queryForListObject(sql, new Object[]{account}, User.class);
     }
 
     public List<User> selectUserByOpenId(String openId) {
-        String sql = "SELECT * FROM t_user WHERE openid = ?";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class),openId);
+        @Language("MySQL") String sql = "SELECT * FROM t_user WHERE openid = ?";
+        return db.queryForListObject(sql, new Object[]{openId}, User.class);
     }
 
-    public List<User> selectUser(String account,String passwdEncoded){
-        String sql  = "SELECT * FROM t_user WHERE account = ? AND passwd = ?";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(User.class),account,passwdEncoded);
+    public List<User> selectUser(String account, String passwdEncoded) {
+        @Language("MySQL") String sql = "SELECT * FROM t_user WHERE account = ? AND passwd = ?";
+        Object[] args = new Object[]{account, passwdEncoded};
+        return db.queryForListObject(sql, args, User.class);
+    }
+
+    public List<User> selectUser(String account) {
+        @Language("MySQL") String sql = "SELECT * FROM t_user WHERE account = ?";
+        Object[] args = new Object[]{account};
+        return db.queryForListObject(sql, args, User.class);
+    }
+
+    public boolean insertUser(User user) {
+        return db.insertObject(user) == 1;
     }
 }

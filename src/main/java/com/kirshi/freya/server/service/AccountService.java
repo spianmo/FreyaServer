@@ -9,7 +9,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AccountService.java
- * @LastModified:2021-03-27T01:09:45.760+08:00
+ * @LastModified:2021-03-29T17:17:13.245+08:00
  */
 
 public interface AccountService {
@@ -17,4 +17,8 @@ public interface AccountService {
     List<User> queryExistUser(String version, User user);
 
     boolean checkPasswd(User user);
+
+    boolean insertUser(User user);
+
+    boolean isUserExist(String condition, String str);
 }
