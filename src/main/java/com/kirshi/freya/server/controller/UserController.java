@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -18,7 +18,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:UserController.java
- * @LastModified:2021-03-29T17:17:13.234+08:00
+ * @LastModified:2021-03-30T16:57:51.452+08:00
  */
 
 /**
@@ -36,11 +36,12 @@ public class UserController {
 
     @PostMapping(value = "/login")
     public BaseResponse<User> login(@RequestParam(name = "version") String version, @RequestParam(name = "openid", required = false) String openid, @RequestParam(name = "account", required = false) String account, @RequestParam(name = "passwd", required = false) String passwd) {
-        User user = new User();
-        user.setOpenid(openid);
-        user.setAccount(account);
-        user.setPasswd(passwd);
-        List<User> users = mAccountService.queryExistUser(version,user);
+        User user = User.builder()
+                .openid(openid)
+                .account(account)
+                .passwd(passwd != null ? DigestUtils.md5DigestAsHex(passwd.getBytes()) : "")
+                .build();
+        List<User> users = mAccountService.queryExistUser(version, user);
         if (users.size() == 0) {
             return new BaseResponse<>(CodeConstant.UserNoExist, "用户不存在");
         } else {
@@ -50,7 +51,7 @@ public class UserController {
                 if (mAccountService.checkPasswd(user)) {
                     return new BaseResponse<>(CodeConstant.Success, "登陆成功", users.get(0));
                 } else {
-                    return new BaseResponse<>(CodeConstant.Faild, "账号或密码错误");
+                    return new BaseResponse<>(CodeConstant.LoginFaild, "账号或密码错误");
                 }
             }
         }
@@ -62,9 +63,9 @@ public class UserController {
         user.setPasswd(DigestUtils.md5DigestAsHex(user.getPasswd().getBytes()));
         if (mAccountService.isUserExist("OPEN_ID", user.getOpenid())) {
             if (mAccountService.isUserExist("ACCOUNT", user.getAccount())) {
-                user.setRegTime(new Date(System.currentTimeMillis()));
+                user.setRegTime(new Timestamp(System.currentTimeMillis()));
                 if (mAccountService.insertUser(user)) {
-                    return new UserActionCallback<User>(CodeConstant.Success, user);
+                    return new UserActionCallback<>(CodeConstant.Success, user);
                 } else {
                     new UserActionCallback<>(CodeConstant.UserRegError, "注册失败");
                 }
