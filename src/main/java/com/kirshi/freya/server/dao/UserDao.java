@@ -15,7 +15,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:UserDao.java
- * @LastModified:2021-03-30T16:57:51.460+08:00
+ * @LastModified:2021-04-01T20:03:11.052+08:00
  */
 
 /**
@@ -50,7 +50,7 @@ public class UserDao {
     }
 
     public boolean insertUser(User user) {
-        @Language("MySQL") String sql = "insert into t_user (account,passwd,nickname,openid,gender,reg_time) values (?,?,?,?,?,?)";
-        return jdbcTemplate.update(sql, user.getAccount(), user.getPasswd(), user.getNickname(), user.getOpenid(), user.getGender().name(), user.getRegTime()) == 1;
+        @Language("MySQL") String sql = "insert into t_user (uid,account,passwd,nickname,openid,gender,reg_time) values (?,?,?,?,?,?,?)";
+        return jdbcTemplate.update(sql, user.getUid(), user.getAccount(), user.getPasswd(), user.getNickname(), user.getOpenid(), user.getGender().name(), user.getRegTime()) == 1;
     }
 }

@@ -1,10 +1,12 @@
 package com.kirshi.freya.server.bean;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 /**
@@ -12,7 +14,7 @@ import java.sql.Timestamp;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:User.java
- * @LastModified:2021-03-30T16:57:51.395+08:00
+ * @LastModified:2021-04-01T20:03:11.009+08:00
  */
 
 /**
@@ -23,8 +25,11 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
-    private int id;
+    private String uid;
+    @NotNull(message = "账号不能为空")
     private String account;
+    @NotNull(message = "密码不能为空")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String passwd;
     private String nickname;
     private String openid;
@@ -32,27 +37,14 @@ public class User {
     private Timestamp regTime;
 
     public enum Gender {
-        MAN(0), WOMAN(1), UNKNOWN(2);
-        private int value = 0;
+        MAN("MAN"), WOMAN("WOMAN"), UNKNOWN("UNKOWN");
+        private final String value;
 
-        Gender(int value) {     //必须是private的，否则编译错误
+        Gender(String value) {
             this.value = value;
         }
 
-        public static Gender valueOf(int value) {
-            switch (value) {
-                case 0:
-                    return MAN;
-                case 1:
-                    return WOMAN;
-                case 2:
-                    return UNKNOWN;
-                default:
-                    return null;
-            }
-        }
-
-        public int value() {
+        public String value() {
             return this.value;
         }
     }

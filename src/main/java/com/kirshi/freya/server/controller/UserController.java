@@ -5,6 +5,7 @@ import com.kirshi.freya.server.base.CodeConstant;
 import com.kirshi.freya.server.base.UserActionCallback;
 import com.kirshi.freya.server.bean.User;
 import com.kirshi.freya.server.service.AccountService;
+import com.kirshi.freya.server.utils.RandomUtil;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:UserController.java
- * @LastModified:2021-03-30T16:57:51.452+08:00
+ * @LastModified:2021-04-01T20:03:11.035+08:00
  */
 
 /**
@@ -64,6 +65,7 @@ public class UserController {
         if (mAccountService.isUserExist("OPEN_ID", user.getOpenid())) {
             if (mAccountService.isUserExist("ACCOUNT", user.getAccount())) {
                 user.setRegTime(new Timestamp(System.currentTimeMillis()));
+                user.setUid(RandomUtil.createUid(10));
                 if (mAccountService.insertUser(user)) {
                     return new UserActionCallback<>(CodeConstant.Success, user);
                 } else {
@@ -77,4 +79,5 @@ public class UserController {
         }
         return new UserActionCallback<>(CodeConstant.ArgumentNotValid, "参数错误");
     }
+
 }

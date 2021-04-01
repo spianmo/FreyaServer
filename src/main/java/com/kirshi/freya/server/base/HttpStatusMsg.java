@@ -5,7 +5,7 @@ package com.kirshi.freya.server.base;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:HttpStatusMsg.java
- * @LastModified:2021-03-27T01:09:45.740+08:00
+ * @LastModified:2021-04-01T20:03:10.989+08:00
  */
 
 /**
@@ -27,10 +27,10 @@ public enum HttpStatusMsg {
     METHOD_ARGUMENT_TYPE_MISMATCH_EXCEPTIION(207, "参数类型不匹配"),
     MISSING_SERVLET_REQUEST_PARAMETER_EXCEPTION(208, "缺少参数"),
     HTTP_REQUEST_METHOD_NOT_SUPPORTED_EXCEPTION(209, "不支持的method类型"),
-    PARAM_EXCEPTION(210,"控制器方法参数异常"),
+    PARAM_EXCEPTION(210, "控制器方法参数异常"),
 
     //--------------------OAuth2认证异常------------------
-    AUTHENTICATION_EXCEPTION(300, "登录异常，请检查登录信息..."),
+    AUTHENTICATION_EXCEPTION(300, "登录态异常"),
     ACCESS_DENIDED_EXCEPTION(301, "访问资源受限"),
     PASSWORD_EXCEPTION(302, "密码异常"),
     USERNAME_EXCEPTION(303, "用户名异常"),
@@ -39,7 +39,7 @@ public enum HttpStatusMsg {
     private final int status;
     private final String message;
 
-    HttpStatusMsg(int status, String message){
+    HttpStatusMsg(int status, String message) {
         this.status = status;
         this.message = message;
     }

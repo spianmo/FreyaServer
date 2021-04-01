@@ -2,12 +2,13 @@ package com.kirshi.freya.server.controller;
 
 import com.kirshi.freya.server.base.BaseResponse;
 import com.kirshi.freya.server.base.HttpStatusMsg;
+import com.kirshi.freya.server.exception.AbnormalLoginException;
+import com.kirshi.freya.server.exception.MissSuperkeyException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -24,7 +25,7 @@ import java.io.IOException;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:ExceptionAdviceHandler.java
- * @LastModified:2021-03-27T01:09:45.749+08:00
+ * @LastModified:2021-04-01T20:03:11.026+08:00
  */
 
 /**
@@ -80,14 +81,28 @@ public final class ExceptionAdviceHandler {
         e.printStackTrace();
         StackTraceElement[] elements = e.getStackTrace();
         String message = StringUtils.EMPTY;
-        if(elements.length > 0){
+        if (elements.length > 0) {
             StackTraceElement element = elements[0];
             message = StringUtils.join("控制器", element.getClassName(), ".", element.getMethodName(), "类的第", element.getLineNumber(), "行发生", e.toString(), "异常");
         }
-        if(StringUtils.isBlank(message)){
+        if (StringUtils.isBlank(message)) {
             message = e.toString();
         }
         return new BaseResponse<>(HttpStatusMsg.NULL_POINTER_EXCEPTION.getStatus(), message);
+    }
+
+    @ExceptionHandler({AbnormalLoginException.class})
+    public BaseResponse<String> abnormalLoginException(AbnormalLoginException e) {
+        e.printStackTrace();
+        String message = e.getMessage();
+        return new BaseResponse<>(HttpStatusMsg.AUTHENTICATION_EXCEPTION.getStatus(), message);
+    }
+
+    @ExceptionHandler({MissSuperkeyException.class})
+    public BaseResponse<String> missSuperkeyException(MissSuperkeyException e) {
+        e.printStackTrace();
+        String message = e.getMessage();
+        return new BaseResponse<>(HttpStatusMsg.AUTHENTICATION_EXCEPTION.getStatus(), message);
     }
 
     /**
@@ -98,7 +113,7 @@ public final class ExceptionAdviceHandler {
         e.printStackTrace();
         StackTraceElement[] elements = e.getStackTrace();
         String message = StringUtils.EMPTY;
-        if(elements.length > 0){
+        if (elements.length > 0) {
             StackTraceElement element = elements[0];
             message = StringUtils.join("控制器", element.getClassName(), ".", element.getMethodName(), "类的第", element.getLineNumber(), "行发生", e.toString(), "异常");
         }
@@ -174,8 +189,7 @@ public final class ExceptionAdviceHandler {
     @ExceptionHandler({HttpMessageNotReadableException.class})
     public BaseResponse<String> httpMessageNotReadableException(HttpMessageNotReadableException e, WebRequest wq){
         e.printStackTrace();
-        Throwable throwable = e.getRootCause();
-        return new BaseResponse<>(HttpStatusMsg.PARAM_EXCEPTION.getStatus(), throwable.getMessage());
+        return new BaseResponse<>(HttpStatusMsg.PARAM_EXCEPTION.getStatus(), "请求参数异常");
     }
 
     /**

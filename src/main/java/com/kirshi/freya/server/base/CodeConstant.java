@@ -5,13 +5,15 @@ package com.kirshi.freya.server.base;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:CodeConstant.java
- * @LastModified:2021-03-29T17:16:09.306+08:00
+ * @LastModified:2021-04-01T20:03:10.984+08:00
  */
 
 public class CodeConstant {
     public static int ArgumentNotValid = 100;
     public static int Success = 200;
     public static int Faild = 195;
+    public static int Exists = 190;
+    public static int NotExists = 185;
     public static int MessageNotReadable = 101;
     public static int UnexpectedType = 102;
     public static int UserNoExist = 99;
