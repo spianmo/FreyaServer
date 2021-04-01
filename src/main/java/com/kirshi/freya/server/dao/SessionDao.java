@@ -7,13 +7,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Copyright (c) 2021
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:SessionDao.java
- * @LastModified:2021-04-01T20:03:11.048+08:00
+ * @LastModified:2021-04-02T01:00:53.292+08:00
  */
 @Repository
 public class SessionDao {
@@ -32,7 +33,8 @@ public class SessionDao {
 
     public Session query(String uid) {
         @Language("MySQL") String sql = "select * from t_session where uid = ?";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Session.class), uid).get(0);
+        List<Session> list = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Session.class), uid);
+        return list.isEmpty() ? null : list.get(0);
     }
 
     public boolean update(String uid, String superkey) {

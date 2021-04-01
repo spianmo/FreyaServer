@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.io.IOException;
 
@@ -25,7 +26,7 @@ import java.io.IOException;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:ExceptionAdviceHandler.java
- * @LastModified:2021-04-01T20:03:11.026+08:00
+ * @LastModified:2021-04-02T01:00:53.280+08:00
  */
 
 /**
@@ -197,12 +198,18 @@ public final class ExceptionAdviceHandler {
      * 控制器方法参数异常
      */
     @ExceptionHandler({MethodArgumentNotValidException.class})
-    public BaseResponse<String> methodArgumentNotValidException(MethodArgumentNotValidException e){
+    public BaseResponse<String> methodArgumentNotValidException(MethodArgumentNotValidException e) {
         e.printStackTrace();
         BindingResult bindingResult = e.getBindingResult();
         FieldError fieldError = bindingResult.getFieldError();
         String message = StringUtils.join(fieldError.getDefaultMessage());
         return new BaseResponse<>(HttpStatusMsg.PARAM_EXCEPTION.getStatus(), message);
+    }
+
+    @ExceptionHandler({NoHandlerFoundException.class})
+    public BaseResponse<String> noHandlerFoundException(NoHandlerFoundException e) {
+        e.printStackTrace();
+        return new BaseResponse<>(HttpStatusMsg.NOT_FOUND_EXCEPTION.getStatus(), e.getMessage());
     }
 
 }

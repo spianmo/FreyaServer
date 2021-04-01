@@ -11,19 +11,21 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:ControllerConfiguration.java
- * @LastModified:2021-04-01T20:03:11.016+08:00
+ * @LastModified:2021-04-02T01:00:53.273+08:00
  */
 
 
 @Configuration
 public class ControllerConfiguration implements WebMvcConfigurer {
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**");
-    }
 
     @Bean
-    public LoginInterceptor demoInterceptor() {
+    public LoginInterceptor loginInterceptor() {
         return new LoginInterceptor();
     }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(loginInterceptor()).addPathPatterns("/**");
+    }
+
 }

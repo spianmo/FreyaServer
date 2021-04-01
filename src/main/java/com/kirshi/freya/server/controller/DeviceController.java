@@ -16,8 +16,9 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:DeviceController.java
- * @LastModified:2021-04-01T20:03:11.019+08:00
+ * @LastModified:2021-04-02T01:00:53.276+08:00
  */
+
 @RestController
 @RequestMapping("/device")
 public class DeviceController {
@@ -37,6 +38,7 @@ public class DeviceController {
         return new BaseResponse<>(CodeConstant.Faild, "新增设备失败");
     }
 
+    @LoginStatus
     @PostMapping(value = "/delete")
     public BaseResponse<String> delete(@Valid @RequestBody Device device) {
         if (mDeviceService.queryExist(device.getDeviceId(), device.getUid())) {
@@ -46,6 +48,7 @@ public class DeviceController {
         return new BaseResponse<>(CodeConstant.NotExists, "设备不存在");
     }
 
+    @LoginStatus
     @PostMapping(value = "/update")
     public BaseResponse<String> update(@Valid @RequestBody Device device) {
         if (mDeviceService.queryExist(device.getDeviceId(), device.getUid())) {
@@ -55,6 +58,7 @@ public class DeviceController {
         return new BaseResponse<>(CodeConstant.NotExists, "设备不存在");
     }
 
+    @LoginStatus
     @PostMapping(value = "/queryPermissions")
     public BaseResponse<List<Device.Permission>> queryPermissions(@RequestParam(name = "vid") String vid) {
         List<Device.Permission> permissions = mDeviceService.queryVidPermissions(vid);

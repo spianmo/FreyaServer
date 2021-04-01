@@ -5,7 +5,7 @@ package com.kirshi.freya.server.base;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:HttpStatusMsg.java
- * @LastModified:2021-04-01T20:03:10.989+08:00
+ * @LastModified:2021-04-02T01:00:53.269+08:00
  */
 
 /**
@@ -28,6 +28,8 @@ public enum HttpStatusMsg {
     MISSING_SERVLET_REQUEST_PARAMETER_EXCEPTION(208, "缺少参数"),
     HTTP_REQUEST_METHOD_NOT_SUPPORTED_EXCEPTION(209, "不支持的method类型"),
     PARAM_EXCEPTION(210, "控制器方法参数异常"),
+
+    NOT_FOUND_EXCEPTION(404, "NOT FOUND"),
 
     //--------------------OAuth2认证异常------------------
     AUTHENTICATION_EXCEPTION(300, "登录态异常"),
