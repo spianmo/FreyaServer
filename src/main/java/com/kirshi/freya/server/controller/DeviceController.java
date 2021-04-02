@@ -1,6 +1,6 @@
 package com.kirshi.freya.server.controller;
 
-import com.kirshi.freya.server.annotation.LoginStatus;
+import com.kirshi.freya.server.annotation.RequireLogin;
 import com.kirshi.freya.server.base.BaseResponse;
 import com.kirshi.freya.server.base.CodeConstant;
 import com.kirshi.freya.server.bean.Device;
@@ -16,7 +16,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:DeviceController.java
- * @LastModified:2021-04-02T01:00:53.276+08:00
+ * @LastModified:2021-04-02T09:20:11.646+08:00
  */
 
 @RestController
@@ -25,7 +25,7 @@ public class DeviceController {
     @Resource
     private DeviceService mDeviceService;
 
-    @LoginStatus
+    @RequireLogin
     @PostMapping(value = "/add", produces = "application/json;charset=UTF-8")
     public BaseResponse<String> add(@Valid @RequestBody Device device) {
         if (mDeviceService.queryExist(device.getDeviceId(), device.getUid())) {
@@ -38,7 +38,7 @@ public class DeviceController {
         return new BaseResponse<>(CodeConstant.Faild, "新增设备失败");
     }
 
-    @LoginStatus
+    @RequireLogin
     @PostMapping(value = "/delete")
     public BaseResponse<String> delete(@Valid @RequestBody Device device) {
         if (mDeviceService.queryExist(device.getDeviceId(), device.getUid())) {
@@ -48,7 +48,7 @@ public class DeviceController {
         return new BaseResponse<>(CodeConstant.NotExists, "设备不存在");
     }
 
-    @LoginStatus
+    @RequireLogin
     @PostMapping(value = "/update")
     public BaseResponse<String> update(@Valid @RequestBody Device device) {
         if (mDeviceService.queryExist(device.getDeviceId(), device.getUid())) {
@@ -58,7 +58,7 @@ public class DeviceController {
         return new BaseResponse<>(CodeConstant.NotExists, "设备不存在");
     }
 
-    @LoginStatus
+    @RequireLogin
     @PostMapping(value = "/queryPermissions")
     public BaseResponse<List<Device.Permission>> queryPermissions(@RequestParam(name = "vid") String vid) {
         List<Device.Permission> permissions = mDeviceService.queryVidPermissions(vid);

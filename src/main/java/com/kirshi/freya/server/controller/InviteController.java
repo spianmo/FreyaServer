@@ -1,6 +1,6 @@
 package com.kirshi.freya.server.controller;
 
-import com.kirshi.freya.server.annotation.LoginStatus;
+import com.kirshi.freya.server.annotation.RequireLogin;
 import com.kirshi.freya.server.base.BaseResponse;
 import com.kirshi.freya.server.base.CodeConstant;
 import com.kirshi.freya.server.bean.Invite;
@@ -20,7 +20,7 @@ import javax.validation.Valid;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:InviteController.java
- * @LastModified:2021-04-02T01:00:53.283+08:00
+ * @LastModified:2021-04-02T09:20:11.650+08:00
  */
 
 @RestController
@@ -29,7 +29,7 @@ public class InviteController {
     @Resource
     private InviteService mInviteService;
 
-    @LoginStatus
+    @RequireLogin
     @PostMapping(value = "/add", produces = "application/json;charset=UTF-8")
     public BaseResponse<Invite> add(@Valid @RequestBody Invite invite) {
         invite.setVid(RandomUtil.createUid(10));

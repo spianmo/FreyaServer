@@ -1,6 +1,6 @@
 package com.kirshi.freya.server.interceptor;
 
-import com.kirshi.freya.server.annotation.LoginStatus;
+import com.kirshi.freya.server.annotation.RequireLogin;
 import com.kirshi.freya.server.bean.Session;
 import com.kirshi.freya.server.exception.AbnormalLoginException;
 import com.kirshi.freya.server.exception.MissSuperkeyException;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:LoginInterceptor.java
- * @LastModified:2021-04-02T01:00:53.294+08:00
+ * @LastModified:2021-04-02T09:20:11.659+08:00
  */
 
 @Slf4j
@@ -38,7 +38,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         }
         HandlerMethod method = (HandlerMethod) handler;
         //判断访问的control是否添加LoginRequired注解
-        LoginStatus loginRequired = method.getMethodAnnotation(LoginStatus.class);
+        RequireLogin loginRequired = method.getMethodAnnotation(RequireLogin.class);
         if (loginRequired != null) {
             String uid = request.getHeader("uid");
             String superkey = request.getHeader("superkey");

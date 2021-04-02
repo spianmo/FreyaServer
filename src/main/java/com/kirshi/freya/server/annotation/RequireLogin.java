@@ -9,11 +9,10 @@ import java.lang.annotation.Target;
  * Copyright (c) 2021
  * @Project:FreyaServer
  * @Author:Finger
- * @FileName:LoginStatus.java
- * @LastModified:2021-04-01T20:03:10.978+08:00
+ * @FileName:RequireLogin.java
+ * @LastModified:2021-04-02T09:20:11.638+08:00
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface LoginStatus {
-    boolean required() default true;
+public @interface RequireLogin {
 }

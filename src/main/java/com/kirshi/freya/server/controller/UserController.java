@@ -22,7 +22,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:UserController.java
- * @LastModified:2021-04-02T01:00:53.286+08:00
+ * @LastModified:2021-04-02T09:20:11.654+08:00
  */
 
 /**
@@ -60,6 +60,7 @@ public class UserController {
                     superkey = mSessionService.updateSuperkey(users.get(0).getUid());
                 }
                 response.addHeader("superkey", superkey);
+                response.addHeader("uid", users.get(0).getUid());
                 return new BaseResponse<>(CodeConstant.Success, users.get(0));
             } else if ("common".equals(version)) {
                 if (mAccountService.checkPasswd(user)) {
@@ -70,6 +71,7 @@ public class UserController {
                         superkey = mSessionService.updateSuperkey(users.get(0).getUid());
                     }
                     response.addHeader("superkey", superkey);
+                    response.addHeader("uid", users.get(0).getUid());
                     return new BaseResponse<>(CodeConstant.Success, "登陆成功", users.get(0));
                 } else {
                     return new BaseResponse<>(CodeConstant.LoginFaild, "账号或密码错误");
@@ -94,6 +96,7 @@ public class UserController {
                         superkey = mSessionService.updateSuperkey(user.getUid());
                     }
                     response.addHeader("superkey", superkey);
+                    response.addHeader("uid", user.getUid());
                     return new UserActionCallback<>(CodeConstant.Success, user);
                 } else {
                     new UserActionCallback<>(CodeConstant.UserRegError, "注册失败");
