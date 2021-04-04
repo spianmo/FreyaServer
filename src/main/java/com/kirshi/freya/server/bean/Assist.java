@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
  * Copyright (c) 2021
  * @Project:FreyaServer
  * @Author:Finger
- * @FileName:Invite.java
- * @LastModified:2021-04-01T20:03:11.000+08:00
+ * @FileName:Assist.java
+ * @LastModified:2021-04-05T01:21:15.065+08:00
  */
 
 
@@ -18,13 +18,16 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Invite {
+public class Assist {
     String vid;
+    String alias;
     String uid;
     String secret;
     Access access;
     Device.Permission[] permissions;
-    Boolean used;
+    String deviceId;
+    String peerUid;
+    Status status;
 
     public enum Access {
         Guest("Guest"), Official("Official");
@@ -32,6 +35,19 @@ public class Invite {
         private final String value;
 
         Access(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return this.value;
+        }
+    }
+
+    public enum Status {
+        Unused("Unused"), Used("Used"), Fired("Fired");
+        private final String value;
+
+        Status(String value) {
             this.value = value;
         }
 

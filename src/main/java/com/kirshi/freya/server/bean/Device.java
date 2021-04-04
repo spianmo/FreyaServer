@@ -13,7 +13,7 @@ import java.sql.Timestamp;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:Device.java
- * @LastModified:2021-04-01T20:03:10.992+08:00
+ * @LastModified:2021-04-05T01:21:15.068+08:00
  */
 
 @Data
@@ -21,17 +21,12 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Device {
-    int id;
     @NotNull(message = "设备ID不能为空")
     String deviceId;
-    String remark;
     String model;
-    @NotNull(message = "UID不能为空")
-    String uid;
     String electricity;
     Status status;
     Timestamp lastActionTime;
-    String vid;
 
     public enum Status {
         Online("Online"), Offline("Offline"), Unknown("Unknown"), Forbid("Forbid"), NotConnected("NotConnected");

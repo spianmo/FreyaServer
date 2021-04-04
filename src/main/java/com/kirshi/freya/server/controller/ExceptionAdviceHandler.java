@@ -3,7 +3,9 @@ package com.kirshi.freya.server.controller;
 import com.kirshi.freya.server.base.BaseResponse;
 import com.kirshi.freya.server.base.HttpStatusMsg;
 import com.kirshi.freya.server.exception.AbnormalLoginException;
+import com.kirshi.freya.server.exception.InsufficAuthException;
 import com.kirshi.freya.server.exception.MissSuperkeyException;
+import com.kirshi.freya.server.exception.MissingParamException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -26,7 +28,7 @@ import java.io.IOException;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:ExceptionAdviceHandler.java
- * @LastModified:2021-04-02T01:00:53.280+08:00
+ * @LastModified:2021-04-05T01:21:15.084+08:00
  */
 
 /**
@@ -104,6 +106,18 @@ public final class ExceptionAdviceHandler {
         e.printStackTrace();
         String message = e.getMessage();
         return new BaseResponse<>(HttpStatusMsg.AUTHENTICATION_EXCEPTION.getStatus(), message);
+    }
+
+    @ExceptionHandler({MissingParamException.class})
+    public BaseResponse<String> missingParamException(MissingParamException e) {
+        e.printStackTrace();
+        return new BaseResponse<>(HttpStatusMsg.MISSING_SERVLET_REQUEST_PARAMETER_EXCEPTION.getStatus(), e.getMessage());
+    }
+
+    @ExceptionHandler({InsufficAuthException.class})
+    public BaseResponse<String> insufficAuthException(InsufficAuthException e) {
+        e.printStackTrace();
+        return new BaseResponse<>(HttpStatusMsg.AUTHENTICATION_EXCEPTION.getStatus(), e.getMessage());
     }
 
     /**

@@ -7,6 +7,7 @@ import com.kirshi.freya.server.exception.MissSuperkeyException;
 import com.kirshi.freya.server.service.SessionService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.web.method.HandlerMethod;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:LoginInterceptor.java
- * @LastModified:2021-04-02T09:20:11.659+08:00
+ * @LastModified:2021-04-05T01:21:15.099+08:00
  */
 
 @Slf4j
@@ -31,7 +32,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     private SessionService mSessionService;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    public boolean preHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler) {
         //判断如果不是请求control方法直接返回true
         if (!(handler instanceof HandlerMethod)) {
             return true;
@@ -42,7 +43,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (loginRequired != null) {
             String uid = request.getHeader("uid");
             String superkey = request.getHeader("superkey");
-            if (StringUtils.isEmpty(uid) && StringUtils.isEmpty(superkey)) {
+            if (StringUtils.isEmpty(uid) || StringUtils.isEmpty(superkey)) {
                 throw new MissSuperkeyException("登录态异常，资源访问受限");
             }
             Session session = mSessionService.getSuperkey(uid);
@@ -57,11 +58,11 @@ public class LoginInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) {
+    public void postHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler, @Nullable ModelAndView modelAndView) {
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable Exception ex) {
+    public void afterCompletion(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler, @Nullable Exception ex) {
     }
 
 }

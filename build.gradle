@@ -3,7 +3,7 @@
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:build.gradle
- * @LastModified:2021-03-29T17:16:09.296+08:00
+ * @LastModified:2021-04-05T01:21:15.051+08:00
  */
 
 plugins {
@@ -48,6 +48,7 @@ dependencies {
 // https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
     implementation group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
     // https://mvnrepository.com/artifact/org.jetbrains/annotations
+    implementation group: 'org.jetbrains', name: 'annotations', version: '20.1.0'
     annotationProcessor group: 'org.jetbrains', name: 'annotations', version: '20.1.0'
 
 }
