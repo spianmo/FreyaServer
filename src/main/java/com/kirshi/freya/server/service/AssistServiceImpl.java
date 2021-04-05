@@ -3,6 +3,8 @@ package com.kirshi.freya.server.service;
 import com.kirshi.freya.server.bean.Assist;
 import com.kirshi.freya.server.bean.Device;
 import com.kirshi.freya.server.dao.AssistDao;
+import com.kirshi.freya.server.dto.AssistCreaterDto;
+import com.kirshi.freya.server.dto.AssistVisitorDto;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -13,7 +15,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistServiceImpl.java
- * @LastModified:2021-04-05T01:21:15.109+08:00
+ * @LastModified:2021-04-06T00:53:35.759+08:00
  */
 @Service
 public class AssistServiceImpl implements AssistService {
@@ -66,5 +68,15 @@ public class AssistServiceImpl implements AssistService {
     @Override
     public boolean updatePeerUid(String vid, String peerUid) {
         return mAssistDao.updatePeerUid(vid, peerUid);
+    }
+
+    @Override
+    public List<AssistVisitorDto> queryAssistDto(String uid) {
+        return mAssistDao.queryAssistDto(uid);
+    }
+
+    @Override
+    public List<AssistCreaterDto> queryAssistedDto(String uid) {
+        return mAssistDao.queryAssistedDto(uid);
     }
 }

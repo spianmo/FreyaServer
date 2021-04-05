@@ -7,6 +7,8 @@ import com.kirshi.freya.server.base.BaseResponse;
 import com.kirshi.freya.server.base.CodeConstant;
 import com.kirshi.freya.server.bean.Assist;
 import com.kirshi.freya.server.bean.Device;
+import com.kirshi.freya.server.dto.AssistCreaterDto;
+import com.kirshi.freya.server.dto.AssistVisitorDto;
 import com.kirshi.freya.server.service.AssistService;
 import com.kirshi.freya.server.utils.RandomUtil;
 import com.xuhao.didi.socket.common.interfaces.utils.TextUtils;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -21,7 +24,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistController.java
- * @LastModified:2021-04-05T01:21:15.075+08:00
+ * @LastModified:2021-04-06T00:53:35.728+08:00
  */
 
 @RestController
@@ -38,6 +41,7 @@ public class AssistController {
             assist.setSecret(RandomUtil.createUid(6));
         }
         assist.setStatus(Assist.Status.Unused);
+        assist.setCreateTime(new Timestamp(System.currentTimeMillis()));
         if (mAssistService.insert(assist)) {
             return new BaseResponse<>(CodeConstant.Success, "创建远程协助邀请成功", mAssistService.query(assist.getVid()));
         } else {
@@ -76,5 +80,17 @@ public class AssistController {
     @PostMapping(value = "/updatePeerUid")
     public BaseResponse<Assist> updatePeerUid(@RequestParam(name = "vid") String vid, @RequestParam(name = "peerUid") String peerUid) {
         return mAssistService.updatePeerUid(vid, peerUid) ? new BaseResponse<>(CodeConstant.Faild, "设置协助会话对端Uid失败") : new BaseResponse<>(CodeConstant.Success, mAssistService.query(vid));
+    }
+
+    @RequireLogin
+    @PostMapping(value = "/queryAllAssist")
+    public BaseResponse<List<AssistVisitorDto>> queryAllAssist(@RequestParam(name = "uid") String uid) {
+        return new BaseResponse<>(CodeConstant.Success, mAssistService.queryAssistDto(uid));
+    }
+
+    @RequireLogin
+    @PostMapping(value = "/queryAllAssisted")
+    public BaseResponse<List<AssistCreaterDto>> queryAllAssisted(@RequestParam(name = "uid") String uid) {
+        return new BaseResponse<>(CodeConstant.Success, mAssistService.queryAssistedDto(uid));
     }
 }

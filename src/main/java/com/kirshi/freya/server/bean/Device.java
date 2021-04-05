@@ -13,7 +13,7 @@ import java.sql.Timestamp;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:Device.java
- * @LastModified:2021-04-05T01:21:15.068+08:00
+ * @LastModified:2021-04-06T00:53:35.725+08:00
  */
 
 @Data
@@ -42,7 +42,7 @@ public class Device {
     }
 
     public enum Permission {
-        ScreenControl("ScreenControl"), Camera("Camera"), FileManage("FileManage"), GPS("GPS");
+        ScreenView("ScreenView"), ScreenControl("ScreenControl"), Camera("Camera"), FileManage("FileManage"), GPS("GPS");
         private final String value;
 
         Permission(String value) {

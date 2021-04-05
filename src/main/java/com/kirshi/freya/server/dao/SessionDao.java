@@ -14,7 +14,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:SessionDao.java
- * @LastModified:2021-04-02T01:00:53.292+08:00
+ * @LastModified:2021-04-06T00:53:35.742+08:00
  */
 @Repository
 public class SessionDao {
@@ -27,7 +27,7 @@ public class SessionDao {
 
 
     public boolean insert(String uid, String superkey) {
-        @Language("MySQL") String sql = "insert into t_session (uid, superkey) VALUES (?,?)";
+        @Language("MySQL") String sql = "INSERT INTO t_session (uid, superkey) VALUES (?,?)";
         return jdbcTemplate.update(sql, uid, superkey) == 1;
     }
 
@@ -38,7 +38,7 @@ public class SessionDao {
     }
 
     public boolean update(String uid, String superkey) {
-        @Language("MySQL") String sql = "update t_session set superkey = ? where uid = ?";
+        @Language("MySQL") String sql = "UPDATE t_session SET superkey = ? WHERE uid = ?";
         return jdbcTemplate.update(sql, superkey, uid) == 1;
     }
 }

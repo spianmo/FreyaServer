@@ -14,7 +14,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:DeviceDao.java
- * @LastModified:2021-04-05T01:21:15.091+08:00
+ * @LastModified:2021-04-06T00:53:35.738+08:00
  */
 @Repository
 public class DeviceDao {
@@ -27,17 +27,17 @@ public class DeviceDao {
     }
 
     public boolean insert(Device device) {
-        @Language("MySQL") String sql = "insert into t_device (device_id, model, electricity, status, last_ation_time) VALUES (?,?,?,?,?)";
+        @Language("MySQL") String sql = "INSERT INTO t_device (device_id, model, electricity, status, last_ation_time) VALUES (?,?,?,?,?)";
         return jdbcTemplate.update(sql, device.getDeviceId(), device.getModel(), device.getElectricity(), device.getStatus(), device.getLastActionTime()) == 1;
     }
 
     public List<Device> query(String deviceId) {
-        @Language("MySQL") String sql = "select * from t_device where device_id = ?";
+        @Language("MySQL") String sql = "SELECT * FROM t_device WHERE device_id = ?";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Device.class), deviceId);
     }
 
     public boolean update(String deviceId, Device device) {
-        @Language("MySQL") String sql = "update t_device set model = ?,electricity = ?,status = ?,last_ation_time = ? where device_id = ?";
+        @Language("MySQL") String sql = "UPDATE t_device SET model = ?,electricity = ?,status = ?,last_ation_time = ? WHERE device_id = ?";
         return jdbcTemplate.update(sql, device.getModel(), device.getElectricity(), device.getStatus(), device.getLastActionTime(), deviceId) == 1;
     }
 

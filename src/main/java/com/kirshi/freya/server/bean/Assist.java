@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 /**
  * Copyright (c) 2021
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:Assist.java
- * @LastModified:2021-04-05T01:21:15.065+08:00
+ * @LastModified:2021-04-06T00:53:35.721+08:00
  */
 
 
@@ -28,6 +30,7 @@ public class Assist {
     String deviceId;
     String peerUid;
     Status status;
+    Timestamp createTime;
 
     public enum Access {
         Guest("Guest"), Official("Official");
