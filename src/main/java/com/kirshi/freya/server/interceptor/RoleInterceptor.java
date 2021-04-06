@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:RoleInterceptor.java
- * @LastModified:2021-04-05T01:21:15.102+08:00
+ * @LastModified:2021-04-06T18:07:44.498+08:00
  */
 
 @Slf4j
@@ -40,21 +40,25 @@ public class RoleInterceptor implements HandlerInterceptor {
         HandlerMethod method = (HandlerMethod) handler;
         RequireVidCreater vidCreaterRequired = method.getMethodAnnotation(RequireVidCreater.class);
         RequireVidVisitor vidVisitorRequired = method.getMethodAnnotation(RequireVidVisitor.class);
+
         String uid = request.getHeader("uid");
         String vid = request.getParameter("vid");
 
-        if (StringUtils.isEmpty(uid) || StringUtils.isEmpty(vid)) {
-            throw new MissingParamException("缺失重要参数，非法请求！");
-        }
-        Assist assist = mAssistService.query(vid);
-
         if (vidCreaterRequired != null) {
+            if (StringUtils.isEmpty(uid) || StringUtils.isEmpty(vid)) {
+                throw new MissingParamException("缺失重要参数，非法请求！");
+            }
+            Assist assist = mAssistService.query(vid);
             if (assist != null && assist.getUid().equals(uid)) {
                 return true;
             } else {
                 throw new InsufficAuthException("权限不足，资源访问受限");
             }
         } else if (vidVisitorRequired != null) {
+            if (StringUtils.isEmpty(uid) || StringUtils.isEmpty(vid)) {
+                throw new MissingParamException("缺失重要参数，非法请求！");
+            }
+            Assist assist = mAssistService.query(vid);
             if (assist != null && assist.getPeerUid().equals(uid)) {
                 return true;
             } else {

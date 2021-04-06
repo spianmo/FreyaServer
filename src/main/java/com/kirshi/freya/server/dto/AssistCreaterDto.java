@@ -14,7 +14,7 @@ import java.sql.Timestamp;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistCreaterDto.java
- * @LastModified:2021-04-06T00:53:35.749+08:00
+ * @LastModified:2021-04-06T18:07:44.494+08:00
  */
 
 @Data
@@ -27,6 +27,8 @@ public class AssistCreaterDto {
     String secret;
     Assist.Access access;
     Device.Permission[] permissions;
+    String model;
+    String deviceId;
     String peerUid;
     String peerAccount;
     String peerNickname;

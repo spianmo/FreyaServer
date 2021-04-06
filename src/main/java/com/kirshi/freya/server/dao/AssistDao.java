@@ -17,7 +17,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistDao.java
- * @LastModified:2021-04-06T00:53:35.734+08:00
+ * @LastModified:2021-04-06T18:07:44.491+08:00
  */
 @Repository
 public class AssistDao {
@@ -64,12 +64,12 @@ public class AssistDao {
     }
 
     public List<AssistVisitorDto> queryAssistDto(String uid) {
-        @Language("MySQL") String sql = "SELECT peer_uid,vid,alias,model,electricity,t_assist.uid,account,t_user.nickname,secret,access,permissions,t_assist.device_id,t_device.status AS device_status,t_assist.status AS assist_status,create_time,last_ation_time FROM t_assist LEFT JOIN t_device ON t_assist.device_id = t_device.device_id LEFT JOIN t_user ON t_assist.uid = t_user.uid WHERE t_assist.peer_uid = ?";
+        @Language("MySQL") String sql = "SELECT peer_uid,vid,alias,model,electricity,t_assist.uid,account,t_user.nickname,secret,access,permissions,t_assist.device_id,t_device.status AS device_status,t_assist.status AS assist_status,create_time,last_ation_time FROM t_assist LEFT JOIN t_device ON t_assist.device_id = t_device.device_id LEFT JOIN t_user ON t_assist.uid = t_user.uid WHERE t_assist.peer_uid = ? AND t_assist.status != 'Fired'";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(AssistVisitorDto.class), uid);
     }
 
     public List<AssistCreaterDto> queryAssistedDto(String uid) {
-        @Language("MySQL") String sql = "SELECT vid,t_assist.uid,secret,access,permissions,peer_uid,account AS peer_account,nickname AS peer_nickname,t_assist.status AS assist_status,create_time,last_ation_time FROM t_assist LEFT JOIN t_device ON t_assist.device_id = t_device.device_id LEFT JOIN t_user ON t_assist.peer_uid = t_user.uid WHERE t_assist.uid = ?";
+        @Language("MySQL") String sql = "SELECT vid,t_assist.uid,secret,access,permissions,model,t_assist.device_id,peer_uid,account AS peer_account,nickname AS peer_nickname,t_assist.status AS assist_status,create_time,last_ation_time FROM t_assist LEFT JOIN t_device ON t_assist.device_id = t_device.device_id LEFT JOIN t_user ON t_assist.peer_uid = t_user.uid WHERE t_assist.uid = ?  AND t_assist.status != 'Fired'";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(AssistCreaterDto.class), uid);
     }
 }

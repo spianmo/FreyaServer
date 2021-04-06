@@ -2,7 +2,6 @@ package com.kirshi.freya.server.controller;
 
 import com.kirshi.freya.server.base.BaseResponse;
 import com.kirshi.freya.server.base.CodeConstant;
-import com.kirshi.freya.server.base.UserActionCallback;
 import com.kirshi.freya.server.bean.User;
 import com.kirshi.freya.server.service.AccountService;
 import com.kirshi.freya.server.service.SessionService;
@@ -22,7 +21,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:UserController.java
- * @LastModified:2021-04-02T09:20:11.654+08:00
+ * @LastModified:2021-04-06T18:07:44.484+08:00
  */
 
 /**
@@ -65,7 +64,7 @@ public class UserController {
             } else if ("common".equals(version)) {
                 if (mAccountService.checkPasswd(user)) {
                     String superkey;
-                    if (mSessionService.getSuperkey(users.get(0).getUid()) != null) {
+                    if (mSessionService.getSuperkey(users.get(0).getUid()) == null) {
                         superkey = mSessionService.generateSuperkey(users.get(0).getUid());
                     } else {
                         superkey = mSessionService.updateSuperkey(users.get(0).getUid());
@@ -82,7 +81,7 @@ public class UserController {
     }
 
     @PostMapping(value = "/reg", produces = "application/json;charset=UTF-8")
-    public UserActionCallback<User> reg(@Valid @RequestBody User user, HttpServletResponse response) {
+    public BaseResponse<User> reg(@Valid @RequestBody User user, HttpServletResponse response) {
         user.setPasswd(DigestUtils.md5DigestAsHex(user.getPasswd().getBytes()));
         if (mAccountService.isUserExist("OPEN_ID", user.getOpenid())) {
             if (mAccountService.isUserExist("ACCOUNT", user.getAccount())) {
@@ -90,24 +89,24 @@ public class UserController {
                 user.setUid(RandomUtil.createUid(10));
                 if (mAccountService.insertUser(user)) {
                     String superkey;
-                    if (mSessionService.getSuperkey(user.getUid()) != null) {
+                    if (mSessionService.getSuperkey(user.getUid()) == null) {
                         superkey = mSessionService.generateSuperkey(user.getUid());
                     } else {
                         superkey = mSessionService.updateSuperkey(user.getUid());
                     }
                     response.addHeader("superkey", superkey);
                     response.addHeader("uid", user.getUid());
-                    return new UserActionCallback<>(CodeConstant.Success, user);
+                    return new BaseResponse<>(CodeConstant.Success, user);
                 } else {
-                    new UserActionCallback<>(CodeConstant.UserRegError, "注册失败");
+                    new BaseResponse<>(CodeConstant.UserRegError, "注册失败");
                 }
             } else {
-                return new UserActionCallback<>(CodeConstant.UserRegedited, "用户已被注册");
+                return new BaseResponse<>(CodeConstant.UserRegedited, "用户已被注册");
             }
         } else {
-            return new UserActionCallback<>(CodeConstant.UserRegedited, "当前QQ账号已绑定另一Freya账号，请不要重复注册");
+            return new BaseResponse<>(CodeConstant.UserRegedited, "当前QQ账号已绑定另一Freya账号，请不要重复注册");
         }
-        return new UserActionCallback<>(CodeConstant.ArgumentNotValid, "参数错误");
+        return new BaseResponse<>(CodeConstant.ArgumentNotValid, "参数错误");
     }
 
 }
