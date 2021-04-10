@@ -13,7 +13,7 @@ import java.sql.Timestamp;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:Device.java
- * @LastModified:2021-04-06T00:53:35.725+08:00
+ * @LastModified:2021-04-10T15:23:03.571+08:00
  */
 
 @Data
@@ -53,4 +53,5 @@ public class Device {
             return this.value;
         }
     }
+
 }

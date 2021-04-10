@@ -1,0 +1,2572 @@
+<!--
+  ~ Copyright (c) 2021
+  ~ @Project:FreyaServer
+  ~ @Author:Finger
+  ~ @FileName:quickAssist.html
+  ~ @LastModified:2021-04-10T15:23:03.606+08:00
+  -->
+
+<html>
+<html lang="zh-CN" env="cn" style="font-size: 15.625px;">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Freya,安卓远程协助">
+    <meta name="description" content="FreyaLinker邀请链接">
+    <meta name="format-detection" content="telephone=no">
+    <title>FreyaLinker邀请链接</title>
+
+
+    <style>body {
+        font-size: 16px;
+    }</style>
+    <style>
+        .doc-loading {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 9999;
+        }
+
+        .doc-loading .loading-content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 45px;
+        }
+
+        .doc-loading .loading-content .spinner {
+            display: inline-block;
+            z-index: 999;
+        }
+
+        .doc-loading .loading-content .spinner:before {
+            box-sizing: inherit;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            content: " ";
+            -webkit-animation: spinner-12 1.6s step-start infinite;
+            animation: spinner-12 1.6s step-start infinite;
+            vertical-align: middle;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAABg1BMVEUAAAC9vcGpqayzs7bNzdGYmJuVlZjKys6bm5/Jyc2cnJ+cnJ/Kys3Ly8+cnJ/R0dWfn6PJyczDw8fIyMzR0dXIyMzExMeioqXLy8+oqKzNzdGzs7a2trmdnaCUlJevr7LHx8uXl5q2trmenqGwsLO2trqxsbWhoaSXl5qxsbS1tbmwsLSjo6eUlJe4uLucnJ+VlZjIyMzDw8eysragoKOXl5qVlZjR0dXR0dW2trqioqbCwsbR0dWjo6a2trqZmZyzs7agoKPR0dWjo6bCwsbQ0NSvr7LJyc2cnKDFxcm8vL+ZmZzOztHMzNC+vsKXl5uZmZyjo6a9vcGYmJyurrGtrbHOztK3t7ucnJ+urrGjo6fHx8uxsbTDw8etrbCkpKe4uLzBwcWxsbSbm564uLvExMjR0dWYmJuUlJiioqbNzdHDw8e7u7+oqKvIyMy3t7q1tbmwsLOurrKdnaCcnJ+pqazCwsa9vcHJyc3OztLMzNCXl5qqqq2hoaW+vsK+vsHIyMsWRiyNAAAAZnRSTlMA5uYS5uaBExMQEAwLAQH4+Pf2wYODg4BfSSAMAcHBwKqpg4KBf19fXCL49/f39fX05ubm5ubm5cTEw8G+vru4q6uqhX9+fn19WUpKSUlJSSQhHh739efl5eTkxsS3qKinpoeEWSQqdCoWAAACIElEQVQ4y7XT91faUBTA8RumEBKRLaAisrR171m3VVut3Xs3JVDCtnQI/dN783g5jDzHL35/5HzOveddTkDfA5PpIdwkUyZjgiuy7e3ZQO1XJvO7+cvBgY0B1yRpSWiHgrumuBmwV5KkQDs8rClKHwNuI1x0tKBjGmGEAYPqSE8LetWBQWDkQdgb1GCwr6b88wIrxyLKbYDn5DwRHDjt6AD2wfHhR4AF1JHawdWB5G3fIq53zStZ0un0uIXHeyxJ0hrQ3IryRsA1Plc2m93VILaQEsHq8Vg1aPV6rSAEZpCdn+/S1WnSYA90ZXVniVulf5CYWiDS0g19hM0cCqDFW6aYEJnL1/n0J8NT9/SrV12fHsOtdTr/hzR/CoxOuHq93mg0uBMwf6eZWZD7SeOugz9oHBybqTtmwSOOuiO4rfDgk/qDGzcmPnYenP8yWalURrphPJ/PT0RDoCWmXiIrl3UwWiggffE1DCT7AGHlAf3q5QKhy0ZQu0/YXFKEHr8fMUWxmBHCiVlC402IzDnCA4grF/K6BodKxbe4MhQdQxqnq51b5ONKXsjyXYB+g6Ef4FmpWEwANro5tmHsfPocwg8AhlzVAPC+VCrOhoDVjjrwDCCXq/7FQU9x5GeWO3PKsrwDGoQYjrwzyoBb6F7zLRh6hSM3GVAdmIQWhIQ6kgHXZXlFbIdhvNAQA9r9fjtQWG3efH/fCJdGz3N99OC6/gMPF6RsShfrcQAAAABJRU5ErkJggg==);
+            -webkit-background-size: 20px 20px;
+            background-size: 20px 20px;
+        }
+
+        html {
+            line-height: 1;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border-style: none;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+        }
+
+        button {
+            overflow: visible;
+        }
+
+        button {
+            text-transform: none;
+        }
+
+        button {
+            -webkit-appearance: button;
+        }
+
+        button::-moz-focus-inner {
+            border-style: none;
+            padding: 0;
+        }
+
+        button:-moz-focusring {
+            outline: 1px dotted ButtonText;
+        }
+
+        .voov-download-container {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .voov-download-container .voov-text {
+            color: #939699;
+        }
+
+        .voov-download-container .voov-link, .voov-download-container .voov-text {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+
+        .voov-download-container .voov-link {
+            color: #006eff;
+            cursor: pointer;
+            outline: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .voov-download-container .voov-link:hover {
+            color: #198cff;
+        }
+
+        .voov-download-container .voov-link:active {
+            color: #0054e6;
+        }
+
+        .tencent-download-container {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .tencent-download-container .tencent-text {
+            color: #939699;
+        }
+
+        .tencent-download-container .tencent-link, .tencent-download-container .tencent-text {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+
+        .tencent-download-container .tencent-link {
+            color: #006eff;
+            cursor: pointer;
+            outline: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .tencent-download-container .tencent-link:hover {
+            color: #198cff;
+        }
+
+        .tencent-download-container .tencent-link:active {
+            color: #0054e6;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            position: relative;
+            background-color: #f8f9fb;
+        }
+
+        .app.support-webp-container .arrow-img {
+            background-image: url(https://meeting.tencent.com/static/media/arrow.256e559e.webp);
+        }
+
+        .app.support-webp-container .content#launch-app-container .main-wrap .logo .logo-img {
+            background-image: url(http://oss.cache.ren/img/app_icon.png);
+        }
+
+        .app.support-webp-container .content .msg-wrap .msg-wrap-img {
+            background-image: url(https://meeting.tencent.com/static/media/book_2x.01b0b2dc.webp);
+        }
+
+        .app.support-webp-container .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container .meeting-code-copy-icon {
+            background-image: url(https://meeting.tencent.com/static/media/css_sprites_copy.afa6249e.webp);
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .app.support-webp-container .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container .meeting-code-copy-icon {
+                background-image: url(https://meeting.tencent.com/static/media/css_sprites_copy_2x.6b82afa5.webp);
+            }
+        }
+
+        .app.support-webp-container .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .meeting-code-locked-icon {
+            background-image: url(https://meeting.tencent.com/static/media/icon_coded_default.817d5d8c.webp);
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .app.support-webp-container .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .meeting-code-locked-icon {
+                background-image: url(https://meeting.tencent.com/static/media/icon_coded_default_2x.d7188951.webp);
+            }
+        }
+
+        .app {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: relative;
+            min-height: 640px;
+        }
+
+        .app .arrow-img {
+            background-image: url(https://meeting.tencent.com/static/media/arrow.edea0a29.png);
+        }
+
+        #mainButtons {
+            position: absolute;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 100%;
+            bottom: 75px;
+        }
+
+        .main-button {
+            background: #fff;
+            font-size: 14px;
+            height: 40px;
+            border-radius: 3px;
+            border: 1px solid;
+            outline: none;
+        }
+
+        .main-button:active {
+            background: #f1f1f1;
+        }
+
+        .main-button.confirm {
+            background: #3940ee;
+            color: #fff;
+        }
+
+        .content {
+            width: 100%;
+            height: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            background: #f8f9fb;
+        }
+
+        .content .header {
+            position: relative;
+            height: 44px;
+            background: #f8f9fb;
+            border-radius: 6px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 6px 16px 0;
+        }
+
+        .content .header #tm-header-avatar {
+            display: none;
+        }
+
+        .content .header .welcome-to-tm-meeting {
+            font-size: 12px;
+            color: #c8cacc;
+            text-align: right;
+            line-height: 20px;
+        }
+
+        .content .header .header-txt {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            color: #939699;
+            letter-spacing: 0;
+            text-align: right;
+            line-height: 20px;
+            display: none;
+        }
+
+        .content .header .header-txt.orange-color {
+            color: #ff801a;
+        }
+
+        .content .header .header-avatar {
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            top: 11px;
+            right: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .content .header .language-choose {
+            position: absolute;
+            left: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .content .header .language-choose:before {
+            content: " ";
+            width: 1rem;
+            height: 1rem;
+            background-image: url(https://meeting.tencent.com/static/media/Icon-16dp-Language.364d32f8.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .header .language-choose:before {
+                background-image: url(https://meeting.tencent.com/static/media/Icon-16dp-Language2x.6cd484b7.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .content .header .language-choose .language-text {
+            font-size: 12px;
+            padding: 0 4px;
+        }
+
+        .content .header .language-choose .language-arrow-down {
+            width: 1rem;
+            height: 1rem;
+            background-image: url(https://meeting.tencent.com/static/media/Icon-16dp-Downtriangle.63a18df6.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .header .language-choose .language-arrow-down {
+                background-image: url(https://meeting.tencent.com/static/media/Icon-16dp-Downtriangle2x.3054a50a.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .content .header .user-info {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            visibility: hidden;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            color: #939699;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+
+        .content .header .user-info .dropdown {
+            display: none;
+            position: absolute;
+            right: 16px;
+            top: 45px;
+            background: #fff;
+            border: 0 solid #c8cacc;
+            -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .15);
+            box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .15);
+            border-radius: 2px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 136px;
+            height: 88px;
+            z-index: 2;
+        }
+
+        .content .header .user-info .dropdown .title {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .content .header .user-info .dropdown .title:hover {
+            background: #e0e2e5;
+        }
+
+        .content .header .user-info .dropdown .title:hover .txt {
+            color: #2d3033;
+        }
+
+        .content .header .user-info .dropdown .title .txt {
+            text-align: center;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            color: #2d3033;
+            letter-spacing: 0;
+            line-height: 12px;
+        }
+
+        .content .header .user-info .dropdown .title .txt.check-my-meetings-list {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .content .header .user-info .dropdown .item {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            outline: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .content .header .user-info .dropdown .item .txt {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            color: #2d3033;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 12px;
+        }
+
+        .content .header .user-info .dropdown .item .txt.change-accounts {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        .content .header .user-info .dropdown .item:hover {
+            background: #e0e2e5;
+        }
+
+        .content .header .user-info .dropdown .item:hover .txt {
+            color: #2d3033;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container {
+            display: block;
+            width: 100%;
+            background: #fff;
+            border: 0 solid #e0e2e5;
+            -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, .04);
+            border-radius: 8px;
+            max-width: 91.5%;
+            margin: 6px auto 0;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            position: relative;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .periodical-meeting-tag {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            color: #006fff;
+            letter-spacing: 0;
+            line-height: 24px;
+            background: #fff;
+            border: .5px solid #006fff;
+            border-radius: 4px;
+            height: 24px;
+            text-align: center;
+            padding: 0 8px;
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            display: none;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .qrcode-join-entrance {
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: 0;
+            width: 44px;
+            height: 44px;
+            background-image: url(https://meeting.tencent.com/static/media/qrcode_enter.9859b121.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            cursor: pointer;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .qrcode-join-entrance {
+                background-image: url(https://meeting.tencent.com/static/media/qrcode_enter2x.23df6ca2.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .for-hide-box-shadow-top {
+            width: 4px;
+            height: 16px;
+            position: absolute;
+            bottom: -8px;
+            left: -4px;
+            background-color: #f6f7f9;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .for-hide-box-shadow-bottom {
+            width: 4px;
+            height: 16px;
+            position: absolute;
+            top: -8px;
+            right: -4px;
+            background-color: #f6f7f9;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-quarter {
+            width: 8px;
+            height: 8px;
+            background-color: #f8f9fb;
+            border-top: 0 solid #f8f9fb;
+            border-right: 0 solid #f8f9fb;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-quarter.meeting-info-left-bottom {
+            left: -1px;
+            bottom: -1px;
+            border-radius: 0 8px 0 0;
+            margin-top: 27px;
+            -webkit-box-shadow: inset -4px 0 5px -3px rgba(0, 0, 0, .15);
+            box-shadow: inset -4px 0 5px -3px rgba(0, 0, 0, .15);
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-quarter.meeting-info-right-bottom {
+            right: -1px;
+            bottom: -1px;
+            border-radius: 8px 0 0 0;
+            float: right;
+            margin-top: -8px;
+            -webkit-box-shadow: inset 4px 0 5px -3px rgba(0, 0, 0, .15);
+            box-shadow: inset 4px 0 5px -3px rgba(0, 0, 0, .15);
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-quarter.meeting-info-left-top {
+            left: -1px;
+            top: -1px;
+            border-radius: 0 0 8px 0;
+            margin-top: 4px;
+            -webkit-box-shadow: inset -4px 0 5px -3px rgba(0, 0, 0, .15);
+            box-shadow: inset -4px 0 5px -3px rgba(0, 0, 0, .15);
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-quarter.meeting-info-right-top {
+            right: -1px;
+            top: -1px;
+            border-radius: 0 0 0 8px;
+            float: right;
+            margin-top: -8px;
+            -webkit-box-shadow: inset 4px 0 5px -3px rgba(0, 0, 0, .15);
+            box-shadow: inset 4px 0 5px -3px rgba(0, 0, 0, .15);
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container {
+            min-height: 199px;
+            position: relative;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container:after {
+            content: "";
+            width: 94%;
+            height: 2px;
+            display: block;
+            margin: -2px auto -4.4px;
+            background-image: -webkit-gradient(linear, left top, right top, color-stop(60%, #d4d6d9), color-stop(0, hsla(0, 0%, 100%, 0)));
+            background-image: -webkit-linear-gradient(left, #d4d6d9 60%, hsla(0, 0%, 100%, 0) 0);
+            background-image: linear-gradient(90deg, #d4d6d9 60%, hsla(0, 0%, 100%, 0) 0);
+            background-position: bottom;
+            background-size: 9px 1px;
+            background-repeat: repeat-x;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-title-container {
+            padding: 5px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-title-container .meeting-title {
+            font-family: PingFangSC-Medium, Microsoft YaHei;
+            font-size: 20px;
+            line-height: 26px;
+            color: #2d3033;
+            letter-spacing: 0;
+            text-align: center;
+            word-break: break-word;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 24px 12px 0;
+            position: relative;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container {
+            height: 28px;
+            font-size: 20px;
+            color: #2d3033;
+            letter-spacing: 0;
+            text-align: center;
+            margin-top: 10px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .meeting-code {
+            font-family: PingFangSC-Medium, Microsoft YaHei;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .meeting-code {
+                left: 4px;
+                position: relative;
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .meeting-code-locked-icon {
+            background-image: url(https://meeting.tencent.com/static/media/icon_coded_default.222f9ba6.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 10px;
+            height: 12px;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .meeting-code-locked-icon {
+                background-image: url(https://meeting.tencent.com/static/media/icon_coded_default_2x.f61ae14c.png);
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .pmi-meeting-limit {
+            display: inline-block;
+            width: 36px;
+            height: 16px;
+            line-height: 16px;
+            margin-right: 8px;
+            margin-left: 8px;
+            background-image: url(https://meeting.tencent.com/static/media/limit_icon_bg.5fd504bf.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .pmi-meeting-limit .pmi-meeting-limit-text {
+            font-size: 12px;
+            color: #4a4a4a;
+            position: relative;
+            top: -2px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container {
+            padding: 2px 5.5px;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container {
+                top: -4px;
+                width: 11px;
+                height: 16px;
+                right: 2px;
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container .meeting-code-copy-icon {
+            background-image: url(https://meeting.tencent.com/static/media/css_sprites_copy.bb8e52bf.png);
+            background-repeat: no-repeat;
+            width: 15px;
+            height: 15px;
+            background-position: -10px -10px;
+            display: inline-block;
+            margin-bottom: .5px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container .meeting-code-copy-icon:hover {
+            background-position: -46px -10px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container .meeting-code-copy-icon:active {
+            background-position: -10px -46px;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container .meeting-code-copy-icon {
+                background-image: url(https://meeting.tencent.com/static/media/css_sprites_copy_2x.07fbd573.png);
+                height: 44px;
+                width: 44px;
+                -webkit-transform: scale(.5);
+                transform: scale(.5);
+                position: relative;
+                left: -10px;
+                top: -11px;
+            }
+
+            .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container .meeting-code-copy-icon:hover {
+                background-position: -62px -10px;
+            }
+
+            .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .copy-icon-container .meeting-code-copy-icon:active {
+                background-position: -10px -62px;
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container {
+            height: 59px;
+            position: relative;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin: 11px auto;
+            cursor: pointer;
+            width: 200px;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content {
+                margin: 6px auto;
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content:hover .collect-to-my-meetings {
+            color: #198cff;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content:hover .calender-icon {
+            background-position: -46px -10px;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content:hover .calender-icon {
+                background-position: -62px -10px;
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content:active .collect-to-my-meetings {
+            color: #0054e6;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content:active .calender-icon {
+            background-position: -10px -46px;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content:active .calender-icon {
+                background-position: -10px -62px;
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content .collect-to-my-meetings {
+            text-align: center;
+            vertical-align: middle;
+            font-size: 14px;
+            color: #006fff;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content .collect-to-my-meetings {
+                margin-left: -10px;
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content .calender-icon {
+            background-position: -10px -10px;
+            background-image: url(https://meeting.tencent.com/static/media/css_sprites_calender_default.24666ac4.png);
+            background-repeat: no-repeat;
+            height: 16px;
+            width: 16px;
+            margin-right: 6px;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .collect-to-my-meetings-content .calender-icon {
+                background-image: url(https://meeting.tencent.com/static/media/css_sprites_calender_2x.852a0a20.png);
+                background-repeat: no-repeat;
+                height: 32px;
+                width: 32px;
+                -webkit-transform: scale(.5);
+                transform: scale(.5);
+            }
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .collect-to-my-meetings-container .already-collected-to-my-meetings-content .already-collected-to-my-meetings {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 14px;
+            color: #939699;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 20px;
+            margin-top: 11px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-state {
+            font-size: 12px;
+            line-height: 12px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-state.meeting-ing-color {
+            color: #006fff;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time .meeting-time-left-container {
+            position: absolute;
+            left: 20px;
+            top: 3px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time .meeting-time-right-container {
+            right: 20px;
+            position: absolute;
+            top: 3px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time .meeting-start-time {
+            font-size: 28px;
+            color: #2d3033;
+            line-height: 28px;
+            display: block;
+            font-family: PingFangSC-Medium, Microsoft YaHei;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time .meeting-start-time#tm-meeting-end-time {
+            text-align: right;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time .meeting-start-date {
+            display: inline-block;
+            font-size: 12px;
+            color: #000;
+            line-height: 12px;
+            margin-top: 8px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time .short-gray-line {
+            background: #ccc;
+            border-radius: 0;
+            width: 24px;
+            height: 1px;
+            margin-bottom: 20px;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time .meeting-duration-container .meeting-duration-content {
+            border-radius: 2px;
+            height: 18px;
+            padding: 2px;
+            font-size: 10px;
+            color: #5e6166;
+            text-align: center;
+            line-height: 15px;
+            margin-top: 5px;
+            margin-bottom: 11px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time .meeting-duration-container .meeting-duration-content .meeting-duration {
+            padding: 0 6px;
+            background: #edeff2;
+            display: inline-block;
+        }
+
+        .content .meeting-info-and-collect-to-my-meeting-container .meeting-time .meeting-duration-container .meeting-timezone {
+            height: 12px;
+            font-family: PingFangSC-Regular;
+            font-size: 12px;
+            color: #939699;
+            line-height: 12px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .content .we-btn {
+            margin: 12px auto 0;
+            text-align: center;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .content .we-btn .main-button {
+            width: 100%;
+            height: 44px;
+        }
+
+        .content .we-btn .main-button.confirm {
+            background: #006fff;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 16px;
+            color: #fff;
+            letter-spacing: 0;
+            line-height: 26px;
+            border: 1px solid #006fff;
+            margin-top: 12px;
+        }
+
+        .content .we-btn .main-button.confirm:hover {
+            background: #1a8cff;
+        }
+
+        .content .we-btn .main-button.confirm:active {
+            background: #0054e6;
+        }
+
+        .content .we-btn .main-button.confirm:disabled {
+            background: grey;
+            border-color: grey;
+        }
+
+        .content .we-btn .we-btn-2 {
+            border: 1px solid #e4e5e6;
+            display: none;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 16px;
+            color: #006fff;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 26px;
+        }
+
+        .content .we-btn .we-btn-2:hover {
+            background: #e1e2e5;
+            border: 1px solid #d4d6d8;
+        }
+
+        .content .we-btn .we-btn-2:active {
+            background: #d4d6d9;
+            border: 1px solid #ced0d2;
+        }
+
+        .content .we-btn .we-btn-wechat {
+            margin-top: 12px;
+            border: 1px solid #e4e5e6;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 16px;
+            color: #006fff;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 26px;
+        }
+
+        .content .we-btn .we-btn-wechat:hover {
+            background: #e1e2e5;
+            border: 1px solid #d4d6d8;
+        }
+
+        .content .we-btn .we-btn-wechat:active {
+            background: #d4d6d9;
+            border: 1px solid #ced0d2;
+        }
+
+        .content .we-btn .btn-wrap {
+            width: 91.5%;
+            margin: 0 auto;
+        }
+
+        .content .we-btn .has-password-tip {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            color: #939699;
+            line-height: 20px;
+            margin-top: 12px;
+        }
+
+        .content .msg-wrap {
+            display: none;
+            text-align: center;
+            margin-top: 120px;
+        }
+
+        .content .msg-wrap .msg-wrap-img {
+            width: 50.4px;
+            height: 78.05px;
+            background-image: url(https://meeting.tencent.com/static/media/book_2x.d3f0aa86.png);
+            background-size: cover;
+            margin: 0 auto;
+        }
+
+        .content .msg-wrap .medium-gray-line-container {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .content .msg-wrap .medium-gray-line-container .medium-gray-line {
+            display: inline-block;
+            background: #e0e2e5;
+            border-radius: 0;
+            width: 32px;
+            height: 1px;
+            margin-top: 20px;
+        }
+
+        .content .msg-wrap .medium-gray-line-container .medium-gray-line.medium-gray-line-left {
+            margin-right: 12px;
+        }
+
+        .content .msg-wrap .medium-gray-line-container .medium-gray-line.medium-gray-line-right {
+            margin-left: 12px;
+        }
+
+        .content .msg-wrap .msg-wrap-txt {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 18px;
+            color: #ff3c33;
+            letter-spacing: 0;
+            line-height: 20px;
+        }
+
+        .content .msg-wrap .msg-wrap-txt {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .content .foot-wrap {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            left: 0;
+            right: 0;
+            bottom: 35px;
+            margin: auto;
+            position: absolute;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .content .foot-txt {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            color: #939699;
+            letter-spacing: 0;
+            line-height: 20px;
+            text-align: center;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            background: #f8f9fb;
+        }
+
+        .content .foot-txt .copy-meeting-invitation-text {
+            color: #006fff;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .content .foot-txt .copy-meeting-invitation-text:hover {
+            color: #198cff;
+        }
+
+        .content .foot-txt .copy-meeting-invitation-text:active {
+            color: #0054e6;
+        }
+
+        .android-download-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .8);
+            background-size: cover;
+            color: #fff;
+        }
+
+        .android-download-container .content-container {
+            text-align: right;
+            margin-right: 6%;
+            padding-top: 5%;
+        }
+
+        .android-download-container .hint-container {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-align-items: baseline;
+            -ms-flex-align: baseline;
+            align-items: baseline;
+            width: 100%;
+            -webkit-justify-content: flex-end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            margin-bottom: 5%;
+        }
+
+        .android-download-container .hint-container p {
+            font-size: 14px;
+            margin-right: 2%;
+        }
+
+        .m-qrcode-dialog {
+            display: none;
+        }
+
+        .m-qrcode-dialog .dialog-mask {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            opacity: .6;
+            background: #000;
+            z-index: 1;
+        }
+
+        .m-qrcode-dialog .dialog-wrap-content {
+            position: fixed;
+            bottom: 114px;
+            background: #fff;
+            z-index: 2;
+            margin: 0 8px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            left: 0;
+            right: 0;
+            border-radius: 8px;
+        }
+
+        .m-qrcode-dialog .dialog-wrap-content .dialog-wrap-title {
+            font-family: Helvetica, Microsoft YaHei;
+            font-size: 13px;
+            color: #8f8f8f;
+            letter-spacing: -.08px;
+            text-align: center;
+            line-height: 18px;
+            padding: 14px 0 13px;
+        }
+
+        .m-qrcode-dialog .dialog-wrap-content .dialog-wrap-items .dialog-wrap-item {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 16px;
+            color: #007aff;
+            letter-spacing: .3px;
+            text-align: center;
+            line-height: 24px;
+            padding: 17px 8px 16px;
+            position: relative;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .m-qrcode-dialog .dialog-wrap-content .dialog-wrap-items .dialog-wrap-item:before {
+            content: " ";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid #e5e5e5;
+            color: #e5e5e5;
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .m-qrcode-dialog .dialog-wrap-content .dialog-wrap-items .dialog-wrap-item:before {
+                content: " ";
+                position: absolute;
+                left: 0;
+                top: -1px;
+                right: 0;
+                height: 1px;
+                border-bottom: 1px solid #e5e5e5;
+                color: #e5e5e5;
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                -webkit-transform: scaleY(.5);
+                transform: scaleY(.5);
+            }
+        }
+
+        .m-qrcode-dialog .dialog-wrap-content .dialog-wrap-items .dialog-wrap-item.hide-dialog-wrap-item {
+            display: none;
+        }
+
+        .m-qrcode-dialog .dialog-wrap-content .dialog-wrap-items .dialog-wrap-item .item-phone-num {
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .m-qrcode-dialog .dialog-wrap-content .dialog-wrap-items .dialog-wrap-item .item-phone-txt {
+            min-width: 80px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .m-qrcode-dialog .dialog-wrap-btn {
+            position: fixed;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            background: #fff;
+            margin: 0 8px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            min-height: 56px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .m-qrcode-dialog .dialog-wrap-btn .cancel-btn {
+            font-family: Helvetica, Microsoft YaHei;
+            font-size: 20px;
+            color: #007aff;
+            letter-spacing: .38px;
+            text-align: center;
+            line-height: 24px;
+            outline: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .qrcode-dialog-common .dialog-mask {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: hsla(0, 0%, 100%, .8);
+            z-index: 1;
+        }
+
+        .qrcode-dialog-common .dialog-wrap {
+            position: fixed;
+            z-index: 2;
+            width: 460px;
+            height: 460px;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: #fff;
+            -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+            border-radius: 2px;
+        }
+
+        .qrcode-dialog-common .dialog-wrap .dialog-wrap-div {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .qrcode-dialog-common .dialog-wrap .dialog-wrap-close {
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+            background-image: url(https://meeting.tencent.com/static/media/icon_close_normal.5598203e.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            right: 11.5px;
+            top: 11.5px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .qrcode-dialog-common .dialog-wrap .dialog-wrap-close {
+                background-image: url(https://meeting.tencent.com/static/media/icon_close_normal_2x.7fe1b947.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .qrcode-dialog-common .dialog-wrap .dialog-wrap-close:hover {
+            background-image: url(https://meeting.tencent.com/static/media/icon_close_hover.1b49d61a.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .qrcode-dialog-common .dialog-wrap .dialog-wrap-close:hover {
+                background-image: url(https://meeting.tencent.com/static/media/icon_close_hover_2x.2a545a20.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .qrcode-dialog-common .dialog-wrap .dialog-wrap-close:active {
+            background-image: url(https://meeting.tencent.com/static/media/icon_close_press.690f158e.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio: 2) {
+            .qrcode-dialog-common .dialog-wrap .dialog-wrap-close:active {
+                background-image: url(https://meeting.tencent.com/static/media/icon_close_press_2x.b09a832d.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .qrcode-dialog {
+            display: none;
+        }
+
+        .qrcode-dialog .dialog-wrap .dialog-wrap-msg {
+            display: inline-block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .qrcode-dialog .dialog-wrap .dialog-wrap-msg .qrcode-dialog-img {
+            width: 260px;
+            height: 260px;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .qrcode-dialog .dialog-wrap .dialog-wrap-msg .dialog-wrap-txt {
+            font-family: MicrosoftYaHei, Microsoft YaHei;
+            font-size: 16px;
+            color: #000;
+            line-height: 20px;
+            margin-top: 12px;
+        }
+
+        .tel-entry-dialog {
+            display: none;
+        }
+
+        .tel-entry-dialog .dialog-wrap {
+            background: #fff;
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .3);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .3);
+            border-radius: 8px;
+            min-width: 389px;
+            width: auto;
+            height: auto;
+        }
+
+        .tel-entry-dialog .dialog-wrap .dialog-wrap-msg .dialog-wrap-title {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 18px;
+            color: #2d3033;
+            letter-spacing: 0;
+            line-height: 28px;
+            text-align: left;
+            padding: 32px 24px 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .tel-entry-dialog .dialog-wrap .dialog-wrap-msg .dialog-wrap-content {
+            padding: 0 24px 32px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .tel-entry-dialog .dialog-wrap .dialog-wrap-msg .dialog-wrap-content .dialog-wrap-item {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            margin-top: 12px;
+        }
+
+        .tel-entry-dialog .dialog-wrap .dialog-wrap-msg .dialog-wrap-content .dialog-wrap-item.hide-dialog-wrap-item {
+            display: none;
+        }
+
+        .tel-entry-dialog .dialog-wrap .dialog-wrap-msg .dialog-wrap-content .dialog-wrap-item .item-txt {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 14px;
+            color: #2d3033;
+            letter-spacing: 0;
+            text-align: left;
+            line-height: 24px;
+        }
+
+        .tel-entry-dialog .dialog-wrap .dialog-wrap-msg .dialog-wrap-content .dialog-wrap-item .item-btn {
+            min-width: 56px;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 14px;
+            color: #006fff;
+            letter-spacing: 0;
+            text-align: right;
+            line-height: 24px;
+            outline: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .qrcode-dialog-2 {
+            display: none;
+        }
+
+        .qrcode-dialog-2 .dialog-mask {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            opacity: .6;
+            background: #000;
+            border-radius: 0;
+        }
+
+        .qrcode-dialog-2 .dialog-wrap .dialog-wrap-msg {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            background: #fff;
+            border-radius: 0;
+            width: 100%;
+            height: 375px;
+            z-index: 2;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .qrcode-dialog-2 .dialog-wrap .dialog-wrap-msg img {
+            width: 240px;
+            height: 240px;
+            margin-bottom: 12px;
+        }
+
+        .qrcode-dialog-2 .dialog-wrap .dialog-wrap-msg .dialog-wrap-txt {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 16px;
+            color: #2d3033;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 28px;
+        }
+
+        .qrcode-join-dialog-img {
+            display: none;
+            line-height: 1.5;
+        }
+
+        .qrcode-join-dialog-img .periodical-icon {
+            display: none;
+            position: absolute;
+            height: 24px;
+            line-height: 24px;
+            top: -2%;
+            left: 6%;
+            background: #fff;
+            border: 1px solid #006fff;
+            border-radius: 4px;
+            text-align: center;
+            padding: 0 5px;
+            font-family: PingFangSC-Regular;
+            font-size: 12px;
+            color: #006fff;
+        }
+
+        .qrcode-join-dialog-img .periodical-icon.pc {
+            top: 5%;
+        }
+
+        .qrcode-join-dialog-img .dialog-mask {
+            position: fixed;
+            width: 100%;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            opacity: .6;
+            background: #000;
+            border-radius: 0;
+        }
+
+        .qrcode-join-dialog-img .qrcode-dialog-wrap {
+            position: fixed;
+            z-index: 2;
+            width: 90%;
+            top: 50%;
+            left: 50%;
+            max-width: 343px;
+            -webkit-transform: translate(-50%, -60%);
+            transform: translate(-50%, -60%);
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .qrcode-join-dialog-img .qrcode-dialog-wrap.join-wrap {
+            top: 53%;
+        }
+
+        .qrcode-join-dialog-img .qrcode-dialog-wrap .qrcode-img-to-save {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            display: block;
+        }
+
+        .qrcode-join-dialog-img .qrcode-dialog-wrap .qrcode-img-fail {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .qrcode-join-dialog-img .qrcode-dialog-wrap .qrcode-img-fail .reload-img {
+            width: 50%;
+            height: 33%;
+            background-image: url(https://meeting.tencent.com/static/media/qrcode_fail2x.54b9aa78.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+        }
+
+        .qrcode-join-dialog-img .dialog-tips {
+            z-index: 2;
+            text-align: center;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 12px;
+            color: #fff;
+            letter-spacing: 0;
+            margin-top: .625rem;
+        }
+
+        .qrcode-join-dialog-img .dialog-tips-pc {
+            z-index: 2;
+            margin-top: .625rem;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .qrcode-join-dialog-img .dialog-tips-pc > div {
+            border: 1px solid #c8cacc;
+            -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .09);
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, .09);
+            border-radius: 8px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            line-height: 2;
+            padding: 6px;
+            cursor: pointer;
+        }
+
+        .qrcode-join-dialog-img .dialog-tips-pc > div .icon {
+            width: 24px;
+            height: 100%;
+            background-image: url(https://meeting.tencent.com/static/media/qrcode_download2x.942135fa.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            margin-right: .3rem;
+        }
+
+        .qrcode-join-dialog-img .dialog-tips-pc > div > span {
+            text-align: center;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: .75rem;
+            color: #fff;
+            padding-right: 8px;
+        }
+
+        .qrcode-join-dialog-img .dialog-close {
+            z-index: 2;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            margin-top: .75rem;
+        }
+
+        .qrcode-join-dialog-img .dialog-close > span {
+            width: 2.25rem;
+            height: 2.25rem;
+            background-image: url(https://meeting.tencent.com/static/media/qrcode_close2x.4855e06e.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+        }
+
+        .qrcode-join-dialog-img .dialog-close-pc {
+            z-index: 2;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: flex-end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            width: 110%;
+        }
+
+        .qrcode-join-dialog-img .dialog-close-pc > div {
+            width: 2.25rem;
+            height: 2.25rem;
+            background-image: url(https://meeting.tencent.com/static/media/qrcode_close2x.4855e06e.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .qrcode-join-dialog {
+            width: 90%;
+            max-width: 343px;
+            text-align: center;
+            background: #fff;
+            -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+            border-radius: 20px;
+            line-height: 1.5;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top {
+            width: 100%;
+            height: 40%;
+            -webkit-justify-content: flex-end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top, .qrcode-join-dialog .dialog-wrap-top .title-and-code {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .title-and-code {
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .title-and-code .title {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 1.25rem;
+            letter-spacing: 0;
+            text-align: center;
+            max-width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .title-and-code .number {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 1.25rem;
+            letter-spacing: 0;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .title-and-code .number .lock {
+            display: none;
+            margin-right: 8px;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-top: 4%;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .timezone {
+            position: absolute;
+            bottom: .18rem;
+            height: .75rem;
+            font-family: PingFangSC-Regular;
+            font-size: .75rem;
+            color: #939699;
+            line-height: .75rem;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            left: 50%;
+            width: 100%;
+            margin-left: -50%;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+            justify-content: space-around;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            width: 90%;
+            position: relative;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner .date {
+            font-size: .75rem;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner .left {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 1.75rem;
+            color: #2d3033;
+            letter-spacing: 0;
+            text-align: left;
+            max-width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner .mid {
+            max-width: 35%;
+            text-align: center;
+            width: 92%;
+            position: relative;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner .mid .after, .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner .mid .before {
+            content: "";
+            background: #ccc;
+            border-radius: 0;
+            height: 1px;
+            width: 15%;
+            top: 50%;
+            display: block;
+            position: absolute;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner .mid .before {
+            left: 0;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner .mid .after {
+            right: 0;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner .mid > div {
+            background: #edeff2;
+            border-radius: 2px;
+            padding: 2px;
+            font-family: PingFangSC-Regular;
+            font-size: .625rem;
+            color: #5e6166;
+            text-align: center;
+            line-height: 15px;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .time-and-date .inner .right {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 1.75rem;
+            color: #2d3033;
+            letter-spacing: 0;
+            text-align: right;
+            max-width: 80%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .dash-line {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background: #5e6166;
+            height: 14px;
+            margin-top: 5%;
+            -webkit-align-self: center;
+            -ms-flex-item-align: center;
+            align-self: center;
+            width: 101%;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-top .dash-line > span {
+            max-width: 100%;
+            width: 100%;
+            height: 15px;
+            background-image: url(https://meeting.tencent.com/static/media/qrcode_dash2x.55e4d7e1.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            display: inline-block;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom {
+            width: 100%;
+            height: 60%;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .top-bg-img {
+            position: absolute;
+            left: 0;
+            width: 33%;
+            height: 20%;
+            z-index: -1;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .top-bg-img > img {
+            width: 100%;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .bottom-bg-img {
+            position: absolute;
+            width: 66%;
+            height: 36%;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .bottom-bg-img > img {
+            width: 100%;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .bottom-top {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-top: 6%;
+            width: 100%;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .bottom-top .join-qrcode-wrap {
+            background: #fff;
+            border: 1px solid #dcdee0;
+            border-radius: 8px;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .bottom-top .join-qrcode-wrap .bg {
+            max-width: 28%;
+            background: #fff;
+            display: inline-block;
+            position: absolute;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .bottom-top .join-qrcode-wrap .logo {
+            max-width: 25%;
+            display: inline-block;
+            position: absolute;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .bottom-top .join-qrcode-wrap .logo > img {
+            width: 100%;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .bottom-top .join-qrcode-wrap .join-qrcode {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .bottom-top .tips {
+            font-family: PingFangSC-Regular;
+            font-size: .75rem;
+            color: #171819;
+            text-align: center;
+            line-height: 2.25rem;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .icon {
+            text-align: center;
+            width: 61%;
+            position: relative;
+            height: 10%;
+            margin-top: .625rem;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .icon .after, .qrcode-join-dialog .dialog-wrap-bottom .icon .before {
+            background: #ebebeb;
+            border-radius: 0;
+            height: 1px;
+            width: 21%;
+            top: 50%;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .icon .before {
+            left: 0;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .icon .after {
+            right: 0;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .icon .mid {
+            width: 46%;
+            height: 55%;
+            display: inline-block;
+        }
+
+        .qrcode-join-dialog .dialog-wrap-bottom .icon .mid > img {
+            width: 100%;
+        }
+
+        .in-mobile {
+            height: 100%;
+        }
+
+        .in-mobile .app {
+            min-height: 638px;
+            height: 100%;
+        }
+
+        @media screen and (max-height: 667px) {
+            .in-mobile .app {
+                min-height: 608px;
+                height: 608px;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            .in-mobile .app {
+                min-height: 638px;
+            }
+
+            .in-mobile .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-info .meeting-time .short-gray-line {
+                width: 16px;
+            }
+
+            .in-mobile .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-info .meeting-time .short-gray-line.line-left {
+                margin-left: -8px;
+                margin-right: 6px;
+            }
+
+            .in-mobile .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-info .meeting-time .short-gray-line.line-right {
+                margin-left: 6px;
+                margin-right: -8px;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            .in-mobile .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-info .meeting-time .meeting-time-left-container {
+                left: 8px;
+            }
+
+            .in-mobile .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-info .meeting-time .meeting-time-right-container {
+                right: 8px;
+            }
+
+            .in-mobile .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-info .meeting-time .short-gray-line {
+                width: 16px;
+            }
+
+            .in-mobile .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-info .meeting-time .short-gray-line.line-left {
+                margin-left: -8px;
+                margin-right: 6px;
+            }
+
+            .in-mobile .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-info .meeting-time .short-gray-line.line-right {
+                margin-left: 6px;
+                margin-right: -8px;
+            }
+        }
+
+        #launch-app-container.content {
+            margin: auto;
+            max-width: 375px;
+            text-align: center;
+        }
+
+        #launch-app-container.content #click-here-for-launch-app {
+            display: none;
+        }
+
+        #launch-app-container.content .main-wrap {
+            padding-top: 92px;
+        }
+
+        #launch-app-container.content .main-wrap .specially-invited-meeting-icon {
+            border-left: 24px solid #0c6;
+            border-bottom: 24px solid #0c6;
+            border-color: #0c6 #0c6 transparent transparent;
+            border-style: solid;
+            border-width: 24px;
+            border-top-right-radius: 6px;
+            content: "";
+            position: absolute;
+            width: 0;
+            top: 0;
+            right: 0;
+        }
+
+        #launch-app-container.content .main-wrap .specially-invited-meeting-txt {
+            position: absolute;
+            top: 11px;
+            right: 1px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: .8px;
+            text-align: center;
+        }
+
+        #launch-app-container.content .main-wrap .logo .logo-img {
+            width: 116px;
+            height: 116px;
+            background-image: url(https://meeting.tencent.com/static/media/logo_2x.19fbb9dd.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+        }
+
+        #launch-app-container.content .main-wrap .logo .logo-txt {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 16px;
+            color: #2d3033;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 26px;
+            padding: 30px 0;
+        }
+
+        #launch-app-container.content .main-wrap .desc {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 14px;
+            color: #939699;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 24px;
+        }
+
+        #launch-app-container.content .main-wrap .desc .link {
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 14px;
+            color: #006fff;
+            letter-spacing: 0;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #launch-app-container.content .main-wrap .desc .link:hover {
+            color: #198cff;
+        }
+
+        #launch-app-container.content .main-wrap .desc .link:active {
+            color: #0054e6;
+        }
+
+        #launch-app-container.content .main-wrap .desc {
+            padding: 0 30px;
+        }
+
+        #launch-app-container.content .we-btn {
+            margin-top: 40px;
+            padding: 0 28px;
+            max-width: inherit;
+        }
+
+        #launch-app-container.content .we-btn .main-button.confirm {
+            margin-top: unset;
+        }
+
+        .in-mobile {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        #req-debug-info {
+            word-break: break-all;
+        }
+
+        .tm-collect-direction {
+            display: none;
+        }
+
+        .tm-collect-direction .dialog-mask {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1001;
+            opacity: .6;
+            background: #000;
+        }
+
+        .tm-collect-direction .dialog-wrap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 300px;
+            z-index: 1002;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: 8px;
+            width: 343px;
+            margin: 40px auto 0;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .tm-collect-direction .dialog-wrap .dialog-wrap-content {
+            min-height: 38px;
+            font-family: PingFangSC-Regular, Microsoft YaHei;
+            font-size: 16px;
+            letter-spacing: .3px;
+            text-align: center;
+            line-height: 24px;
+            margin: 10px auto 21px;
+            position: relative;
+        }
+
+        .tm-collect-direction .dialog-wrap .dialog-wrap-content .dialog-direction-part {
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0;
+            text-align: center;
+            line-height: 24px;
+        }
+
+        .tm-collect-direction .dialog-wrap .dialog-wrap-content .dialog-already-known-button {
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 0;
+            line-height: 14px;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            width: 120px;
+            height: 34px;
+            text-align: center;
+            vertical-align: middle;
+            margin: 16px auto 0;
+            outline: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .tm-collect-direction .dialog-wrap .dialog-wrap-content .dialog-already-known-button .dialog-already-known-text {
+            margin-top: 10px;
+        }
+
+        #root-toast2-components {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        #we-dialog {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+        }
+
+        #ChooseLangDialog {
+            display: none;
+        }
+
+        /*! CSS Used keyframes */
+        @keyframes spinner-12 {
+            0% {
+                -webkit-transform: rotate(0);
+            }
+            8.333333333333332% {
+                -webkit-transform: rotate(30deg);
+            }
+            16.666666666666664% {
+                -webkit-transform: rotate(60deg);
+            }
+            25% {
+                -webkit-transform: rotate(90deg);
+            }
+            33.33333333333333% {
+                -webkit-transform: rotate(120deg);
+            }
+            41.66666666666667% {
+                -webkit-transform: rotate(150deg);
+            }
+            50% {
+                -webkit-transform: rotate(180deg);
+            }
+            58.333333333333336% {
+                -webkit-transform: rotate(210deg);
+            }
+            66.66666666666666% {
+                -webkit-transform: rotate(240deg);
+            }
+            75% {
+                -webkit-transform: rotate(270deg);
+            }
+            83.33333333333334% {
+                -webkit-transform: rotate(300deg);
+            }
+            91.66666666666666% {
+                -webkit-transform: rotate(330deg);
+            }
+        }</style>
+</head>
+<body class="in-mobile">
+
+<div id="appCtrl" class="app support-webp-container" style="display: block;">
+
+    <div id="detail-container" style="display:none">
+        <div id="contentCtrl" class="content">
+            <div id="welcome-header" class="header"><span id="welcome-tips" class="welcome-to-tm-meeting">- 欢迎使用FreyaLinker - </span>
+                <img id="tm-header-avatar" class="header-avatar" onclick="pageDetail.clickNickName()">
+                <div id="language-choose" class="language-choose" onclick="pageDetail.chooseLang()"><span
+                        id="language-text" class="language-text">简体中文</span>
+                </div>
+                <span id="meetingStateTextCtrl" class="header-txt orange-color" style="display: block;"></span>
+            </div>
+            <div class="meeting-info-and-collect-to-my-meeting-container">
+                <div class="periodical-meeting-tag" id="tm-periodical-meting-tag"></div>
+                <div class="meeting-info-container" id="tm-meeting-info-container">
+                    <div class="meeting-info" id="tm-meeting-info">
+                        <div class="meeting-title-container">
+                            <div class="meeting-title" id="tm-meeting-subject"
+                                 onclick="pageDetail.showAllSubjectHoverInPc(!0)">ID:Ptrace请求协助
+                            </div>
+                            <span id="tm-custom-title"></span></div>
+                        <div class="meeting-code-container"><span class="meeting-code-locked-icon"
+                                                                  id="tm-meeting-code-locked-icon"
+                                                                  style="visibility: hidden;"></span> <span
+                                class="meeting-code" id="tm-meeting-code">830 251 060</span>
+                            <div id="tm-pmi-meeting-limit" class="pmi-meeting-limit" style="display: none;"><span
+                                    id="limit-text" class="pmi-meeting-limit-text">限量</span></div>
+                            <div onclick="pageDetail.clickCopyMeetingCode()" class="copy-icon-container"><span
+                                    class="meeting-code-copy-icon"></span></div>
+                        </div>
+                    </div>
+                    <div class="for-hide-box-shadow-top"></div>
+                    <div class="meeting-info-left-bottom meeting-info-quarter"></div>
+                    <div class="meeting-info-right-bottom meeting-info-quarter"></div>
+                </div>
+                <div class="collect-to-my-meetings-container" id="tm-collect-to-my-meetings" style="display: block;">
+                    <div class="for-hide-box-shadow-bottom"></div>
+                    <div class="meeting-info-left-top meeting-info-quarter"></div>
+                    <div class="meeting-info-right-top meeting-info-quarter"></div>
+                    <div class="collect-to-my-meetings-content" id="tm-collect-to-my-meetings-content"
+                         onclick="pageDetail.syncToMyMeeting()" style="display: flex;"><span
+                            class="calender-icon"></span>
+                        <div id="collect-meeting" class="collect-to-my-meetings">复制协助密码</div>
+                    </div>
+                    <div class="already-collected-to-my-meetings-content"
+                         id="tm-already-collected-to-my-meetings-content" style="display: none;">
+                        <div id="already-collect" class="already-collected-to-my-meetings">已添加到我的会议</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mainButtons" class="we-btn" style="display: block; bottom: 75px;">
+                <div id="btnWrapCtrl" class="btn-wrap">
+                    <button id="joinBtnCtrl" onclick="pageDetail.onClickJoinMeetingButton()"
+                            class="main-button confirm">开始协助
+                    </button>
+                    <div class="has-password-tip" id="passwordTip" style="display: none;">会议已设置密码，请联系主持人获取</div>
+                </div>
+            </div>
+
+            <div id="footCtrl" class="foot-wrap">
+                <div class="foot-txt" id="footTxtCtrl">您可以<span class="copy-meeting-invitation-text"
+                                                                onclick="pageDetail.clickCopyMeetingUrl()">复制邀请邀请</span>，发送至协助人员
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="content" id="launch-app-container" style="">
+        <div class="main-wrap">
+            <div class="specially-invited-meeting-icon" id="tm-specially-invited-meeting-icon"
+                 style="display:none"></div>
+            <span class="specially-invited-meeting-txt" id="tm-specially-invited-meeting-text"
+                  style="display:none">特邀</span>
+            <div class="logo">
+                <div class="logo-img"></div>
+                <div class="logo-txt" id="tm-meeting-logo-txt">该页面会唤起FreyaLinker</div>
+                <div class="logo-txt" id="tm-specially-invited-meeting-logo-txt" style="display:none">
+                    正在唤起FreyaLinker远程协助...
+                </div>
+            </div>
+            <div class="desc" id="tm-meeting-desc">
+                <div id="tencentMeetingDescFirstTxt">若未安装Freya请先点击【立即下载】按钮</div>
+                <div id="pc-device">
+                    <div id="click-here" style="display: block;"><span
+                            id="pc-device-tips1">若您已安装了FreyaLinker，请</span><span
+                            id="pc-device-tips2" class="link" onclick="pageDownloadGuide.setClickOnHere()">点击此处</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="we-btn">
+            <button id="joinBtnCtrlLanuch" onclick="pageDownloadGuide.gotoDownload()" class="main-button confirm">立即下载
+            </button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

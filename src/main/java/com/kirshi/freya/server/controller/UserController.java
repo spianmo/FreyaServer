@@ -21,7 +21,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:UserController.java
- * @LastModified:2021-04-06T18:07:44.484+08:00
+ * @LastModified:2021-04-10T15:23:03.580+08:00
  */
 
 /**
@@ -104,7 +104,7 @@ public class UserController {
                 return new BaseResponse<>(CodeConstant.UserRegedited, "用户已被注册");
             }
         } else {
-            return new BaseResponse<>(CodeConstant.UserRegedited, "当前QQ账号已绑定另一Freya账号，请不要重复注册");
+            return new BaseResponse<>(CodeConstant.UserRegedited, "当前OAuth2.0鉴权账号已绑定另一Freya账号，请使用其他QQ账号绑定");
         }
         return new BaseResponse<>(CodeConstant.ArgumentNotValid, "参数错误");
     }

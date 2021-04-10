@@ -3,7 +3,7 @@
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:build.gradle
- * @LastModified:2021-04-06T00:53:35.716+08:00
+ * @LastModified:2021-04-10T15:23:03.564+08:00
  */
 
 plugins {
@@ -33,6 +33,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'

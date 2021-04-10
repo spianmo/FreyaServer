@@ -13,6 +13,7 @@ import com.kirshi.freya.server.service.AssistService;
 import com.kirshi.freya.server.utils.RandomUtil;
 import com.xuhao.didi.socket.common.interfaces.utils.TextUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -24,7 +25,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistController.java
- * @LastModified:2021-04-06T00:53:35.728+08:00
+ * @LastModified:2021-04-10T15:23:03.576+08:00
  */
 
 @RestController
@@ -32,6 +33,12 @@ import java.util.List;
 public class AssistController {
     @Resource
     private AssistService mAssistService;
+
+
+    @GetMapping("/invite")
+    public ModelAndView index() {
+        return new ModelAndView("quickAssist");
+    }
 
     @RequireLogin
     @PostMapping(value = "/add", produces = "application/json;charset=UTF-8")

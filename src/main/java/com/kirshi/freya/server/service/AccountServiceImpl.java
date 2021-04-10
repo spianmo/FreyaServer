@@ -14,7 +14,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AccountServiceImpl.java
- * @LastModified:2021-03-30T16:57:51.466+08:00
+ * @LastModified:2021-04-10T15:23:03.596+08:00
  */
 
 /**
@@ -49,6 +49,10 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public boolean isUserExist(String condition, String str) {
-        return mUserDao.selectUserByAccount(str).isEmpty();
+        if (condition.equals("OPEN_ID")) {
+            return mUserDao.selectUserByOpenId(str).isEmpty();
+        } else {
+            return mUserDao.selectUserByAccount(str).isEmpty();
+        }
     }
 }
