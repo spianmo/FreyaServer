@@ -8,12 +8,12 @@ import com.kirshi.freya.server.dto.AssistCreaterDto;
 import com.kirshi.freya.server.dto.AssistVisitorDto;
 import lombok.extern.slf4j.Slf4j;
 import org.intellij.lang.annotations.Language;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -21,7 +21,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistDao.java
- * @LastModified:2021-04-11T23:37:28.310+08:00
+ * @LastModified:2021-04-12T02:57:36.213+08:00
  */
 @Slf4j
 @Repository
@@ -35,7 +35,12 @@ public class AssistDao {
 
     public List<Device.Permission> queryVidPermissions(String vid) {
         @Language("MySQL") String sql = "SELECT permissions FROM t_assist WHERE vid = ?";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Device.Permission.class), vid);
+        return Arrays.asList(jdbcTemplate.queryForObject(sql, (rs, rowNum) -> {
+            Type type = new TypeToken<Device.Permission[]>() {
+            }.getType();
+            return new Gson().fromJson(rs.getString("permissions"), type);
+        }, vid));
+
     }
 
     public boolean insert(Assist assist) {
