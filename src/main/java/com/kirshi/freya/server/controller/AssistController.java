@@ -11,7 +11,6 @@ import com.kirshi.freya.server.dto.AssistCreaterDto;
 import com.kirshi.freya.server.dto.AssistVisitorDto;
 import com.kirshi.freya.server.service.AssistService;
 import com.kirshi.freya.server.utils.RandomUtil;
-import com.xuhao.didi.socket.common.interfaces.utils.TextUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,12 +19,13 @@ import javax.validation.Valid;
 import java.sql.Timestamp;
 import java.util.List;
 
+
 /**
  * Copyright (c) 2021
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistController.java
- * @LastModified:2021-04-10T15:23:03.576+08:00
+ * @LastModified:2021-04-11T23:37:28.303+08:00
  */
 
 @RestController
@@ -43,10 +43,6 @@ public class AssistController {
     @RequireLogin
     @PostMapping(value = "/add", produces = "application/json;charset=UTF-8")
     public BaseResponse<Assist> add(@Valid @RequestBody Assist assist) {
-        assist.setVid(RandomUtil.createUid(10));
-        if (TextUtils.isEmpty(assist.getSecret())) {
-            assist.setSecret(RandomUtil.createUid(6));
-        }
         assist.setStatus(Assist.Status.Unused);
         assist.setCreateTime(new Timestamp(System.currentTimeMillis()));
         if (mAssistService.insert(assist)) {
@@ -54,6 +50,16 @@ public class AssistController {
         } else {
             return new BaseResponse<>(CodeConstant.Faild, "创建远程协助邀请失败");
         }
+    }
+
+    @RequireLogin
+    @GetMapping(value = "/generateVid")
+    public BaseResponse<Object> generateVid() {
+        String vid = RandomUtil.createUid(10);
+        while (mAssistService.query(vid) == null) {
+            return new BaseResponse<>(CodeConstant.Success, (Object) vid);
+        }
+        return new BaseResponse<>(CodeConstant.Faild, "愚蠢的JAVA语法分析器");
     }
 
     @RequireLogin
@@ -80,13 +86,29 @@ public class AssistController {
     @RequireLogin
     @PostMapping(value = "/updateStatus")
     public BaseResponse<Assist> updateStatus(@RequestParam(name = "vid") String vid, @RequestParam(name = "status") Assist.Status status) {
-        return mAssistService.updateStatus(vid, status) ? new BaseResponse<>(CodeConstant.Faild, "设备状态暂时无法改变") : new BaseResponse<>(CodeConstant.Success, mAssistService.query(vid));
+        return mAssistService.updateStatus(vid, status) ? new BaseResponse<>(CodeConstant.Success, mAssistService.query(vid)) : new BaseResponse<>(CodeConstant.Faild, "设备状态暂时无法改变");
     }
 
     @RequireLogin
-    @PostMapping(value = "/updatePeerUid")
-    public BaseResponse<Assist> updatePeerUid(@RequestParam(name = "vid") String vid, @RequestParam(name = "peerUid") String peerUid) {
-        return mAssistService.updatePeerUid(vid, peerUid) ? new BaseResponse<>(CodeConstant.Faild, "设置协助会话对端Uid失败") : new BaseResponse<>(CodeConstant.Success, mAssistService.query(vid));
+    @PostMapping(value = "/peer")
+    public BaseResponse<Assist> updatePeerUid(@RequestParam(name = "vid") String vid, @RequestParam(name = "secret") String secret, @RequestHeader("uid") String peerUid) {
+        Assist assist = mAssistService.query(vid);
+        if (assist == null) {
+            return new BaseResponse<>(CodeConstant.Faild, "ID为" + vid + "的会话并不存在");
+        }
+        if (assist.getSecret().equals(secret)) {
+            if (assist.getStatus() == Assist.Status.Unused) {
+                if (assist.getUid().equals(peerUid)) {
+                    return new BaseResponse<>(CodeConstant.Faild, "请不要尝试连接自己");
+                }
+                mAssistService.updateStatus(vid, Assist.Status.Used);
+                return mAssistService.updatePeerUid(vid, peerUid) ? new BaseResponse<>(CodeConstant.Success, mAssistService.query(vid)) : new BaseResponse<>(CodeConstant.Faild, "设置协助会话对端Uid失败");
+            } else {
+                return new BaseResponse<>(CodeConstant.Faild, "该协助会话已被其他账号占用");
+            }
+        } else {
+            return new BaseResponse<>(CodeConstant.Faild, "会话密码错误");
+        }
     }
 
     @RequireLogin

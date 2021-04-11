@@ -15,7 +15,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistServiceImpl.java
- * @LastModified:2021-04-06T00:53:35.759+08:00
+ * @LastModified:2021-04-11T23:37:28.323+08:00
  */
 @Service
 public class AssistServiceImpl implements AssistService {
@@ -47,7 +47,8 @@ public class AssistServiceImpl implements AssistService {
 
     @Override
     public Assist query(String vid) {
-        return mAssistDao.query(vid).get(0);
+        List<Assist> list = mAssistDao.query(vid);
+        return list.isEmpty() ? null : list.get(0);
     }
 
     @Override

@@ -6,6 +6,7 @@ import com.kirshi.freya.server.bean.Assist;
 import com.kirshi.freya.server.bean.Device;
 import com.kirshi.freya.server.dto.AssistCreaterDto;
 import com.kirshi.freya.server.dto.AssistVisitorDto;
+import lombok.extern.slf4j.Slf4j;
 import org.intellij.lang.annotations.Language;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,8 +21,9 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistDao.java
- * @LastModified:2021-04-10T15:23:03.585+08:00
+ * @LastModified:2021-04-11T23:37:28.310+08:00
  */
+@Slf4j
 @Repository
 public class AssistDao {
     @Resource
@@ -38,22 +40,39 @@ public class AssistDao {
 
     public boolean insert(Assist assist) {
         @Language("MySQL") String sql = "INSERT INTO t_assist (vid, uid, secret, access, permissions, device_id,status,create_time) VALUES (?,?,?,?,?,?,?,?)";
-        return jdbcTemplate.update(sql, assist.getVid(), assist.getUid(), assist.getSecret(), assist.getAccess(), assist.getPermissions(), assist.getDeviceId(), assist.getStatus(), assist.getCreateTime()) == 1;
+        return jdbcTemplate.update(sql, assist.getVid(), assist.getUid(), assist.getSecret(), assist.getAccess().name(), new Gson().toJson(assist.getPermissions()), assist.getDeviceId(), assist.getStatus().name(), assist.getCreateTime()) == 1;
     }
 
     public List<Assist> query(String vid) {
         @Language("MySQL") String sql = "SELECT * FROM t_assist WHERE vid = ?";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Assist.class), vid);
+        return jdbcTemplate.query(sql, (rs, rowNum) -> {
+            Type type = new TypeToken<Device.Permission[]>() {
+            }.getType();
+            Device.Permission[] permissions = new Gson().fromJson(rs.getString("permissions"), type);
+            Assist assist = Assist.builder()
+                    .peerUid(rs.getString("peer_uid"))
+                    .vid(rs.getString("vid"))
+                    .alias(rs.getString("alias"))
+                    .uid(rs.getString("uid"))
+                    .secret(rs.getString("secret"))
+                    .access(Assist.Access.valueOf(rs.getString("access")))
+                    .permissions(permissions)
+                    .deviceId(rs.getString("device_id"))
+                    .status(Assist.Status.valueOf(rs.getString("status")))
+                    .createTime(rs.getTimestamp("create_time"))
+                    .build();
+            return assist;
+        }, vid);
     }
 
     public boolean update(String vid, Assist assist) {
         @Language("MySQL") String sql = "UPDATE t_assist SET secret = ?,access = ?,permissions = ? WHERE vid = ?";
-        return jdbcTemplate.update(sql, assist.getSecret(), assist.getAccess(), assist.getPermissions(), vid) == 1;
+        return jdbcTemplate.update(sql, assist.getSecret(), assist.getAccess().name(), new Gson().toJson(assist.getPermissions()), vid) == 1;
     }
 
     public boolean updateStatus(String vid, Assist.Status status) {
         @Language("MySQL") String sql = "UPDATE t_assist SET status = ? WHERE vid = ?";
-        return jdbcTemplate.update(sql, status, vid) == 1;
+        return jdbcTemplate.update(sql, status.name(), vid) == 1;
     }
 
     public boolean updatePeerUid(String vid, String peerUid) {

@@ -14,7 +14,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:DeviceDao.java
- * @LastModified:2021-04-10T15:23:03.589+08:00
+ * @LastModified:2021-04-11T23:37:28.319+08:00
  */
 @Repository
 public class DeviceDao {
@@ -28,7 +28,7 @@ public class DeviceDao {
 
     public boolean insert(Device device) {
         @Language("MySQL") String sql = "INSERT INTO t_device (device_id, model, electricity, status, last_action_time) VALUES (?,?,?,?,?)";
-        return jdbcTemplate.update(sql, device.getDeviceId(), device.getModel(), device.getElectricity(), device.getStatus(), device.getLastActionTime()) == 1;
+        return jdbcTemplate.update(sql, device.getDeviceId(), device.getModel(), device.getElectricity(), device.getStatus().name(), device.getLastActionTime()) == 1;
     }
 
     public List<Device> query(String deviceId) {
@@ -38,7 +38,7 @@ public class DeviceDao {
 
     public boolean update(String deviceId, Device device) {
         @Language("MySQL") String sql = "UPDATE t_device SET model = ?,electricity = ?,status = ?,last_action_time = ? WHERE device_id = ?";
-        return jdbcTemplate.update(sql, device.getModel(), device.getElectricity(), device.getStatus(), device.getLastActionTime(), deviceId) == 1;
+        return jdbcTemplate.update(sql, device.getModel(), device.getElectricity(), device.getStatus().name(), device.getLastActionTime(), deviceId) == 1;
     }
 
 }
