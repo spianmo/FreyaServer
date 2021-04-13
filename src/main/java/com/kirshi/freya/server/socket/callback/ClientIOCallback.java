@@ -25,7 +25,7 @@ import static com.kirshi.freya.server.socket.callback.ServerReceiver.mClientInfo
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:ClientIOCallback.java
- * @LastModified:2021-03-27T01:09:45.768+08:00
+ * @LastModified:2021-04-14T02:09:19.834+08:00
  */
 
 public class ClientIOCallback implements IClientIOCallback {
@@ -43,6 +43,7 @@ public class ClientIOCallback implements IClientIOCallback {
     public void onClientRead(OriginalData originalData, IClient client, IClientPool<IClient, String> clientPool) {
         try {
             CommandProto.BaseCommandMessage msg_command = CommandProto.BaseCommandMessage.parseFrom(originalData.getBodyBytes());
+            //Log.i("\n原始报文："+msg_command.toString());
             switch (msg_command.getCmd()) {
                 case TK_ACTION_HANDSHAKE:
                     HandShakeProto.HandShakeMessage msg_handShake = msg_command.getData().unpack(HandShakeProto.HandShakeMessage.class);
@@ -52,7 +53,6 @@ public class ClientIOCallback implements IClientIOCallback {
                     mClientInfoBean.setHandShakeTime(System.currentTimeMillis());
                     mClientInfoBean.setConnected(false);
                     mClientInfoBean.setUniqueTag(client.getUniqueTag());
-
                     if (msg_handShake.getType() == HandShakeProto.Type.CLIENT) {
                         if (!isInClientPool()) {
                             mClientInfoBeanList.put(client.getUniqueTag(), mClientInfoBean);
@@ -127,7 +127,7 @@ public class ClientIOCallback implements IClientIOCallback {
 
     private HandShakeStatus doHandShake() {
         for (ConcurrentHashMap.Entry<String, ClientInfoBean> entry : mClientInfoBeanList.entrySet()) {
-            if (entry.getValue().getUid().equals(mClientInfoBean.getUid()) || entry.getValue().getScode().equals(mClientInfoBean.getScode()) || !entry.getValue().getUniqueTag().equals(mClientInfoBean.getUniqueTag())) {
+            if (entry.getValue().getScode().equals(mClientInfoBean.getScode()) && !entry.getValue().getUniqueTag().equals(mClientInfoBean.getUniqueTag())) {
                 if (!entry.getValue().isConnected()) {
                     entry.getValue().setPeerIClient(mClientInfoBean.getIClient());
                     entry.getValue().setPeerUniqueTag(mClientInfoBean.getUniqueTag());
