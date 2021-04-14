@@ -25,7 +25,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistController.java
- * @LastModified:2021-04-14T19:59:35.461+08:00
+ * @LastModified:2021-04-15T01:05:16.327+08:00
  */
 
 @RestController
@@ -103,8 +103,10 @@ public class AssistController {
                 }
                 mAssistService.updateStatus(vid, Assist.Status.Used);
                 return mAssistService.updatePeerUid(vid, peerUid) ? new BaseResponse<>(CodeConstant.Success, mAssistService.query(vid)) : new BaseResponse<>(CodeConstant.Faild, "设置协助会话对端Uid失败");
+            } else if (assist.getStatus() == Assist.Status.Used) {
+                return new BaseResponse<>(CodeConstant.Faild, "该协助会话已处于被占用状态");
             } else {
-                return new BaseResponse<>(CodeConstant.Faild, "该协助会话已被其他账号占用");
+                return new BaseResponse<>(CodeConstant.Faild, "该协助会话已被创建者销毁");
             }
         } else {
             return new BaseResponse<>(CodeConstant.Faild, "会话密码错误");
