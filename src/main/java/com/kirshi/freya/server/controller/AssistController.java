@@ -25,7 +25,7 @@ import java.util.List;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AssistController.java
- * @LastModified:2021-04-11T23:37:28.303+08:00
+ * @LastModified:2021-04-14T19:59:35.461+08:00
  */
 
 @RestController
@@ -36,7 +36,7 @@ public class AssistController {
 
 
     @GetMapping("/invite")
-    public ModelAndView index() {
+    public ModelAndView index(@RequestParam(name = "vid") String vid, @RequestParam(name = "secret") String secret, @RequestParam(name = "nick") String nick) {
         return new ModelAndView("quickAssist");
     }
 

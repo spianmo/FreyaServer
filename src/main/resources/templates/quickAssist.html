@@ -3,7 +3,7 @@
   ~ @Project:FreyaServer
   ~ @Author:Finger
   ~ @FileName:quickAssist.html
-  ~ @LastModified:2021-04-11T23:37:28.331+08:00
+  ~ @LastModified:2021-04-14T19:59:35.468+08:00
   -->
 
 <html>
@@ -536,7 +536,6 @@
         }
 
 
-
         .content .meeting-info-and-collect-to-my-meeting-container .meeting-info-container .meeting-code-container .pmi-meeting-limit .pmi-meeting-limit-text {
             font-size: 12px;
             color: #4a4a4a;
@@ -962,11 +961,11 @@
         }
 
 
-
         .android-download-container .hint-container p {
             font-size: 14px;
             margin-right: 2%;
         }
+
         .qrcode-dialog-2 .dialog-wrap .dialog-wrap-msg img {
             width: 240px;
             height: 240px;
@@ -997,8 +996,6 @@
             color: #fff;
             padding-right: 8px;
         }
-
-
 
 
         .in-mobile {
@@ -1203,10 +1200,10 @@
         }</style>
 </head>
 <body class="in-mobile">
-
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 <div id="appCtrl" class="app support-webp-container" style="display: block;">
 
-    <div id="detail-container" style="display:none">
+    <div id="detail-container" style="display:block">
         <div id="contentCtrl" class="content">
             <div id="welcome-header" class="header"><span id="welcome-tips" class="welcome-to-tm-meeting">- 欢迎使用FreyaLinker - </span>
                 <img id="tm-header-avatar" class="header-avatar" onclick="pageDetail.clickNickName()">
@@ -1227,7 +1224,7 @@
                         <div class="meeting-code-container"><span class="meeting-code-locked-icon"
                                                                   id="tm-meeting-code-locked-icon"
                                                                   style="visibility: hidden;"></span> <span
-                                class="meeting-code" id="tm-meeting-code">830 251 060</span>
+                                class="meeting-code" id="tm-meeting-code">*** *** ***</span>
                             <div id="tm-pmi-meeting-limit" class="pmi-meeting-limit" style="display: none;"><span
                                     id="limit-text" class="pmi-meeting-limit-text">限量</span></div>
                             <div onclick="pageDetail.clickCopyMeetingCode()" class="copy-icon-container"><span
@@ -1256,7 +1253,7 @@
 
             <div id="mainButtons" class="we-btn" style="display: block; bottom: 75px;">
                 <div id="btnWrapCtrl" class="btn-wrap">
-                    <button id="joinBtnCtrl" onclick="pageDetail.onClickJoinMeetingButton()"
+                    <button id="joinBtnCtrl"
                             class="main-button confirm">开始协助
                     </button>
                     <div class="has-password-tip" id="passwordTip" style="display: none;">会议已设置密码，请联系主持人获取</div>
@@ -1265,7 +1262,7 @@
 
             <div id="footCtrl" class="foot-wrap">
                 <div class="foot-txt" id="footTxtCtrl">您可以<span class="copy-meeting-invitation-text"
-                                                                onclick="pageDetail.clickCopyMeetingUrl()">复制邀请邀请</span>，发送至协助人员
+                                                                id="clickCopyMeetingUrl">复制邀请邀请</span>，发送至协助人员
                 </div>
             </div>
 
@@ -1274,7 +1271,7 @@
 
     </div>
 
-    <div class="content" id="launch-app-container" style="">
+    <div class="content" id="launch-app-container" style="display:none">
         <div class="main-wrap">
             <div class="specially-invited-meeting-icon" id="tm-specially-invited-meeting-icon"
                  style="display:none"></div>
@@ -1292,17 +1289,57 @@
                 <div id="pc-device">
                     <div id="click-here" style="display: block;"><span
                             id="pc-device-tips1">若您已安装了FreyaLinker，请</span><span
-                            id="pc-device-tips2" class="link" onclick="pageDownloadGuide.setClickOnHere()">点击此处</span>
+                            id="pc-device-tips2" class="link">点击此处</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="we-btn">
-            <button id="joinBtnCtrlLanuch" onclick="pageDownloadGuide.gotoDownload()" class="main-button confirm">立即下载
+            <button id="joinBtnCtrlLanuch" class="main-button confirm">立即下载
             </button>
         </div>
     </div>
 </div>
+
+<script>
+    $.extend({
+        getUrlVars: function () {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        },
+        getUrlVar: function (name) {
+            return $.getUrlVars()[name];
+        }
+    });
+    var vid = $.getUrlVar("vid");
+    var secret = $.getUrlVar("secret");
+    var nick = $.getUrlVar("nick");
+    $("#tm-meeting-code").text(vid)
+    $("#tm-meeting-subject").text("ID:" + nick + "请求协助")
+    $("#tm-collect-to-my-meetings-content").click(function () {
+
+    })
+    $("#clickCopyMeetingUrl").click(function () {
+
+    })
+    $("#joinBtnCtrl").click(function () {
+        $("#detail-container").css('display', 'none')
+        open("freya://fastassist/path?vid=" + vid + "&secret=" + secret)
+        $("#launch-app-container").css('display', 'block')
+    })
+    $("#joinBtnCtrlLanuch").click(function () {
+        window.location = ""
+    })
+    $("#pc-device-tips2").click(function () {
+        open("freya://fastassist?vid=" + vid + "&secret=" + secret)
+    })
+</script>
 
 
 </body>
