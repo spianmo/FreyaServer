@@ -5,13 +5,14 @@ import com.kirshi.freya.server.bean.Version;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Copyright (c) 2021
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:AppController.java
- * @LastModified:2021-04-14T02:09:19.828+08:00
+ * @LastModified:2021-11-08T10:34:54.910+08:00
  */
 
 @RestController
@@ -37,5 +38,10 @@ public class AppController {
     @GetMapping("/announce")
     public Announcement getAnnouncement() {
         return Announcement.builder().build();
+    }
+
+    @GetMapping("/download")
+    public ModelAndView download() {
+        return new ModelAndView("download");
     }
 }

@@ -8,7 +8,7 @@ package com.kirshi.protocol;
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:CommandProto.java
- * @LastModified:2021-03-27T01:09:45.863+08:00
+ * @LastModified:2021-11-08T10:34:54.930+08:00
  */
 
 public final class CommandProto {
@@ -62,6 +62,14 @@ public final class CommandProto {
          * <code>ERR_COMMAND_COMMON = 7;</code>
          */
         ERR_COMMAND_COMMON(7),
+        /**
+         * <code>COMMAND_TOUCH = 8;</code>
+         */
+        COMMAND_TOUCH(8),
+        /**
+         * <code>COMMAND_SCREENCONTROL = 9;</code>
+         */
+        COMMAND_SCREENCONTROL(9),
         UNRECOGNIZED(-1),
         ;
 
@@ -97,11 +105,19 @@ public final class CommandProto {
          * <code>ERR_COMMAND_COMMON = 7;</code>
          */
         public static final int ERR_COMMAND_COMMON_VALUE = 7;
+        /**
+         * <code>COMMAND_TOUCH = 8;</code>
+         */
+        public static final int COMMAND_TOUCH_VALUE = 8;
+        /**
+         * <code>COMMAND_SCREENCONTROL = 9;</code>
+         */
+        public static final int COMMAND_SCREENCONTROL_VALUE = 9;
 
 
         public final int getNumber() {
             if (this == UNRECOGNIZED) {
-                throw new IllegalArgumentException(
+                throw new java.lang.IllegalArgumentException(
                         "Can't get the number of an unknown enum value.");
             }
             return value;
@@ -110,22 +126,35 @@ public final class CommandProto {
         /**
          * @deprecated Use {@link #forNumber(int)} instead.
          */
-        @Deprecated
+        @java.lang.Deprecated
         public static CommandInfo valueOf(int value) {
             return forNumber(value);
         }
 
         public static CommandInfo forNumber(int value) {
             switch (value) {
-                case 0: return COMMAND_FILETRANS;
-                case 1: return COMMAND_SCREENTRANS;
-                case 2: return COMMAND_CAMERALIVE;
-                case 3: return COMMAND_AUDIOLIVE;
-                case 4: return COMMAND_FILETRANS_AHEAD;
-                case 5: return SPC_COMMAND_AAC;
-                case 6: return SPC_COMMAND_H264;
-                case 7: return ERR_COMMAND_COMMON;
-                default: return null;
+                case 0:
+                    return COMMAND_FILETRANS;
+                case 1:
+                    return COMMAND_SCREENTRANS;
+                case 2:
+                    return COMMAND_CAMERALIVE;
+                case 3:
+                    return COMMAND_AUDIOLIVE;
+                case 4:
+                    return COMMAND_FILETRANS_AHEAD;
+                case 5:
+                    return SPC_COMMAND_AAC;
+                case 6:
+                    return SPC_COMMAND_H264;
+                case 7:
+                    return ERR_COMMAND_COMMON;
+                case 8:
+                    return COMMAND_TOUCH;
+                case 9:
+                    return COMMAND_SCREENCONTROL;
+                default:
+                    return null;
             }
         }
 
@@ -162,7 +191,7 @@ public final class CommandProto {
         public static CommandInfo valueOf(
                 com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
             if (desc.getType() != getDescriptor()) {
-                throw new IllegalArgumentException(
+                throw new java.lang.IllegalArgumentException(
                         "EnumValueDescriptor is not for this type.");
             }
             if (desc.getIndex() == -1) {
@@ -178,6 +207,240 @@ public final class CommandProto {
         }
 
         // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.CommandInfo)
+    }
+
+    /**
+     * Protobuf enum {@code com.kirshi.protocol.TouchType}
+     */
+    public enum TouchType
+            implements com.google.protobuf.ProtocolMessageEnum {
+        /**
+         * <code>GESTURE = 0;</code>
+         */
+        GESTURE(0),
+        /**
+         * <code>GESTURES = 1;</code>
+         */
+        GESTURES(1),
+        /**
+         * <code>FLING = 2;</code>
+         */
+        FLING(2),
+        /**
+         * <code>TAP = 3;</code>
+         */
+        TAP(3),
+        /**
+         * <code>LONGTAP = 4;</code>
+         */
+        LONGTAP(4),
+        /**
+         * <code>PRESS = 5;</code>
+         */
+        PRESS(5),
+        /**
+         * <code>HOME = 6;</code>
+         */
+        HOME(6),
+        /**
+         * <code>RECENTS = 7;</code>
+         */
+        RECENTS(7),
+        /**
+         * <code>BACKS = 8;</code>
+         */
+        BACKS(8),
+        /**
+         * <code>QUICKSETTINGS = 9;</code>
+         */
+        QUICKSETTINGS(9),
+        /**
+         * <code>SPLITSCREEN = 10;</code>
+         */
+        SPLITSCREEN(10),
+        /**
+         * <code>POWER = 11;</code>
+         */
+        POWER(11),
+        /**
+         * <code>LOCK_SCREEN = 12;</code>
+         */
+        LOCK_SCREEN(12),
+        /**
+         * <code>SCREENSHOT = 13;</code>
+         */
+        SCREENSHOT(13),
+        /**
+         * <code>NOTIFICATIONS = 14;</code>
+         */
+        NOTIFICATIONS(14),
+        UNRECOGNIZED(-1),
+        ;
+
+        /**
+         * <code>GESTURE = 0;</code>
+         */
+        public static final int GESTURE_VALUE = 0;
+        /**
+         * <code>GESTURES = 1;</code>
+         */
+        public static final int GESTURES_VALUE = 1;
+        /**
+         * <code>FLING = 2;</code>
+         */
+        public static final int FLING_VALUE = 2;
+        /**
+         * <code>TAP = 3;</code>
+         */
+        public static final int TAP_VALUE = 3;
+        /**
+         * <code>LONGTAP = 4;</code>
+         */
+        public static final int LONGTAP_VALUE = 4;
+        /**
+         * <code>PRESS = 5;</code>
+         */
+        public static final int PRESS_VALUE = 5;
+        /**
+         * <code>HOME = 6;</code>
+         */
+        public static final int HOME_VALUE = 6;
+        /**
+         * <code>RECENTS = 7;</code>
+         */
+        public static final int RECENTS_VALUE = 7;
+        /**
+         * <code>BACKS = 8;</code>
+         */
+        public static final int BACKS_VALUE = 8;
+        /**
+         * <code>QUICKSETTINGS = 9;</code>
+         */
+        public static final int QUICKSETTINGS_VALUE = 9;
+        /**
+         * <code>SPLITSCREEN = 10;</code>
+         */
+        public static final int SPLITSCREEN_VALUE = 10;
+        /**
+         * <code>POWER = 11;</code>
+         */
+        public static final int POWER_VALUE = 11;
+        /**
+         * <code>LOCK_SCREEN = 12;</code>
+         */
+        public static final int LOCK_SCREEN_VALUE = 12;
+        /**
+         * <code>SCREENSHOT = 13;</code>
+         */
+        public static final int SCREENSHOT_VALUE = 13;
+        /**
+         * <code>NOTIFICATIONS = 14;</code>
+         */
+        public static final int NOTIFICATIONS_VALUE = 14;
+
+
+        public final int getNumber() {
+            if (this == UNRECOGNIZED) {
+                throw new java.lang.IllegalArgumentException(
+                        "Can't get the number of an unknown enum value.");
+            }
+            return value;
+        }
+
+        /**
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
+        public static TouchType valueOf(int value) {
+            return forNumber(value);
+        }
+
+        public static TouchType forNumber(int value) {
+            switch (value) {
+                case 0:
+                    return GESTURE;
+                case 1:
+                    return GESTURES;
+                case 2:
+                    return FLING;
+                case 3:
+                    return TAP;
+                case 4:
+                    return LONGTAP;
+                case 5:
+                    return PRESS;
+                case 6:
+                    return HOME;
+                case 7:
+                    return RECENTS;
+                case 8:
+                    return BACKS;
+                case 9:
+                    return QUICKSETTINGS;
+                case 10:
+                    return SPLITSCREEN;
+                case 11:
+                    return POWER;
+                case 12:
+                    return LOCK_SCREEN;
+                case 13:
+                    return SCREENSHOT;
+                case 14:
+                    return NOTIFICATIONS;
+                default:
+                    return null;
+            }
+        }
+
+        public static com.google.protobuf.Internal.EnumLiteMap<TouchType>
+        internalGetValueMap() {
+            return internalValueMap;
+        }
+
+        private static final com.google.protobuf.Internal.EnumLiteMap<
+                TouchType> internalValueMap =
+                new com.google.protobuf.Internal.EnumLiteMap<TouchType>() {
+                    public TouchType findValueByNumber(int number) {
+                        return TouchType.forNumber(number);
+                    }
+                };
+
+        public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+            return getDescriptor().getValues().get(ordinal());
+        }
+
+        public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+            return getDescriptor();
+        }
+
+        public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+            return com.kirshi.protocol.CommandProto.getDescriptor().getEnumTypes().get(1);
+        }
+
+        private static final TouchType[] VALUES = values();
+
+        public static TouchType valueOf(
+                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+            if (desc.getType() != getDescriptor()) {
+                throw new java.lang.IllegalArgumentException(
+                        "EnumValueDescriptor is not for this type.");
+            }
+            if (desc.getIndex() == -1) {
+                return UNRECOGNIZED;
+            }
+            return VALUES[desc.getIndex()];
+        }
+
+        private final int value;
+
+        private TouchType(int value) {
+            this.value = value;
+        }
+
+        // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.TouchType)
     }
 
     /**
@@ -216,7 +479,7 @@ public final class CommandProto {
 
         public final int getNumber() {
             if (this == UNRECOGNIZED) {
-                throw new IllegalArgumentException(
+                throw new java.lang.IllegalArgumentException(
                         "Can't get the number of an unknown enum value.");
             }
             return value;
@@ -225,7 +488,7 @@ public final class CommandProto {
         /**
          * @deprecated Use {@link #forNumber(int)} instead.
          */
-        @Deprecated
+        @java.lang.Deprecated
         public static CameraAction valueOf(int value) {
             return forNumber(value);
         }
@@ -243,7 +506,6 @@ public final class CommandProto {
         internalGetValueMap() {
             return internalValueMap;
         }
-
         private static final com.google.protobuf.Internal.EnumLiteMap<
                 CameraAction> internalValueMap =
                 new com.google.protobuf.Internal.EnumLiteMap<CameraAction>() {
@@ -256,15 +518,13 @@ public final class CommandProto {
         getValueDescriptor() {
             return getDescriptor().getValues().get(ordinal());
         }
-
         public final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptorForType() {
             return getDescriptor();
         }
-
         public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-            return com.kirshi.protocol.CommandProto.getDescriptor().getEnumTypes().get(1);
+            return com.kirshi.protocol.CommandProto.getDescriptor().getEnumTypes().get(2);
         }
 
         private static final CameraAction[] VALUES = values();
@@ -272,7 +532,7 @@ public final class CommandProto {
         public static CameraAction valueOf(
                 com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
             if (desc.getType() != getDescriptor()) {
-                throw new IllegalArgumentException(
+                throw new java.lang.IllegalArgumentException(
                         "EnumValueDescriptor is not for this type.");
             }
             if (desc.getIndex() == -1) {
@@ -318,7 +578,7 @@ public final class CommandProto {
 
         public final int getNumber() {
             if (this == UNRECOGNIZED) {
-                throw new IllegalArgumentException(
+                throw new java.lang.IllegalArgumentException(
                         "Can't get the number of an unknown enum value.");
             }
             return value;
@@ -327,7 +587,7 @@ public final class CommandProto {
         /**
          * @deprecated Use {@link #forNumber(int)} instead.
          */
-        @Deprecated
+        @java.lang.Deprecated
         public static CameraType valueOf(int value) {
             return forNumber(value);
         }
@@ -344,7 +604,6 @@ public final class CommandProto {
         internalGetValueMap() {
             return internalValueMap;
         }
-
         private static final com.google.protobuf.Internal.EnumLiteMap<
                 CameraType> internalValueMap =
                 new com.google.protobuf.Internal.EnumLiteMap<CameraType>() {
@@ -357,15 +616,13 @@ public final class CommandProto {
         getValueDescriptor() {
             return getDescriptor().getValues().get(ordinal());
         }
-
         public final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptorForType() {
             return getDescriptor();
         }
-
         public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-            return com.kirshi.protocol.CommandProto.getDescriptor().getEnumTypes().get(2);
+            return com.kirshi.protocol.CommandProto.getDescriptor().getEnumTypes().get(3);
         }
 
         private static final CameraType[] VALUES = values();
@@ -373,7 +630,7 @@ public final class CommandProto {
         public static CameraType valueOf(
                 com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
             if (desc.getType() != getDescriptor()) {
-                throw new IllegalArgumentException(
+                throw new java.lang.IllegalArgumentException(
                         "EnumValueDescriptor is not for this type.");
             }
             if (desc.getIndex() == -1) {
@@ -399,7 +656,6 @@ public final class CommandProto {
          * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
          */
         int getCmdValue();
-
         /**
          * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
          */
@@ -409,18 +665,15 @@ public final class CommandProto {
          * <code>.google.protobuf.Any data = 2;</code>
          */
         boolean hasData();
-
         /**
          * <code>.google.protobuf.Any data = 2;</code>
          */
         com.google.protobuf.Any getData();
-
         /**
          * <code>.google.protobuf.Any data = 2;</code>
          */
         com.google.protobuf.AnyOrBuilder getDataOrBuilder();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.BaseCommandMessage}
      */
@@ -429,29 +682,26 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.BaseCommandMessage)
             BaseCommandMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use BaseCommandMessage.newBuilder() to construct.
         private BaseCommandMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private BaseCommandMessage() {
             cmd_ = 0;
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private BaseCommandMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -502,13 +752,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -517,14 +766,12 @@ public final class CommandProto {
 
         public static final int CMD_FIELD_NUMBER = 1;
         private int cmd_;
-
         /**
          * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
          */
         public int getCmdValue() {
             return cmd_;
         }
-
         /**
          * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
          */
@@ -535,21 +782,18 @@ public final class CommandProto {
 
         public static final int DATA_FIELD_NUMBER = 2;
         private com.google.protobuf.Any data_;
-
         /**
          * <code>.google.protobuf.Any data = 2;</code>
          */
         public boolean hasData() {
             return data_ != null;
         }
-
         /**
          * <code>.google.protobuf.Any data = 2;</code>
          */
         public com.google.protobuf.Any getData() {
             return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
         }
-
         /**
          * <code>.google.protobuf.Any data = 2;</code>
          */
@@ -558,7 +802,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -597,8 +840,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -618,7 +861,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -641,45 +884,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -687,13 +923,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -701,14 +935,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -718,27 +950,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.BaseCommandMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.BaseCommandMessage}
          */
@@ -751,7 +979,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -764,7 +992,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -774,7 +1002,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 cmd_ = 0;
@@ -823,7 +1050,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -839,19 +1066,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.BaseCommandMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.BaseCommandMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.BaseCommandMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -894,14 +1121,12 @@ public final class CommandProto {
             }
 
             private int cmd_ = 0;
-
             /**
              * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
              */
             public int getCmdValue() {
                 return cmd_;
             }
-
             /**
              * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
              */
@@ -910,7 +1135,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
              */
@@ -918,7 +1142,6 @@ public final class CommandProto {
                 com.kirshi.protocol.CmdProto.CmdAction result = com.kirshi.protocol.CmdProto.CmdAction.valueOf(cmd_);
                 return result == null ? com.kirshi.protocol.CmdProto.CmdAction.UNRECOGNIZED : result;
             }
-
             /**
              * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
              */
@@ -931,7 +1154,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
              */
@@ -945,14 +1167,12 @@ public final class CommandProto {
             private com.google.protobuf.Any data_ = null;
             private com.google.protobuf.SingleFieldBuilderV3<
                     com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> dataBuilder_;
-
             /**
              * <code>.google.protobuf.Any data = 2;</code>
              */
             public boolean hasData() {
                 return dataBuilder_ != null || data_ != null;
             }
-
             /**
              * <code>.google.protobuf.Any data = 2;</code>
              */
@@ -963,7 +1183,6 @@ public final class CommandProto {
                     return dataBuilder_.getMessage();
                 }
             }
-
             /**
              * <code>.google.protobuf.Any data = 2;</code>
              */
@@ -980,7 +1199,6 @@ public final class CommandProto {
 
                 return this;
             }
-
             /**
              * <code>.google.protobuf.Any data = 2;</code>
              */
@@ -995,7 +1213,6 @@ public final class CommandProto {
 
                 return this;
             }
-
             /**
              * <code>.google.protobuf.Any data = 2;</code>
              */
@@ -1014,7 +1231,6 @@ public final class CommandProto {
 
                 return this;
             }
-
             /**
              * <code>.google.protobuf.Any data = 2;</code>
              */
@@ -1029,7 +1245,6 @@ public final class CommandProto {
 
                 return this;
             }
-
             /**
              * <code>.google.protobuf.Any data = 2;</code>
              */
@@ -1038,7 +1253,6 @@ public final class CommandProto {
                 onChanged();
                 return getDataFieldBuilder().getBuilder();
             }
-
             /**
              * <code>.google.protobuf.Any data = 2;</code>
              */
@@ -1050,7 +1264,6 @@ public final class CommandProto {
                             com.google.protobuf.Any.getDefaultInstance() : data_;
                 }
             }
-
             /**
              * <code>.google.protobuf.Any data = 2;</code>
              */
@@ -1067,7 +1280,6 @@ public final class CommandProto {
                 }
                 return dataBuilder_;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -1084,7 +1296,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.BaseCommandMessage)
         private static final com.kirshi.protocol.CommandProto.BaseCommandMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.BaseCommandMessage();
         }
@@ -1107,7 +1318,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<BaseCommandMessage> getParserForType() {
             return PARSER;
         }
@@ -1126,7 +1337,6 @@ public final class CommandProto {
          * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
          */
         int getCommandValue();
-
         /**
          * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
          */
@@ -1135,7 +1345,7 @@ public final class CommandProto {
         /**
          * <code>string subcommand = 2;</code>
          */
-        String getSubcommand();
+        java.lang.String getSubcommand();
 
         /**
          * <code>string subcommand = 2;</code>
@@ -1147,12 +1357,10 @@ public final class CommandProto {
          * <code>.google.protobuf.Any extra = 3;</code>
          */
         boolean hasExtra();
-
         /**
          * <code>.google.protobuf.Any extra = 3;</code>
          */
         com.google.protobuf.Any getExtra();
-
         /**
          * <code>.google.protobuf.Any extra = 3;</code>
          */
@@ -1178,7 +1386,7 @@ public final class CommandProto {
             subcommand_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
@@ -1190,7 +1398,7 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1217,7 +1425,7 @@ public final class CommandProto {
                             break;
                         }
                         case 18: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             subcommand_ = s;
                             break;
@@ -1253,7 +1461,7 @@ public final class CommandProto {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -1279,19 +1487,19 @@ public final class CommandProto {
         }
 
         public static final int SUBCOMMAND_FIELD_NUMBER = 2;
-        private volatile Object subcommand_;
+        private volatile java.lang.Object subcommand_;
 
         /**
          * <code>string subcommand = 2;</code>
          */
-        public String getSubcommand() {
-            Object ref = subcommand_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getSubcommand() {
+            java.lang.Object ref = subcommand_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 subcommand_ = s;
                 return s;
             }
@@ -1302,11 +1510,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getSubcommandBytes() {
-            Object ref = subcommand_;
-            if (ref instanceof String) {
+            java.lang.Object ref = subcommand_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 subcommand_ = b;
                 return b;
             } else {
@@ -1384,8 +1592,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -1407,7 +1615,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -1523,9 +1731,9 @@ public final class CommandProto {
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
@@ -1542,7 +1750,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -1555,7 +1763,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -1617,7 +1825,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -1633,19 +1841,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.BizCommandMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.BizCommandMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.BizCommandMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -1740,21 +1948,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object subcommand_ = "";
+            private java.lang.Object subcommand_ = "";
 
             /**
              * <code>string subcommand = 2;</code>
              */
-            public String getSubcommand() {
-                Object ref = subcommand_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getSubcommand() {
+                java.lang.Object ref = subcommand_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     subcommand_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -1763,11 +1971,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getSubcommandBytes() {
-                Object ref = subcommand_;
+                java.lang.Object ref = subcommand_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     subcommand_ = b;
                     return b;
                 } else {
@@ -1779,7 +1987,7 @@ public final class CommandProto {
              * <code>string subcommand = 2;</code>
              */
             public Builder setSubcommand(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1979,12 +2187,1564 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<BizCommandMessage> getParserForType() {
             return PARSER;
         }
 
         public com.kirshi.protocol.CommandProto.BizCommandMessage getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+    }
+
+    public interface ScreenControlMessageOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.ScreenControlMessage)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+         */
+        int getTouchTypeValue();
+
+        /**
+         * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+         */
+        com.kirshi.protocol.CommandProto.TouchType getTouchType();
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        java.util.List<com.kirshi.protocol.CommandProto.TouchPoint>
+        getTouchPointsList();
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        com.kirshi.protocol.CommandProto.TouchPoint getTouchPoints(int index);
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        int getTouchPointsCount();
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        java.util.List<? extends com.kirshi.protocol.CommandProto.TouchPointOrBuilder>
+        getTouchPointsOrBuilderList();
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        com.kirshi.protocol.CommandProto.TouchPointOrBuilder getTouchPointsOrBuilder(
+                int index);
+    }
+
+    /**
+     * Protobuf type {@code com.kirshi.protocol.ScreenControlMessage}
+     */
+    public static final class ScreenControlMessage extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.ScreenControlMessage)
+            ScreenControlMessageOrBuilder {
+        private static final long serialVersionUID = 0L;
+
+        // Use ScreenControlMessage.newBuilder() to construct.
+        private ScreenControlMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
+        }
+
+        private ScreenControlMessage() {
+            touchType_ = 0;
+            touchPoints_ = java.util.Collections.emptyList();
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
+
+        private ScreenControlMessage(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new java.lang.NullPointerException();
+            }
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        default: {
+                            if (!parseUnknownFieldProto3(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                        case 8: {
+                            int rawValue = input.readEnum();
+
+                            touchType_ = rawValue;
+                            break;
+                        }
+                        case 18: {
+                            if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                                touchPoints_ = new java.util.ArrayList<com.kirshi.protocol.CommandProto.TouchPoint>();
+                                mutable_bitField0_ |= 0x00000002;
+                            }
+                            touchPoints_.add(
+                                    input.readMessage(com.kirshi.protocol.CommandProto.TouchPoint.parser(), extensionRegistry));
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                    touchPoints_ = java.util.Collections.unmodifiableList(touchPoints_);
+                }
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.kirshi.protocol.CommandProto.ScreenControlMessage.class, com.kirshi.protocol.CommandProto.ScreenControlMessage.Builder.class);
+        }
+
+        private int bitField0_;
+        public static final int TOUCHTYPE_FIELD_NUMBER = 1;
+        private int touchType_;
+
+        /**
+         * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+         */
+        public int getTouchTypeValue() {
+            return touchType_;
+        }
+
+        /**
+         * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+         */
+        public com.kirshi.protocol.CommandProto.TouchType getTouchType() {
+            com.kirshi.protocol.CommandProto.TouchType result = com.kirshi.protocol.CommandProto.TouchType.valueOf(touchType_);
+            return result == null ? com.kirshi.protocol.CommandProto.TouchType.UNRECOGNIZED : result;
+        }
+
+        public static final int TOUCHPOINTS_FIELD_NUMBER = 2;
+        private java.util.List<com.kirshi.protocol.CommandProto.TouchPoint> touchPoints_;
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        public java.util.List<com.kirshi.protocol.CommandProto.TouchPoint> getTouchPointsList() {
+            return touchPoints_;
+        }
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        public java.util.List<? extends com.kirshi.protocol.CommandProto.TouchPointOrBuilder>
+        getTouchPointsOrBuilderList() {
+            return touchPoints_;
+        }
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        public int getTouchPointsCount() {
+            return touchPoints_.size();
+        }
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        public com.kirshi.protocol.CommandProto.TouchPoint getTouchPoints(int index) {
+            return touchPoints_.get(index);
+        }
+
+        /**
+         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+         */
+        public com.kirshi.protocol.CommandProto.TouchPointOrBuilder getTouchPointsOrBuilder(
+                int index) {
+            return touchPoints_.get(index);
+        }
+
+        private byte memoizedIsInitialized = -1;
+
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (touchType_ != com.kirshi.protocol.CommandProto.TouchType.GESTURE.getNumber()) {
+                output.writeEnum(1, touchType_);
+            }
+            for (int i = 0; i < touchPoints_.size(); i++) {
+                output.writeMessage(2, touchPoints_.get(i));
+            }
+            unknownFields.writeTo(output);
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (touchType_ != com.kirshi.protocol.CommandProto.TouchType.GESTURE.getNumber()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeEnumSize(1, touchType_);
+            }
+            for (int i = 0; i < touchPoints_.size(); i++) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(2, touchPoints_.get(i));
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.kirshi.protocol.CommandProto.ScreenControlMessage)) {
+                return super.equals(obj);
+            }
+            com.kirshi.protocol.CommandProto.ScreenControlMessage other = (com.kirshi.protocol.CommandProto.ScreenControlMessage) obj;
+
+            boolean result = true;
+            result = result && touchType_ == other.touchType_;
+            result = result && getTouchPointsList()
+                    .equals(other.getTouchPointsList());
+            result = result && unknownFields.equals(other.unknownFields);
+            return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + TOUCHTYPE_FIELD_NUMBER;
+            hash = (53 * hash) + touchType_;
+            if (getTouchPointsCount() > 0) {
+                hash = (37 * hash) + TOUCHPOINTS_FIELD_NUMBER;
+                hash = (53 * hash) + getTouchPointsList().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.kirshi.protocol.CommandProto.ScreenControlMessage prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * Protobuf type {@code com.kirshi.protocol.ScreenControlMessage}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.ScreenControlMessage)
+                com.kirshi.protocol.CommandProto.ScreenControlMessageOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.kirshi.protocol.CommandProto.ScreenControlMessage.class, com.kirshi.protocol.CommandProto.ScreenControlMessage.Builder.class);
+            }
+
+            // Construct using com.kirshi.protocol.CommandProto.ScreenControlMessage.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                    getTouchPointsFieldBuilder();
+                }
+            }
+
+            public Builder clear() {
+                super.clear();
+                touchType_ = 0;
+
+                if (touchPointsBuilder_ == null) {
+                    touchPoints_ = java.util.Collections.emptyList();
+                    bitField0_ = (bitField0_ & ~0x00000002);
+                } else {
+                    touchPointsBuilder_.clear();
+                }
+                return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
+            }
+
+            public com.kirshi.protocol.CommandProto.ScreenControlMessage getDefaultInstanceForType() {
+                return com.kirshi.protocol.CommandProto.ScreenControlMessage.getDefaultInstance();
+            }
+
+            public com.kirshi.protocol.CommandProto.ScreenControlMessage build() {
+                com.kirshi.protocol.CommandProto.ScreenControlMessage result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public com.kirshi.protocol.CommandProto.ScreenControlMessage buildPartial() {
+                com.kirshi.protocol.CommandProto.ScreenControlMessage result = new com.kirshi.protocol.CommandProto.ScreenControlMessage(this);
+                int from_bitField0_ = bitField0_;
+                int to_bitField0_ = 0;
+                result.touchType_ = touchType_;
+                if (touchPointsBuilder_ == null) {
+                    if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                        touchPoints_ = java.util.Collections.unmodifiableList(touchPoints_);
+                        bitField0_ = (bitField0_ & ~0x00000002);
+                    }
+                    result.touchPoints_ = touchPoints_;
+                } else {
+                    result.touchPoints_ = touchPointsBuilder_.build();
+                }
+                result.bitField0_ = to_bitField0_;
+                onBuilt();
+                return result;
+            }
+
+            public Builder clone() {
+                return (Builder) super.clone();
+            }
+
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return (Builder) super.setField(field, value);
+            }
+
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+            }
+
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+            }
+
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+            }
+
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+            }
+
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.kirshi.protocol.CommandProto.ScreenControlMessage) {
+                    return mergeFrom((com.kirshi.protocol.CommandProto.ScreenControlMessage) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(com.kirshi.protocol.CommandProto.ScreenControlMessage other) {
+                if (other == com.kirshi.protocol.CommandProto.ScreenControlMessage.getDefaultInstance()) return this;
+                if (other.touchType_ != 0) {
+                    setTouchTypeValue(other.getTouchTypeValue());
+                }
+                if (touchPointsBuilder_ == null) {
+                    if (!other.touchPoints_.isEmpty()) {
+                        if (touchPoints_.isEmpty()) {
+                            touchPoints_ = other.touchPoints_;
+                            bitField0_ = (bitField0_ & ~0x00000002);
+                        } else {
+                            ensureTouchPointsIsMutable();
+                            touchPoints_.addAll(other.touchPoints_);
+                        }
+                        onChanged();
+                    }
+                } else {
+                    if (!other.touchPoints_.isEmpty()) {
+                        if (touchPointsBuilder_.isEmpty()) {
+                            touchPointsBuilder_.dispose();
+                            touchPointsBuilder_ = null;
+                            touchPoints_ = other.touchPoints_;
+                            bitField0_ = (bitField0_ & ~0x00000002);
+                            touchPointsBuilder_ =
+                                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                                            getTouchPointsFieldBuilder() : null;
+                        } else {
+                            touchPointsBuilder_.addAllMessages(other.touchPoints_);
+                        }
+                    }
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                com.kirshi.protocol.CommandProto.ScreenControlMessage parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (com.kirshi.protocol.CommandProto.ScreenControlMessage) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private int bitField0_;
+
+            private int touchType_ = 0;
+
+            /**
+             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+             */
+            public int getTouchTypeValue() {
+                return touchType_;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+             */
+            public Builder setTouchTypeValue(int value) {
+                touchType_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+             */
+            public com.kirshi.protocol.CommandProto.TouchType getTouchType() {
+                com.kirshi.protocol.CommandProto.TouchType result = com.kirshi.protocol.CommandProto.TouchType.valueOf(touchType_);
+                return result == null ? com.kirshi.protocol.CommandProto.TouchType.UNRECOGNIZED : result;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+             */
+            public Builder setTouchType(com.kirshi.protocol.CommandProto.TouchType value) {
+                if (value == null) {
+                    throw new NullPointerException();
+                }
+
+                touchType_ = value.getNumber();
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+             */
+            public Builder clearTouchType() {
+
+                touchType_ = 0;
+                onChanged();
+                return this;
+            }
+
+            private java.util.List<com.kirshi.protocol.CommandProto.TouchPoint> touchPoints_ =
+                    java.util.Collections.emptyList();
+
+            private void ensureTouchPointsIsMutable() {
+                if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+                    touchPoints_ = new java.util.ArrayList<com.kirshi.protocol.CommandProto.TouchPoint>(touchPoints_);
+                    bitField0_ |= 0x00000002;
+                }
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                    com.kirshi.protocol.CommandProto.TouchPoint, com.kirshi.protocol.CommandProto.TouchPoint.Builder, com.kirshi.protocol.CommandProto.TouchPointOrBuilder> touchPointsBuilder_;
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public java.util.List<com.kirshi.protocol.CommandProto.TouchPoint> getTouchPointsList() {
+                if (touchPointsBuilder_ == null) {
+                    return java.util.Collections.unmodifiableList(touchPoints_);
+                } else {
+                    return touchPointsBuilder_.getMessageList();
+                }
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public int getTouchPointsCount() {
+                if (touchPointsBuilder_ == null) {
+                    return touchPoints_.size();
+                } else {
+                    return touchPointsBuilder_.getCount();
+                }
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public com.kirshi.protocol.CommandProto.TouchPoint getTouchPoints(int index) {
+                if (touchPointsBuilder_ == null) {
+                    return touchPoints_.get(index);
+                } else {
+                    return touchPointsBuilder_.getMessage(index);
+                }
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public Builder setTouchPoints(
+                    int index, com.kirshi.protocol.CommandProto.TouchPoint value) {
+                if (touchPointsBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    ensureTouchPointsIsMutable();
+                    touchPoints_.set(index, value);
+                    onChanged();
+                } else {
+                    touchPointsBuilder_.setMessage(index, value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public Builder setTouchPoints(
+                    int index, com.kirshi.protocol.CommandProto.TouchPoint.Builder builderForValue) {
+                if (touchPointsBuilder_ == null) {
+                    ensureTouchPointsIsMutable();
+                    touchPoints_.set(index, builderForValue.build());
+                    onChanged();
+                } else {
+                    touchPointsBuilder_.setMessage(index, builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public Builder addTouchPoints(com.kirshi.protocol.CommandProto.TouchPoint value) {
+                if (touchPointsBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    ensureTouchPointsIsMutable();
+                    touchPoints_.add(value);
+                    onChanged();
+                } else {
+                    touchPointsBuilder_.addMessage(value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public Builder addTouchPoints(
+                    int index, com.kirshi.protocol.CommandProto.TouchPoint value) {
+                if (touchPointsBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    ensureTouchPointsIsMutable();
+                    touchPoints_.add(index, value);
+                    onChanged();
+                } else {
+                    touchPointsBuilder_.addMessage(index, value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public Builder addTouchPoints(
+                    com.kirshi.protocol.CommandProto.TouchPoint.Builder builderForValue) {
+                if (touchPointsBuilder_ == null) {
+                    ensureTouchPointsIsMutable();
+                    touchPoints_.add(builderForValue.build());
+                    onChanged();
+                } else {
+                    touchPointsBuilder_.addMessage(builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public Builder addTouchPoints(
+                    int index, com.kirshi.protocol.CommandProto.TouchPoint.Builder builderForValue) {
+                if (touchPointsBuilder_ == null) {
+                    ensureTouchPointsIsMutable();
+                    touchPoints_.add(index, builderForValue.build());
+                    onChanged();
+                } else {
+                    touchPointsBuilder_.addMessage(index, builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public Builder addAllTouchPoints(
+                    java.lang.Iterable<? extends com.kirshi.protocol.CommandProto.TouchPoint> values) {
+                if (touchPointsBuilder_ == null) {
+                    ensureTouchPointsIsMutable();
+                    com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                            values, touchPoints_);
+                    onChanged();
+                } else {
+                    touchPointsBuilder_.addAllMessages(values);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public Builder clearTouchPoints() {
+                if (touchPointsBuilder_ == null) {
+                    touchPoints_ = java.util.Collections.emptyList();
+                    bitField0_ = (bitField0_ & ~0x00000002);
+                    onChanged();
+                } else {
+                    touchPointsBuilder_.clear();
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public Builder removeTouchPoints(int index) {
+                if (touchPointsBuilder_ == null) {
+                    ensureTouchPointsIsMutable();
+                    touchPoints_.remove(index);
+                    onChanged();
+                } else {
+                    touchPointsBuilder_.remove(index);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public com.kirshi.protocol.CommandProto.TouchPoint.Builder getTouchPointsBuilder(
+                    int index) {
+                return getTouchPointsFieldBuilder().getBuilder(index);
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public com.kirshi.protocol.CommandProto.TouchPointOrBuilder getTouchPointsOrBuilder(
+                    int index) {
+                if (touchPointsBuilder_ == null) {
+                    return touchPoints_.get(index);
+                } else {
+                    return touchPointsBuilder_.getMessageOrBuilder(index);
+                }
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public java.util.List<? extends com.kirshi.protocol.CommandProto.TouchPointOrBuilder>
+            getTouchPointsOrBuilderList() {
+                if (touchPointsBuilder_ != null) {
+                    return touchPointsBuilder_.getMessageOrBuilderList();
+                } else {
+                    return java.util.Collections.unmodifiableList(touchPoints_);
+                }
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public com.kirshi.protocol.CommandProto.TouchPoint.Builder addTouchPointsBuilder() {
+                return getTouchPointsFieldBuilder().addBuilder(
+                        com.kirshi.protocol.CommandProto.TouchPoint.getDefaultInstance());
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public com.kirshi.protocol.CommandProto.TouchPoint.Builder addTouchPointsBuilder(
+                    int index) {
+                return getTouchPointsFieldBuilder().addBuilder(
+                        index, com.kirshi.protocol.CommandProto.TouchPoint.getDefaultInstance());
+            }
+
+            /**
+             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+             */
+            public java.util.List<com.kirshi.protocol.CommandProto.TouchPoint.Builder>
+            getTouchPointsBuilderList() {
+                return getTouchPointsFieldBuilder().getBuilderList();
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                    com.kirshi.protocol.CommandProto.TouchPoint, com.kirshi.protocol.CommandProto.TouchPoint.Builder, com.kirshi.protocol.CommandProto.TouchPointOrBuilder>
+            getTouchPointsFieldBuilder() {
+                if (touchPointsBuilder_ == null) {
+                    touchPointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                            com.kirshi.protocol.CommandProto.TouchPoint, com.kirshi.protocol.CommandProto.TouchPoint.Builder, com.kirshi.protocol.CommandProto.TouchPointOrBuilder>(
+                            touchPoints_,
+                            ((bitField0_ & 0x00000002) == 0x00000002),
+                            getParentForChildren(),
+                            isClean());
+                    touchPoints_ = null;
+                }
+                return touchPointsBuilder_;
+            }
+
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFieldsProto3(unknownFields);
+            }
+
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.ScreenControlMessage)
+        }
+
+        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.ScreenControlMessage)
+        private static final com.kirshi.protocol.CommandProto.ScreenControlMessage DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.ScreenControlMessage();
+        }
+
+        public static com.kirshi.protocol.CommandProto.ScreenControlMessage getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<ScreenControlMessage>
+                PARSER = new com.google.protobuf.AbstractParser<ScreenControlMessage>() {
+            public ScreenControlMessage parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new ScreenControlMessage(input, extensionRegistry);
+            }
+        };
+
+        public static com.google.protobuf.Parser<ScreenControlMessage> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<ScreenControlMessage> getParserForType() {
+            return PARSER;
+        }
+
+        public com.kirshi.protocol.CommandProto.ScreenControlMessage getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+    }
+
+    public interface TouchPointOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.TouchPoint)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>double x = 1;</code>
+         */
+        double getX();
+
+        /**
+         * <code>double y = 2;</code>
+         */
+        double getY();
+
+        /**
+         * <code>int64 time = 3;</code>
+         */
+        long getTime();
+    }
+
+    /**
+     * Protobuf type {@code com.kirshi.protocol.TouchPoint}
+     */
+    public static final class TouchPoint extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.TouchPoint)
+            TouchPointOrBuilder {
+        private static final long serialVersionUID = 0L;
+
+        // Use TouchPoint.newBuilder() to construct.
+        private TouchPoint(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
+        }
+
+        private TouchPoint() {
+            x_ = 0D;
+            y_ = 0D;
+            time_ = 0L;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
+
+        private TouchPoint(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new java.lang.NullPointerException();
+            }
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        default: {
+                            if (!parseUnknownFieldProto3(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                        case 9: {
+
+                            x_ = input.readDouble();
+                            break;
+                        }
+                        case 17: {
+
+                            y_ = input.readDouble();
+                            break;
+                        }
+                        case 24: {
+
+                            time_ = input.readInt64();
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            com.kirshi.protocol.CommandProto.TouchPoint.class, com.kirshi.protocol.CommandProto.TouchPoint.Builder.class);
+        }
+
+        public static final int X_FIELD_NUMBER = 1;
+        private double x_;
+
+        /**
+         * <code>double x = 1;</code>
+         */
+        public double getX() {
+            return x_;
+        }
+
+        public static final int Y_FIELD_NUMBER = 2;
+        private double y_;
+
+        /**
+         * <code>double y = 2;</code>
+         */
+        public double getY() {
+            return y_;
+        }
+
+        public static final int TIME_FIELD_NUMBER = 3;
+        private long time_;
+
+        /**
+         * <code>int64 time = 3;</code>
+         */
+        public long getTime() {
+            return time_;
+        }
+
+        private byte memoizedIsInitialized = -1;
+
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (x_ != 0D) {
+                output.writeDouble(1, x_);
+            }
+            if (y_ != 0D) {
+                output.writeDouble(2, y_);
+            }
+            if (time_ != 0L) {
+                output.writeInt64(3, time_);
+            }
+            unknownFields.writeTo(output);
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (x_ != 0D) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeDoubleSize(1, x_);
+            }
+            if (y_ != 0D) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeDoubleSize(2, y_);
+            }
+            if (time_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(3, time_);
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof com.kirshi.protocol.CommandProto.TouchPoint)) {
+                return super.equals(obj);
+            }
+            com.kirshi.protocol.CommandProto.TouchPoint other = (com.kirshi.protocol.CommandProto.TouchPoint) obj;
+
+            boolean result = true;
+            result = result && (
+                    java.lang.Double.doubleToLongBits(getX())
+                            == java.lang.Double.doubleToLongBits(
+                            other.getX()));
+            result = result && (
+                    java.lang.Double.doubleToLongBits(getY())
+                            == java.lang.Double.doubleToLongBits(
+                            other.getY()));
+            result = result && (getTime()
+                    == other.getTime());
+            result = result && unknownFields.equals(other.unknownFields);
+            return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + X_FIELD_NUMBER;
+            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                    java.lang.Double.doubleToLongBits(getX()));
+            hash = (37 * hash) + Y_FIELD_NUMBER;
+            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                    java.lang.Double.doubleToLongBits(getY()));
+            hash = (37 * hash) + TIME_FIELD_NUMBER;
+            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                    getTime());
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.kirshi.protocol.CommandProto.TouchPoint prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * Protobuf type {@code com.kirshi.protocol.TouchPoint}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.TouchPoint)
+                com.kirshi.protocol.CommandProto.TouchPointOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                com.kirshi.protocol.CommandProto.TouchPoint.class, com.kirshi.protocol.CommandProto.TouchPoint.Builder.class);
+            }
+
+            // Construct using com.kirshi.protocol.CommandProto.TouchPoint.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            public Builder clear() {
+                super.clear();
+                x_ = 0D;
+
+                y_ = 0D;
+
+                time_ = 0L;
+
+                return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_descriptor;
+            }
+
+            public com.kirshi.protocol.CommandProto.TouchPoint getDefaultInstanceForType() {
+                return com.kirshi.protocol.CommandProto.TouchPoint.getDefaultInstance();
+            }
+
+            public com.kirshi.protocol.CommandProto.TouchPoint build() {
+                com.kirshi.protocol.CommandProto.TouchPoint result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public com.kirshi.protocol.CommandProto.TouchPoint buildPartial() {
+                com.kirshi.protocol.CommandProto.TouchPoint result = new com.kirshi.protocol.CommandProto.TouchPoint(this);
+                result.x_ = x_;
+                result.y_ = y_;
+                result.time_ = time_;
+                onBuilt();
+                return result;
+            }
+
+            public Builder clone() {
+                return (Builder) super.clone();
+            }
+
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return (Builder) super.setField(field, value);
+            }
+
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+            }
+
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+            }
+
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+            }
+
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+            }
+
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof com.kirshi.protocol.CommandProto.TouchPoint) {
+                    return mergeFrom((com.kirshi.protocol.CommandProto.TouchPoint) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(com.kirshi.protocol.CommandProto.TouchPoint other) {
+                if (other == com.kirshi.protocol.CommandProto.TouchPoint.getDefaultInstance()) return this;
+                if (other.getX() != 0D) {
+                    setX(other.getX());
+                }
+                if (other.getY() != 0D) {
+                    setY(other.getY());
+                }
+                if (other.getTime() != 0L) {
+                    setTime(other.getTime());
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                com.kirshi.protocol.CommandProto.TouchPoint parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (com.kirshi.protocol.CommandProto.TouchPoint) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private double x_;
+
+            /**
+             * <code>double x = 1;</code>
+             */
+            public double getX() {
+                return x_;
+            }
+
+            /**
+             * <code>double x = 1;</code>
+             */
+            public Builder setX(double value) {
+
+                x_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>double x = 1;</code>
+             */
+            public Builder clearX() {
+
+                x_ = 0D;
+                onChanged();
+                return this;
+            }
+
+            private double y_;
+
+            /**
+             * <code>double y = 2;</code>
+             */
+            public double getY() {
+                return y_;
+            }
+
+            /**
+             * <code>double y = 2;</code>
+             */
+            public Builder setY(double value) {
+
+                y_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>double y = 2;</code>
+             */
+            public Builder clearY() {
+
+                y_ = 0D;
+                onChanged();
+                return this;
+            }
+
+            private long time_;
+
+            /**
+             * <code>int64 time = 3;</code>
+             */
+            public long getTime() {
+                return time_;
+            }
+
+            /**
+             * <code>int64 time = 3;</code>
+             */
+            public Builder setTime(long value) {
+
+                time_ = value;
+                onChanged();
+                return this;
+            }
+
+            /**
+             * <code>int64 time = 3;</code>
+             */
+            public Builder clearTime() {
+
+                time_ = 0L;
+                onChanged();
+                return this;
+            }
+
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFieldsProto3(unknownFields);
+            }
+
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.TouchPoint)
+        }
+
+        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.TouchPoint)
+        private static final com.kirshi.protocol.CommandProto.TouchPoint DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.TouchPoint();
+        }
+
+        public static com.kirshi.protocol.CommandProto.TouchPoint getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<TouchPoint>
+                PARSER = new com.google.protobuf.AbstractParser<TouchPoint>() {
+            public TouchPoint parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new TouchPoint(input, extensionRegistry);
+            }
+        };
+
+        public static com.google.protobuf.Parser<TouchPoint> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<TouchPoint> getParserForType() {
+            return PARSER;
+        }
+
+        public com.kirshi.protocol.CommandProto.TouchPoint getDefaultInstanceForType() {
             return DEFAULT_INSTANCE;
         }
 
@@ -1999,7 +3759,6 @@ public final class CommandProto {
          */
         boolean getSwiStatus();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.AudioLiveMessage}
      */
@@ -2008,29 +3767,26 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.AudioLiveMessage)
             AudioLiveMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use AudioLiveMessage.newBuilder() to construct.
         private AudioLiveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private AudioLiveMessage() {
             swiStatus_ = false;
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private AudioLiveMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -2067,13 +3823,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -2082,7 +3837,6 @@ public final class CommandProto {
 
         public static final int SWISTATUS_FIELD_NUMBER = 1;
         private boolean swiStatus_;
-
         /**
          * <code>bool swiStatus = 1;</code>
          */
@@ -2091,7 +3845,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -2123,8 +3876,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -2140,7 +3893,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -2160,45 +3913,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2206,13 +3952,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2220,14 +3964,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2237,27 +3979,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.AudioLiveMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.AudioLiveMessage}
          */
@@ -2270,7 +4008,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -2283,7 +4021,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -2293,7 +4031,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 swiStatus_ = false;
@@ -2331,7 +4068,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -2347,19 +4084,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.AudioLiveMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.AudioLiveMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.AudioLiveMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -2399,14 +4136,12 @@ public final class CommandProto {
             }
 
             private boolean swiStatus_ ;
-
             /**
              * <code>bool swiStatus = 1;</code>
              */
             public boolean getSwiStatus() {
                 return swiStatus_;
             }
-
             /**
              * <code>bool swiStatus = 1;</code>
              */
@@ -2416,7 +4151,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>bool swiStatus = 1;</code>
              */
@@ -2426,7 +4160,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -2443,7 +4176,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.AudioLiveMessage)
         private static final com.kirshi.protocol.CommandProto.AudioLiveMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.AudioLiveMessage();
         }
@@ -2466,7 +4198,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<AudioLiveMessage> getParserForType() {
             return PARSER;
         }
@@ -2485,7 +4217,6 @@ public final class CommandProto {
          * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
          */
         int getCameraActionValue();
-
         /**
          * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
          */
@@ -2495,13 +4226,11 @@ public final class CommandProto {
          * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
          */
         int getCameraTypeValue();
-
         /**
          * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
          */
         com.kirshi.protocol.CommandProto.CameraType getCameraType();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.CameraLiveMessage}
      */
@@ -2510,30 +4239,27 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.CameraLiveMessage)
             CameraLiveMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use CameraLiveMessage.newBuilder() to construct.
         private CameraLiveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private CameraLiveMessage() {
             cameraAction_ = 0;
             cameraType_ = 0;
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private CameraLiveMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -2577,13 +4303,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -2592,14 +4317,12 @@ public final class CommandProto {
 
         public static final int CAMERAACTION_FIELD_NUMBER = 1;
         private int cameraAction_;
-
         /**
          * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
          */
         public int getCameraActionValue() {
             return cameraAction_;
         }
-
         /**
          * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
          */
@@ -2610,14 +4333,12 @@ public final class CommandProto {
 
         public static final int CAMERATYPE_FIELD_NUMBER = 2;
         private int cameraType_;
-
         /**
          * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
          */
         public int getCameraTypeValue() {
             return cameraType_;
         }
-
         /**
          * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
          */
@@ -2627,7 +4348,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -2666,8 +4386,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -2683,7 +4403,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -2704,45 +4424,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2750,13 +4463,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2764,14 +4475,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2781,27 +4490,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.CameraLiveMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.CameraLiveMessage}
          */
@@ -2814,7 +4519,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -2827,7 +4532,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -2837,7 +4542,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 cameraAction_ = 0;
@@ -2878,7 +4582,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -2894,19 +4598,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.CameraLiveMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.CameraLiveMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.CameraLiveMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -2949,14 +4653,12 @@ public final class CommandProto {
             }
 
             private int cameraAction_ = 0;
-
             /**
              * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
              */
             public int getCameraActionValue() {
                 return cameraAction_;
             }
-
             /**
              * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
              */
@@ -2965,7 +4667,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
              */
@@ -2973,7 +4674,6 @@ public final class CommandProto {
                 com.kirshi.protocol.CommandProto.CameraAction result = com.kirshi.protocol.CommandProto.CameraAction.valueOf(cameraAction_);
                 return result == null ? com.kirshi.protocol.CommandProto.CameraAction.UNRECOGNIZED : result;
             }
-
             /**
              * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
              */
@@ -2986,7 +4686,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
              */
@@ -2998,14 +4697,12 @@ public final class CommandProto {
             }
 
             private int cameraType_ = 0;
-
             /**
              * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
              */
             public int getCameraTypeValue() {
                 return cameraType_;
             }
-
             /**
              * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
              */
@@ -3014,7 +4711,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
              */
@@ -3022,7 +4718,6 @@ public final class CommandProto {
                 com.kirshi.protocol.CommandProto.CameraType result = com.kirshi.protocol.CommandProto.CameraType.valueOf(cameraType_);
                 return result == null ? com.kirshi.protocol.CommandProto.CameraType.UNRECOGNIZED : result;
             }
-
             /**
              * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
              */
@@ -3035,7 +4730,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
              */
@@ -3045,7 +4739,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -3062,7 +4755,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.CameraLiveMessage)
         private static final com.kirshi.protocol.CommandProto.CameraLiveMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.CameraLiveMessage();
         }
@@ -3085,7 +4777,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<CameraLiveMessage> getParserForType() {
             return PARSER;
         }
@@ -3105,7 +4797,6 @@ public final class CommandProto {
          */
         boolean getSwiStatus();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.ScreenTransMessage}
      */
@@ -3114,29 +4805,26 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.ScreenTransMessage)
             ScreenTransMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use ScreenTransMessage.newBuilder() to construct.
         private ScreenTransMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private ScreenTransMessage() {
             swiStatus_ = false;
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private ScreenTransMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3173,13 +4861,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -3188,7 +4875,6 @@ public final class CommandProto {
 
         public static final int SWISTATUS_FIELD_NUMBER = 1;
         private boolean swiStatus_;
-
         /**
          * <code>bool swiStatus = 1;</code>
          */
@@ -3197,7 +4883,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -3229,8 +4914,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -3246,7 +4931,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -3266,45 +4951,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3312,13 +4990,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3326,14 +5002,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3343,27 +5017,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.ScreenTransMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.ScreenTransMessage}
          */
@@ -3376,7 +5046,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -3389,7 +5059,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -3399,7 +5069,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 swiStatus_ = false;
@@ -3437,7 +5106,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -3453,19 +5122,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.ScreenTransMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.ScreenTransMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.ScreenTransMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -3505,14 +5174,12 @@ public final class CommandProto {
             }
 
             private boolean swiStatus_ ;
-
             /**
              * <code>bool swiStatus = 1;</code>
              */
             public boolean getSwiStatus() {
                 return swiStatus_;
             }
-
             /**
              * <code>bool swiStatus = 1;</code>
              */
@@ -3522,7 +5189,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>bool swiStatus = 1;</code>
              */
@@ -3532,7 +5198,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -3549,7 +5214,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.ScreenTransMessage)
         private static final com.kirshi.protocol.CommandProto.ScreenTransMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.ScreenTransMessage();
         }
@@ -3572,7 +5236,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<ScreenTransMessage> getParserForType() {
             return PARSER;
         }
@@ -3590,7 +5254,7 @@ public final class CommandProto {
         /**
          * <code>string filePath = 1;</code>
          */
-        String getFilePath();
+        java.lang.String getFilePath();
 
         /**
          * <code>string filePath = 1;</code>
@@ -3598,7 +5262,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getFilePathBytes();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.LsMessage}
      */
@@ -3607,29 +5270,26 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.LsMessage)
             LsMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use LsMessage.newBuilder() to construct.
         private LsMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private LsMessage() {
             filePath_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private LsMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -3650,7 +5310,7 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             filePath_ = s;
                             break;
@@ -3667,13 +5327,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_LsMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -3681,19 +5340,19 @@ public final class CommandProto {
         }
 
         public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile Object filePath_;
+        private volatile java.lang.Object filePath_;
 
         /**
          * <code>string filePath = 1;</code>
          */
-        public String getFilePath() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getFilePath() {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 filePath_ = s;
                 return s;
             }
@@ -3704,11 +5363,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getFilePathBytes() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 filePath_ = b;
                 return b;
             } else {
@@ -3717,7 +5376,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -3748,8 +5406,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -3765,7 +5423,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -3784,45 +5442,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3830,13 +5481,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3844,14 +5493,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3861,27 +5508,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.LsMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.LsMessage}
          */
@@ -3894,7 +5537,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_LsMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -3907,7 +5550,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -3917,7 +5560,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 filePath_ = "";
@@ -3955,7 +5597,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -3971,19 +5613,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.LsMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.LsMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.LsMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -4023,21 +5665,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object filePath_ = "";
+            private java.lang.Object filePath_ = "";
 
             /**
              * <code>string filePath = 1;</code>
              */
-            public String getFilePath() {
-                Object ref = filePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getFilePath() {
+                java.lang.Object ref = filePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     filePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -4046,11 +5688,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getFilePathBytes() {
-                Object ref = filePath_;
+                java.lang.Object ref = filePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     filePath_ = b;
                     return b;
                 } else {
@@ -4062,7 +5704,7 @@ public final class CommandProto {
              * <code>string filePath = 1;</code>
              */
             public Builder setFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -4081,7 +5723,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string filePath = 1;</code>
              */
@@ -4096,7 +5737,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -4113,7 +5753,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.LsMessage)
         private static final com.kirshi.protocol.CommandProto.LsMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.LsMessage();
         }
@@ -4136,7 +5775,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<LsMessage> getParserForType() {
             return PARSER;
         }
@@ -4154,7 +5793,7 @@ public final class CommandProto {
         /**
          * <code>string filePath = 1;</code>
          */
-        String getFilePath();
+        java.lang.String getFilePath();
 
         /**
          * <code>string filePath = 1;</code>
@@ -4162,7 +5801,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getFilePathBytes();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.DownloadMessage}
      */
@@ -4171,29 +5809,26 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.DownloadMessage)
             DownloadMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use DownloadMessage.newBuilder() to construct.
         private DownloadMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private DownloadMessage() {
             filePath_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private DownloadMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -4214,7 +5849,7 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             filePath_ = s;
                             break;
@@ -4231,13 +5866,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -4245,19 +5879,19 @@ public final class CommandProto {
         }
 
         public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile Object filePath_;
+        private volatile java.lang.Object filePath_;
 
         /**
          * <code>string filePath = 1;</code>
          */
-        public String getFilePath() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getFilePath() {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 filePath_ = s;
                 return s;
             }
@@ -4268,11 +5902,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getFilePathBytes() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 filePath_ = b;
                 return b;
             } else {
@@ -4281,7 +5915,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -4312,8 +5945,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -4329,7 +5962,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -4348,45 +5981,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4394,13 +6020,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4408,14 +6032,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4425,27 +6047,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.DownloadMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.DownloadMessage}
          */
@@ -4458,7 +6076,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -4471,7 +6089,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -4481,7 +6099,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 filePath_ = "";
@@ -4519,7 +6136,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -4535,19 +6152,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.DownloadMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.DownloadMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.DownloadMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -4587,21 +6204,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object filePath_ = "";
+            private java.lang.Object filePath_ = "";
 
             /**
              * <code>string filePath = 1;</code>
              */
-            public String getFilePath() {
-                Object ref = filePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getFilePath() {
+                java.lang.Object ref = filePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     filePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -4610,11 +6227,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getFilePathBytes() {
-                Object ref = filePath_;
+                java.lang.Object ref = filePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     filePath_ = b;
                     return b;
                 } else {
@@ -4626,7 +6243,7 @@ public final class CommandProto {
              * <code>string filePath = 1;</code>
              */
             public Builder setFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -4645,7 +6262,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string filePath = 1;</code>
              */
@@ -4660,7 +6276,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -4677,7 +6292,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.DownloadMessage)
         private static final com.kirshi.protocol.CommandProto.DownloadMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.DownloadMessage();
         }
@@ -4700,7 +6314,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<DownloadMessage> getParserForType() {
             return PARSER;
         }
@@ -4718,7 +6332,7 @@ public final class CommandProto {
         /**
          * <code>repeated string filename = 1;</code>
          */
-        java.util.List<String>
+        java.util.List<java.lang.String>
         getFilenameList();
 
         /**
@@ -4729,7 +6343,7 @@ public final class CommandProto {
         /**
          * <code>repeated string filename = 1;</code>
          */
-        String getFilename(int index);
+        java.lang.String getFilename(int index);
 
         /**
          * <code>repeated string filename = 1;</code>
@@ -4737,7 +6351,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getFilenameBytes(int index);
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.DelMessage}
      */
@@ -4746,29 +6359,26 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.DelMessage)
             DelMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use DelMessage.newBuilder() to construct.
         private DelMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private DelMessage() {
             filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private DelMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -4789,7 +6399,7 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
                             if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                                 filename_ = new com.google.protobuf.LazyStringArrayList();
                                 mutable_bitField0_ |= 0x00000001;
@@ -4812,13 +6422,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DelMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -4827,7 +6436,6 @@ public final class CommandProto {
 
         public static final int FILENAME_FIELD_NUMBER = 1;
         private com.google.protobuf.LazyStringList filename_;
-
         /**
          * <code>repeated string filename = 1;</code>
          */
@@ -4846,7 +6454,7 @@ public final class CommandProto {
         /**
          * <code>repeated string filename = 1;</code>
          */
-        public String getFilename(int index) {
+        public java.lang.String getFilename(int index) {
             return filename_.get(index);
         }
 
@@ -4859,7 +6467,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -4895,8 +6502,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -4912,7 +6519,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -4933,45 +6540,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4979,13 +6579,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4993,14 +6591,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5010,27 +6606,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.DelMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.DelMessage}
          */
@@ -5043,7 +6635,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DelMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -5056,7 +6648,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -5066,7 +6658,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -5109,7 +6700,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -5125,19 +6716,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.DelMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.DelMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.DelMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -5182,18 +6773,15 @@ public final class CommandProto {
                 }
                 return this;
             }
-
             private int bitField0_;
 
             private com.google.protobuf.LazyStringList filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-
             private void ensureFilenameIsMutable() {
                 if (!((bitField0_ & 0x00000001) == 0x00000001)) {
                     filename_ = new com.google.protobuf.LazyStringArrayList(filename_);
                     bitField0_ |= 0x00000001;
                 }
             }
-
             /**
              * <code>repeated string filename = 1;</code>
              */
@@ -5212,7 +6800,7 @@ public final class CommandProto {
             /**
              * <code>repeated string filename = 1;</code>
              */
-            public String getFilename(int index) {
+            public java.lang.String getFilename(int index) {
                 return filename_.get(index);
             }
 
@@ -5228,7 +6816,7 @@ public final class CommandProto {
              * <code>repeated string filename = 1;</code>
              */
             public Builder setFilename(
-                    int index, String value) {
+                    int index, java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -5242,7 +6830,7 @@ public final class CommandProto {
              * <code>repeated string filename = 1;</code>
              */
             public Builder addFilename(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -5256,7 +6844,7 @@ public final class CommandProto {
              * <code>repeated string filename = 1;</code>
              */
             public Builder addAllFilename(
-                    Iterable<String> values) {
+                    java.lang.Iterable<java.lang.String> values) {
                 ensureFilenameIsMutable();
                 com.google.protobuf.AbstractMessageLite.Builder.addAll(
                         values, filename_);
@@ -5273,7 +6861,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>repeated string filename = 1;</code>
              */
@@ -5288,7 +6875,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -5305,7 +6891,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.DelMessage)
         private static final com.kirshi.protocol.CommandProto.DelMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.DelMessage();
         }
@@ -5328,7 +6913,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<DelMessage> getParserForType() {
             return PARSER;
         }
@@ -5346,7 +6931,7 @@ public final class CommandProto {
         /**
          * <code>string filePath = 1;</code>
          */
-        String getFilePath();
+        java.lang.String getFilePath();
 
         /**
          * <code>string filePath = 1;</code>
@@ -5354,7 +6939,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getFilePathBytes();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.MkDirMessage}
      */
@@ -5363,29 +6947,26 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.MkDirMessage)
             MkDirMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use MkDirMessage.newBuilder() to construct.
         private MkDirMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private MkDirMessage() {
             filePath_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private MkDirMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -5406,7 +6987,7 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             filePath_ = s;
                             break;
@@ -5423,13 +7004,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -5437,19 +7017,19 @@ public final class CommandProto {
         }
 
         public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile Object filePath_;
+        private volatile java.lang.Object filePath_;
 
         /**
          * <code>string filePath = 1;</code>
          */
-        public String getFilePath() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getFilePath() {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 filePath_ = s;
                 return s;
             }
@@ -5460,11 +7040,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getFilePathBytes() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 filePath_ = b;
                 return b;
             } else {
@@ -5473,7 +7053,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -5504,8 +7083,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -5521,7 +7100,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -5540,45 +7119,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5586,13 +7158,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5600,14 +7170,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5617,27 +7185,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.MkDirMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.MkDirMessage}
          */
@@ -5650,7 +7214,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -5663,7 +7227,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -5673,7 +7237,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 filePath_ = "";
@@ -5711,7 +7274,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -5727,19 +7290,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.MkDirMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.MkDirMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.MkDirMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -5779,21 +7342,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object filePath_ = "";
+            private java.lang.Object filePath_ = "";
 
             /**
              * <code>string filePath = 1;</code>
              */
-            public String getFilePath() {
-                Object ref = filePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getFilePath() {
+                java.lang.Object ref = filePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     filePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -5802,11 +7365,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getFilePathBytes() {
-                Object ref = filePath_;
+                java.lang.Object ref = filePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     filePath_ = b;
                     return b;
                 } else {
@@ -5818,7 +7381,7 @@ public final class CommandProto {
              * <code>string filePath = 1;</code>
              */
             public Builder setFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -5837,7 +7400,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string filePath = 1;</code>
              */
@@ -5852,7 +7414,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -5869,7 +7430,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.MkDirMessage)
         private static final com.kirshi.protocol.CommandProto.MkDirMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.MkDirMessage();
         }
@@ -5892,7 +7452,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<MkDirMessage> getParserForType() {
             return PARSER;
         }
@@ -5910,7 +7470,7 @@ public final class CommandProto {
         /**
          * <code>string newFilePath = 1;</code>
          */
-        String getNewFilePath();
+        java.lang.String getNewFilePath();
 
         /**
          * <code>string newFilePath = 1;</code>
@@ -5918,7 +7478,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getNewFilePathBytes();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.TouchMessage}
      */
@@ -5927,29 +7486,26 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.TouchMessage)
             TouchMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use TouchMessage.newBuilder() to construct.
         private TouchMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private TouchMessage() {
             newFilePath_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private TouchMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -5970,7 +7526,7 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             newFilePath_ = s;
                             break;
@@ -5987,13 +7543,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -6001,19 +7556,19 @@ public final class CommandProto {
         }
 
         public static final int NEWFILEPATH_FIELD_NUMBER = 1;
-        private volatile Object newFilePath_;
+        private volatile java.lang.Object newFilePath_;
 
         /**
          * <code>string newFilePath = 1;</code>
          */
-        public String getNewFilePath() {
-            Object ref = newFilePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getNewFilePath() {
+            java.lang.Object ref = newFilePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 newFilePath_ = s;
                 return s;
             }
@@ -6024,11 +7579,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getNewFilePathBytes() {
-            Object ref = newFilePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = newFilePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 newFilePath_ = b;
                 return b;
             } else {
@@ -6037,7 +7592,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -6068,8 +7622,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -6085,7 +7639,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -6104,45 +7658,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6150,13 +7697,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6164,14 +7709,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6181,27 +7724,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.TouchMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.TouchMessage}
          */
@@ -6214,7 +7753,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -6227,7 +7766,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -6237,7 +7776,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 newFilePath_ = "";
@@ -6275,7 +7813,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -6291,19 +7829,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.TouchMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.TouchMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.TouchMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -6343,21 +7881,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object newFilePath_ = "";
+            private java.lang.Object newFilePath_ = "";
 
             /**
              * <code>string newFilePath = 1;</code>
              */
-            public String getNewFilePath() {
-                Object ref = newFilePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getNewFilePath() {
+                java.lang.Object ref = newFilePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     newFilePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -6366,11 +7904,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getNewFilePathBytes() {
-                Object ref = newFilePath_;
+                java.lang.Object ref = newFilePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     newFilePath_ = b;
                     return b;
                 } else {
@@ -6382,7 +7920,7 @@ public final class CommandProto {
              * <code>string newFilePath = 1;</code>
              */
             public Builder setNewFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -6401,7 +7939,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string newFilePath = 1;</code>
              */
@@ -6416,7 +7953,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -6433,7 +7969,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.TouchMessage)
         private static final com.kirshi.protocol.CommandProto.TouchMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.TouchMessage();
         }
@@ -6456,7 +7991,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<TouchMessage> getParserForType() {
             return PARSER;
         }
@@ -6474,7 +8009,7 @@ public final class CommandProto {
         /**
          * <code>string filePath = 1;</code>
          */
-        String getFilePath();
+        java.lang.String getFilePath();
 
         /**
          * <code>string filePath = 1;</code>
@@ -6490,7 +8025,7 @@ public final class CommandProto {
         /**
          * <code>string content = 3;</code>
          */
-        String getContent();
+        java.lang.String getContent();
 
         /**
          * <code>string content = 3;</code>
@@ -6498,7 +8033,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getContentBytes();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.FileEditMessage}
      */
@@ -6507,31 +8041,28 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileEditMessage)
             FileEditMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use FileEditMessage.newBuilder() to construct.
         private FileEditMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private FileEditMessage() {
             filePath_ = "";
             index_ = 0;
             content_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private FileEditMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -6552,7 +8083,7 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             filePath_ = s;
                             break;
@@ -6563,7 +8094,7 @@ public final class CommandProto {
                             break;
                         }
                         case 26: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             content_ = s;
                             break;
@@ -6580,13 +8111,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -6594,19 +8124,19 @@ public final class CommandProto {
         }
 
         public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile Object filePath_;
+        private volatile java.lang.Object filePath_;
 
         /**
          * <code>string filePath = 1;</code>
          */
-        public String getFilePath() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getFilePath() {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 filePath_ = s;
                 return s;
             }
@@ -6617,11 +8147,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getFilePathBytes() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 filePath_ = b;
                 return b;
             } else {
@@ -6631,7 +8161,6 @@ public final class CommandProto {
 
         public static final int INDEX_FIELD_NUMBER = 2;
         private int index_;
-
         /**
          * <code>uint32 index = 2;</code>
          */
@@ -6640,19 +8169,19 @@ public final class CommandProto {
         }
 
         public static final int CONTENT_FIELD_NUMBER = 3;
-        private volatile Object content_;
+        private volatile java.lang.Object content_;
 
         /**
          * <code>string content = 3;</code>
          */
-        public String getContent() {
-            Object ref = content_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getContent() {
+            java.lang.Object ref = content_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 content_ = s;
                 return s;
             }
@@ -6663,11 +8192,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getContentBytes() {
-            Object ref = content_;
-            if (ref instanceof String) {
+            java.lang.Object ref = content_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 content_ = b;
                 return b;
             } else {
@@ -6676,7 +8205,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -6720,8 +8248,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -6741,7 +8269,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -6764,45 +8292,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6810,13 +8331,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6824,14 +8343,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6841,27 +8358,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileEditMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.FileEditMessage}
          */
@@ -6874,7 +8387,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -6887,7 +8400,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -6897,7 +8410,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 filePath_ = "";
@@ -6941,7 +8453,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -6957,19 +8469,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.FileEditMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileEditMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.FileEditMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -7016,21 +8528,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object filePath_ = "";
+            private java.lang.Object filePath_ = "";
 
             /**
              * <code>string filePath = 1;</code>
              */
-            public String getFilePath() {
-                Object ref = filePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getFilePath() {
+                java.lang.Object ref = filePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     filePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -7039,11 +8551,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getFilePathBytes() {
-                Object ref = filePath_;
+                java.lang.Object ref = filePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     filePath_ = b;
                     return b;
                 } else {
@@ -7055,7 +8567,7 @@ public final class CommandProto {
              * <code>string filePath = 1;</code>
              */
             public Builder setFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -7074,7 +8586,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string filePath = 1;</code>
              */
@@ -7091,14 +8602,12 @@ public final class CommandProto {
             }
 
             private int index_ ;
-
             /**
              * <code>uint32 index = 2;</code>
              */
             public int getIndex() {
                 return index_;
             }
-
             /**
              * <code>uint32 index = 2;</code>
              */
@@ -7108,7 +8617,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>uint32 index = 2;</code>
              */
@@ -7119,21 +8627,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object content_ = "";
+            private java.lang.Object content_ = "";
 
             /**
              * <code>string content = 3;</code>
              */
-            public String getContent() {
-                Object ref = content_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getContent() {
+                java.lang.Object ref = content_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     content_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -7142,11 +8650,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getContentBytes() {
-                Object ref = content_;
+                java.lang.Object ref = content_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     content_ = b;
                     return b;
                 } else {
@@ -7158,7 +8666,7 @@ public final class CommandProto {
              * <code>string content = 3;</code>
              */
             public Builder setContent(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -7177,7 +8685,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string content = 3;</code>
              */
@@ -7192,7 +8699,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -7209,7 +8715,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileEditMessage)
         private static final com.kirshi.protocol.CommandProto.FileEditMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileEditMessage();
         }
@@ -7232,7 +8737,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<FileEditMessage> getParserForType() {
             return PARSER;
         }
@@ -7250,7 +8755,7 @@ public final class CommandProto {
         /**
          * <code>string filePath = 1;</code>
          */
-        String getFilePath();
+        java.lang.String getFilePath();
 
         /**
          * <code>string filePath = 1;</code>
@@ -7268,7 +8773,6 @@ public final class CommandProto {
          */
         com.google.protobuf.ByteString getByteContent();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.FileHexEditMessage}
      */
@@ -7277,31 +8781,28 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileHexEditMessage)
             FileHexEditMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use FileHexEditMessage.newBuilder() to construct.
         private FileHexEditMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private FileHexEditMessage() {
             filePath_ = "";
             index_ = 0;
             byteContent_ = com.google.protobuf.ByteString.EMPTY;
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private FileHexEditMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -7322,7 +8823,7 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             filePath_ = s;
                             break;
@@ -7349,13 +8850,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -7363,19 +8863,19 @@ public final class CommandProto {
         }
 
         public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile Object filePath_;
+        private volatile java.lang.Object filePath_;
 
         /**
          * <code>string filePath = 1;</code>
          */
-        public String getFilePath() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getFilePath() {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 filePath_ = s;
                 return s;
             }
@@ -7386,11 +8886,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getFilePathBytes() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 filePath_ = b;
                 return b;
             } else {
@@ -7400,7 +8900,6 @@ public final class CommandProto {
 
         public static final int INDEX_FIELD_NUMBER = 2;
         private int index_;
-
         /**
          * <code>uint32 index = 2;</code>
          */
@@ -7410,7 +8909,6 @@ public final class CommandProto {
 
         public static final int BYTECONTENT_FIELD_NUMBER = 3;
         private com.google.protobuf.ByteString byteContent_;
-
         /**
          * <code>bytes byteContent = 3;</code>
          */
@@ -7419,7 +8917,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -7464,8 +8961,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -7485,7 +8982,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -7508,45 +9005,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7554,13 +9044,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7568,14 +9056,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7585,27 +9071,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileHexEditMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.FileHexEditMessage}
          */
@@ -7618,7 +9100,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -7631,7 +9113,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -7641,7 +9123,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 filePath_ = "";
@@ -7685,7 +9166,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -7701,19 +9182,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.FileHexEditMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileHexEditMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.FileHexEditMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -7759,21 +9240,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object filePath_ = "";
+            private java.lang.Object filePath_ = "";
 
             /**
              * <code>string filePath = 1;</code>
              */
-            public String getFilePath() {
-                Object ref = filePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getFilePath() {
+                java.lang.Object ref = filePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     filePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -7782,11 +9263,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getFilePathBytes() {
-                Object ref = filePath_;
+                java.lang.Object ref = filePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     filePath_ = b;
                     return b;
                 } else {
@@ -7798,7 +9279,7 @@ public final class CommandProto {
              * <code>string filePath = 1;</code>
              */
             public Builder setFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -7817,7 +9298,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string filePath = 1;</code>
              */
@@ -7834,14 +9314,12 @@ public final class CommandProto {
             }
 
             private int index_ ;
-
             /**
              * <code>uint32 index = 2;</code>
              */
             public int getIndex() {
                 return index_;
             }
-
             /**
              * <code>uint32 index = 2;</code>
              */
@@ -7851,7 +9329,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>uint32 index = 2;</code>
              */
@@ -7863,14 +9340,12 @@ public final class CommandProto {
             }
 
             private com.google.protobuf.ByteString byteContent_ = com.google.protobuf.ByteString.EMPTY;
-
             /**
              * <code>bytes byteContent = 3;</code>
              */
             public com.google.protobuf.ByteString getByteContent() {
                 return byteContent_;
             }
-
             /**
              * <code>bytes byteContent = 3;</code>
              */
@@ -7883,7 +9358,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>bytes byteContent = 3;</code>
              */
@@ -7893,7 +9367,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -7910,7 +9383,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileHexEditMessage)
         private static final com.kirshi.protocol.CommandProto.FileHexEditMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileHexEditMessage();
         }
@@ -7933,7 +9405,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<FileHexEditMessage> getParserForType() {
             return PARSER;
         }
@@ -7951,7 +9423,7 @@ public final class CommandProto {
         /**
          * <code>string uploadPath = 1;</code>
          */
-        String getUploadPath();
+        java.lang.String getUploadPath();
 
         /**
          * <code>string uploadPath = 1;</code>
@@ -7962,7 +9434,7 @@ public final class CommandProto {
         /**
          * <code>string fileName = 2;</code>
          */
-        String getFileName();
+        java.lang.String getFileName();
 
         /**
          * <code>string fileName = 2;</code>
@@ -7975,7 +9447,6 @@ public final class CommandProto {
          */
         com.google.protobuf.ByteString getFileRawData();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.FileUploadMessage}
      */
@@ -7984,31 +9455,28 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileUploadMessage)
             FileUploadMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use FileUploadMessage.newBuilder() to construct.
         private FileUploadMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private FileUploadMessage() {
             uploadPath_ = "";
             fileName_ = "";
             fileRawData_ = com.google.protobuf.ByteString.EMPTY;
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private FileUploadMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -8029,13 +9497,13 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             uploadPath_ = s;
                             break;
                         }
                         case 18: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             fileName_ = s;
                             break;
@@ -8057,13 +9525,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -8071,19 +9538,19 @@ public final class CommandProto {
         }
 
         public static final int UPLOADPATH_FIELD_NUMBER = 1;
-        private volatile Object uploadPath_;
+        private volatile java.lang.Object uploadPath_;
 
         /**
          * <code>string uploadPath = 1;</code>
          */
-        public String getUploadPath() {
-            Object ref = uploadPath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getUploadPath() {
+            java.lang.Object ref = uploadPath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 uploadPath_ = s;
                 return s;
             }
@@ -8094,11 +9561,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getUploadPathBytes() {
-            Object ref = uploadPath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = uploadPath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 uploadPath_ = b;
                 return b;
             } else {
@@ -8107,19 +9574,19 @@ public final class CommandProto {
         }
 
         public static final int FILENAME_FIELD_NUMBER = 2;
-        private volatile Object fileName_;
+        private volatile java.lang.Object fileName_;
 
         /**
          * <code>string fileName = 2;</code>
          */
-        public String getFileName() {
-            Object ref = fileName_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getFileName() {
+            java.lang.Object ref = fileName_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 fileName_ = s;
                 return s;
             }
@@ -8130,11 +9597,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getFileNameBytes() {
-            Object ref = fileName_;
-            if (ref instanceof String) {
+            java.lang.Object ref = fileName_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 fileName_ = b;
                 return b;
             } else {
@@ -8144,7 +9611,6 @@ public final class CommandProto {
 
         public static final int FILERAWDATA_FIELD_NUMBER = 3;
         private com.google.protobuf.ByteString fileRawData_;
-
         /**
          * <code>bytes fileRawData = 3;</code>
          */
@@ -8153,7 +9619,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -8197,8 +9662,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -8218,7 +9683,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -8241,45 +9706,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8287,13 +9745,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8301,14 +9757,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8318,27 +9772,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileUploadMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.FileUploadMessage}
          */
@@ -8351,7 +9801,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -8364,7 +9814,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -8374,7 +9824,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 uploadPath_ = "";
@@ -8418,7 +9867,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -8434,19 +9883,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.FileUploadMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileUploadMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.FileUploadMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -8493,21 +9942,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object uploadPath_ = "";
+            private java.lang.Object uploadPath_ = "";
 
             /**
              * <code>string uploadPath = 1;</code>
              */
-            public String getUploadPath() {
-                Object ref = uploadPath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getUploadPath() {
+                java.lang.Object ref = uploadPath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     uploadPath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -8516,11 +9965,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getUploadPathBytes() {
-                Object ref = uploadPath_;
+                java.lang.Object ref = uploadPath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     uploadPath_ = b;
                     return b;
                 } else {
@@ -8532,7 +9981,7 @@ public final class CommandProto {
              * <code>string uploadPath = 1;</code>
              */
             public Builder setUploadPath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -8551,7 +10000,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string uploadPath = 1;</code>
              */
@@ -8567,21 +10015,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object fileName_ = "";
+            private java.lang.Object fileName_ = "";
 
             /**
              * <code>string fileName = 2;</code>
              */
-            public String getFileName() {
-                Object ref = fileName_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getFileName() {
+                java.lang.Object ref = fileName_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     fileName_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -8590,11 +10038,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getFileNameBytes() {
-                Object ref = fileName_;
+                java.lang.Object ref = fileName_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     fileName_ = b;
                     return b;
                 } else {
@@ -8606,7 +10054,7 @@ public final class CommandProto {
              * <code>string fileName = 2;</code>
              */
             public Builder setFileName(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -8625,7 +10073,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string fileName = 2;</code>
              */
@@ -8642,14 +10089,12 @@ public final class CommandProto {
             }
 
             private com.google.protobuf.ByteString fileRawData_ = com.google.protobuf.ByteString.EMPTY;
-
             /**
              * <code>bytes fileRawData = 3;</code>
              */
             public com.google.protobuf.ByteString getFileRawData() {
                 return fileRawData_;
             }
-
             /**
              * <code>bytes fileRawData = 3;</code>
              */
@@ -8662,7 +10107,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>bytes fileRawData = 3;</code>
              */
@@ -8672,7 +10116,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -8689,7 +10132,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileUploadMessage)
         private static final com.kirshi.protocol.CommandProto.FileUploadMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileUploadMessage();
         }
@@ -8712,7 +10154,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<FileUploadMessage> getParserForType() {
             return PARSER;
         }
@@ -8730,7 +10172,7 @@ public final class CommandProto {
         /**
          * <code>string filePath = 1;</code>
          */
-        String getFilePath();
+        java.lang.String getFilePath();
 
         /**
          * <code>string filePath = 1;</code>
@@ -8741,7 +10183,7 @@ public final class CommandProto {
         /**
          * <code>string newName = 2;</code>
          */
-        String getNewName();
+        java.lang.String getNewName();
 
         /**
          * <code>string newName = 2;</code>
@@ -8749,7 +10191,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getNewNameBytes();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.FileRenameMessage}
      */
@@ -8758,30 +10199,27 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileRenameMessage)
             FileRenameMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use FileRenameMessage.newBuilder() to construct.
         private FileRenameMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private FileRenameMessage() {
             filePath_ = "";
             newName_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private FileRenameMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -8802,13 +10240,13 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             filePath_ = s;
                             break;
                         }
                         case 18: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             newName_ = s;
                             break;
@@ -8825,13 +10263,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -8839,19 +10276,19 @@ public final class CommandProto {
         }
 
         public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile Object filePath_;
+        private volatile java.lang.Object filePath_;
 
         /**
          * <code>string filePath = 1;</code>
          */
-        public String getFilePath() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getFilePath() {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 filePath_ = s;
                 return s;
             }
@@ -8862,11 +10299,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getFilePathBytes() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 filePath_ = b;
                 return b;
             } else {
@@ -8875,19 +10312,19 @@ public final class CommandProto {
         }
 
         public static final int NEWNAME_FIELD_NUMBER = 2;
-        private volatile Object newName_;
+        private volatile java.lang.Object newName_;
 
         /**
          * <code>string newName = 2;</code>
          */
-        public String getNewName() {
-            Object ref = newName_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getNewName() {
+            java.lang.Object ref = newName_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 newName_ = s;
                 return s;
             }
@@ -8898,11 +10335,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getNewNameBytes() {
-            Object ref = newName_;
-            if (ref instanceof String) {
+            java.lang.Object ref = newName_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 newName_ = b;
                 return b;
             } else {
@@ -8911,7 +10348,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -8948,8 +10384,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -8967,7 +10403,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -8988,45 +10424,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9034,13 +10463,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9048,14 +10475,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9065,27 +10490,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileRenameMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.FileRenameMessage}
          */
@@ -9098,7 +10519,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -9111,7 +10532,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -9121,7 +10542,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 filePath_ = "";
@@ -9162,7 +10582,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -9178,19 +10598,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.FileRenameMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileRenameMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.FileRenameMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -9234,21 +10654,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object filePath_ = "";
+            private java.lang.Object filePath_ = "";
 
             /**
              * <code>string filePath = 1;</code>
              */
-            public String getFilePath() {
-                Object ref = filePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getFilePath() {
+                java.lang.Object ref = filePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     filePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -9257,11 +10677,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getFilePathBytes() {
-                Object ref = filePath_;
+                java.lang.Object ref = filePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     filePath_ = b;
                     return b;
                 } else {
@@ -9273,7 +10693,7 @@ public final class CommandProto {
              * <code>string filePath = 1;</code>
              */
             public Builder setFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -9292,7 +10712,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string filePath = 1;</code>
              */
@@ -9308,21 +10727,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object newName_ = "";
+            private java.lang.Object newName_ = "";
 
             /**
              * <code>string newName = 2;</code>
              */
-            public String getNewName() {
-                Object ref = newName_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getNewName() {
+                java.lang.Object ref = newName_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     newName_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -9331,11 +10750,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getNewNameBytes() {
-                Object ref = newName_;
+                java.lang.Object ref = newName_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     newName_ = b;
                     return b;
                 } else {
@@ -9347,7 +10766,7 @@ public final class CommandProto {
              * <code>string newName = 2;</code>
              */
             public Builder setNewName(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -9366,7 +10785,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string newName = 2;</code>
              */
@@ -9381,7 +10799,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -9398,7 +10815,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileRenameMessage)
         private static final com.kirshi.protocol.CommandProto.FileRenameMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileRenameMessage();
         }
@@ -9421,7 +10837,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<FileRenameMessage> getParserForType() {
             return PARSER;
         }
@@ -9439,7 +10855,7 @@ public final class CommandProto {
         /**
          * <code>repeated string fileItemPath = 1;</code>
          */
-        java.util.List<String>
+        java.util.List<java.lang.String>
         getFileItemPathList();
 
         /**
@@ -9450,7 +10866,7 @@ public final class CommandProto {
         /**
          * <code>repeated string fileItemPath = 1;</code>
          */
-        String getFileItemPath(int index);
+        java.lang.String getFileItemPath(int index);
 
         /**
          * <code>repeated string fileItemPath = 1;</code>
@@ -9461,7 +10877,7 @@ public final class CommandProto {
         /**
          * <code>string zipName = 2;</code>
          */
-        String getZipName();
+        java.lang.String getZipName();
 
         /**
          * <code>string zipName = 2;</code>
@@ -9469,7 +10885,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getZipNameBytes();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.FileZipMessage}
      */
@@ -9478,30 +10893,27 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileZipMessage)
             FileZipMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use FileZipMessage.newBuilder() to construct.
         private FileZipMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private FileZipMessage() {
             fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
             zipName_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private FileZipMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -9522,7 +10934,7 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
                             if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                                 fileItemPath_ = new com.google.protobuf.LazyStringArrayList();
                                 mutable_bitField0_ |= 0x00000001;
@@ -9531,7 +10943,7 @@ public final class CommandProto {
                             break;
                         }
                         case 18: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             zipName_ = s;
                             break;
@@ -9551,13 +10963,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -9567,7 +10978,6 @@ public final class CommandProto {
         private int bitField0_;
         public static final int FILEITEMPATH_FIELD_NUMBER = 1;
         private com.google.protobuf.LazyStringList fileItemPath_;
-
         /**
          * <code>repeated string fileItemPath = 1;</code>
          */
@@ -9586,7 +10996,7 @@ public final class CommandProto {
         /**
          * <code>repeated string fileItemPath = 1;</code>
          */
-        public String getFileItemPath(int index) {
+        public java.lang.String getFileItemPath(int index) {
             return fileItemPath_.get(index);
         }
 
@@ -9599,19 +11009,19 @@ public final class CommandProto {
         }
 
         public static final int ZIPNAME_FIELD_NUMBER = 2;
-        private volatile Object zipName_;
+        private volatile java.lang.Object zipName_;
 
         /**
          * <code>string zipName = 2;</code>
          */
-        public String getZipName() {
-            Object ref = zipName_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getZipName() {
+            java.lang.Object ref = zipName_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 zipName_ = s;
                 return s;
             }
@@ -9622,11 +11032,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getZipNameBytes() {
-            Object ref = zipName_;
-            if (ref instanceof String) {
+            java.lang.Object ref = zipName_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 zipName_ = b;
                 return b;
             } else {
@@ -9635,7 +11045,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -9677,8 +11086,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -9696,7 +11105,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -9719,45 +11128,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9765,13 +11167,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9779,14 +11179,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9796,27 +11194,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileZipMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.FileZipMessage}
          */
@@ -9829,7 +11223,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -9842,7 +11236,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -9852,7 +11246,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -9900,7 +11293,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -9916,19 +11309,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.FileZipMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileZipMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.FileZipMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -9977,18 +11370,15 @@ public final class CommandProto {
                 }
                 return this;
             }
-
             private int bitField0_;
 
             private com.google.protobuf.LazyStringList fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-
             private void ensureFileItemPathIsMutable() {
                 if (!((bitField0_ & 0x00000001) == 0x00000001)) {
                     fileItemPath_ = new com.google.protobuf.LazyStringArrayList(fileItemPath_);
                     bitField0_ |= 0x00000001;
                 }
             }
-
             /**
              * <code>repeated string fileItemPath = 1;</code>
              */
@@ -10007,7 +11397,7 @@ public final class CommandProto {
             /**
              * <code>repeated string fileItemPath = 1;</code>
              */
-            public String getFileItemPath(int index) {
+            public java.lang.String getFileItemPath(int index) {
                 return fileItemPath_.get(index);
             }
 
@@ -10023,7 +11413,7 @@ public final class CommandProto {
              * <code>repeated string fileItemPath = 1;</code>
              */
             public Builder setFileItemPath(
-                    int index, String value) {
+                    int index, java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -10037,7 +11427,7 @@ public final class CommandProto {
              * <code>repeated string fileItemPath = 1;</code>
              */
             public Builder addFileItemPath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -10051,7 +11441,7 @@ public final class CommandProto {
              * <code>repeated string fileItemPath = 1;</code>
              */
             public Builder addAllFileItemPath(
-                    Iterable<String> values) {
+                    java.lang.Iterable<java.lang.String> values) {
                 ensureFileItemPathIsMutable();
                 com.google.protobuf.AbstractMessageLite.Builder.addAll(
                         values, fileItemPath_);
@@ -10068,7 +11458,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>repeated string fileItemPath = 1;</code>
              */
@@ -10084,21 +11473,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object zipName_ = "";
+            private java.lang.Object zipName_ = "";
 
             /**
              * <code>string zipName = 2;</code>
              */
-            public String getZipName() {
-                Object ref = zipName_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getZipName() {
+                java.lang.Object ref = zipName_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     zipName_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -10107,11 +11496,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getZipNameBytes() {
-                Object ref = zipName_;
+                java.lang.Object ref = zipName_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     zipName_ = b;
                     return b;
                 } else {
@@ -10123,7 +11512,7 @@ public final class CommandProto {
              * <code>string zipName = 2;</code>
              */
             public Builder setZipName(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -10142,7 +11531,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string zipName = 2;</code>
              */
@@ -10157,7 +11545,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -10174,7 +11561,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileZipMessage)
         private static final com.kirshi.protocol.CommandProto.FileZipMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileZipMessage();
         }
@@ -10197,7 +11583,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<FileZipMessage> getParserForType() {
             return PARSER;
         }
@@ -10215,7 +11601,7 @@ public final class CommandProto {
         /**
          * <code>string rawFilePath = 1;</code>
          */
-        String getRawFilePath();
+        java.lang.String getRawFilePath();
 
         /**
          * <code>string rawFilePath = 1;</code>
@@ -10226,7 +11612,7 @@ public final class CommandProto {
         /**
          * <code>string newFilePath = 2;</code>
          */
-        String getNewFilePath();
+        java.lang.String getNewFilePath();
 
         /**
          * <code>string newFilePath = 2;</code>
@@ -10234,7 +11620,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getNewFilePathBytes();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.FileMoveMessage}
      */
@@ -10243,30 +11628,27 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileMoveMessage)
             FileMoveMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use FileMoveMessage.newBuilder() to construct.
         private FileMoveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private FileMoveMessage() {
             rawFilePath_ = "";
             newFilePath_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private FileMoveMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -10287,13 +11669,13 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             rawFilePath_ = s;
                             break;
                         }
                         case 18: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             newFilePath_ = s;
                             break;
@@ -10310,13 +11692,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -10324,19 +11705,19 @@ public final class CommandProto {
         }
 
         public static final int RAWFILEPATH_FIELD_NUMBER = 1;
-        private volatile Object rawFilePath_;
+        private volatile java.lang.Object rawFilePath_;
 
         /**
          * <code>string rawFilePath = 1;</code>
          */
-        public String getRawFilePath() {
-            Object ref = rawFilePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getRawFilePath() {
+            java.lang.Object ref = rawFilePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 rawFilePath_ = s;
                 return s;
             }
@@ -10347,11 +11728,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getRawFilePathBytes() {
-            Object ref = rawFilePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = rawFilePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 rawFilePath_ = b;
                 return b;
             } else {
@@ -10360,19 +11741,19 @@ public final class CommandProto {
         }
 
         public static final int NEWFILEPATH_FIELD_NUMBER = 2;
-        private volatile Object newFilePath_;
+        private volatile java.lang.Object newFilePath_;
 
         /**
          * <code>string newFilePath = 2;</code>
          */
-        public String getNewFilePath() {
-            Object ref = newFilePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getNewFilePath() {
+            java.lang.Object ref = newFilePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 newFilePath_ = s;
                 return s;
             }
@@ -10383,11 +11764,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getNewFilePathBytes() {
-            Object ref = newFilePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = newFilePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 newFilePath_ = b;
                 return b;
             } else {
@@ -10396,7 +11777,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -10433,8 +11813,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -10452,7 +11832,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -10473,45 +11853,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -10519,13 +11892,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -10533,14 +11904,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -10550,27 +11919,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileMoveMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.FileMoveMessage}
          */
@@ -10583,7 +11948,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -10596,7 +11961,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -10606,7 +11971,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 rawFilePath_ = "";
@@ -10647,7 +12011,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -10663,19 +12027,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.FileMoveMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileMoveMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.FileMoveMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -10719,21 +12083,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object rawFilePath_ = "";
+            private java.lang.Object rawFilePath_ = "";
 
             /**
              * <code>string rawFilePath = 1;</code>
              */
-            public String getRawFilePath() {
-                Object ref = rawFilePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getRawFilePath() {
+                java.lang.Object ref = rawFilePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     rawFilePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -10742,11 +12106,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getRawFilePathBytes() {
-                Object ref = rawFilePath_;
+                java.lang.Object ref = rawFilePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     rawFilePath_ = b;
                     return b;
                 } else {
@@ -10758,7 +12122,7 @@ public final class CommandProto {
              * <code>string rawFilePath = 1;</code>
              */
             public Builder setRawFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -10777,7 +12141,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string rawFilePath = 1;</code>
              */
@@ -10793,21 +12156,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object newFilePath_ = "";
+            private java.lang.Object newFilePath_ = "";
 
             /**
              * <code>string newFilePath = 2;</code>
              */
-            public String getNewFilePath() {
-                Object ref = newFilePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getNewFilePath() {
+                java.lang.Object ref = newFilePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     newFilePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -10816,11 +12179,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getNewFilePathBytes() {
-                Object ref = newFilePath_;
+                java.lang.Object ref = newFilePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     newFilePath_ = b;
                     return b;
                 } else {
@@ -10832,7 +12195,7 @@ public final class CommandProto {
              * <code>string newFilePath = 2;</code>
              */
             public Builder setNewFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -10851,7 +12214,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string newFilePath = 2;</code>
              */
@@ -10866,7 +12228,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -10883,7 +12244,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileMoveMessage)
         private static final com.kirshi.protocol.CommandProto.FileMoveMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileMoveMessage();
         }
@@ -10906,7 +12266,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<FileMoveMessage> getParserForType() {
             return PARSER;
         }
@@ -10924,7 +12284,7 @@ public final class CommandProto {
         /**
          * <code>string filePath = 1;</code>
          */
-        String getFilePath();
+        java.lang.String getFilePath();
 
         /**
          * <code>string filePath = 1;</code>
@@ -10932,7 +12292,6 @@ public final class CommandProto {
         com.google.protobuf.ByteString
         getFilePathBytes();
     }
-
     /**
      * Protobuf type {@code com.kirshi.protocol.FileDetailMessage}
      */
@@ -10941,29 +12300,26 @@ public final class CommandProto {
             // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileDetailMessage)
             FileDetailMessageOrBuilder {
         private static final long serialVersionUID = 0L;
-
         // Use FileDetailMessage.newBuilder() to construct.
         private FileDetailMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
             super(builder);
         }
-
         private FileDetailMessage() {
             filePath_ = "";
         }
 
-        @Override
+        @java.lang.Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
         }
-
         private FileDetailMessage(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             this();
             if (extensionRegistry == null) {
-                throw new NullPointerException();
+                throw new java.lang.NullPointerException();
             }
             int mutable_bitField0_ = 0;
             com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -10984,7 +12340,7 @@ public final class CommandProto {
                             break;
                         }
                         case 10: {
-                            String s = input.readStringRequireUtf8();
+                            java.lang.String s = input.readStringRequireUtf8();
 
                             filePath_ = s;
                             break;
@@ -11001,13 +12357,12 @@ public final class CommandProto {
                 makeExtensionsImmutable();
             }
         }
-
         public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
         }
 
-        protected FieldAccessorTable
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -11015,19 +12370,19 @@ public final class CommandProto {
         }
 
         public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile Object filePath_;
+        private volatile java.lang.Object filePath_;
 
         /**
          * <code>string filePath = 1;</code>
          */
-        public String getFilePath() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
-                return (String) ref;
+        public java.lang.String getFilePath() {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                String s = bs.toStringUtf8();
+                java.lang.String s = bs.toStringUtf8();
                 filePath_ = s;
                 return s;
             }
@@ -11038,11 +12393,11 @@ public final class CommandProto {
          */
         public com.google.protobuf.ByteString
         getFilePathBytes() {
-            Object ref = filePath_;
-            if (ref instanceof String) {
+            java.lang.Object ref = filePath_;
+            if (ref instanceof java.lang.String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (String) ref);
+                                (java.lang.String) ref);
                 filePath_ = b;
                 return b;
             } else {
@@ -11051,7 +12406,6 @@ public final class CommandProto {
         }
 
         private byte memoizedIsInitialized = -1;
-
         public final boolean isInitialized() {
             byte isInitialized = memoizedIsInitialized;
             if (isInitialized == 1) return true;
@@ -11082,8 +12436,8 @@ public final class CommandProto {
             return size;
         }
 
-        @Override
-        public boolean equals(final Object obj) {
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -11099,7 +12453,7 @@ public final class CommandProto {
             return result;
         }
 
-        @Override
+        @java.lang.Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -11118,45 +12472,38 @@ public final class CommandProto {
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
                 java.nio.ByteBuffer data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
                 com.google.protobuf.ByteString data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
                 com.google.protobuf.ByteString data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(byte[] data)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
                 byte[] data,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
                 throws com.google.protobuf.InvalidProtocolBufferException {
             return PARSER.parseFrom(data, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11164,13 +12511,11 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseDelimitedFrom(java.io.InputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseDelimitedFrom(
                 java.io.InputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11178,14 +12523,12 @@ public final class CommandProto {
             return com.google.protobuf.GeneratedMessageV3
                     .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
                 com.google.protobuf.CodedInputStream input)
                 throws java.io.IOException {
             return com.google.protobuf.GeneratedMessageV3
                     .parseWithIOException(PARSER, input);
         }
-
         public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
                 com.google.protobuf.CodedInputStream input,
                 com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11195,27 +12538,23 @@ public final class CommandProto {
         }
 
         public Builder newBuilderForType() { return newBuilder(); }
-
         public static Builder newBuilder() {
             return DEFAULT_INSTANCE.toBuilder();
         }
-
         public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileDetailMessage prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
         }
-
         public Builder toBuilder() {
             return this == DEFAULT_INSTANCE
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @Override
+        @java.lang.Override
         protected Builder newBuilderForType(
-                BuilderParent parent) {
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
-
         /**
          * Protobuf type {@code com.kirshi.protocol.FileDetailMessage}
          */
@@ -11228,7 +12567,7 @@ public final class CommandProto {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
             }
 
-            protected FieldAccessorTable
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -11241,7 +12580,7 @@ public final class CommandProto {
             }
 
             private Builder(
-                    BuilderParent parent) {
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -11251,7 +12590,6 @@ public final class CommandProto {
                         .alwaysUseFieldBuilders) {
                 }
             }
-
             public Builder clear() {
                 super.clear();
                 filePath_ = "";
@@ -11289,7 +12627,7 @@ public final class CommandProto {
 
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.setField(field, value);
             }
 
@@ -11305,19 +12643,19 @@ public final class CommandProto {
 
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
+                    int index, java.lang.Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
 
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
+                    java.lang.Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
 
             public Builder mergeFrom(com.google.protobuf.Message other) {
                 if (other instanceof com.kirshi.protocol.CommandProto.FileDetailMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileDetailMessage)other);
+                    return mergeFrom((com.kirshi.protocol.CommandProto.FileDetailMessage) other);
                 } else {
                     super.mergeFrom(other);
                     return this;
@@ -11357,21 +12695,21 @@ public final class CommandProto {
                 return this;
             }
 
-            private Object filePath_ = "";
+            private java.lang.Object filePath_ = "";
 
             /**
              * <code>string filePath = 1;</code>
              */
-            public String getFilePath() {
-                Object ref = filePath_;
-                if (!(ref instanceof String)) {
+            public java.lang.String getFilePath() {
+                java.lang.Object ref = filePath_;
+                if (!(ref instanceof java.lang.String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    String s = bs.toStringUtf8();
+                    java.lang.String s = bs.toStringUtf8();
                     filePath_ = s;
                     return s;
                 } else {
-                    return (String) ref;
+                    return (java.lang.String) ref;
                 }
             }
 
@@ -11380,11 +12718,11 @@ public final class CommandProto {
              */
             public com.google.protobuf.ByteString
             getFilePathBytes() {
-                Object ref = filePath_;
+                java.lang.Object ref = filePath_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (String) ref);
+                                    (java.lang.String) ref);
                     filePath_ = b;
                     return b;
                 } else {
@@ -11396,7 +12734,7 @@ public final class CommandProto {
              * <code>string filePath = 1;</code>
              */
             public Builder setFilePath(
-                    String value) {
+                    java.lang.String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -11415,7 +12753,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             /**
              * <code>string filePath = 1;</code>
              */
@@ -11430,7 +12767,6 @@ public final class CommandProto {
                 onChanged();
                 return this;
             }
-
             public final Builder setUnknownFields(
                     final com.google.protobuf.UnknownFieldSet unknownFields) {
                 return super.setUnknownFieldsProto3(unknownFields);
@@ -11447,7 +12783,6 @@ public final class CommandProto {
 
         // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileDetailMessage)
         private static final com.kirshi.protocol.CommandProto.FileDetailMessage DEFAULT_INSTANCE;
-
         static {
             DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileDetailMessage();
         }
@@ -11470,7 +12805,7 @@ public final class CommandProto {
             return PARSER;
         }
 
-        @Override
+        @java.lang.Override
         public com.google.protobuf.Parser<FileDetailMessage> getParserForType() {
             return PARSER;
         }
@@ -11491,6 +12826,16 @@ public final class CommandProto {
     private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_com_kirshi_protocol_TouchPoint_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable;
     private static final com.google.protobuf.Descriptors.Descriptor
             internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
     private static final
@@ -11571,12 +12916,10 @@ public final class CommandProto {
     getDescriptor() {
         return descriptor;
     }
-
     private static  com.google.protobuf.Descriptors.FileDescriptor
             descriptor;
-
     static {
-        String[] descriptorData = {
+        java.lang.String[] descriptorData = {
                 "\n\rCommand.proto\022\023com.kirshi.protocol\032\tCm" +
                         "d.proto\032\031google/protobuf/any.proto\"e\n\022Ba" +
                         "seCommandMessage\022+\n\003cmd\030\001 \001(\0162\036.com.kirs" +
@@ -11584,36 +12927,47 @@ public final class CommandProto {
                         "ogle.protobuf.Any\"\177\n\021BizCommandMessage\0221" +
                         "\n\007command\030\001 \001(\0162 .com.kirshi.protocol.Co" +
                         "mmandInfo\022\022\n\nsubcommand\030\002 \001(\t\022#\n\005extra\030\003" +
-                        " \001(\0132\024.google.protobuf.Any\"%\n\020AudioLiveM" +
-                        "essage\022\021\n\tswiStatus\030\001 \001(\010\"\201\001\n\021CameraLive" +
-                        "Message\0227\n\014cameraAction\030\001 \001(\0162!.com.kirs" +
-                        "hi.protocol.CameraAction\0223\n\ncameraType\030\002" +
-                        " \001(\0162\037.com.kirshi.protocol.CameraType\"\'\n" +
-                        "\022ScreenTransMessage\022\021\n\tswiStatus\030\001 \001(\010\"\035" +
-                        "\n\tLsMessage\022\020\n\010filePath\030\001 \001(\t\"#\n\017Downloa" +
-                        "dMessage\022\020\n\010filePath\030\001 \001(\t\"\036\n\nDelMessage" +
-                        "\022\020\n\010filename\030\001 \003(\t\" \n\014MkDirMessage\022\020\n\010fi" +
-                        "lePath\030\001 \001(\t\"#\n\014TouchMessage\022\023\n\013newFileP" +
-                        "ath\030\001 \001(\t\"C\n\017FileEditMessage\022\020\n\010filePath" +
-                        "\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\022\017\n\007content\030\003 \001(\t\"J" +
-                        "\n\022FileHexEditMessage\022\020\n\010filePath\030\001 \001(\t\022\r" +
-                        "\n\005index\030\002 \001(\r\022\023\n\013byteContent\030\003 \001(\014\"N\n\021Fi" +
-                        "leUploadMessage\022\022\n\nuploadPath\030\001 \001(\t\022\020\n\010f" +
-                        "ileName\030\002 \001(\t\022\023\n\013fileRawData\030\003 \001(\014\"6\n\021Fi" +
-                        "leRenameMessage\022\020\n\010filePath\030\001 \001(\t\022\017\n\007new" +
-                        "Name\030\002 \001(\t\"7\n\016FileZipMessage\022\024\n\014fileItem" +
-                        "Path\030\001 \003(\t\022\017\n\007zipName\030\002 \001(\t\";\n\017FileMoveM" +
-                        "essage\022\023\n\013rawFilePath\030\001 \001(\t\022\023\n\013newFilePa" +
-                        "th\030\002 \001(\t\"%\n\021FileDetailMessage\022\020\n\010filePat" +
-                        "h\030\001 \001(\t*\314\001\n\013CommandInfo\022\025\n\021COMMAND_FILET" +
-                        "RANS\020\000\022\027\n\023COMMAND_SCREENTRANS\020\001\022\026\n\022COMMA" +
-                        "ND_CAMERALIVE\020\002\022\025\n\021COMMAND_AUDIOLIVE\020\003\022\033" +
-                        "\n\027COMMAND_FILETRANS_AHEAD\020\004\022\023\n\017SPC_COMMA" +
-                        "ND_AAC\020\005\022\024\n\020SPC_COMMAND_H264\020\006\022\026\n\022ERR_CO" +
-                        "MMAND_COMMON\020\007*/\n\014CameraAction\022\t\n\005START\020" +
-                        "\000\022\010\n\004STOP\020\001\022\n\n\006SWITCH\020\002* \n\nCameraType\022\010\n" +
-                        "\004FONT\020\000\022\010\n\004BACK\020\001B\016B\014CommandProtob\006proto" +
-                        "3"
+                        " \001(\0132\024.google.protobuf.Any\"\177\n\024ScreenCont" +
+                        "rolMessage\0221\n\ttouchType\030\001 \001(\0162\036.com.kirs" +
+                        "hi.protocol.TouchType\0224\n\013touchPoints\030\002 \003" +
+                        "(\0132\037.com.kirshi.protocol.TouchPoint\"0\n\nT" +
+                        "ouchPoint\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\014\n\004time\030" +
+                        "\003 \001(\003\"%\n\020AudioLiveMessage\022\021\n\tswiStatus\030\001" +
+                        " \001(\010\"\201\001\n\021CameraLiveMessage\0227\n\014cameraActi" +
+                        "on\030\001 \001(\0162!.com.kirshi.protocol.CameraAct" +
+                        "ion\0223\n\ncameraType\030\002 \001(\0162\037.com.kirshi.pro" +
+                        "tocol.CameraType\"\'\n\022ScreenTransMessage\022\021" +
+                        "\n\tswiStatus\030\001 \001(\010\"\035\n\tLsMessage\022\020\n\010filePa" +
+                        "th\030\001 \001(\t\"#\n\017DownloadMessage\022\020\n\010filePath\030" +
+                        "\001 \001(\t\"\036\n\nDelMessage\022\020\n\010filename\030\001 \003(\t\" \n" +
+                        "\014MkDirMessage\022\020\n\010filePath\030\001 \001(\t\"#\n\014Touch" +
+                        "Message\022\023\n\013newFilePath\030\001 \001(\t\"C\n\017FileEdit" +
+                        "Message\022\020\n\010filePath\030\001 \001(\t\022\r\n\005index\030\002 \001(\r" +
+                        "\022\017\n\007content\030\003 \001(\t\"J\n\022FileHexEditMessage\022" +
+                        "\020\n\010filePath\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\022\023\n\013byte" +
+                        "Content\030\003 \001(\014\"N\n\021FileUploadMessage\022\022\n\nup" +
+                        "loadPath\030\001 \001(\t\022\020\n\010fileName\030\002 \001(\t\022\023\n\013file" +
+                        "RawData\030\003 \001(\014\"6\n\021FileRenameMessage\022\020\n\010fi" +
+                        "lePath\030\001 \001(\t\022\017\n\007newName\030\002 \001(\t\"7\n\016FileZip" +
+                        "Message\022\024\n\014fileItemPath\030\001 \003(\t\022\017\n\007zipName" +
+                        "\030\002 \001(\t\";\n\017FileMoveMessage\022\023\n\013rawFilePath" +
+                        "\030\001 \001(\t\022\023\n\013newFilePath\030\002 \001(\t\"%\n\021FileDetai" +
+                        "lMessage\022\020\n\010filePath\030\001 \001(\t*\372\001\n\013CommandIn" +
+                        "fo\022\025\n\021COMMAND_FILETRANS\020\000\022\027\n\023COMMAND_SCR" +
+                        "EENTRANS\020\001\022\026\n\022COMMAND_CAMERALIVE\020\002\022\025\n\021CO" +
+                        "MMAND_AUDIOLIVE\020\003\022\033\n\027COMMAND_FILETRANS_A" +
+                        "HEAD\020\004\022\023\n\017SPC_COMMAND_AAC\020\005\022\024\n\020SPC_COMMA" +
+                        "ND_H264\020\006\022\026\n\022ERR_COMMAND_COMMON\020\007\022\021\n\rCOM" +
+                        "MAND_TOUCH\020\010\022\031\n\025COMMAND_SCREENCONTROL\020\t*" +
+                        "\327\001\n\tTouchType\022\013\n\007GESTURE\020\000\022\014\n\010GESTURES\020\001" +
+                        "\022\t\n\005FLING\020\002\022\007\n\003TAP\020\003\022\013\n\007LONGTAP\020\004\022\t\n\005PRE" +
+                        "SS\020\005\022\010\n\004HOME\020\006\022\013\n\007RECENTS\020\007\022\t\n\005BACKS\020\010\022\021" +
+                        "\n\rQUICKSETTINGS\020\t\022\017\n\013SPLITSCREEN\020\n\022\t\n\005PO" +
+                        "WER\020\013\022\017\n\013LOCK_SCREEN\020\014\022\016\n\nSCREENSHOT\020\r\022\021" +
+                        "\n\rNOTIFICATIONS\020\016*/\n\014CameraAction\022\t\n\005STA" +
+                        "RT\020\000\022\010\n\004STOP\020\001\022\n\n\006SWITCH\020\002* \n\nCameraType" +
+                        "\022\010\n\004FONT\020\000\022\010\n\004BACK\020\001B\016B\014CommandProtob\006pr" +
+                        "oto3"
         };
         com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
                 new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11634,103 +12988,115 @@ public final class CommandProto {
         internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor,
-                new String[] { "Cmd", "Data", });
+                new java.lang.String[]{"Cmd", "Data",});
         internal_static_com_kirshi_protocol_BizCommandMessage_descriptor =
                 getDescriptor().getMessageTypes().get(1);
         internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_BizCommandMessage_descriptor,
-                new String[] { "Command", "Subcommand", "Extra", });
-        internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor =
+                new java.lang.String[]{"Command", "Subcommand", "Extra",});
+        internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor =
                 getDescriptor().getMessageTypes().get(2);
+        internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor,
+                new java.lang.String[]{"TouchType", "TouchPoints",});
+        internal_static_com_kirshi_protocol_TouchPoint_descriptor =
+                getDescriptor().getMessageTypes().get(3);
+        internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_com_kirshi_protocol_TouchPoint_descriptor,
+                new java.lang.String[]{"X", "Y", "Time",});
+        internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor =
+                getDescriptor().getMessageTypes().get(4);
         internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor,
-                new String[] { "SwiStatus", });
+                new java.lang.String[]{"SwiStatus",});
         internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor =
-                getDescriptor().getMessageTypes().get(3);
+                getDescriptor().getMessageTypes().get(5);
         internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor,
-                new String[] { "CameraAction", "CameraType", });
+                new java.lang.String[]{"CameraAction", "CameraType",});
         internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor =
-                getDescriptor().getMessageTypes().get(4);
+                getDescriptor().getMessageTypes().get(6);
         internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor,
-                new String[] { "SwiStatus", });
+                new java.lang.String[]{"SwiStatus",});
         internal_static_com_kirshi_protocol_LsMessage_descriptor =
-                getDescriptor().getMessageTypes().get(5);
+                getDescriptor().getMessageTypes().get(7);
         internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_LsMessage_descriptor,
-                new String[] { "FilePath", });
+                new java.lang.String[]{"FilePath",});
         internal_static_com_kirshi_protocol_DownloadMessage_descriptor =
-                getDescriptor().getMessageTypes().get(6);
+                getDescriptor().getMessageTypes().get(8);
         internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_DownloadMessage_descriptor,
-                new String[] { "FilePath", });
+                new java.lang.String[]{"FilePath",});
         internal_static_com_kirshi_protocol_DelMessage_descriptor =
-                getDescriptor().getMessageTypes().get(7);
+                getDescriptor().getMessageTypes().get(9);
         internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_DelMessage_descriptor,
-                new String[] { "Filename", });
+                new java.lang.String[]{"Filename",});
         internal_static_com_kirshi_protocol_MkDirMessage_descriptor =
-                getDescriptor().getMessageTypes().get(8);
+                getDescriptor().getMessageTypes().get(10);
         internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_MkDirMessage_descriptor,
-                new String[] { "FilePath", });
+                new java.lang.String[]{"FilePath",});
         internal_static_com_kirshi_protocol_TouchMessage_descriptor =
-                getDescriptor().getMessageTypes().get(9);
+                getDescriptor().getMessageTypes().get(11);
         internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_TouchMessage_descriptor,
-                new String[] { "NewFilePath", });
+                new java.lang.String[]{"NewFilePath",});
         internal_static_com_kirshi_protocol_FileEditMessage_descriptor =
-                getDescriptor().getMessageTypes().get(10);
+                getDescriptor().getMessageTypes().get(12);
         internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_FileEditMessage_descriptor,
-                new String[] { "FilePath", "Index", "Content", });
+                new java.lang.String[]{"FilePath", "Index", "Content",});
         internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor =
-                getDescriptor().getMessageTypes().get(11);
+                getDescriptor().getMessageTypes().get(13);
         internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor,
-                new String[] { "FilePath", "Index", "ByteContent", });
+                new java.lang.String[]{"FilePath", "Index", "ByteContent",});
         internal_static_com_kirshi_protocol_FileUploadMessage_descriptor =
-                getDescriptor().getMessageTypes().get(12);
+                getDescriptor().getMessageTypes().get(14);
         internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_FileUploadMessage_descriptor,
-                new String[] { "UploadPath", "FileName", "FileRawData", });
+                new java.lang.String[]{"UploadPath", "FileName", "FileRawData",});
         internal_static_com_kirshi_protocol_FileRenameMessage_descriptor =
-                getDescriptor().getMessageTypes().get(13);
+                getDescriptor().getMessageTypes().get(15);
         internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_FileRenameMessage_descriptor,
-                new String[] { "FilePath", "NewName", });
+                new java.lang.String[]{"FilePath", "NewName",});
         internal_static_com_kirshi_protocol_FileZipMessage_descriptor =
-                getDescriptor().getMessageTypes().get(14);
+                getDescriptor().getMessageTypes().get(16);
         internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_FileZipMessage_descriptor,
-                new String[] { "FileItemPath", "ZipName", });
+                new java.lang.String[]{"FileItemPath", "ZipName",});
         internal_static_com_kirshi_protocol_FileMoveMessage_descriptor =
-                getDescriptor().getMessageTypes().get(15);
+                getDescriptor().getMessageTypes().get(17);
         internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_FileMoveMessage_descriptor,
-                new String[] { "RawFilePath", "NewFilePath", });
+                new java.lang.String[]{"RawFilePath", "NewFilePath",});
         internal_static_com_kirshi_protocol_FileDetailMessage_descriptor =
-                getDescriptor().getMessageTypes().get(16);
+                getDescriptor().getMessageTypes().get(18);
         internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_com_kirshi_protocol_FileDetailMessage_descriptor,
-                new String[] { "FilePath", });
+                new java.lang.String[]{"FilePath",});
         com.kirshi.protocol.CmdProto.getDescriptor();
         com.google.protobuf.AnyProto.getDescriptor();
     }
