@@ -2,6 +2,7 @@ package com.kirshi.freya.server.socket.utils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.regex.Pattern;
 
 /**
  * Copyright (c) 2021
+ *
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:IPUtil.java
@@ -26,37 +28,35 @@ public class IPUtil {
 
     public static String INTERNET_IP = getV4IP();
 
-    public static String getNetSegment(){
+    public static String getNetSegment() {
         String[] r = INTRANET_IP.split("\\.");
-        return r[0]+"."+r[1];
+        return r[0] + "." + r[1];
     }
 
-    public static List<String> getIPs()
-    {
+    public static List<String> getIPs() {
         List<String> list = new ArrayList<String>();
         boolean flag = false;
-        int count=0;
+        int count = 0;
         Runtime r = Runtime.getRuntime();
         Process p;
         try {
             p = r.exec("arp -a");
-            BufferedReader br = new BufferedReader(new InputStreamReader(p
-                    .getInputStream(), "GBK"));
+            BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream(), "GBK"));
             String inline;
             while ((inline = br.readLine()) != null) {
-                if(inline.indexOf("接口") > -1){
+                if (inline.indexOf("接口") > -1) {
                     flag = !flag;
-                    if(!flag){
+                    if (!flag) {
                         //碰到下一个"接口"退出循环
                         break;
                     }
                 }
-                if(flag){
+                if (flag) {
                     count++;
-                    if(count > 2){
+                    if (count > 2) {
                         //有效IP
-                        String[] str=inline.split(" {4}");
-                        if (str[0].trim().contains(getNetSegment())){
+                        String[] str = inline.split(" {4}");
+                        if (str[0].trim().contains(getNetSegment())) {
                             list.add(str[0].trim());
                         }
                     }
@@ -98,64 +98,45 @@ public class IPUtil {
 
     private static String getIntranetIp() {
         try {
-            return getLocalIPList().get(1);
+            return getLocalIPList().get(0);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     private static String getV4IP() {
-        String ip = "";
-        String chinaz = "http://ip.chinaz.com";
-
-        StringBuilder inputLine = new StringBuilder();
-        String read = "";
-        URL url = null;
-        HttpURLConnection urlConnection = null;
-        BufferedReader in = null;
         try {
-            url = new URL(chinaz);
-            try {
-                urlConnection = (HttpURLConnection) url.openConnection();
-                urlConnection.setConnectTimeout(TIME_OUT);
-                urlConnection.setReadTimeout(TIME_OUT);
-                in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
-            } catch (Exception e) {
-                //如果超时，则返回内网ip
-                return INTRANET_IP;
+            String path = "http://www.net.cn/static/customercare/yourip.asp";// 要获得html页面内容的地址
+            URL url = new URL(path);// 创建url对象
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();// 打开连接
+            conn.setRequestProperty("contentType", "GBK"); // 设置url中文参数编码
+            conn.setConnectTimeout(5 * 1000);// 请求的时间
+            conn.setRequestMethod("GET");// 请求方式
+            InputStream inStream = conn.getInputStream();
+            // readLesoSysXML(inStream);
+            BufferedReader in = new BufferedReader(new InputStreamReader(inStream, "GBK"));
+            StringBuffer buffer = new StringBuffer();
+            String line = "";
+            // 读取获取到内容的最后一行,写入
+            while ((line = in.readLine()) != null) {
+                buffer.append(line);
             }
-            while ((read = in.readLine()) != null) {
-                inputLine.append(read + "\r\n");
+            List<String> ips = new ArrayList<String>();
+            //用正则表达式提取String字符串中的IP地址
+            String regEx = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)";
+            String str = buffer.toString();
+            Pattern p = Pattern.compile(regEx);
+            Matcher m = p.matcher(str);
+            while (m.find()) {
+                String result = m.group();
+                ips.add(result);
             }
-            //System.out.println(inputLine.toString());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        }
+            return ips.get(0);
 
-
-        Pattern p = Pattern.compile("\\<dd class\\=\"fz24\">(.*?)\\<\\/dd>");
-        Matcher m = p.matcher(inputLine.toString());
-        if (m.find()) {
-            String ipstr = m.group(1);
-            ip = ipstr;
-            //System.out.println(ipstr);
+        } catch (Exception e) {
+            System.out.println("获取公网IP连接超时");
+            return INTERNET_IP;
         }
-        if ("".equals(ip)) {
-            // 如果没有外网IP，就返回内网IP
-            return INTRANET_IP;
-        }
-        return ip;
     }
 
 }
