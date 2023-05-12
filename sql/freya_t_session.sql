@@ -1,0 +1,15 @@
+CREATE TABLE t_session
+(
+    uid      varchar(10) NOT NULL COMMENT '账号ID'
+        PRIMARY KEY,
+    superkey varchar(24) NOT NULL COMMENT '访问restful接口的账号凭证'
+)
+    COMMENT '账户登录凭证表';
+
+INSERT INTO t_session (uid, superkey) VALUES ('3420185321', '0ZH3QYWSD6GJC8HDBMXRKROO');
+INSERT INTO t_session (uid, superkey) VALUES ('3465562762', 'MUSO28HQ874Q2CKTF8GQ4BTP');
+INSERT INTO t_session (uid, superkey) VALUES ('5292325892', 'MO8I3JPO52UK8YTENR896C66');
+INSERT INTO t_session (uid, superkey) VALUES ('6598870072', 'Z1H3DG2P38305WJFKZT70H44');
+INSERT INTO t_session (uid, superkey) VALUES ('8104076675', '385U1L1F44WH3NV7FY4PW91H');
+INSERT INTO t_session (uid, superkey) VALUES ('9491321164', 'B7OKD1VG2DRX7EZQUVTNYJZP');
+INSERT INTO t_session (uid, superkey) VALUES ('9849194630', 'U0ZZ2FOR125X0NWJ3ZKYJID4');
