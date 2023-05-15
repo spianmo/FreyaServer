@@ -4,10 +4,19 @@
 			"hostGroup":[
 				{
 					"env":"local",
-					"url":"http://localhost:8080"
+					"url":"http://localhost:9090/api"
 				}
 			],
 			"name":"FreyaServer.main"
+		},
+		{
+			"hostGroup":[
+				{
+					"env":"local",
+					"url":"http://localhost:9090/api"
+				}
+			],
+			"name":"FreyaServer.MainModule.main"
 		}
 	],
 	"envList":[
@@ -17,7 +26,8 @@
 	"postScript":"",
 	"preScript":"",
 	"projectList":[
-		"FreyaServer.main"
+		"FreyaServer.main",
+		"FreyaServer.MainModule.main"
 	],
 	"syncModel":{
 		"branch":"master",

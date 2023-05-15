@@ -2,6 +2,7 @@ package com.kirshi.freya.server.service.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.kirshi.freya.server.config.RedisUtil;
+import com.kirshi.freya.server.constant.RedisConstant;
 import com.kirshi.freya.server.service.RemoteService;
 import com.kirshi.freya.server.utils.RandomUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -17,10 +18,10 @@ public class RemoteServiceImpl implements RemoteService {
     @Override
     public String createValidKey(int length) {
         String sessionKey = RandomUtil.createUid(length);
-        while (redis.sHasKey("SessionKeys", sessionKey)) {
+        while (redis.sHasKey(RedisConstant.SessionKeys, sessionKey)) {
             sessionKey = RandomUtil.createUid(length);
         }
-        redis.sSet("SessionKeys", sessionKey);
+        redis.sSet(RedisConstant.SessionKeys, sessionKey);
         return sessionKey;
     }
 }

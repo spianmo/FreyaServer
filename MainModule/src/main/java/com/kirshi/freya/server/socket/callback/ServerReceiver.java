@@ -1,6 +1,8 @@
 package com.kirshi.freya.server.socket.callback;
 
 import com.google.protobuf.Any;
+import com.kirshi.freya.server.config.RedisUtil;
+import com.kirshi.freya.server.constant.RedisConstant;
 import com.kirshi.protocol.CmdProto;
 import com.kirshi.protocol.CommandProto;
 import com.kirshi.protocol.HandShakeProto;
@@ -11,13 +13,16 @@ import com.kirshi.freya.server.socket.pojo.MsgWriteBean;
 import com.kirshi.freya.server.socket.utils.Log;
 import com.xuhao.didi.socket.client.sdk.OkSocket;
 import com.xuhao.didi.socket.common.interfaces.common_interfacies.server.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Copyright (c) 2021
+ *
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:ServerReceiver.java
@@ -26,6 +31,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class ServerReceiver implements IServerActionListener {
 
+    @Resource
+    RedisUtil redis;
     private volatile IServerManager mIServerManager;
 
     private volatile int mPort;
@@ -68,10 +75,11 @@ public class ServerReceiver implements IServerActionListener {
     public void onClientDisconnected(IClient client, int serverPort, IClientPool clientPool) {
         byte[] packet_offine = CommandProto.BaseCommandMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setData(Any.pack(HandShakeProto.HandShakeRespMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setMsg("被控端已离线").setStatus(HandShakeProto.HandShakeStatus.DEVICEOFFINE).build())).build().toByteArray();
         CancelLock(client);
-        if (mClientInfoBeanList.get(client.getUniqueTag())!=null&&mClientInfoBeanList.get(client.getUniqueTag()).getPeerIClient()!=null){
+        if (mClientInfoBeanList.get(client.getUniqueTag()) != null && mClientInfoBeanList.get(client.getUniqueTag()).getPeerIClient() != null) {
             mClientInfoBeanList.get(client.getUniqueTag()).getPeerIClient().send(new BaseProtoPacket(packet_offine));
         }
         client.removeAllIOCallback();
+        redis.setRemove(RedisConstant.SessionKeys, mClientInfoBeanList.get(client.getUniqueTag()).getScode());
         mClientInfoBeanList.remove(client.getUniqueTag());
         Log.i(client.getUniqueTag() + " 下线,被控端数量:" + getClientNum());
     }
@@ -79,6 +87,7 @@ public class ServerReceiver implements IServerActionListener {
     @Override
     public void onServerWillBeShutdown(int serverPort, IServerShutdown shutdown, IClientPool clientPool, Throwable throwable) {
         clientPool.sendToAll(new MsgWriteBean("服务器即将关闭"));
+        redis.del(RedisConstant.SessionKeys);
         if (throwable == null) {
             Log.i("服务器即将关闭,没有异常");
         } else {
