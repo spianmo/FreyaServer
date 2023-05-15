@@ -1,0 +1,53 @@
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+  banner:
+    location: banner.txt
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+  output:
+    ansi:
+      enabled: detect
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  main:
+    banner-mode: console
+  profiles:
+    active: default
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: X2hM4WmmsBP5SCM4
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 50  # 连接池最大连接数（使用负值表示没有限制）
+        max-wait: -1      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 25      # 连接池中的最大空闲连接
+        min-idle: 10       # 连接池中的最小空闲连接
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  kaptcha:
+    store: session
+
+
+logging:
+  level:
+    root: info
+    com:
+      itheima:
+        admin:
+          mapper: debug
+
+server:
+  tomcat:
+    uri-encoding: utf-8
+  port: 9090
+  servlet:
+    context-path: /api

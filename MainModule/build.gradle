@@ -1,0 +1,16 @@
+/**
+ * Copyright (c) 2022
+ * @Project: CollectionBackend
+ * @Author: Finger
+ * @FileName: build.gradle
+ * @LastModified: 2022/01/13 22:07:13
+ */
+
+repositories {
+    maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+    maven { url "https://repo.spring.io/release" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "https://repo.spring.io/snapshot" }
+    mavenCentral()
+}
