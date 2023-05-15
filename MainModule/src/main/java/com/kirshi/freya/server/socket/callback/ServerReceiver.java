@@ -3,36 +3,33 @@ package com.kirshi.freya.server.socket.callback;
 import com.google.protobuf.Any;
 import com.kirshi.freya.server.config.RedisUtil;
 import com.kirshi.freya.server.constant.RedisConstant;
-import com.kirshi.protocol.CmdProto;
-import com.kirshi.protocol.CommandProto;
-import com.kirshi.protocol.HandShakeProto;
 import com.kirshi.freya.server.socket.WatchdogThread;
 import com.kirshi.freya.server.socket.packet.BaseProtoPacket;
 import com.kirshi.freya.server.socket.pojo.ClientInfoBean;
 import com.kirshi.freya.server.socket.pojo.MsgWriteBean;
 import com.kirshi.freya.server.socket.utils.Log;
+import com.kirshi.freya.server.utils.SpringContextUtils;
+import com.kirshi.protocol.CmdProto;
+import com.kirshi.protocol.CommandProto;
+import com.kirshi.protocol.HandShakeProto;
 import com.xuhao.didi.socket.client.sdk.OkSocket;
 import com.xuhao.didi.socket.common.interfaces.common_interfacies.server.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Copyright (c) 2021
- *
+ * Copyright (c) 2023
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:ServerReceiver.java
- * @LastModified:2021-03-27T01:09:45.775+08:00
+ * @LastModified:2023-05-16T02:29:41.438+08:00
  */
 
 public class ServerReceiver implements IServerActionListener {
 
-    @Resource
-    RedisUtil redis;
+    RedisUtil redis = SpringContextUtils.getBean(RedisUtil.class);
     private volatile IServerManager mIServerManager;
 
     private volatile int mPort;

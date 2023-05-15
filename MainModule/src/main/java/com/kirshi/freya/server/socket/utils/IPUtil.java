@@ -12,12 +12,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Copyright (c) 2021
- *
+ * Copyright (c) 2023
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:IPUtil.java
- * @LastModified:2021-03-27T01:09:45.792+08:00
+ * @LastModified:2023-05-16T02:29:41.442+08:00
  */
 
 public class IPUtil {
@@ -98,6 +97,10 @@ public class IPUtil {
 
     private static String getIntranetIp() {
         try {
+            //判断系统是否是windows
+            if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+                return InetAddress.getLocalHost().getHostAddress();
+            }
             return getLocalIPList().get(0);
         } catch (Exception e) {
             throw new RuntimeException(e);
