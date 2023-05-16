@@ -5,13101 +5,12865 @@ package com.kirshi.protocol;
 
 /**
  * Copyright (c) 2021
- * @Project:FreyaServer
+ * @Project:Freya
  * @Author:Finger
  * @FileName:CommandProto.java
- * @LastModified:2021-11-08T10:34:54.930+08:00
+ * @LastModified:2021-04-30T08:44:48.198+08:00
  */
 
 public final class CommandProto {
-    private CommandProto() {
-    }
+  private CommandProto() {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  /**
+   * Protobuf enum {@code com.kirshi.protocol.CommandInfo}
+   */
+  public enum CommandInfo
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>COMMAND_FILETRANS = 0;</code>
+     */
+    COMMAND_FILETRANS(0),
+    /**
+     * <code>COMMAND_SCREENTRANS = 1;</code>
+     */
+    COMMAND_SCREENTRANS(1),
+    /**
+     * <code>COMMAND_CAMERALIVE = 2;</code>
+     */
+    COMMAND_CAMERALIVE(2),
+    /**
+     * <code>COMMAND_AUDIOLIVE = 3;</code>
+     */
+    COMMAND_AUDIOLIVE(3),
+    /**
+     * <code>COMMAND_FILETRANS_AHEAD = 4;</code>
+     */
+    COMMAND_FILETRANS_AHEAD(4),
+    /**
+     * <code>SPC_COMMAND_AAC = 5;</code>
+     */
+    SPC_COMMAND_AAC(5),
+    /**
+     * <code>SPC_COMMAND_H264 = 6;</code>
+     */
+    SPC_COMMAND_H264(6),
+    /**
+     * <code>ERR_COMMAND_COMMON = 7;</code>
+     */
+    ERR_COMMAND_COMMON(7),
+    /**
+     * <code>COMMAND_TOUCH = 8;</code>
+     */
+    COMMAND_TOUCH(8),
+    /**
+     * <code>COMMAND_SCREENCONTROL = 9;</code>
+     */
+    COMMAND_SCREENCONTROL(9),
+    UNRECOGNIZED(-1),
+    ;
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
+    /**
+     * <code>COMMAND_FILETRANS = 0;</code>
+     */
+    public static final int COMMAND_FILETRANS_VALUE = 0;
+    /**
+     * <code>COMMAND_SCREENTRANS = 1;</code>
+     */
+    public static final int COMMAND_SCREENTRANS_VALUE = 1;
+    /**
+     * <code>COMMAND_CAMERALIVE = 2;</code>
+     */
+    public static final int COMMAND_CAMERALIVE_VALUE = 2;
+    /**
+     * <code>COMMAND_AUDIOLIVE = 3;</code>
+     */
+    public static final int COMMAND_AUDIOLIVE_VALUE = 3;
+    /**
+     * <code>COMMAND_FILETRANS_AHEAD = 4;</code>
+     */
+    public static final int COMMAND_FILETRANS_AHEAD_VALUE = 4;
+    /**
+     * <code>SPC_COMMAND_AAC = 5;</code>
+     */
+    public static final int SPC_COMMAND_AAC_VALUE = 5;
+    /**
+     * <code>SPC_COMMAND_H264 = 6;</code>
+     */
+    public static final int SPC_COMMAND_H264_VALUE = 6;
+    /**
+     * <code>ERR_COMMAND_COMMON = 7;</code>
+     */
+    public static final int ERR_COMMAND_COMMON_VALUE = 7;
+    /**
+     * <code>COMMAND_TOUCH = 8;</code>
+     */
+    public static final int COMMAND_TOUCH_VALUE = 8;
+    /**
+     * <code>COMMAND_SCREENCONTROL = 9;</code>
+     */
+    public static final int COMMAND_SCREENCONTROL_VALUE = 9;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new IllegalArgumentException(
+                "Can't get the number of an unknown enum value.");
+      }
+      return value;
     }
 
     /**
-     * Protobuf enum {@code com.kirshi.protocol.CommandInfo}
+     * @deprecated Use {@link #forNumber(int)} instead.
      */
-    public enum CommandInfo
-            implements com.google.protobuf.ProtocolMessageEnum {
-        /**
-         * <code>COMMAND_FILETRANS = 0;</code>
-         */
-        COMMAND_FILETRANS(0),
-        /**
-         * <code>COMMAND_SCREENTRANS = 1;</code>
-         */
-        COMMAND_SCREENTRANS(1),
-        /**
-         * <code>COMMAND_CAMERALIVE = 2;</code>
-         */
-        COMMAND_CAMERALIVE(2),
-        /**
-         * <code>COMMAND_AUDIOLIVE = 3;</code>
-         */
-        COMMAND_AUDIOLIVE(3),
-        /**
-         * <code>COMMAND_FILETRANS_AHEAD = 4;</code>
-         */
-        COMMAND_FILETRANS_AHEAD(4),
-        /**
-         * <code>SPC_COMMAND_AAC = 5;</code>
-         */
-        SPC_COMMAND_AAC(5),
-        /**
-         * <code>SPC_COMMAND_H264 = 6;</code>
-         */
-        SPC_COMMAND_H264(6),
-        /**
-         * <code>ERR_COMMAND_COMMON = 7;</code>
-         */
-        ERR_COMMAND_COMMON(7),
-        /**
-         * <code>COMMAND_TOUCH = 8;</code>
-         */
-        COMMAND_TOUCH(8),
-        /**
-         * <code>COMMAND_SCREENCONTROL = 9;</code>
-         */
-        COMMAND_SCREENCONTROL(9),
-        UNRECOGNIZED(-1),
-        ;
+    @Deprecated
+    public static CommandInfo valueOf(int value) {
+      return forNumber(value);
+    }
 
-        /**
-         * <code>COMMAND_FILETRANS = 0;</code>
-         */
-        public static final int COMMAND_FILETRANS_VALUE = 0;
-        /**
-         * <code>COMMAND_SCREENTRANS = 1;</code>
-         */
-        public static final int COMMAND_SCREENTRANS_VALUE = 1;
-        /**
-         * <code>COMMAND_CAMERALIVE = 2;</code>
-         */
-        public static final int COMMAND_CAMERALIVE_VALUE = 2;
-        /**
-         * <code>COMMAND_AUDIOLIVE = 3;</code>
-         */
-        public static final int COMMAND_AUDIOLIVE_VALUE = 3;
-        /**
-         * <code>COMMAND_FILETRANS_AHEAD = 4;</code>
-         */
-        public static final int COMMAND_FILETRANS_AHEAD_VALUE = 4;
-        /**
-         * <code>SPC_COMMAND_AAC = 5;</code>
-         */
-        public static final int SPC_COMMAND_AAC_VALUE = 5;
-        /**
-         * <code>SPC_COMMAND_H264 = 6;</code>
-         */
-        public static final int SPC_COMMAND_H264_VALUE = 6;
-        /**
-         * <code>ERR_COMMAND_COMMON = 7;</code>
-         */
-        public static final int ERR_COMMAND_COMMON_VALUE = 7;
-        /**
-         * <code>COMMAND_TOUCH = 8;</code>
-         */
-        public static final int COMMAND_TOUCH_VALUE = 8;
-        /**
-         * <code>COMMAND_SCREENCONTROL = 9;</code>
-         */
-        public static final int COMMAND_SCREENCONTROL_VALUE = 9;
+    public static CommandInfo forNumber(int value) {
+      switch (value) {
+        case 0:
+          return COMMAND_FILETRANS;
+        case 1:
+          return COMMAND_SCREENTRANS;
+        case 2:
+          return COMMAND_CAMERALIVE;
+        case 3:
+          return COMMAND_AUDIOLIVE;
+        case 4:
+          return COMMAND_FILETRANS_AHEAD;
+        case 5:
+          return SPC_COMMAND_AAC;
+        case 6:
+          return SPC_COMMAND_H264;
+        case 7:
+          return ERR_COMMAND_COMMON;
+        case 8:
+          return COMMAND_TOUCH;
+        case 9:
+          return COMMAND_SCREENCONTROL;
+        default:
+          return null;
+      }
+    }
 
+    public static com.google.protobuf.Internal.EnumLiteMap<CommandInfo>
+    internalGetValueMap() {
+      return internalValueMap;
+    }
 
-        public final int getNumber() {
-            if (this == UNRECOGNIZED) {
-                throw new java.lang.IllegalArgumentException(
-                        "Can't get the number of an unknown enum value.");
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        CommandInfo> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<CommandInfo>() {
+            public CommandInfo findValueByNumber(int number) {
+              return CommandInfo.forNumber(number);
             }
-            return value;
-        }
+          };
 
-        /**
-         * @deprecated Use {@link #forNumber(int)} instead.
-         */
-        @java.lang.Deprecated
-        public static CommandInfo valueOf(int value) {
-            return forNumber(value);
-        }
-
-        public static CommandInfo forNumber(int value) {
-            switch (value) {
-                case 0:
-                    return COMMAND_FILETRANS;
-                case 1:
-                    return COMMAND_SCREENTRANS;
-                case 2:
-                    return COMMAND_CAMERALIVE;
-                case 3:
-                    return COMMAND_AUDIOLIVE;
-                case 4:
-                    return COMMAND_FILETRANS_AHEAD;
-                case 5:
-                    return SPC_COMMAND_AAC;
-                case 6:
-                    return SPC_COMMAND_H264;
-                case 7:
-                    return ERR_COMMAND_COMMON;
-                case 8:
-                    return COMMAND_TOUCH;
-                case 9:
-                    return COMMAND_SCREENCONTROL;
-                default:
-                    return null;
-            }
-        }
-
-        public static com.google.protobuf.Internal.EnumLiteMap<CommandInfo>
-        internalGetValueMap() {
-            return internalValueMap;
-        }
-
-        private static final com.google.protobuf.Internal.EnumLiteMap<
-                CommandInfo> internalValueMap =
-                new com.google.protobuf.Internal.EnumLiteMap<CommandInfo>() {
-                    public CommandInfo findValueByNumber(int number) {
-                        return CommandInfo.forNumber(number);
-                    }
-                };
-
-        public final com.google.protobuf.Descriptors.EnumValueDescriptor
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
-            return getDescriptor().getValues().get(ordinal());
-        }
-
-        public final com.google.protobuf.Descriptors.EnumDescriptor
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptorForType() {
-            return getDescriptor();
-        }
-
-        public static final com.google.protobuf.Descriptors.EnumDescriptor
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-            return com.kirshi.protocol.CommandProto.getDescriptor().getEnumTypes().get(0);
-        }
+      return CommandProto.getDescriptor().getEnumTypes().get(0);
+    }
 
-        private static final CommandInfo[] VALUES = values();
+    private static final CommandInfo[] VALUES = values();
 
-        public static CommandInfo valueOf(
-                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-            if (desc.getType() != getDescriptor()) {
-                throw new java.lang.IllegalArgumentException(
-                        "EnumValueDescriptor is not for this type.");
-            }
-            if (desc.getIndex() == -1) {
-                return UNRECOGNIZED;
-            }
-            return VALUES[desc.getIndex()];
-        }
+    public static CommandInfo valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new IllegalArgumentException(
+                "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
 
-        private final int value;
+    private final int value;
 
-        private CommandInfo(int value) {
-            this.value = value;
-        }
+    private CommandInfo(int value) {
+      this.value = value;
+    }
 
-        // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.CommandInfo)
+    // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.CommandInfo)
+  }
+
+  /**
+   * Protobuf enum {@code com.kirshi.protocol.TouchType}
+   */
+  public enum TouchType
+          implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>GESTURE = 0;</code>
+     */
+    GESTURE(0),
+    /**
+     * <code>GESTURES = 1;</code>
+     */
+    GESTURES(1),
+    /**
+     * <code>FLING = 2;</code>
+     */
+    FLING(2),
+    /**
+     * <code>TAP = 3;</code>
+     */
+    TAP(3),
+    /**
+     * <code>LONGTAP = 4;</code>
+     */
+    LONGTAP(4),
+    /**
+     * <code>PRESS = 5;</code>
+     */
+    PRESS(5),
+    /**
+     * <code>HOME = 6;</code>
+     */
+    HOME(6),
+    /**
+     * <code>RECENTS = 7;</code>
+     */
+    RECENTS(7),
+    /**
+     * <code>BACKS = 8;</code>
+     */
+    BACKS(8),
+    /**
+     * <code>QUICKSETTINGS = 9;</code>
+     */
+    QUICKSETTINGS(9),
+    /**
+     * <code>SPLITSCREEN = 10;</code>
+     */
+    SPLITSCREEN(10),
+    /**
+     * <code>POWER = 11;</code>
+     */
+    POWER(11),
+    /**
+     * <code>LOCK_SCREEN = 12;</code>
+     */
+    LOCK_SCREEN(12),
+    /**
+     * <code>SCREENSHOT = 13;</code>
+     */
+    SCREENSHOT(13),
+    /**
+     * <code>NOTIFICATIONS = 14;</code>
+     */
+    NOTIFICATIONS(14),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>GESTURE = 0;</code>
+     */
+    public static final int GESTURE_VALUE = 0;
+    /**
+     * <code>GESTURES = 1;</code>
+     */
+    public static final int GESTURES_VALUE = 1;
+    /**
+     * <code>FLING = 2;</code>
+     */
+    public static final int FLING_VALUE = 2;
+    /**
+     * <code>TAP = 3;</code>
+     */
+    public static final int TAP_VALUE = 3;
+    /**
+     * <code>LONGTAP = 4;</code>
+     */
+    public static final int LONGTAP_VALUE = 4;
+    /**
+     * <code>PRESS = 5;</code>
+     */
+    public static final int PRESS_VALUE = 5;
+    /**
+     * <code>HOME = 6;</code>
+     */
+    public static final int HOME_VALUE = 6;
+    /**
+     * <code>RECENTS = 7;</code>
+     */
+    public static final int RECENTS_VALUE = 7;
+    /**
+     * <code>BACKS = 8;</code>
+     */
+    public static final int BACKS_VALUE = 8;
+    /**
+     * <code>QUICKSETTINGS = 9;</code>
+     */
+    public static final int QUICKSETTINGS_VALUE = 9;
+    /**
+     * <code>SPLITSCREEN = 10;</code>
+     */
+    public static final int SPLITSCREEN_VALUE = 10;
+    /**
+     * <code>POWER = 11;</code>
+     */
+    public static final int POWER_VALUE = 11;
+    /**
+     * <code>LOCK_SCREEN = 12;</code>
+     */
+    public static final int LOCK_SCREEN_VALUE = 12;
+    /**
+     * <code>SCREENSHOT = 13;</code>
+     */
+    public static final int SCREENSHOT_VALUE = 13;
+    /**
+     * <code>NOTIFICATIONS = 14;</code>
+     */
+    public static final int NOTIFICATIONS_VALUE = 14;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new IllegalArgumentException(
+                "Can't get the number of an unknown enum value.");
+      }
+      return value;
     }
 
     /**
-     * Protobuf enum {@code com.kirshi.protocol.TouchType}
+     * @deprecated Use {@link #forNumber(int)} instead.
      */
-    public enum TouchType
-            implements com.google.protobuf.ProtocolMessageEnum {
-        /**
-         * <code>GESTURE = 0;</code>
-         */
-        GESTURE(0),
-        /**
-         * <code>GESTURES = 1;</code>
-         */
-        GESTURES(1),
-        /**
-         * <code>FLING = 2;</code>
-         */
-        FLING(2),
-        /**
-         * <code>TAP = 3;</code>
-         */
-        TAP(3),
-        /**
-         * <code>LONGTAP = 4;</code>
-         */
-        LONGTAP(4),
-        /**
-         * <code>PRESS = 5;</code>
-         */
-        PRESS(5),
-        /**
-         * <code>HOME = 6;</code>
-         */
-        HOME(6),
-        /**
-         * <code>RECENTS = 7;</code>
-         */
-        RECENTS(7),
-        /**
-         * <code>BACKS = 8;</code>
-         */
-        BACKS(8),
-        /**
-         * <code>QUICKSETTINGS = 9;</code>
-         */
-        QUICKSETTINGS(9),
-        /**
-         * <code>SPLITSCREEN = 10;</code>
-         */
-        SPLITSCREEN(10),
-        /**
-         * <code>POWER = 11;</code>
-         */
-        POWER(11),
-        /**
-         * <code>LOCK_SCREEN = 12;</code>
-         */
-        LOCK_SCREEN(12),
-        /**
-         * <code>SCREENSHOT = 13;</code>
-         */
-        SCREENSHOT(13),
-        /**
-         * <code>NOTIFICATIONS = 14;</code>
-         */
-        NOTIFICATIONS(14),
-        UNRECOGNIZED(-1),
-        ;
+    @Deprecated
+    public static TouchType valueOf(int value) {
+      return forNumber(value);
+    }
 
-        /**
-         * <code>GESTURE = 0;</code>
-         */
-        public static final int GESTURE_VALUE = 0;
-        /**
-         * <code>GESTURES = 1;</code>
-         */
-        public static final int GESTURES_VALUE = 1;
-        /**
-         * <code>FLING = 2;</code>
-         */
-        public static final int FLING_VALUE = 2;
-        /**
-         * <code>TAP = 3;</code>
-         */
-        public static final int TAP_VALUE = 3;
-        /**
-         * <code>LONGTAP = 4;</code>
-         */
-        public static final int LONGTAP_VALUE = 4;
-        /**
-         * <code>PRESS = 5;</code>
-         */
-        public static final int PRESS_VALUE = 5;
-        /**
-         * <code>HOME = 6;</code>
-         */
-        public static final int HOME_VALUE = 6;
-        /**
-         * <code>RECENTS = 7;</code>
-         */
-        public static final int RECENTS_VALUE = 7;
-        /**
-         * <code>BACKS = 8;</code>
-         */
-        public static final int BACKS_VALUE = 8;
-        /**
-         * <code>QUICKSETTINGS = 9;</code>
-         */
-        public static final int QUICKSETTINGS_VALUE = 9;
-        /**
-         * <code>SPLITSCREEN = 10;</code>
-         */
-        public static final int SPLITSCREEN_VALUE = 10;
-        /**
-         * <code>POWER = 11;</code>
-         */
-        public static final int POWER_VALUE = 11;
-        /**
-         * <code>LOCK_SCREEN = 12;</code>
-         */
-        public static final int LOCK_SCREEN_VALUE = 12;
-        /**
-         * <code>SCREENSHOT = 13;</code>
-         */
-        public static final int SCREENSHOT_VALUE = 13;
-        /**
-         * <code>NOTIFICATIONS = 14;</code>
-         */
-        public static final int NOTIFICATIONS_VALUE = 14;
+    public static TouchType forNumber(int value) {
+      switch (value) {
+        case 0:
+          return GESTURE;
+        case 1:
+          return GESTURES;
+        case 2:
+          return FLING;
+        case 3:
+          return TAP;
+        case 4:
+          return LONGTAP;
+        case 5:
+          return PRESS;
+        case 6:
+          return HOME;
+        case 7:
+          return RECENTS;
+        case 8:
+          return BACKS;
+        case 9:
+          return QUICKSETTINGS;
+        case 10:
+          return SPLITSCREEN;
+        case 11:
+          return POWER;
+        case 12:
+          return LOCK_SCREEN;
+        case 13:
+          return SCREENSHOT;
+        case 14:
+          return NOTIFICATIONS;
+        default:
+          return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<TouchType>
+    internalGetValueMap() {
+      return internalValueMap;
+    }
+
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+            TouchType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<TouchType>() {
+              public TouchType findValueByNumber(int number) {
+                return TouchType.forNumber(number);
+              }
+            };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+    getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+    getDescriptorForType() {
+      return getDescriptor();
+    }
+
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+    getDescriptor() {
+      return CommandProto.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final TouchType[] VALUES = values();
+
+    public static TouchType valueOf(
+            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new IllegalArgumentException(
+                "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private TouchType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.TouchType)
+  }
+
+  /**
+   * Protobuf enum {@code com.kirshi.protocol.CameraAction}
+   */
+  public enum CameraAction
+          implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>START = 0;</code>
+     */
+    START(0),
+    /**
+     * <code>STOP = 1;</code>
+     */
+    STOP(1),
+    /**
+     * <code>SWITCH = 2;</code>
+     */
+    SWITCH(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>START = 0;</code>
+     */
+    public static final int START_VALUE = 0;
+    /**
+     * <code>STOP = 1;</code>
+     */
+    public static final int STOP_VALUE = 1;
+    /**
+     * <code>SWITCH = 2;</code>
+     */
+    public static final int SWITCH_VALUE = 2;
 
 
-        public final int getNumber() {
-            if (this == UNRECOGNIZED) {
-                throw new java.lang.IllegalArgumentException(
-                        "Can't get the number of an unknown enum value.");
-            }
-            return value;
-        }
-
-        /**
-         * @deprecated Use {@link #forNumber(int)} instead.
-         */
-        @java.lang.Deprecated
-        public static TouchType valueOf(int value) {
-            return forNumber(value);
-        }
-
-        public static TouchType forNumber(int value) {
-            switch (value) {
-                case 0:
-                    return GESTURE;
-                case 1:
-                    return GESTURES;
-                case 2:
-                    return FLING;
-                case 3:
-                    return TAP;
-                case 4:
-                    return LONGTAP;
-                case 5:
-                    return PRESS;
-                case 6:
-                    return HOME;
-                case 7:
-                    return RECENTS;
-                case 8:
-                    return BACKS;
-                case 9:
-                    return QUICKSETTINGS;
-                case 10:
-                    return SPLITSCREEN;
-                case 11:
-                    return POWER;
-                case 12:
-                    return LOCK_SCREEN;
-                case 13:
-                    return SCREENSHOT;
-                case 14:
-                    return NOTIFICATIONS;
-                default:
-                    return null;
-            }
-        }
-
-        public static com.google.protobuf.Internal.EnumLiteMap<TouchType>
-        internalGetValueMap() {
-            return internalValueMap;
-        }
-
-        private static final com.google.protobuf.Internal.EnumLiteMap<
-                TouchType> internalValueMap =
-                new com.google.protobuf.Internal.EnumLiteMap<TouchType>() {
-                    public TouchType findValueByNumber(int number) {
-                        return TouchType.forNumber(number);
-                    }
-                };
-
-        public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-            return getDescriptor().getValues().get(ordinal());
-        }
-
-        public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-            return getDescriptor();
-        }
-
-        public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.getDescriptor().getEnumTypes().get(1);
-        }
-
-        private static final TouchType[] VALUES = values();
-
-        public static TouchType valueOf(
-                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-            if (desc.getType() != getDescriptor()) {
-                throw new java.lang.IllegalArgumentException(
-                        "EnumValueDescriptor is not for this type.");
-            }
-            if (desc.getIndex() == -1) {
-                return UNRECOGNIZED;
-            }
-            return VALUES[desc.getIndex()];
-        }
-
-        private final int value;
-
-        private TouchType(int value) {
-            this.value = value;
-        }
-
-        // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.TouchType)
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
     }
 
     /**
-     * Protobuf enum {@code com.kirshi.protocol.CameraAction}
+     * @deprecated Use {@link #forNumber(int)} instead.
      */
-    public enum CameraAction
-            implements com.google.protobuf.ProtocolMessageEnum {
-        /**
-         * <code>START = 0;</code>
-         */
-        START(0),
-        /**
-         * <code>STOP = 1;</code>
-         */
-        STOP(1),
-        /**
-         * <code>SWITCH = 2;</code>
-         */
-        SWITCH(2),
-        UNRECOGNIZED(-1),
-        ;
+    @Deprecated
+    public static CameraAction valueOf(int value) {
+      return forNumber(value);
+    }
 
-        /**
-         * <code>START = 0;</code>
-         */
-        public static final int START_VALUE = 0;
-        /**
-         * <code>STOP = 1;</code>
-         */
-        public static final int STOP_VALUE = 1;
-        /**
-         * <code>SWITCH = 2;</code>
-         */
-        public static final int SWITCH_VALUE = 2;
+    public static CameraAction forNumber(int value) {
+      switch (value) {
+        case 0: return START;
+        case 1: return STOP;
+        case 2: return SWITCH;
+        default: return null;
+      }
+    }
 
+    public static com.google.protobuf.Internal.EnumLiteMap<CameraAction>
+    internalGetValueMap() {
+      return internalValueMap;
+    }
 
-        public final int getNumber() {
-            if (this == UNRECOGNIZED) {
-                throw new java.lang.IllegalArgumentException(
-                        "Can't get the number of an unknown enum value.");
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+            CameraAction> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<CameraAction>() {
+              public CameraAction findValueByNumber(int number) {
+              return CameraAction.forNumber(number);
             }
-            return value;
-        }
+          };
 
-        /**
-         * @deprecated Use {@link #forNumber(int)} instead.
-         */
-        @java.lang.Deprecated
-        public static CameraAction valueOf(int value) {
-            return forNumber(value);
-        }
-
-        public static CameraAction forNumber(int value) {
-            switch (value) {
-                case 0: return START;
-                case 1: return STOP;
-                case 2: return SWITCH;
-                default: return null;
-            }
-        }
-
-        public static com.google.protobuf.Internal.EnumLiteMap<CameraAction>
-        internalGetValueMap() {
-            return internalValueMap;
-        }
-        private static final com.google.protobuf.Internal.EnumLiteMap<
-                CameraAction> internalValueMap =
-                new com.google.protobuf.Internal.EnumLiteMap<CameraAction>() {
-                    public CameraAction findValueByNumber(int number) {
-                        return CameraAction.forNumber(number);
-                    }
-                };
-
-        public final com.google.protobuf.Descriptors.EnumValueDescriptor
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
         getValueDescriptor() {
-            return getDescriptor().getValues().get(ordinal());
-        }
-        public final com.google.protobuf.Descriptors.EnumDescriptor
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptorForType() {
-            return getDescriptor();
-        }
-        public static final com.google.protobuf.Descriptors.EnumDescriptor
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-            return com.kirshi.protocol.CommandProto.getDescriptor().getEnumTypes().get(2);
-        }
+      return CommandProto.getDescriptor().getEnumTypes().get(2);
+    }
 
-        private static final CameraAction[] VALUES = values();
+    private static final CameraAction[] VALUES = values();
 
-        public static CameraAction valueOf(
-                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-            if (desc.getType() != getDescriptor()) {
-                throw new java.lang.IllegalArgumentException(
-                        "EnumValueDescriptor is not for this type.");
-            }
-            if (desc.getIndex() == -1) {
-                return UNRECOGNIZED;
-            }
-            return VALUES[desc.getIndex()];
-        }
+    public static CameraAction valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
 
-        private final int value;
+    private final int value;
 
-        private CameraAction(int value) {
-            this.value = value;
-        }
+    private CameraAction(int value) {
+      this.value = value;
+    }
 
-        // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.CameraAction)
+    // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.CameraAction)
+  }
+
+  /**
+   * Protobuf enum {@code com.kirshi.protocol.CameraType}
+   */
+  public enum CameraType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>FONT = 0;</code>
+     */
+    FONT(0),
+    /**
+     * <code>BACK = 1;</code>
+     */
+    BACK(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>FONT = 0;</code>
+     */
+    public static final int FONT_VALUE = 0;
+    /**
+     * <code>BACK = 1;</code>
+     */
+    public static final int BACK_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
     }
 
     /**
-     * Protobuf enum {@code com.kirshi.protocol.CameraType}
+     * @deprecated Use {@link #forNumber(int)} instead.
      */
-    public enum CameraType
-            implements com.google.protobuf.ProtocolMessageEnum {
-        /**
-         * <code>FONT = 0;</code>
-         */
-        FONT(0),
-        /**
-         * <code>BACK = 1;</code>
-         */
-        BACK(1),
-        UNRECOGNIZED(-1),
-        ;
-
-        /**
-         * <code>FONT = 0;</code>
-         */
-        public static final int FONT_VALUE = 0;
-        /**
-         * <code>BACK = 1;</code>
-         */
-        public static final int BACK_VALUE = 1;
-
-
-        public final int getNumber() {
-            if (this == UNRECOGNIZED) {
-                throw new java.lang.IllegalArgumentException(
-                        "Can't get the number of an unknown enum value.");
-            }
-            return value;
-        }
-
-        /**
-         * @deprecated Use {@link #forNumber(int)} instead.
-         */
-        @java.lang.Deprecated
-        public static CameraType valueOf(int value) {
-            return forNumber(value);
-        }
-
-        public static CameraType forNumber(int value) {
-            switch (value) {
-                case 0: return FONT;
-                case 1: return BACK;
-                default: return null;
-            }
-        }
-
-        public static com.google.protobuf.Internal.EnumLiteMap<CameraType>
-        internalGetValueMap() {
-            return internalValueMap;
-        }
-        private static final com.google.protobuf.Internal.EnumLiteMap<
-                CameraType> internalValueMap =
-                new com.google.protobuf.Internal.EnumLiteMap<CameraType>() {
-                    public CameraType findValueByNumber(int number) {
-                        return CameraType.forNumber(number);
-                    }
-                };
-
-        public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-            return getDescriptor().getValues().get(ordinal());
-        }
-        public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-            return getDescriptor();
-        }
-        public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.getDescriptor().getEnumTypes().get(3);
-        }
-
-        private static final CameraType[] VALUES = values();
-
-        public static CameraType valueOf(
-                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-            if (desc.getType() != getDescriptor()) {
-                throw new java.lang.IllegalArgumentException(
-                        "EnumValueDescriptor is not for this type.");
-            }
-            if (desc.getIndex() == -1) {
-                return UNRECOGNIZED;
-            }
-            return VALUES[desc.getIndex()];
-        }
-
-        private final int value;
-
-        private CameraType(int value) {
-            this.value = value;
-        }
-
-        // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.CameraType)
+    @Deprecated
+    public static CameraType valueOf(int value) {
+      return forNumber(value);
     }
 
-    public interface BaseCommandMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.BaseCommandMessage)
-            com.google.protobuf.MessageOrBuilder {
+    public static CameraType forNumber(int value) {
+      switch (value) {
+        case 0: return FONT;
+        case 1: return BACK;
+        default: return null;
+      }
+    }
 
-        /**
-         * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-         */
-        int getCmdValue();
-        /**
-         * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-         */
-        com.kirshi.protocol.CmdProto.CmdAction getCmd();
+    public static com.google.protobuf.Internal.EnumLiteMap<CameraType>
+    internalGetValueMap() {
+      return internalValueMap;
+    }
 
-        /**
-         * <code>.google.protobuf.Any data = 2;</code>
-         */
-        boolean hasData();
-        /**
-         * <code>.google.protobuf.Any data = 2;</code>
-         */
-        com.google.protobuf.Any getData();
-        /**
-         * <code>.google.protobuf.Any data = 2;</code>
-         */
-        com.google.protobuf.AnyOrBuilder getDataOrBuilder();
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+            CameraType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<CameraType>() {
+              public CameraType findValueByNumber(int number) {
+              return CameraType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return CommandProto.getDescriptor().getEnumTypes().get(3);
+    }
+
+    private static final CameraType[] VALUES = values();
+
+    public static CameraType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private CameraType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.kirshi.protocol.CameraType)
+  }
+
+  public interface BaseCommandMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.BaseCommandMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+     */
+    int getCmdValue();
+    /**
+     * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+     */
+    CmdProto.CmdAction getCmd();
+
+    /**
+     * <code>.google.protobuf.Any data = 2;</code>
+     */
+    boolean hasData();
+    /**
+     * <code>.google.protobuf.Any data = 2;</code>
+     */
+    com.google.protobuf.Any getData();
+    /**
+     * <code>.google.protobuf.Any data = 2;</code>
+     */
+    com.google.protobuf.AnyOrBuilder getDataOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.BaseCommandMessage}
+   */
+  public  static final class BaseCommandMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.BaseCommandMessage)
+      BaseCommandMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BaseCommandMessage.newBuilder() to construct.
+    private BaseCommandMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BaseCommandMessage() {
+      cmd_ = 0;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BaseCommandMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              cmd_ = rawValue;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (data_ != null) {
+                subBuilder = data_.toBuilder();
+              }
+              data_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(data_);
+                data_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              BaseCommandMessage.class, Builder.class);
+    }
+
+    public static final int CMD_FIELD_NUMBER = 1;
+    private int cmd_;
+    /**
+     * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+     */
+    public int getCmdValue() {
+      return cmd_;
+    }
+    /**
+     * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+     */
+    public CmdProto.CmdAction getCmd() {
+      CmdProto.CmdAction result = CmdProto.CmdAction.valueOf(cmd_);
+      return result == null ? CmdProto.CmdAction.UNRECOGNIZED : result;
+    }
+
+    public static final int DATA_FIELD_NUMBER = 2;
+    private com.google.protobuf.Any data_;
+    /**
+     * <code>.google.protobuf.Any data = 2;</code>
+     */
+    public boolean hasData() {
+      return data_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Any data = 2;</code>
+     */
+    public com.google.protobuf.Any getData() {
+      return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
+    }
+    /**
+     * <code>.google.protobuf.Any data = 2;</code>
+     */
+    public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
+      return getData();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (cmd_ != CmdProto.CmdAction.TK_ACTION_HANDSHAKE.getNumber()) {
+        output.writeEnum(1, cmd_);
+      }
+      if (data_ != null) {
+        output.writeMessage(2, getData());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (cmd_ != CmdProto.CmdAction.TK_ACTION_HANDSHAKE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, cmd_);
+      }
+      if (data_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getData());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof BaseCommandMessage)) {
+        return super.equals(obj);
+      }
+      BaseCommandMessage other = (BaseCommandMessage) obj;
+
+      boolean result = true;
+      result = result && cmd_ == other.cmd_;
+      result = result && (hasData() == other.hasData());
+      if (hasData()) {
+        result = result && getData()
+            .equals(other.getData());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CMD_FIELD_NUMBER;
+      hash = (53 * hash) + cmd_;
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static BaseCommandMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BaseCommandMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BaseCommandMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BaseCommandMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BaseCommandMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BaseCommandMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BaseCommandMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static BaseCommandMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static BaseCommandMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static BaseCommandMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static BaseCommandMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static BaseCommandMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(BaseCommandMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.BaseCommandMessage}
      */
-    public  static final class BaseCommandMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.BaseCommandMessage)
-            BaseCommandMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use BaseCommandMessage.newBuilder() to construct.
-        private BaseCommandMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
-        }
-        private BaseCommandMessage() {
-            cmd_ = 0;
-        }
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.BaseCommandMessage)
+        BaseCommandMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
-        }
-        private BaseCommandMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
-                            int rawValue = input.readEnum();
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                BaseCommandMessage.class, Builder.class);
+      }
 
-                            cmd_ = rawValue;
-                            break;
-                        }
-                        case 18: {
-                            com.google.protobuf.Any.Builder subBuilder = null;
-                            if (data_ != null) {
-                                subBuilder = data_.toBuilder();
-                            }
-                            data_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-                            if (subBuilder != null) {
-                                subBuilder.mergeFrom(data_);
-                                data_ = subBuilder.buildPartial();
-                            }
+      // Construct using com.kirshi.protocol.CommandProto.BaseCommandMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
 
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
-        }
+      }
+      public Builder clear() {
+        super.clear();
+        cmd_ = 0;
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.BaseCommandMessage.class, com.kirshi.protocol.CommandProto.BaseCommandMessage.Builder.class);
+        if (dataBuilder_ == null) {
+          data_ = null;
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
         }
+        return this;
+      }
 
-        public static final int CMD_FIELD_NUMBER = 1;
-        private int cmd_;
-        /**
-         * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-         */
-        public int getCmdValue() {
-            return cmd_;
-        }
-        /**
-         * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-         */
-        public com.kirshi.protocol.CmdProto.CmdAction getCmd() {
-            com.kirshi.protocol.CmdProto.CmdAction result = com.kirshi.protocol.CmdProto.CmdAction.valueOf(cmd_);
-            return result == null ? com.kirshi.protocol.CmdProto.CmdAction.UNRECOGNIZED : result;
-        }
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
+      }
 
-        public static final int DATA_FIELD_NUMBER = 2;
-        private com.google.protobuf.Any data_;
-        /**
-         * <code>.google.protobuf.Any data = 2;</code>
-         */
-        public boolean hasData() {
-            return data_ != null;
-        }
-        /**
-         * <code>.google.protobuf.Any data = 2;</code>
-         */
-        public com.google.protobuf.Any getData() {
-            return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
-        }
-        /**
-         * <code>.google.protobuf.Any data = 2;</code>
-         */
-        public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
-            return getData();
-        }
+      public BaseCommandMessage getDefaultInstanceForType() {
+        return BaseCommandMessage.getDefaultInstance();
+      }
 
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
+      public BaseCommandMessage build() {
+        BaseCommandMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
 
-            memoizedIsInitialized = 1;
-            return true;
+      public BaseCommandMessage buildPartial() {
+        BaseCommandMessage result = new BaseCommandMessage(this);
+        result.cmd_ = cmd_;
+        if (dataBuilder_ == null) {
+          result.data_ = data_;
+        } else {
+          result.data_ = dataBuilder_.build();
         }
+        onBuilt();
+        return result;
+      }
 
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (cmd_ != com.kirshi.protocol.CmdProto.CmdAction.TK_ACTION_HANDSHAKE.getNumber()) {
-                output.writeEnum(1, cmd_);
-            }
-            if (data_ != null) {
-                output.writeMessage(2, getData());
-            }
-            unknownFields.writeTo(output);
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof BaseCommandMessage) {
+          return mergeFrom((BaseCommandMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
+      }
 
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
+      public Builder mergeFrom(BaseCommandMessage other) {
+        if (other == BaseCommandMessage.getDefaultInstance()) return this;
+        if (other.cmd_ != 0) {
+          setCmdValue(other.getCmdValue());
+        }
+        if (other.hasData()) {
+          mergeData(other.getData());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-            size = 0;
-            if (cmd_ != com.kirshi.protocol.CmdProto.CmdAction.TK_ACTION_HANDSHAKE.getNumber()) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(1, cmd_);
-            }
-            if (data_ != null) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeMessageSize(2, getData());
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
+      public final boolean isInitialized() {
+        return true;
+      }
 
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.BaseCommandMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.BaseCommandMessage other = (com.kirshi.protocol.CommandProto.BaseCommandMessage) obj;
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        BaseCommandMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (BaseCommandMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
 
-            boolean result = true;
-            result = result && cmd_ == other.cmd_;
-            result = result && (hasData() == other.hasData());
-            if (hasData()) {
-                result = result && getData()
-                        .equals(other.getData());
-            }
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
+      private int cmd_ = 0;
+      /**
+       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+       */
+      public int getCmdValue() {
+        return cmd_;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+       */
+      public Builder setCmdValue(int value) {
+        cmd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+       */
+      public CmdProto.CmdAction getCmd() {
+        CmdProto.CmdAction result = CmdProto.CmdAction.valueOf(cmd_);
+        return result == null ? CmdProto.CmdAction.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+       */
+      public Builder setCmd(CmdProto.CmdAction value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
+        
+        cmd_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
+       */
+      public Builder clearCmd() {
+        
+        cmd_ = 0;
+        onChanged();
+        return this;
+      }
 
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + CMD_FIELD_NUMBER;
-            hash = (53 * hash) + cmd_;
-            if (hasData()) {
-                hash = (37 * hash) + DATA_FIELD_NUMBER;
-                hash = (53 * hash) + getData().hashCode();
-            }
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
+      private com.google.protobuf.Any data_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> dataBuilder_;
+      /**
+       * <code>.google.protobuf.Any data = 2;</code>
+       */
+      public boolean hasData() {
+        return dataBuilder_ != null || data_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Any data = 2;</code>
+       */
+      public com.google.protobuf.Any getData() {
+        if (dataBuilder_ == null) {
+          return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
+        } else {
+          return dataBuilder_.getMessage();
         }
-
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      /**
+       * <code>.google.protobuf.Any data = 2;</code>
+       */
+      public Builder setData(com.google.protobuf.Any value) {
+        if (dataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          data_ = value;
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(value);
         }
 
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.BaseCommandMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.BaseCommandMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.BaseCommandMessage)
-                com.kirshi.protocol.CommandProto.BaseCommandMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.BaseCommandMessage.class, com.kirshi.protocol.CommandProto.BaseCommandMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.BaseCommandMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                cmd_ = 0;
-
-                if (dataBuilder_ == null) {
-                    data_ = null;
-                } else {
-                    data_ = null;
-                    dataBuilder_ = null;
-                }
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.BaseCommandMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.BaseCommandMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.BaseCommandMessage build() {
-                com.kirshi.protocol.CommandProto.BaseCommandMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.BaseCommandMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.BaseCommandMessage result = new com.kirshi.protocol.CommandProto.BaseCommandMessage(this);
-                result.cmd_ = cmd_;
-                if (dataBuilder_ == null) {
-                    result.data_ = data_;
-                } else {
-                    result.data_ = dataBuilder_.build();
-                }
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.BaseCommandMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.BaseCommandMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.BaseCommandMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.BaseCommandMessage.getDefaultInstance()) return this;
-                if (other.cmd_ != 0) {
-                    setCmdValue(other.getCmdValue());
-                }
-                if (other.hasData()) {
-                    mergeData(other.getData());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.BaseCommandMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.BaseCommandMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private int cmd_ = 0;
-            /**
-             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-             */
-            public int getCmdValue() {
-                return cmd_;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-             */
-            public Builder setCmdValue(int value) {
-                cmd_ = value;
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-             */
-            public com.kirshi.protocol.CmdProto.CmdAction getCmd() {
-                com.kirshi.protocol.CmdProto.CmdAction result = com.kirshi.protocol.CmdProto.CmdAction.valueOf(cmd_);
-                return result == null ? com.kirshi.protocol.CmdProto.CmdAction.UNRECOGNIZED : result;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-             */
-            public Builder setCmd(com.kirshi.protocol.CmdProto.CmdAction value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                cmd_ = value.getNumber();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CmdAction cmd = 1;</code>
-             */
-            public Builder clearCmd() {
-
-                cmd_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private com.google.protobuf.Any data_ = null;
-            private com.google.protobuf.SingleFieldBuilderV3<
-                    com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> dataBuilder_;
-            /**
-             * <code>.google.protobuf.Any data = 2;</code>
-             */
-            public boolean hasData() {
-                return dataBuilder_ != null || data_ != null;
-            }
-            /**
-             * <code>.google.protobuf.Any data = 2;</code>
-             */
-            public com.google.protobuf.Any getData() {
-                if (dataBuilder_ == null) {
-                    return data_ == null ? com.google.protobuf.Any.getDefaultInstance() : data_;
-                } else {
-                    return dataBuilder_.getMessage();
-                }
-            }
-            /**
-             * <code>.google.protobuf.Any data = 2;</code>
-             */
-            public Builder setData(com.google.protobuf.Any value) {
-                if (dataBuilder_ == null) {
-                    if (value == null) {
-                        throw new NullPointerException();
-                    }
-                    data_ = value;
-                    onChanged();
-                } else {
-                    dataBuilder_.setMessage(value);
-                }
-
-                return this;
-            }
-            /**
-             * <code>.google.protobuf.Any data = 2;</code>
-             */
-            public Builder setData(
-                    com.google.protobuf.Any.Builder builderForValue) {
-                if (dataBuilder_ == null) {
-                    data_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    dataBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-            }
-            /**
-             * <code>.google.protobuf.Any data = 2;</code>
-             */
-            public Builder mergeData(com.google.protobuf.Any value) {
-                if (dataBuilder_ == null) {
-                    if (data_ != null) {
-                        data_ =
-                                com.google.protobuf.Any.newBuilder(data_).mergeFrom(value).buildPartial();
-                    } else {
-                        data_ = value;
-                    }
-                    onChanged();
-                } else {
-                    dataBuilder_.mergeFrom(value);
-                }
-
-                return this;
-            }
-            /**
-             * <code>.google.protobuf.Any data = 2;</code>
-             */
-            public Builder clearData() {
-                if (dataBuilder_ == null) {
-                    data_ = null;
-                    onChanged();
-                } else {
-                    data_ = null;
-                    dataBuilder_ = null;
-                }
-
-                return this;
-            }
-            /**
-             * <code>.google.protobuf.Any data = 2;</code>
-             */
-            public com.google.protobuf.Any.Builder getDataBuilder() {
-
-                onChanged();
-                return getDataFieldBuilder().getBuilder();
-            }
-            /**
-             * <code>.google.protobuf.Any data = 2;</code>
-             */
-            public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
-                if (dataBuilder_ != null) {
-                    return dataBuilder_.getMessageOrBuilder();
-                } else {
-                    return data_ == null ?
-                            com.google.protobuf.Any.getDefaultInstance() : data_;
-                }
-            }
-            /**
-             * <code>.google.protobuf.Any data = 2;</code>
-             */
-            private com.google.protobuf.SingleFieldBuilderV3<
-                    com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>
-            getDataFieldBuilder() {
-                if (dataBuilder_ == null) {
-                    dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
-                            getData(),
-                            getParentForChildren(),
-                            isClean());
-                    data_ = null;
-                }
-                return dataBuilder_;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
-
-
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.BaseCommandMessage)
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Any data = 2;</code>
+       */
+      public Builder setData(
+          com.google.protobuf.Any.Builder builderForValue) {
+        if (dataBuilder_ == null) {
+          data_ = builderForValue.build();
+          onChanged();
+        } else {
+          dataBuilder_.setMessage(builderForValue.build());
         }
 
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.BaseCommandMessage)
-        private static final com.kirshi.protocol.CommandProto.BaseCommandMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.BaseCommandMessage();
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Any data = 2;</code>
+       */
+      public Builder mergeData(com.google.protobuf.Any value) {
+        if (dataBuilder_ == null) {
+          if (data_ != null) {
+            data_ =
+              com.google.protobuf.Any.newBuilder(data_).mergeFrom(value).buildPartial();
+          } else {
+            data_ = value;
+          }
+          onChanged();
+        } else {
+          dataBuilder_.mergeFrom(value);
         }
 
-        public static com.kirshi.protocol.CommandProto.BaseCommandMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Any data = 2;</code>
+       */
+      public Builder clearData() {
+        if (dataBuilder_ == null) {
+          data_ = null;
+          onChanged();
+        } else {
+          data_ = null;
+          dataBuilder_ = null;
         }
 
-        private static final com.google.protobuf.Parser<BaseCommandMessage>
-                PARSER = new com.google.protobuf.AbstractParser<BaseCommandMessage>() {
-            public BaseCommandMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new BaseCommandMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<BaseCommandMessage> parser() {
-            return PARSER;
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Any data = 2;</code>
+       */
+      public com.google.protobuf.Any.Builder getDataBuilder() {
+        
+        onChanged();
+        return getDataFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Any data = 2;</code>
+       */
+      public com.google.protobuf.AnyOrBuilder getDataOrBuilder() {
+        if (dataBuilder_ != null) {
+          return dataBuilder_.getMessageOrBuilder();
+        } else {
+          return data_ == null ?
+              com.google.protobuf.Any.getDefaultInstance() : data_;
         }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<BaseCommandMessage> getParserForType() {
-            return PARSER;
+      }
+      /**
+       * <code>.google.protobuf.Any data = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+          getDataFieldBuilder() {
+        if (dataBuilder_ == null) {
+          dataBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                  getData(),
+                  getParentForChildren(),
+                  isClean());
+          data_ = null;
         }
+        return dataBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        public com.kirshi.protocol.CommandProto.BaseCommandMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
+
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.BaseCommandMessage)
     }
 
-    public interface BizCommandMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.BizCommandMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.BaseCommandMessage)
+    private static final BaseCommandMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new BaseCommandMessage();
+    }
 
-        /**
-         * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
-         */
-        int getCommandValue();
-        /**
-         * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
-         */
-        com.kirshi.protocol.CommandProto.CommandInfo getCommand();
+    public static BaseCommandMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string subcommand = 2;</code>
-         */
-        java.lang.String getSubcommand();
+    private static final com.google.protobuf.Parser<BaseCommandMessage>
+        PARSER = new com.google.protobuf.AbstractParser<BaseCommandMessage>() {
+      public BaseCommandMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BaseCommandMessage(input, extensionRegistry);
+      }
+    };
 
-        /**
-         * <code>string subcommand = 2;</code>
-         */
-        com.google.protobuf.ByteString
-        getSubcommandBytes();
+    public static com.google.protobuf.Parser<BaseCommandMessage> parser() {
+      return PARSER;
+    }
 
-        /**
-         * <code>.google.protobuf.Any extra = 3;</code>
-         */
-        boolean hasExtra();
-        /**
-         * <code>.google.protobuf.Any extra = 3;</code>
-         */
-        com.google.protobuf.Any getExtra();
-        /**
-         * <code>.google.protobuf.Any extra = 3;</code>
-         */
-        com.google.protobuf.AnyOrBuilder getExtraOrBuilder();
+    @Override
+    public com.google.protobuf.Parser<BaseCommandMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public BaseCommandMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BizCommandMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.BizCommandMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
+     */
+    int getCommandValue();
+    /**
+     * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
+     */
+    CommandInfo getCommand();
+
+    /**
+     * <code>string subcommand = 2;</code>
+     */
+    String getSubcommand();
+
+    /**
+     * <code>string subcommand = 2;</code>
+     */
+    com.google.protobuf.ByteString
+    getSubcommandBytes();
+
+    /**
+     * <code>.google.protobuf.Any extra = 3;</code>
+     */
+    boolean hasExtra();
+
+    /**
+     * <code>.google.protobuf.Any extra = 3;</code>
+     */
+    com.google.protobuf.Any getExtra();
+
+    /**
+     * <code>.google.protobuf.Any extra = 3;</code>
+     */
+    com.google.protobuf.AnyOrBuilder getExtraOrBuilder();
+  }
+
+  /**
+   * Protobuf type {@code com.kirshi.protocol.BizCommandMessage}
+   */
+  public static final class BizCommandMessage extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:com.kirshi.protocol.BizCommandMessage)
+          BizCommandMessageOrBuilder {
+    private static final long serialVersionUID = 0L;
+
+    // Use BizCommandMessage.newBuilder() to construct.
+    private BizCommandMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private BizCommandMessage() {
+      command_ = 0;
+      subcommand_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private BizCommandMessage(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+              com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                      input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              command_ = rawValue;
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              subcommand_ = s;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.Any.Builder subBuilder = null;
+              if (extra_ != null) {
+                subBuilder = extra_.toBuilder();
+              }
+              extra_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(extra_);
+                extra_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+    getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+    internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                      BizCommandMessage.class, Builder.class);
+    }
+
+    public static final int COMMAND_FIELD_NUMBER = 1;
+    private int command_;
+
+    /**
+     * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
+     */
+    public int getCommandValue() {
+      return command_;
+    }
+
+    /**
+     * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
+     */
+    public CommandInfo getCommand() {
+      CommandInfo result = CommandInfo.valueOf(command_);
+      return result == null ? CommandInfo.UNRECOGNIZED : result;
+    }
+
+    public static final int SUBCOMMAND_FIELD_NUMBER = 2;
+    private volatile Object subcommand_;
+
+    /**
+     * <code>string subcommand = 2;</code>
+     */
+    public String getSubcommand() {
+      Object ref = subcommand_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        subcommand_ = s;
+        return s;
+      }
+    }
+
+    /**
+     * <code>string subcommand = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+    getSubcommandBytes() {
+      Object ref = subcommand_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b =
+                com.google.protobuf.ByteString.copyFromUtf8(
+                        (String) ref);
+        subcommand_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXTRA_FIELD_NUMBER = 3;
+    private com.google.protobuf.Any extra_;
+
+    /**
+     * <code>.google.protobuf.Any extra = 3;</code>
+     */
+    public boolean hasExtra() {
+      return extra_ != null;
+    }
+
+    /**
+     * <code>.google.protobuf.Any extra = 3;</code>
+     */
+    public com.google.protobuf.Any getExtra() {
+      return extra_ == null ? com.google.protobuf.Any.getDefaultInstance() : extra_;
+    }
+
+    /**
+     * <code>.google.protobuf.Any extra = 3;</code>
+     */
+    public com.google.protobuf.AnyOrBuilder getExtraOrBuilder() {
+      return getExtra();
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+      if (command_ != CommandInfo.COMMAND_FILETRANS.getNumber()) {
+        output.writeEnum(1, command_);
+      }
+      if (!getSubcommandBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, subcommand_);
+      }
+      if (extra_ != null) {
+        output.writeMessage(3, getExtra());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (command_ != CommandInfo.COMMAND_FILETRANS.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeEnumSize(1, command_);
+      }
+      if (!getSubcommandBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, subcommand_);
+      }
+      if (extra_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeMessageSize(3, getExtra());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof BizCommandMessage)) {
+        return super.equals(obj);
+      }
+      BizCommandMessage other = (BizCommandMessage) obj;
+
+      boolean result = true;
+      result = result && command_ == other.command_;
+      result = result && getSubcommand()
+              .equals(other.getSubcommand());
+      result = result && (hasExtra() == other.hasExtra());
+      if (hasExtra()) {
+        result = result && getExtra()
+                .equals(other.getExtra());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + COMMAND_FIELD_NUMBER;
+      hash = (53 * hash) + command_;
+      hash = (37 * hash) + SUBCOMMAND_FIELD_NUMBER;
+      hash = (53 * hash) + getSubcommand().hashCode();
+      if (hasExtra()) {
+        hash = (37 * hash) + EXTRA_FIELD_NUMBER;
+        hash = (53 * hash) + getExtra().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static BizCommandMessage parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static BizCommandMessage parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static BizCommandMessage parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static BizCommandMessage parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static BizCommandMessage parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static BizCommandMessage parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static BizCommandMessage parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+    }
+
+    public static BizCommandMessage parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static BizCommandMessage parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static BizCommandMessage parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static BizCommandMessage parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+    }
+
+    public static BizCommandMessage parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(BizCommandMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+            BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
 
     /**
      * Protobuf type {@code com.kirshi.protocol.BizCommandMessage}
      */
-    public  static final class BizCommandMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.BizCommandMessage)
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.BizCommandMessage)
             BizCommandMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
+      public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
+      }
 
-        // Use BizCommandMessage.newBuilder() to construct.
-        private BizCommandMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+      protected FieldAccessorTable
+      internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        BizCommandMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.BizCommandMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+              BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+
+      public Builder clear() {
+        super.clear();
+        command_ = 0;
+
+        subcommand_ = "";
+
+        if (extraBuilder_ == null) {
+          extra_ = null;
+        } else {
+          extra_ = null;
+          extraBuilder_ = null;
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+      getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
+      }
+
+      public BizCommandMessage getDefaultInstanceForType() {
+        return BizCommandMessage.getDefaultInstance();
+      }
+
+      public BizCommandMessage build() {
+        BizCommandMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public BizCommandMessage buildPartial() {
+        BizCommandMessage result = new BizCommandMessage(this);
+        result.command_ = command_;
+        result.subcommand_ = subcommand_;
+        if (extraBuilder_ == null) {
+          result.extra_ = extra_;
+        } else {
+          result.extra_ = extraBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof BizCommandMessage) {
+          return mergeFrom((BizCommandMessage) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(BizCommandMessage other) {
+        if (other == BizCommandMessage.getDefaultInstance())
+          return this;
+        if (other.command_ != 0) {
+          setCommandValue(other.getCommandValue());
+        }
+        if (!other.getSubcommand().isEmpty()) {
+          subcommand_ = other.subcommand_;
+          onChanged();
+        }
+        if (other.hasExtra()) {
+          mergeExtra(other.getExtra());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+        BizCommandMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (BizCommandMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int command_ = 0;
+
+      /**
+       * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
+       */
+      public int getCommandValue() {
+        return command_;
+      }
+
+      /**
+       * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
+       */
+      public Builder setCommandValue(int value) {
+        command_ = value;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
+       */
+      public CommandInfo getCommand() {
+        CommandInfo result = CommandInfo.valueOf(command_);
+        return result == null ? CommandInfo.UNRECOGNIZED : result;
+      }
+
+      /**
+       * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
+       */
+      public Builder setCommand(CommandInfo value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
 
-        private BizCommandMessage() {
-            command_ = 0;
-            subcommand_ = "";
+        command_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
+       */
+      public Builder clearCommand() {
+
+        command_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private Object subcommand_ = "";
+
+      /**
+       * <code>string subcommand = 2;</code>
+       */
+      public String getSubcommand() {
+        Object ref = subcommand_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          subcommand_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+
+      /**
+       * <code>string subcommand = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+      getSubcommandBytes() {
+        Object ref = subcommand_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b =
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                          (String) ref);
+          subcommand_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      /**
+       * <code>string subcommand = 2;</code>
+       */
+      public Builder setSubcommand(
+              String value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+        subcommand_ = value;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>string subcommand = 2;</code>
+       */
+      public Builder clearSubcommand() {
+
+        subcommand_ = getDefaultInstance().getSubcommand();
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>string subcommand = 2;</code>
+       */
+      public Builder setSubcommandBytes(
+              com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        checkByteStringIsUtf8(value);
+
+        subcommand_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Any extra_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> extraBuilder_;
+
+      /**
+       * <code>.google.protobuf.Any extra = 3;</code>
+       */
+      public boolean hasExtra() {
+        return extraBuilder_ != null || extra_ != null;
+      }
+
+      /**
+       * <code>.google.protobuf.Any extra = 3;</code>
+       */
+      public com.google.protobuf.Any getExtra() {
+        if (extraBuilder_ == null) {
+          return extra_ == null ? com.google.protobuf.Any.getDefaultInstance() : extra_;
+        } else {
+          return extraBuilder_.getMessage();
+        }
+      }
+
+      /**
+       * <code>.google.protobuf.Any extra = 3;</code>
+       */
+      public Builder setExtra(com.google.protobuf.Any value) {
+        if (extraBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          extra_ = value;
+          onChanged();
+        } else {
+          extraBuilder_.setMessage(value);
         }
 
-        private BizCommandMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
-                            int rawValue = input.readEnum();
+        return this;
+      }
 
-                            command_ = rawValue;
-                            break;
-                        }
-                        case 18: {
-                            java.lang.String s = input.readStringRequireUtf8();
-
-                            subcommand_ = s;
-                            break;
-                        }
-                        case 26: {
-                            com.google.protobuf.Any.Builder subBuilder = null;
-                            if (extra_ != null) {
-                                subBuilder = extra_.toBuilder();
-                            }
-                            extra_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-                            if (subBuilder != null) {
-                                subBuilder.mergeFrom(extra_);
-                                extra_ = subBuilder.buildPartial();
-                            }
-
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      /**
+       * <code>.google.protobuf.Any extra = 3;</code>
+       */
+      public Builder setExtra(
+              com.google.protobuf.Any.Builder builderForValue) {
+        if (extraBuilder_ == null) {
+          extra_ = builderForValue.build();
+          onChanged();
+        } else {
+          extraBuilder_.setMessage(builderForValue.build());
         }
 
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
+        return this;
+      }
+
+      /**
+       * <code>.google.protobuf.Any extra = 3;</code>
+       */
+      public Builder mergeExtra(com.google.protobuf.Any value) {
+        if (extraBuilder_ == null) {
+          if (extra_ != null) {
+            extra_ =
+                    com.google.protobuf.Any.newBuilder(extra_).mergeFrom(value).buildPartial();
+          } else {
+            extra_ = value;
+          }
+          onChanged();
+        } else {
+          extraBuilder_.mergeFrom(value);
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.BizCommandMessage.class, com.kirshi.protocol.CommandProto.BizCommandMessage.Builder.class);
+        return this;
+      }
+
+      /**
+       * <code>.google.protobuf.Any extra = 3;</code>
+       */
+      public Builder clearExtra() {
+        if (extraBuilder_ == null) {
+          extra_ = null;
+          onChanged();
+        } else {
+          extra_ = null;
+          extraBuilder_ = null;
         }
 
-        public static final int COMMAND_FIELD_NUMBER = 1;
-        private int command_;
+        return this;
+      }
 
-        /**
-         * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
-         */
-        public int getCommandValue() {
-            return command_;
+      /**
+       * <code>.google.protobuf.Any extra = 3;</code>
+       */
+      public com.google.protobuf.Any.Builder getExtraBuilder() {
+
+        onChanged();
+        return getExtraFieldBuilder().getBuilder();
+      }
+
+      /**
+       * <code>.google.protobuf.Any extra = 3;</code>
+       */
+      public com.google.protobuf.AnyOrBuilder getExtraOrBuilder() {
+        if (extraBuilder_ != null) {
+          return extraBuilder_.getMessageOrBuilder();
+        } else {
+          return extra_ == null ?
+                  com.google.protobuf.Any.getDefaultInstance() : extra_;
         }
+      }
 
-        /**
-         * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
-         */
-        public com.kirshi.protocol.CommandProto.CommandInfo getCommand() {
-            com.kirshi.protocol.CommandProto.CommandInfo result = com.kirshi.protocol.CommandProto.CommandInfo.valueOf(command_);
-            return result == null ? com.kirshi.protocol.CommandProto.CommandInfo.UNRECOGNIZED : result;
+      /**
+       * <code>.google.protobuf.Any extra = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>
+      getExtraFieldBuilder() {
+        if (extraBuilder_ == null) {
+          extraBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                  com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                  getExtra(),
+                  getParentForChildren(),
+                  isClean());
+          extra_ = null;
         }
+        return extraBuilder_;
+      }
 
-        public static final int SUBCOMMAND_FIELD_NUMBER = 2;
-        private volatile java.lang.Object subcommand_;
+      public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        /**
-         * <code>string subcommand = 2;</code>
-         */
-        public java.lang.String getSubcommand() {
-            java.lang.Object ref = subcommand_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                subcommand_ = s;
-                return s;
-            }
-        }
+      public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
-        /**
-         * <code>string subcommand = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-        getSubcommandBytes() {
-            java.lang.Object ref = subcommand_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                subcommand_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
 
-        public static final int EXTRA_FIELD_NUMBER = 3;
-        private com.google.protobuf.Any extra_;
-
-        /**
-         * <code>.google.protobuf.Any extra = 3;</code>
-         */
-        public boolean hasExtra() {
-            return extra_ != null;
-        }
-
-        /**
-         * <code>.google.protobuf.Any extra = 3;</code>
-         */
-        public com.google.protobuf.Any getExtra() {
-            return extra_ == null ? com.google.protobuf.Any.getDefaultInstance() : extra_;
-        }
-
-        /**
-         * <code>.google.protobuf.Any extra = 3;</code>
-         */
-        public com.google.protobuf.AnyOrBuilder getExtraOrBuilder() {
-            return getExtra();
-        }
-
-        private byte memoizedIsInitialized = -1;
-
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (command_ != com.kirshi.protocol.CommandProto.CommandInfo.COMMAND_FILETRANS.getNumber()) {
-                output.writeEnum(1, command_);
-            }
-            if (!getSubcommandBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, subcommand_);
-            }
-            if (extra_ != null) {
-                output.writeMessage(3, getExtra());
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (command_ != com.kirshi.protocol.CommandProto.CommandInfo.COMMAND_FILETRANS.getNumber()) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(1, command_);
-            }
-            if (!getSubcommandBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, subcommand_);
-            }
-            if (extra_ != null) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeMessageSize(3, getExtra());
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.BizCommandMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.BizCommandMessage other = (com.kirshi.protocol.CommandProto.BizCommandMessage) obj;
-
-            boolean result = true;
-            result = result && command_ == other.command_;
-            result = result && getSubcommand()
-                    .equals(other.getSubcommand());
-            result = result && (hasExtra() == other.hasExtra());
-            if (hasExtra()) {
-                result = result && getExtra()
-                        .equals(other.getExtra());
-            }
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + COMMAND_FIELD_NUMBER;
-            hash = (53 * hash) + command_;
-            hash = (37 * hash) + SUBCOMMAND_FIELD_NUMBER;
-            hash = (53 * hash) + getSubcommand().hashCode();
-            if (hasExtra()) {
-                hash = (37 * hash) + EXTRA_FIELD_NUMBER;
-                hash = (53 * hash) + getExtra().hashCode();
-            }
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.BizCommandMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-
-        /**
-         * Protobuf type {@code com.kirshi.protocol.BizCommandMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.BizCommandMessage)
-                com.kirshi.protocol.CommandProto.BizCommandMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.BizCommandMessage.class, com.kirshi.protocol.CommandProto.BizCommandMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.BizCommandMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-
-            public Builder clear() {
-                super.clear();
-                command_ = 0;
-
-                subcommand_ = "";
-
-                if (extraBuilder_ == null) {
-                    extra_ = null;
-                } else {
-                    extra_ = null;
-                    extraBuilder_ = null;
-                }
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.BizCommandMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.BizCommandMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.BizCommandMessage build() {
-                com.kirshi.protocol.CommandProto.BizCommandMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.BizCommandMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.BizCommandMessage result = new com.kirshi.protocol.CommandProto.BizCommandMessage(this);
-                result.command_ = command_;
-                result.subcommand_ = subcommand_;
-                if (extraBuilder_ == null) {
-                    result.extra_ = extra_;
-                } else {
-                    result.extra_ = extraBuilder_.build();
-                }
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.BizCommandMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.BizCommandMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.BizCommandMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.BizCommandMessage.getDefaultInstance()) return this;
-                if (other.command_ != 0) {
-                    setCommandValue(other.getCommandValue());
-                }
-                if (!other.getSubcommand().isEmpty()) {
-                    subcommand_ = other.subcommand_;
-                    onChanged();
-                }
-                if (other.hasExtra()) {
-                    mergeExtra(other.getExtra());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.BizCommandMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.BizCommandMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private int command_ = 0;
-
-            /**
-             * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
-             */
-            public int getCommandValue() {
-                return command_;
-            }
-
-            /**
-             * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
-             */
-            public Builder setCommandValue(int value) {
-                command_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
-             */
-            public com.kirshi.protocol.CommandProto.CommandInfo getCommand() {
-                com.kirshi.protocol.CommandProto.CommandInfo result = com.kirshi.protocol.CommandProto.CommandInfo.valueOf(command_);
-                return result == null ? com.kirshi.protocol.CommandProto.CommandInfo.UNRECOGNIZED : result;
-            }
-
-            /**
-             * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
-             */
-            public Builder setCommand(com.kirshi.protocol.CommandProto.CommandInfo value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                command_ = value.getNumber();
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>.com.kirshi.protocol.CommandInfo command = 1;</code>
-             */
-            public Builder clearCommand() {
-
-                command_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private java.lang.Object subcommand_ = "";
-
-            /**
-             * <code>string subcommand = 2;</code>
-             */
-            public java.lang.String getSubcommand() {
-                java.lang.Object ref = subcommand_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    subcommand_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string subcommand = 2;</code>
-             */
-            public com.google.protobuf.ByteString
-            getSubcommandBytes() {
-                java.lang.Object ref = subcommand_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    subcommand_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string subcommand = 2;</code>
-             */
-            public Builder setSubcommand(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                subcommand_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string subcommand = 2;</code>
-             */
-            public Builder clearSubcommand() {
-
-                subcommand_ = getDefaultInstance().getSubcommand();
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string subcommand = 2;</code>
-             */
-            public Builder setSubcommandBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                subcommand_ = value;
-                onChanged();
-                return this;
-            }
-
-            private com.google.protobuf.Any extra_ = null;
-            private com.google.protobuf.SingleFieldBuilderV3<
-                    com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> extraBuilder_;
-
-            /**
-             * <code>.google.protobuf.Any extra = 3;</code>
-             */
-            public boolean hasExtra() {
-                return extraBuilder_ != null || extra_ != null;
-            }
-
-            /**
-             * <code>.google.protobuf.Any extra = 3;</code>
-             */
-            public com.google.protobuf.Any getExtra() {
-                if (extraBuilder_ == null) {
-                    return extra_ == null ? com.google.protobuf.Any.getDefaultInstance() : extra_;
-                } else {
-                    return extraBuilder_.getMessage();
-                }
-            }
-
-            /**
-             * <code>.google.protobuf.Any extra = 3;</code>
-             */
-            public Builder setExtra(com.google.protobuf.Any value) {
-                if (extraBuilder_ == null) {
-                    if (value == null) {
-                        throw new NullPointerException();
-                    }
-                    extra_ = value;
-                    onChanged();
-                } else {
-                    extraBuilder_.setMessage(value);
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.Any extra = 3;</code>
-             */
-            public Builder setExtra(
-                    com.google.protobuf.Any.Builder builderForValue) {
-                if (extraBuilder_ == null) {
-                    extra_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    extraBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.Any extra = 3;</code>
-             */
-            public Builder mergeExtra(com.google.protobuf.Any value) {
-                if (extraBuilder_ == null) {
-                    if (extra_ != null) {
-                        extra_ =
-                                com.google.protobuf.Any.newBuilder(extra_).mergeFrom(value).buildPartial();
-                    } else {
-                        extra_ = value;
-                    }
-                    onChanged();
-                } else {
-                    extraBuilder_.mergeFrom(value);
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.Any extra = 3;</code>
-             */
-            public Builder clearExtra() {
-                if (extraBuilder_ == null) {
-                    extra_ = null;
-                    onChanged();
-                } else {
-                    extra_ = null;
-                    extraBuilder_ = null;
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.Any extra = 3;</code>
-             */
-            public com.google.protobuf.Any.Builder getExtraBuilder() {
-
-                onChanged();
-                return getExtraFieldBuilder().getBuilder();
-            }
-
-            /**
-             * <code>.google.protobuf.Any extra = 3;</code>
-             */
-            public com.google.protobuf.AnyOrBuilder getExtraOrBuilder() {
-                if (extraBuilder_ != null) {
-                    return extraBuilder_.getMessageOrBuilder();
-                } else {
-                    return extra_ == null ?
-                            com.google.protobuf.Any.getDefaultInstance() : extra_;
-                }
-            }
-
-            /**
-             * <code>.google.protobuf.Any extra = 3;</code>
-             */
-            private com.google.protobuf.SingleFieldBuilderV3<
-                    com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>
-            getExtraFieldBuilder() {
-                if (extraBuilder_ == null) {
-                    extraBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
-                            getExtra(),
-                            getParentForChildren(),
-                            isClean());
-                    extra_ = null;
-                }
-                return extraBuilder_;
-            }
-
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
-
-
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.BizCommandMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.BizCommandMessage)
-        private static final com.kirshi.protocol.CommandProto.BizCommandMessage DEFAULT_INSTANCE;
-
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.BizCommandMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.BizCommandMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<BizCommandMessage>
-                PARSER = new com.google.protobuf.AbstractParser<BizCommandMessage>() {
-            public BizCommandMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new BizCommandMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<BizCommandMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<BizCommandMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.BizCommandMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.BizCommandMessage)
     }
 
-    public interface ScreenControlMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.ScreenControlMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.BizCommandMessage)
+    private static final BizCommandMessage DEFAULT_INSTANCE;
 
-        /**
-         * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
-         */
-        int getTouchTypeValue();
+    static {
+      DEFAULT_INSTANCE = new BizCommandMessage();
+    }
 
-        /**
-         * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
-         */
-        com.kirshi.protocol.CommandProto.TouchType getTouchType();
+    public static BizCommandMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        java.util.List<com.kirshi.protocol.CommandProto.TouchPoint>
-        getTouchPointsList();
+    private static final com.google.protobuf.Parser<BizCommandMessage>
+            PARSER = new com.google.protobuf.AbstractParser<BizCommandMessage>() {
+      public BizCommandMessage parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BizCommandMessage(input, extensionRegistry);
+      }
+    };
 
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        com.kirshi.protocol.CommandProto.TouchPoint getTouchPoints(int index);
+    public static com.google.protobuf.Parser<BizCommandMessage> parser() {
+      return PARSER;
+    }
 
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        int getTouchPointsCount();
+    @Override
+    public com.google.protobuf.Parser<BizCommandMessage> getParserForType() {
+      return PARSER;
+    }
 
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        java.util.List<? extends com.kirshi.protocol.CommandProto.TouchPointOrBuilder>
-        getTouchPointsOrBuilderList();
+    public BizCommandMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        com.kirshi.protocol.CommandProto.TouchPointOrBuilder getTouchPointsOrBuilder(
-                int index);
+  }
+
+  public interface ScreenControlMessageOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.ScreenControlMessage)
+          com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+     */
+    int getTouchTypeValue();
+
+    /**
+     * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+     */
+    TouchType getTouchType();
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    java.util.List<TouchPoint>
+    getTouchPointsList();
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    TouchPoint getTouchPoints(int index);
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    int getTouchPointsCount();
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    java.util.List<? extends TouchPointOrBuilder>
+    getTouchPointsOrBuilderList();
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    TouchPointOrBuilder getTouchPointsOrBuilder(
+            int index);
+  }
+
+  /**
+   * Protobuf type {@code com.kirshi.protocol.ScreenControlMessage}
+   */
+  public static final class ScreenControlMessage extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:com.kirshi.protocol.ScreenControlMessage)
+          ScreenControlMessageOrBuilder {
+    private static final long serialVersionUID = 0L;
+
+    // Use ScreenControlMessage.newBuilder() to construct.
+    private ScreenControlMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private ScreenControlMessage() {
+      touchType_ = 0;
+      touchPoints_ = java.util.Collections.emptyList();
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private ScreenControlMessage(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+              com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                      input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              touchType_ = rawValue;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                touchPoints_ = new java.util.ArrayList<TouchPoint>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              touchPoints_.add(
+                      input.readMessage(TouchPoint.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          touchPoints_ = java.util.Collections.unmodifiableList(touchPoints_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+    getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+    internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                      ScreenControlMessage.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TOUCHTYPE_FIELD_NUMBER = 1;
+    private int touchType_;
+
+    /**
+     * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+     */
+    public int getTouchTypeValue() {
+      return touchType_;
+    }
+
+    /**
+     * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+     */
+    public TouchType getTouchType() {
+      TouchType result = TouchType.valueOf(touchType_);
+      return result == null ? TouchType.UNRECOGNIZED : result;
+    }
+
+    public static final int TOUCHPOINTS_FIELD_NUMBER = 2;
+    private java.util.List<TouchPoint> touchPoints_;
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    public java.util.List<TouchPoint> getTouchPointsList() {
+      return touchPoints_;
+    }
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    public java.util.List<? extends TouchPointOrBuilder>
+    getTouchPointsOrBuilderList() {
+      return touchPoints_;
+    }
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    public int getTouchPointsCount() {
+      return touchPoints_.size();
+    }
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    public TouchPoint getTouchPoints(int index) {
+      return touchPoints_.get(index);
+    }
+
+    /**
+     * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+     */
+    public TouchPointOrBuilder getTouchPointsOrBuilder(
+            int index) {
+      return touchPoints_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+      if (touchType_ != TouchType.GESTURE.getNumber()) {
+        output.writeEnum(1, touchType_);
+      }
+      for (int i = 0; i < touchPoints_.size(); i++) {
+        output.writeMessage(2, touchPoints_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (touchType_ != TouchType.GESTURE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeEnumSize(1, touchType_);
+      }
+      for (int i = 0; i < touchPoints_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeMessageSize(2, touchPoints_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof ScreenControlMessage)) {
+        return super.equals(obj);
+      }
+      ScreenControlMessage other = (ScreenControlMessage) obj;
+
+      boolean result = true;
+      result = result && touchType_ == other.touchType_;
+      result = result && getTouchPointsList()
+              .equals(other.getTouchPointsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TOUCHTYPE_FIELD_NUMBER;
+      hash = (53 * hash) + touchType_;
+      if (getTouchPointsCount() > 0) {
+        hash = (37 * hash) + TOUCHPOINTS_FIELD_NUMBER;
+        hash = (53 * hash) + getTouchPointsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static ScreenControlMessage parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static ScreenControlMessage parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ScreenControlMessage parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static ScreenControlMessage parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ScreenControlMessage parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static ScreenControlMessage parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static ScreenControlMessage parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+    }
+
+    public static ScreenControlMessage parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static ScreenControlMessage parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static ScreenControlMessage parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static ScreenControlMessage parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+    }
+
+    public static ScreenControlMessage parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(ScreenControlMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+            BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
 
     /**
      * Protobuf type {@code com.kirshi.protocol.ScreenControlMessage}
      */
-    public static final class ScreenControlMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.ScreenControlMessage)
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.ScreenControlMessage)
             ScreenControlMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
+      public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
+      }
 
-        // Use ScreenControlMessage.newBuilder() to construct.
-        private ScreenControlMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+      protected FieldAccessorTable
+      internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        ScreenControlMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.ScreenControlMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+              BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getTouchPointsFieldBuilder();
+        }
+      }
+
+      public Builder clear() {
+        super.clear();
+        touchType_ = 0;
+
+        if (touchPointsBuilder_ == null) {
+          touchPoints_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          touchPointsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+      getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
+      }
+
+      public ScreenControlMessage getDefaultInstanceForType() {
+        return ScreenControlMessage.getDefaultInstance();
+      }
+
+      public ScreenControlMessage build() {
+        ScreenControlMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public ScreenControlMessage buildPartial() {
+        ScreenControlMessage result = new ScreenControlMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.touchType_ = touchType_;
+        if (touchPointsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            touchPoints_ = java.util.Collections.unmodifiableList(touchPoints_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.touchPoints_ = touchPoints_;
+        } else {
+          result.touchPoints_ = touchPointsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof ScreenControlMessage) {
+          return mergeFrom((ScreenControlMessage) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(ScreenControlMessage other) {
+        if (other == ScreenControlMessage.getDefaultInstance())
+          return this;
+        if (other.touchType_ != 0) {
+          setTouchTypeValue(other.getTouchTypeValue());
+        }
+        if (touchPointsBuilder_ == null) {
+          if (!other.touchPoints_.isEmpty()) {
+            if (touchPoints_.isEmpty()) {
+              touchPoints_ = other.touchPoints_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureTouchPointsIsMutable();
+              touchPoints_.addAll(other.touchPoints_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.touchPoints_.isEmpty()) {
+            if (touchPointsBuilder_.isEmpty()) {
+              touchPointsBuilder_.dispose();
+              touchPointsBuilder_ = null;
+              touchPoints_ = other.touchPoints_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              touchPointsBuilder_ =
+                      com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                              getTouchPointsFieldBuilder() : null;
+            } else {
+              touchPointsBuilder_.addAllMessages(other.touchPoints_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+        ScreenControlMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ScreenControlMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int bitField0_;
+
+      private int touchType_ = 0;
+
+      /**
+       * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+       */
+      public int getTouchTypeValue() {
+        return touchType_;
+      }
+
+      /**
+       * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+       */
+      public Builder setTouchTypeValue(int value) {
+        touchType_ = value;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+       */
+      public TouchType getTouchType() {
+        TouchType result = TouchType.valueOf(touchType_);
+        return result == null ? TouchType.UNRECOGNIZED : result;
+      }
+
+      /**
+       * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+       */
+      public Builder setTouchType(TouchType value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
 
-        private ScreenControlMessage() {
-            touchType_ = 0;
-            touchPoints_ = java.util.Collections.emptyList();
+        touchType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
+       */
+      public Builder clearTouchType() {
+
+        touchType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<TouchPoint> touchPoints_ =
+              java.util.Collections.emptyList();
+
+      private void ensureTouchPointsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          touchPoints_ = new java.util.ArrayList<TouchPoint>(touchPoints_);
+          bitField0_ |= 0x00000002;
         }
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              TouchPoint, TouchPoint.Builder, TouchPointOrBuilder> touchPointsBuilder_;
+
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public java.util.List<TouchPoint> getTouchPointsList() {
+        if (touchPointsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(touchPoints_);
+        } else {
+          return touchPointsBuilder_.getMessageList();
         }
+      }
 
-        private ScreenControlMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
-                            int rawValue = input.readEnum();
-
-                            touchType_ = rawValue;
-                            break;
-                        }
-                        case 18: {
-                            if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                                touchPoints_ = new java.util.ArrayList<com.kirshi.protocol.CommandProto.TouchPoint>();
-                                mutable_bitField0_ |= 0x00000002;
-                            }
-                            touchPoints_.add(
-                                    input.readMessage(com.kirshi.protocol.CommandProto.TouchPoint.parser(), extensionRegistry));
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                    touchPoints_ = java.util.Collections.unmodifiableList(touchPoints_);
-                }
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public int getTouchPointsCount() {
+        if (touchPointsBuilder_ == null) {
+          return touchPoints_.size();
+        } else {
+          return touchPointsBuilder_.getCount();
         }
+      }
 
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public TouchPoint getTouchPoints(int index) {
+        if (touchPointsBuilder_ == null) {
+          return touchPoints_.get(index);
+        } else {
+          return touchPointsBuilder_.getMessage(index);
         }
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.ScreenControlMessage.class, com.kirshi.protocol.CommandProto.ScreenControlMessage.Builder.class);
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public Builder setTouchPoints(
+              int index, TouchPoint value) {
+        if (touchPointsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTouchPointsIsMutable();
+          touchPoints_.set(index, value);
+          onChanged();
+        } else {
+          touchPointsBuilder_.setMessage(index, value);
         }
+        return this;
+      }
 
-        private int bitField0_;
-        public static final int TOUCHTYPE_FIELD_NUMBER = 1;
-        private int touchType_;
-
-        /**
-         * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
-         */
-        public int getTouchTypeValue() {
-            return touchType_;
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public Builder setTouchPoints(
+              int index, TouchPoint.Builder builderForValue) {
+        if (touchPointsBuilder_ == null) {
+          ensureTouchPointsIsMutable();
+          touchPoints_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          touchPointsBuilder_.setMessage(index, builderForValue.build());
         }
+        return this;
+      }
 
-        /**
-         * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
-         */
-        public com.kirshi.protocol.CommandProto.TouchType getTouchType() {
-            com.kirshi.protocol.CommandProto.TouchType result = com.kirshi.protocol.CommandProto.TouchType.valueOf(touchType_);
-            return result == null ? com.kirshi.protocol.CommandProto.TouchType.UNRECOGNIZED : result;
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public Builder addTouchPoints(TouchPoint value) {
+        if (touchPointsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTouchPointsIsMutable();
+          touchPoints_.add(value);
+          onChanged();
+        } else {
+          touchPointsBuilder_.addMessage(value);
         }
+        return this;
+      }
 
-        public static final int TOUCHPOINTS_FIELD_NUMBER = 2;
-        private java.util.List<com.kirshi.protocol.CommandProto.TouchPoint> touchPoints_;
-
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        public java.util.List<com.kirshi.protocol.CommandProto.TouchPoint> getTouchPointsList() {
-            return touchPoints_;
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public Builder addTouchPoints(
+              int index, TouchPoint value) {
+        if (touchPointsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTouchPointsIsMutable();
+          touchPoints_.add(index, value);
+          onChanged();
+        } else {
+          touchPointsBuilder_.addMessage(index, value);
         }
+        return this;
+      }
 
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        public java.util.List<? extends com.kirshi.protocol.CommandProto.TouchPointOrBuilder>
-        getTouchPointsOrBuilderList() {
-            return touchPoints_;
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public Builder addTouchPoints(
+              TouchPoint.Builder builderForValue) {
+        if (touchPointsBuilder_ == null) {
+          ensureTouchPointsIsMutable();
+          touchPoints_.add(builderForValue.build());
+          onChanged();
+        } else {
+          touchPointsBuilder_.addMessage(builderForValue.build());
         }
+        return this;
+      }
 
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        public int getTouchPointsCount() {
-            return touchPoints_.size();
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public Builder addTouchPoints(
+              int index, TouchPoint.Builder builderForValue) {
+        if (touchPointsBuilder_ == null) {
+          ensureTouchPointsIsMutable();
+          touchPoints_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          touchPointsBuilder_.addMessage(index, builderForValue.build());
         }
+        return this;
+      }
 
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        public com.kirshi.protocol.CommandProto.TouchPoint getTouchPoints(int index) {
-            return touchPoints_.get(index);
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public Builder addAllTouchPoints(
+              Iterable<? extends TouchPoint> values) {
+        if (touchPointsBuilder_ == null) {
+          ensureTouchPointsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                  values, touchPoints_);
+          onChanged();
+        } else {
+          touchPointsBuilder_.addAllMessages(values);
         }
+        return this;
+      }
 
-        /**
-         * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-         */
-        public com.kirshi.protocol.CommandProto.TouchPointOrBuilder getTouchPointsOrBuilder(
-                int index) {
-            return touchPoints_.get(index);
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public Builder clearTouchPoints() {
+        if (touchPointsBuilder_ == null) {
+          touchPoints_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          touchPointsBuilder_.clear();
         }
+        return this;
+      }
 
-        private byte memoizedIsInitialized = -1;
-
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public Builder removeTouchPoints(int index) {
+        if (touchPointsBuilder_ == null) {
+          ensureTouchPointsIsMutable();
+          touchPoints_.remove(index);
+          onChanged();
+        } else {
+          touchPointsBuilder_.remove(index);
         }
+        return this;
+      }
 
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (touchType_ != com.kirshi.protocol.CommandProto.TouchType.GESTURE.getNumber()) {
-                output.writeEnum(1, touchType_);
-            }
-            for (int i = 0; i < touchPoints_.size(); i++) {
-                output.writeMessage(2, touchPoints_.get(i));
-            }
-            unknownFields.writeTo(output);
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public TouchPoint.Builder getTouchPointsBuilder(
+              int index) {
+        return getTouchPointsFieldBuilder().getBuilder(index);
+      }
+
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public TouchPointOrBuilder getTouchPointsOrBuilder(
+              int index) {
+        if (touchPointsBuilder_ == null) {
+          return touchPoints_.get(index);
+        } else {
+          return touchPointsBuilder_.getMessageOrBuilder(index);
         }
+      }
 
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (touchType_ != com.kirshi.protocol.CommandProto.TouchType.GESTURE.getNumber()) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(1, touchType_);
-            }
-            for (int i = 0; i < touchPoints_.size(); i++) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeMessageSize(2, touchPoints_.get(i));
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public java.util.List<? extends TouchPointOrBuilder>
+      getTouchPointsOrBuilderList() {
+        if (touchPointsBuilder_ != null) {
+          return touchPointsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(touchPoints_);
         }
+      }
 
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.ScreenControlMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.ScreenControlMessage other = (com.kirshi.protocol.CommandProto.ScreenControlMessage) obj;
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public TouchPoint.Builder addTouchPointsBuilder() {
+        return getTouchPointsFieldBuilder().addBuilder(
+                TouchPoint.getDefaultInstance());
+      }
 
-            boolean result = true;
-            result = result && touchType_ == other.touchType_;
-            result = result && getTouchPointsList()
-                    .equals(other.getTouchPointsList());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public TouchPoint.Builder addTouchPointsBuilder(
+              int index) {
+        return getTouchPointsFieldBuilder().addBuilder(
+                index, TouchPoint.getDefaultInstance());
+      }
+
+      /**
+       * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
+       */
+      public java.util.List<TouchPoint.Builder>
+      getTouchPointsBuilderList() {
+        return getTouchPointsFieldBuilder().getBuilderList();
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+              TouchPoint, TouchPoint.Builder, TouchPointOrBuilder>
+      getTouchPointsFieldBuilder() {
+        if (touchPointsBuilder_ == null) {
+          touchPointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                  TouchPoint, TouchPoint.Builder, TouchPointOrBuilder>(
+                  touchPoints_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          touchPoints_ = null;
         }
+        return touchPointsBuilder_;
+      }
 
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + TOUCHTYPE_FIELD_NUMBER;
-            hash = (53 * hash) + touchType_;
-            if (getTouchPointsCount() > 0) {
-                hash = (37 * hash) + TOUCHPOINTS_FIELD_NUMBER;
-                hash = (53 * hash) + getTouchPointsList().hashCode();
-            }
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
+      public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
+      public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
 
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.ScreenControlMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-
-        /**
-         * Protobuf type {@code com.kirshi.protocol.ScreenControlMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.ScreenControlMessage)
-                com.kirshi.protocol.CommandProto.ScreenControlMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.ScreenControlMessage.class, com.kirshi.protocol.CommandProto.ScreenControlMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.ScreenControlMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                    getTouchPointsFieldBuilder();
-                }
-            }
-
-            public Builder clear() {
-                super.clear();
-                touchType_ = 0;
-
-                if (touchPointsBuilder_ == null) {
-                    touchPoints_ = java.util.Collections.emptyList();
-                    bitField0_ = (bitField0_ & ~0x00000002);
-                } else {
-                    touchPointsBuilder_.clear();
-                }
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.ScreenControlMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.ScreenControlMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.ScreenControlMessage build() {
-                com.kirshi.protocol.CommandProto.ScreenControlMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.ScreenControlMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.ScreenControlMessage result = new com.kirshi.protocol.CommandProto.ScreenControlMessage(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                result.touchType_ = touchType_;
-                if (touchPointsBuilder_ == null) {
-                    if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                        touchPoints_ = java.util.Collections.unmodifiableList(touchPoints_);
-                        bitField0_ = (bitField0_ & ~0x00000002);
-                    }
-                    result.touchPoints_ = touchPoints_;
-                } else {
-                    result.touchPoints_ = touchPointsBuilder_.build();
-                }
-                result.bitField0_ = to_bitField0_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.ScreenControlMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.ScreenControlMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.ScreenControlMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.ScreenControlMessage.getDefaultInstance()) return this;
-                if (other.touchType_ != 0) {
-                    setTouchTypeValue(other.getTouchTypeValue());
-                }
-                if (touchPointsBuilder_ == null) {
-                    if (!other.touchPoints_.isEmpty()) {
-                        if (touchPoints_.isEmpty()) {
-                            touchPoints_ = other.touchPoints_;
-                            bitField0_ = (bitField0_ & ~0x00000002);
-                        } else {
-                            ensureTouchPointsIsMutable();
-                            touchPoints_.addAll(other.touchPoints_);
-                        }
-                        onChanged();
-                    }
-                } else {
-                    if (!other.touchPoints_.isEmpty()) {
-                        if (touchPointsBuilder_.isEmpty()) {
-                            touchPointsBuilder_.dispose();
-                            touchPointsBuilder_ = null;
-                            touchPoints_ = other.touchPoints_;
-                            bitField0_ = (bitField0_ & ~0x00000002);
-                            touchPointsBuilder_ =
-                                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                                            getTouchPointsFieldBuilder() : null;
-                        } else {
-                            touchPointsBuilder_.addAllMessages(other.touchPoints_);
-                        }
-                    }
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.ScreenControlMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.ScreenControlMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private int bitField0_;
-
-            private int touchType_ = 0;
-
-            /**
-             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
-             */
-            public int getTouchTypeValue() {
-                return touchType_;
-            }
-
-            /**
-             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
-             */
-            public Builder setTouchTypeValue(int value) {
-                touchType_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
-             */
-            public com.kirshi.protocol.CommandProto.TouchType getTouchType() {
-                com.kirshi.protocol.CommandProto.TouchType result = com.kirshi.protocol.CommandProto.TouchType.valueOf(touchType_);
-                return result == null ? com.kirshi.protocol.CommandProto.TouchType.UNRECOGNIZED : result;
-            }
-
-            /**
-             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
-             */
-            public Builder setTouchType(com.kirshi.protocol.CommandProto.TouchType value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                touchType_ = value.getNumber();
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>.com.kirshi.protocol.TouchType touchType = 1;</code>
-             */
-            public Builder clearTouchType() {
-
-                touchType_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private java.util.List<com.kirshi.protocol.CommandProto.TouchPoint> touchPoints_ =
-                    java.util.Collections.emptyList();
-
-            private void ensureTouchPointsIsMutable() {
-                if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-                    touchPoints_ = new java.util.ArrayList<com.kirshi.protocol.CommandProto.TouchPoint>(touchPoints_);
-                    bitField0_ |= 0x00000002;
-                }
-            }
-
-            private com.google.protobuf.RepeatedFieldBuilderV3<
-                    com.kirshi.protocol.CommandProto.TouchPoint, com.kirshi.protocol.CommandProto.TouchPoint.Builder, com.kirshi.protocol.CommandProto.TouchPointOrBuilder> touchPointsBuilder_;
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public java.util.List<com.kirshi.protocol.CommandProto.TouchPoint> getTouchPointsList() {
-                if (touchPointsBuilder_ == null) {
-                    return java.util.Collections.unmodifiableList(touchPoints_);
-                } else {
-                    return touchPointsBuilder_.getMessageList();
-                }
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public int getTouchPointsCount() {
-                if (touchPointsBuilder_ == null) {
-                    return touchPoints_.size();
-                } else {
-                    return touchPointsBuilder_.getCount();
-                }
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public com.kirshi.protocol.CommandProto.TouchPoint getTouchPoints(int index) {
-                if (touchPointsBuilder_ == null) {
-                    return touchPoints_.get(index);
-                } else {
-                    return touchPointsBuilder_.getMessage(index);
-                }
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public Builder setTouchPoints(
-                    int index, com.kirshi.protocol.CommandProto.TouchPoint value) {
-                if (touchPointsBuilder_ == null) {
-                    if (value == null) {
-                        throw new NullPointerException();
-                    }
-                    ensureTouchPointsIsMutable();
-                    touchPoints_.set(index, value);
-                    onChanged();
-                } else {
-                    touchPointsBuilder_.setMessage(index, value);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public Builder setTouchPoints(
-                    int index, com.kirshi.protocol.CommandProto.TouchPoint.Builder builderForValue) {
-                if (touchPointsBuilder_ == null) {
-                    ensureTouchPointsIsMutable();
-                    touchPoints_.set(index, builderForValue.build());
-                    onChanged();
-                } else {
-                    touchPointsBuilder_.setMessage(index, builderForValue.build());
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public Builder addTouchPoints(com.kirshi.protocol.CommandProto.TouchPoint value) {
-                if (touchPointsBuilder_ == null) {
-                    if (value == null) {
-                        throw new NullPointerException();
-                    }
-                    ensureTouchPointsIsMutable();
-                    touchPoints_.add(value);
-                    onChanged();
-                } else {
-                    touchPointsBuilder_.addMessage(value);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public Builder addTouchPoints(
-                    int index, com.kirshi.protocol.CommandProto.TouchPoint value) {
-                if (touchPointsBuilder_ == null) {
-                    if (value == null) {
-                        throw new NullPointerException();
-                    }
-                    ensureTouchPointsIsMutable();
-                    touchPoints_.add(index, value);
-                    onChanged();
-                } else {
-                    touchPointsBuilder_.addMessage(index, value);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public Builder addTouchPoints(
-                    com.kirshi.protocol.CommandProto.TouchPoint.Builder builderForValue) {
-                if (touchPointsBuilder_ == null) {
-                    ensureTouchPointsIsMutable();
-                    touchPoints_.add(builderForValue.build());
-                    onChanged();
-                } else {
-                    touchPointsBuilder_.addMessage(builderForValue.build());
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public Builder addTouchPoints(
-                    int index, com.kirshi.protocol.CommandProto.TouchPoint.Builder builderForValue) {
-                if (touchPointsBuilder_ == null) {
-                    ensureTouchPointsIsMutable();
-                    touchPoints_.add(index, builderForValue.build());
-                    onChanged();
-                } else {
-                    touchPointsBuilder_.addMessage(index, builderForValue.build());
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public Builder addAllTouchPoints(
-                    java.lang.Iterable<? extends com.kirshi.protocol.CommandProto.TouchPoint> values) {
-                if (touchPointsBuilder_ == null) {
-                    ensureTouchPointsIsMutable();
-                    com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                            values, touchPoints_);
-                    onChanged();
-                } else {
-                    touchPointsBuilder_.addAllMessages(values);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public Builder clearTouchPoints() {
-                if (touchPointsBuilder_ == null) {
-                    touchPoints_ = java.util.Collections.emptyList();
-                    bitField0_ = (bitField0_ & ~0x00000002);
-                    onChanged();
-                } else {
-                    touchPointsBuilder_.clear();
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public Builder removeTouchPoints(int index) {
-                if (touchPointsBuilder_ == null) {
-                    ensureTouchPointsIsMutable();
-                    touchPoints_.remove(index);
-                    onChanged();
-                } else {
-                    touchPointsBuilder_.remove(index);
-                }
-                return this;
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public com.kirshi.protocol.CommandProto.TouchPoint.Builder getTouchPointsBuilder(
-                    int index) {
-                return getTouchPointsFieldBuilder().getBuilder(index);
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public com.kirshi.protocol.CommandProto.TouchPointOrBuilder getTouchPointsOrBuilder(
-                    int index) {
-                if (touchPointsBuilder_ == null) {
-                    return touchPoints_.get(index);
-                } else {
-                    return touchPointsBuilder_.getMessageOrBuilder(index);
-                }
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public java.util.List<? extends com.kirshi.protocol.CommandProto.TouchPointOrBuilder>
-            getTouchPointsOrBuilderList() {
-                if (touchPointsBuilder_ != null) {
-                    return touchPointsBuilder_.getMessageOrBuilderList();
-                } else {
-                    return java.util.Collections.unmodifiableList(touchPoints_);
-                }
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public com.kirshi.protocol.CommandProto.TouchPoint.Builder addTouchPointsBuilder() {
-                return getTouchPointsFieldBuilder().addBuilder(
-                        com.kirshi.protocol.CommandProto.TouchPoint.getDefaultInstance());
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public com.kirshi.protocol.CommandProto.TouchPoint.Builder addTouchPointsBuilder(
-                    int index) {
-                return getTouchPointsFieldBuilder().addBuilder(
-                        index, com.kirshi.protocol.CommandProto.TouchPoint.getDefaultInstance());
-            }
-
-            /**
-             * <code>repeated .com.kirshi.protocol.TouchPoint touchPoints = 2;</code>
-             */
-            public java.util.List<com.kirshi.protocol.CommandProto.TouchPoint.Builder>
-            getTouchPointsBuilderList() {
-                return getTouchPointsFieldBuilder().getBuilderList();
-            }
-
-            private com.google.protobuf.RepeatedFieldBuilderV3<
-                    com.kirshi.protocol.CommandProto.TouchPoint, com.kirshi.protocol.CommandProto.TouchPoint.Builder, com.kirshi.protocol.CommandProto.TouchPointOrBuilder>
-            getTouchPointsFieldBuilder() {
-                if (touchPointsBuilder_ == null) {
-                    touchPointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-                            com.kirshi.protocol.CommandProto.TouchPoint, com.kirshi.protocol.CommandProto.TouchPoint.Builder, com.kirshi.protocol.CommandProto.TouchPointOrBuilder>(
-                            touchPoints_,
-                            ((bitField0_ & 0x00000002) == 0x00000002),
-                            getParentForChildren(),
-                            isClean());
-                    touchPoints_ = null;
-                }
-                return touchPointsBuilder_;
-            }
-
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
-
-
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.ScreenControlMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.ScreenControlMessage)
-        private static final com.kirshi.protocol.CommandProto.ScreenControlMessage DEFAULT_INSTANCE;
-
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.ScreenControlMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenControlMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<ScreenControlMessage>
-                PARSER = new com.google.protobuf.AbstractParser<ScreenControlMessage>() {
-            public ScreenControlMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new ScreenControlMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<ScreenControlMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<ScreenControlMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.ScreenControlMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.ScreenControlMessage)
     }
 
-    public interface TouchPointOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.TouchPoint)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.ScreenControlMessage)
+    private static final ScreenControlMessage DEFAULT_INSTANCE;
 
-        /**
-         * <code>double x = 1;</code>
-         */
-        double getX();
+    static {
+      DEFAULT_INSTANCE = new ScreenControlMessage();
+    }
 
-        /**
-         * <code>double y = 2;</code>
-         */
-        double getY();
+    public static ScreenControlMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>int64 time = 3;</code>
-         */
-        long getTime();
+    private static final com.google.protobuf.Parser<ScreenControlMessage>
+            PARSER = new com.google.protobuf.AbstractParser<ScreenControlMessage>() {
+      public ScreenControlMessage parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ScreenControlMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ScreenControlMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<ScreenControlMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public ScreenControlMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TouchPointOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.TouchPoint)
+          com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>double x = 1;</code>
+     */
+    double getX();
+
+    /**
+     * <code>double y = 2;</code>
+     */
+    double getY();
+
+    /**
+     * <code>int64 time = 3;</code>
+     */
+    long getTime();
+  }
+
+  /**
+   * Protobuf type {@code com.kirshi.protocol.TouchPoint}
+   */
+  public static final class TouchPoint extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:com.kirshi.protocol.TouchPoint)
+          TouchPointOrBuilder {
+    private static final long serialVersionUID = 0L;
+
+    // Use TouchPoint.newBuilder() to construct.
+    private TouchPoint(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+
+    private TouchPoint() {
+      x_ = 0D;
+      y_ = 0D;
+      time_ = 0L;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+
+    private TouchPoint(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+              com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                      input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 9: {
+
+              x_ = input.readDouble();
+              break;
+            }
+            case 17: {
+
+              y_ = input.readDouble();
+              break;
+            }
+            case 24: {
+
+              time_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+    getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_TouchPoint_descriptor;
+    }
+
+    protected FieldAccessorTable
+    internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                      TouchPoint.class, Builder.class);
+    }
+
+    public static final int X_FIELD_NUMBER = 1;
+    private double x_;
+
+    /**
+     * <code>double x = 1;</code>
+     */
+    public double getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 2;
+    private double y_;
+
+    /**
+     * <code>double y = 2;</code>
+     */
+    public double getY() {
+      return y_;
+    }
+
+    public static final int TIME_FIELD_NUMBER = 3;
+    private long time_;
+
+    /**
+     * <code>int64 time = 3;</code>
+     */
+    public long getTime() {
+      return time_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+      if (x_ != 0D) {
+        output.writeDouble(1, x_);
+      }
+      if (y_ != 0D) {
+        output.writeDouble(2, y_);
+      }
+      if (time_ != 0L) {
+        output.writeInt64(3, time_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (x_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeDoubleSize(1, x_);
+      }
+      if (y_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeDoubleSize(2, y_);
+      }
+      if (time_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeInt64Size(3, time_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof TouchPoint)) {
+        return super.equals(obj);
+      }
+      TouchPoint other = (TouchPoint) obj;
+
+      boolean result = true;
+      result = result && (
+              Double.doubleToLongBits(getX())
+                      == Double.doubleToLongBits(
+                      other.getX()));
+      result = result && (
+              Double.doubleToLongBits(getY())
+                      == Double.doubleToLongBits(
+                      other.getY()));
+      result = result && (getTime()
+              == other.getTime());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + X_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              Double.doubleToLongBits(getX()));
+      hash = (37 * hash) + Y_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              Double.doubleToLongBits(getY()));
+      hash = (37 * hash) + TIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+              getTime());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static TouchPoint parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static TouchPoint parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static TouchPoint parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static TouchPoint parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static TouchPoint parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static TouchPoint parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static TouchPoint parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+    }
+
+    public static TouchPoint parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static TouchPoint parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static TouchPoint parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static TouchPoint parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+    }
+
+    public static TouchPoint parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(TouchPoint prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+            BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
 
     /**
      * Protobuf type {@code com.kirshi.protocol.TouchPoint}
      */
-    public static final class TouchPoint extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.TouchPoint)
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.TouchPoint)
             TouchPointOrBuilder {
-        private static final long serialVersionUID = 0L;
+      public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_TouchPoint_descriptor;
+      }
 
-        // Use TouchPoint.newBuilder() to construct.
-        private TouchPoint(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+      protected FieldAccessorTable
+      internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        TouchPoint.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.TouchPoint.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+              BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
+      }
 
-        private TouchPoint() {
-            x_ = 0D;
-            y_ = 0D;
-            time_ = 0L;
+      public Builder clear() {
+        super.clear();
+        x_ = 0D;
+
+        y_ = 0D;
+
+        time_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+      getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_TouchPoint_descriptor;
+      }
+
+      public TouchPoint getDefaultInstanceForType() {
+        return TouchPoint.getDefaultInstance();
+      }
+
+      public TouchPoint build() {
+        TouchPoint result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public TouchPoint buildPartial() {
+        TouchPoint result = new TouchPoint(this);
+        result.x_ = x_;
+        result.y_ = y_;
+        result.time_ = time_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+
+      public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+        return (Builder) super.setField(field, value);
+      }
+
+      public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+
+      public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+
+      public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+
+      public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof TouchPoint) {
+          return mergeFrom((TouchPoint) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
+      }
 
-        private TouchPoint(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 9: {
-
-                            x_ = input.readDouble();
-                            break;
-                        }
-                        case 17: {
-
-                            y_ = input.readDouble();
-                            break;
-                        }
-                        case 24: {
-
-                            time_ = input.readInt64();
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(TouchPoint other) {
+        if (other == TouchPoint.getDefaultInstance()) return this;
+        if (other.getX() != 0D) {
+          setX(other.getX());
         }
-
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_descriptor;
+        if (other.getY() != 0D) {
+          setY(other.getY());
         }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.TouchPoint.class, com.kirshi.protocol.CommandProto.TouchPoint.Builder.class);
+        if (other.getTime() != 0L) {
+          setTime(other.getTime());
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        public static final int X_FIELD_NUMBER = 1;
-        private double x_;
+      public final boolean isInitialized() {
+        return true;
+      }
 
-        /**
-         * <code>double x = 1;</code>
-         */
-        public double getX() {
-            return x_;
+      public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+        TouchPoint parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (TouchPoint) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
-
-        public static final int Y_FIELD_NUMBER = 2;
-        private double y_;
-
-        /**
-         * <code>double y = 2;</code>
-         */
-        public double getY() {
-            return y_;
-        }
-
-        public static final int TIME_FIELD_NUMBER = 3;
-        private long time_;
-
-        /**
-         * <code>int64 time = 3;</code>
-         */
-        public long getTime() {
-            return time_;
-        }
-
-        private byte memoizedIsInitialized = -1;
-
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (x_ != 0D) {
-                output.writeDouble(1, x_);
-            }
-            if (y_ != 0D) {
-                output.writeDouble(2, y_);
-            }
-            if (time_ != 0L) {
-                output.writeInt64(3, time_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (x_ != 0D) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeDoubleSize(1, x_);
-            }
-            if (y_ != 0D) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeDoubleSize(2, y_);
-            }
-            if (time_ != 0L) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeInt64Size(3, time_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.TouchPoint)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.TouchPoint other = (com.kirshi.protocol.CommandProto.TouchPoint) obj;
-
-            boolean result = true;
-            result = result && (
-                    java.lang.Double.doubleToLongBits(getX())
-                            == java.lang.Double.doubleToLongBits(
-                            other.getX()));
-            result = result && (
-                    java.lang.Double.doubleToLongBits(getY())
-                            == java.lang.Double.doubleToLongBits(
-                            other.getY()));
-            result = result && (getTime()
-                    == other.getTime());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + X_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                    java.lang.Double.doubleToLongBits(getX()));
-            hash = (37 * hash) + Y_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                    java.lang.Double.doubleToLongBits(getY()));
-            hash = (37 * hash) + TIME_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-                    getTime());
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.TouchPoint prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-
-        /**
-         * Protobuf type {@code com.kirshi.protocol.TouchPoint}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.TouchPoint)
-                com.kirshi.protocol.CommandProto.TouchPointOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.TouchPoint.class, com.kirshi.protocol.CommandProto.TouchPoint.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.TouchPoint.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-
-            public Builder clear() {
-                super.clear();
-                x_ = 0D;
-
-                y_ = 0D;
-
-                time_ = 0L;
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchPoint_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.TouchPoint getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.TouchPoint.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.TouchPoint build() {
-                com.kirshi.protocol.CommandProto.TouchPoint result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.TouchPoint buildPartial() {
-                com.kirshi.protocol.CommandProto.TouchPoint result = new com.kirshi.protocol.CommandProto.TouchPoint(this);
-                result.x_ = x_;
-                result.y_ = y_;
-                result.time_ = time_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.TouchPoint) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.TouchPoint) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.TouchPoint other) {
-                if (other == com.kirshi.protocol.CommandProto.TouchPoint.getDefaultInstance()) return this;
-                if (other.getX() != 0D) {
-                    setX(other.getX());
-                }
-                if (other.getY() != 0D) {
-                    setY(other.getY());
-                }
-                if (other.getTime() != 0L) {
-                    setTime(other.getTime());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.TouchPoint parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.TouchPoint) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private double x_;
-
-            /**
-             * <code>double x = 1;</code>
-             */
-            public double getX() {
-                return x_;
-            }
-
-            /**
-             * <code>double x = 1;</code>
-             */
-            public Builder setX(double value) {
-
-                x_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>double x = 1;</code>
-             */
-            public Builder clearX() {
-
-                x_ = 0D;
-                onChanged();
-                return this;
-            }
-
-            private double y_;
-
-            /**
-             * <code>double y = 2;</code>
-             */
-            public double getY() {
-                return y_;
-            }
-
-            /**
-             * <code>double y = 2;</code>
-             */
-            public Builder setY(double value) {
-
-                y_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>double y = 2;</code>
-             */
-            public Builder clearY() {
-
-                y_ = 0D;
-                onChanged();
-                return this;
-            }
-
-            private long time_;
-
-            /**
-             * <code>int64 time = 3;</code>
-             */
-            public long getTime() {
-                return time_;
-            }
-
-            /**
-             * <code>int64 time = 3;</code>
-             */
-            public Builder setTime(long value) {
-
-                time_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>int64 time = 3;</code>
-             */
-            public Builder clearTime() {
-
-                time_ = 0L;
-                onChanged();
-                return this;
-            }
-
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
-
-
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.TouchPoint)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.TouchPoint)
-        private static final com.kirshi.protocol.CommandProto.TouchPoint DEFAULT_INSTANCE;
-
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.TouchPoint();
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchPoint getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<TouchPoint>
-                PARSER = new com.google.protobuf.AbstractParser<TouchPoint>() {
-            public TouchPoint parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new TouchPoint(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<TouchPoint> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<TouchPoint> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.TouchPoint getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+        return this;
+      }
+
+      private double x_;
+
+      /**
+       * <code>double x = 1;</code>
+       */
+      public double getX() {
+        return x_;
+      }
+
+      /**
+       * <code>double x = 1;</code>
+       */
+      public Builder setX(double value) {
+
+        x_ = value;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>double x = 1;</code>
+       */
+      public Builder clearX() {
+
+        x_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double y_;
+
+      /**
+       * <code>double y = 2;</code>
+       */
+      public double getY() {
+        return y_;
+      }
+
+      /**
+       * <code>double y = 2;</code>
+       */
+      public Builder setY(double value) {
+
+        y_ = value;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>double y = 2;</code>
+       */
+      public Builder clearY() {
+
+        y_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private long time_;
+
+      /**
+       * <code>int64 time = 3;</code>
+       */
+      public long getTime() {
+        return time_;
+      }
+
+      /**
+       * <code>int64 time = 3;</code>
+       */
+      public Builder setTime(long value) {
+
+        time_ = value;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>int64 time = 3;</code>
+       */
+      public Builder clearTime() {
+
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.TouchPoint)
     }
 
-    public interface AudioLiveMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.AudioLiveMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.TouchPoint)
+    private static final TouchPoint DEFAULT_INSTANCE;
 
-        /**
-         * <code>bool swiStatus = 1;</code>
-         */
-        boolean getSwiStatus();
+    static {
+      DEFAULT_INSTANCE = new TouchPoint();
+    }
+
+    public static TouchPoint getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TouchPoint>
+            PARSER = new com.google.protobuf.AbstractParser<TouchPoint>() {
+      public TouchPoint parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TouchPoint(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TouchPoint> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<TouchPoint> getParserForType() {
+      return PARSER;
+    }
+
+    public TouchPoint getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AudioLiveMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.AudioLiveMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool swiStatus = 1;</code>
+     */
+    boolean getSwiStatus();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.AudioLiveMessage}
+   */
+  public  static final class AudioLiveMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.AudioLiveMessage)
+      AudioLiveMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AudioLiveMessage.newBuilder() to construct.
+    private AudioLiveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AudioLiveMessage() {
+      swiStatus_ = false;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AudioLiveMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              swiStatus_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              AudioLiveMessage.class, Builder.class);
+    }
+
+    public static final int SWISTATUS_FIELD_NUMBER = 1;
+    private boolean swiStatus_;
+    /**
+     * <code>bool swiStatus = 1;</code>
+     */
+    public boolean getSwiStatus() {
+      return swiStatus_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (swiStatus_ != false) {
+        output.writeBool(1, swiStatus_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (swiStatus_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, swiStatus_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof AudioLiveMessage)) {
+        return super.equals(obj);
+      }
+      AudioLiveMessage other = (AudioLiveMessage) obj;
+
+      boolean result = true;
+      result = result && (getSwiStatus()
+          == other.getSwiStatus());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SWISTATUS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSwiStatus());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static AudioLiveMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AudioLiveMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AudioLiveMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AudioLiveMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AudioLiveMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AudioLiveMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AudioLiveMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AudioLiveMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AudioLiveMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static AudioLiveMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AudioLiveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AudioLiveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(AudioLiveMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.AudioLiveMessage}
      */
-    public  static final class AudioLiveMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.AudioLiveMessage)
-            AudioLiveMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use AudioLiveMessage.newBuilder() to construct.
-        private AudioLiveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.AudioLiveMessage)
+        AudioLiveMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                AudioLiveMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.AudioLiveMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private AudioLiveMessage() {
-            swiStatus_ = false;
+      }
+      public Builder clear() {
+        super.clear();
+        swiStatus_ = false;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
+      }
+
+      public AudioLiveMessage getDefaultInstanceForType() {
+        return AudioLiveMessage.getDefaultInstance();
+      }
+
+      public AudioLiveMessage build() {
+        AudioLiveMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public AudioLiveMessage buildPartial() {
+        AudioLiveMessage result = new AudioLiveMessage(this);
+        result.swiStatus_ = swiStatus_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof AudioLiveMessage) {
+          return mergeFrom((AudioLiveMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private AudioLiveMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
+      }
 
-                            swiStatus_ = input.readBool();
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(AudioLiveMessage other) {
+        if (other == AudioLiveMessage.getDefaultInstance()) return this;
+        if (other.getSwiStatus() != false) {
+          setSwiStatus(other.getSwiStatus());
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        AudioLiveMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (AudioLiveMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.AudioLiveMessage.class, com.kirshi.protocol.CommandProto.AudioLiveMessage.Builder.class);
-        }
+      private boolean swiStatus_ ;
+      /**
+       * <code>bool swiStatus = 1;</code>
+       */
+      public boolean getSwiStatus() {
+        return swiStatus_;
+      }
+      /**
+       * <code>bool swiStatus = 1;</code>
+       */
+      public Builder setSwiStatus(boolean value) {
+        
+        swiStatus_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool swiStatus = 1;</code>
+       */
+      public Builder clearSwiStatus() {
+        
+        swiStatus_ = false;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        public static final int SWISTATUS_FIELD_NUMBER = 1;
-        private boolean swiStatus_;
-        /**
-         * <code>bool swiStatus = 1;</code>
-         */
-        public boolean getSwiStatus() {
-            return swiStatus_;
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (swiStatus_ != false) {
-                output.writeBool(1, swiStatus_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (swiStatus_ != false) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBoolSize(1, swiStatus_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.AudioLiveMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.AudioLiveMessage other = (com.kirshi.protocol.CommandProto.AudioLiveMessage) obj;
-
-            boolean result = true;
-            result = result && (getSwiStatus()
-                    == other.getSwiStatus());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + SWISTATUS_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                    getSwiStatus());
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.AudioLiveMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.AudioLiveMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.AudioLiveMessage)
-                com.kirshi.protocol.CommandProto.AudioLiveMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.AudioLiveMessage.class, com.kirshi.protocol.CommandProto.AudioLiveMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.AudioLiveMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                swiStatus_ = false;
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.AudioLiveMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.AudioLiveMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.AudioLiveMessage build() {
-                com.kirshi.protocol.CommandProto.AudioLiveMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.AudioLiveMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.AudioLiveMessage result = new com.kirshi.protocol.CommandProto.AudioLiveMessage(this);
-                result.swiStatus_ = swiStatus_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.AudioLiveMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.AudioLiveMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.AudioLiveMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.AudioLiveMessage.getDefaultInstance()) return this;
-                if (other.getSwiStatus() != false) {
-                    setSwiStatus(other.getSwiStatus());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.AudioLiveMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.AudioLiveMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private boolean swiStatus_ ;
-            /**
-             * <code>bool swiStatus = 1;</code>
-             */
-            public boolean getSwiStatus() {
-                return swiStatus_;
-            }
-            /**
-             * <code>bool swiStatus = 1;</code>
-             */
-            public Builder setSwiStatus(boolean value) {
-
-                swiStatus_ = value;
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>bool swiStatus = 1;</code>
-             */
-            public Builder clearSwiStatus() {
-
-                swiStatus_ = false;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.AudioLiveMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.AudioLiveMessage)
-        private static final com.kirshi.protocol.CommandProto.AudioLiveMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.AudioLiveMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.AudioLiveMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<AudioLiveMessage>
-                PARSER = new com.google.protobuf.AbstractParser<AudioLiveMessage>() {
-            public AudioLiveMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new AudioLiveMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<AudioLiveMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<AudioLiveMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.AudioLiveMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.AudioLiveMessage)
     }
 
-    public interface CameraLiveMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.CameraLiveMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.AudioLiveMessage)
+    private static final AudioLiveMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new AudioLiveMessage();
+    }
 
-        /**
-         * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
-         */
-        int getCameraActionValue();
-        /**
-         * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
-         */
-        com.kirshi.protocol.CommandProto.CameraAction getCameraAction();
+    public static AudioLiveMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
-         */
-        int getCameraTypeValue();
-        /**
-         * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
-         */
-        com.kirshi.protocol.CommandProto.CameraType getCameraType();
+    private static final com.google.protobuf.Parser<AudioLiveMessage>
+        PARSER = new com.google.protobuf.AbstractParser<AudioLiveMessage>() {
+      public AudioLiveMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AudioLiveMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AudioLiveMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<AudioLiveMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public AudioLiveMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CameraLiveMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.CameraLiveMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
+     */
+    int getCameraActionValue();
+    /**
+     * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
+     */
+    CameraAction getCameraAction();
+
+    /**
+     * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
+     */
+    int getCameraTypeValue();
+    /**
+     * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
+     */
+    CameraType getCameraType();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.CameraLiveMessage}
+   */
+  public  static final class CameraLiveMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.CameraLiveMessage)
+      CameraLiveMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CameraLiveMessage.newBuilder() to construct.
+    private CameraLiveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CameraLiveMessage() {
+      cameraAction_ = 0;
+      cameraType_ = 0;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CameraLiveMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              cameraAction_ = rawValue;
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+
+              cameraType_ = rawValue;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              CameraLiveMessage.class, Builder.class);
+    }
+
+    public static final int CAMERAACTION_FIELD_NUMBER = 1;
+    private int cameraAction_;
+    /**
+     * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
+     */
+    public int getCameraActionValue() {
+      return cameraAction_;
+    }
+    /**
+     * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
+     */
+    public CameraAction getCameraAction() {
+      CameraAction result = CameraAction.valueOf(cameraAction_);
+      return result == null ? CameraAction.UNRECOGNIZED : result;
+    }
+
+    public static final int CAMERATYPE_FIELD_NUMBER = 2;
+    private int cameraType_;
+    /**
+     * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
+     */
+    public int getCameraTypeValue() {
+      return cameraType_;
+    }
+    /**
+     * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
+     */
+    public CameraType getCameraType() {
+      CameraType result = CameraType.valueOf(cameraType_);
+      return result == null ? CameraType.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (cameraAction_ != CameraAction.START.getNumber()) {
+        output.writeEnum(1, cameraAction_);
+      }
+      if (cameraType_ != CameraType.FONT.getNumber()) {
+        output.writeEnum(2, cameraType_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (cameraAction_ != CameraAction.START.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, cameraAction_);
+      }
+      if (cameraType_ != CameraType.FONT.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, cameraType_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof CameraLiveMessage)) {
+        return super.equals(obj);
+      }
+      CameraLiveMessage other = (CameraLiveMessage) obj;
+
+      boolean result = true;
+      result = result && cameraAction_ == other.cameraAction_;
+      result = result && cameraType_ == other.cameraType_;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CAMERAACTION_FIELD_NUMBER;
+      hash = (53 * hash) + cameraAction_;
+      hash = (37 * hash) + CAMERATYPE_FIELD_NUMBER;
+      hash = (53 * hash) + cameraType_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static CameraLiveMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static CameraLiveMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static CameraLiveMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static CameraLiveMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static CameraLiveMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static CameraLiveMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static CameraLiveMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static CameraLiveMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static CameraLiveMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static CameraLiveMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static CameraLiveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static CameraLiveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(CameraLiveMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.CameraLiveMessage}
      */
-    public  static final class CameraLiveMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.CameraLiveMessage)
-            CameraLiveMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use CameraLiveMessage.newBuilder() to construct.
-        private CameraLiveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.CameraLiveMessage)
+        CameraLiveMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                CameraLiveMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.CameraLiveMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private CameraLiveMessage() {
-            cameraAction_ = 0;
-            cameraType_ = 0;
+      }
+      public Builder clear() {
+        super.clear();
+        cameraAction_ = 0;
+
+        cameraType_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
+      }
+
+      public CameraLiveMessage getDefaultInstanceForType() {
+        return CameraLiveMessage.getDefaultInstance();
+      }
+
+      public CameraLiveMessage build() {
+        CameraLiveMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public CameraLiveMessage buildPartial() {
+        CameraLiveMessage result = new CameraLiveMessage(this);
+        result.cameraAction_ = cameraAction_;
+        result.cameraType_ = cameraType_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof CameraLiveMessage) {
+          return mergeFrom((CameraLiveMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private CameraLiveMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
-                            int rawValue = input.readEnum();
+      }
 
-                            cameraAction_ = rawValue;
-                            break;
-                        }
-                        case 16: {
-                            int rawValue = input.readEnum();
-
-                            cameraType_ = rawValue;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(CameraLiveMessage other) {
+        if (other == CameraLiveMessage.getDefaultInstance()) return this;
+        if (other.cameraAction_ != 0) {
+          setCameraActionValue(other.getCameraActionValue());
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
+        if (other.cameraType_ != 0) {
+          setCameraTypeValue(other.getCameraTypeValue());
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.CameraLiveMessage.class, com.kirshi.protocol.CommandProto.CameraLiveMessage.Builder.class);
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        CameraLiveMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (CameraLiveMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        public static final int CAMERAACTION_FIELD_NUMBER = 1;
-        private int cameraAction_;
-        /**
-         * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
-         */
-        public int getCameraActionValue() {
-            return cameraAction_;
+      private int cameraAction_ = 0;
+      /**
+       * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
+       */
+      public int getCameraActionValue() {
+        return cameraAction_;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
+       */
+      public Builder setCameraActionValue(int value) {
+        cameraAction_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
+       */
+      public CameraAction getCameraAction() {
+        CameraAction result = CameraAction.valueOf(cameraAction_);
+        return result == null ? CameraAction.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
+       */
+      public Builder setCameraAction(CameraAction value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
-        /**
-         * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
-         */
-        public com.kirshi.protocol.CommandProto.CameraAction getCameraAction() {
-            com.kirshi.protocol.CommandProto.CameraAction result = com.kirshi.protocol.CommandProto.CameraAction.valueOf(cameraAction_);
-            return result == null ? com.kirshi.protocol.CommandProto.CameraAction.UNRECOGNIZED : result;
+        
+        cameraAction_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
+       */
+      public Builder clearCameraAction() {
+        
+        cameraAction_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int cameraType_ = 0;
+      /**
+       * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
+       */
+      public int getCameraTypeValue() {
+        return cameraType_;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
+       */
+      public Builder setCameraTypeValue(int value) {
+        cameraType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
+       */
+      public CameraType getCameraType() {
+        CameraType result = CameraType.valueOf(cameraType_);
+        return result == null ? CameraType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
+       */
+      public Builder setCameraType(CameraType value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
+        
+        cameraType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
+       */
+      public Builder clearCameraType() {
+        
+        cameraType_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        public static final int CAMERATYPE_FIELD_NUMBER = 2;
-        private int cameraType_;
-        /**
-         * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
-         */
-        public int getCameraTypeValue() {
-            return cameraType_;
-        }
-        /**
-         * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
-         */
-        public com.kirshi.protocol.CommandProto.CameraType getCameraType() {
-            com.kirshi.protocol.CommandProto.CameraType result = com.kirshi.protocol.CommandProto.CameraType.valueOf(cameraType_);
-            return result == null ? com.kirshi.protocol.CommandProto.CameraType.UNRECOGNIZED : result;
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (cameraAction_ != com.kirshi.protocol.CommandProto.CameraAction.START.getNumber()) {
-                output.writeEnum(1, cameraAction_);
-            }
-            if (cameraType_ != com.kirshi.protocol.CommandProto.CameraType.FONT.getNumber()) {
-                output.writeEnum(2, cameraType_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (cameraAction_ != com.kirshi.protocol.CommandProto.CameraAction.START.getNumber()) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(1, cameraAction_);
-            }
-            if (cameraType_ != com.kirshi.protocol.CommandProto.CameraType.FONT.getNumber()) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(2, cameraType_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.CameraLiveMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.CameraLiveMessage other = (com.kirshi.protocol.CommandProto.CameraLiveMessage) obj;
-
-            boolean result = true;
-            result = result && cameraAction_ == other.cameraAction_;
-            result = result && cameraType_ == other.cameraType_;
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + CAMERAACTION_FIELD_NUMBER;
-            hash = (53 * hash) + cameraAction_;
-            hash = (37 * hash) + CAMERATYPE_FIELD_NUMBER;
-            hash = (53 * hash) + cameraType_;
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.CameraLiveMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.CameraLiveMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.CameraLiveMessage)
-                com.kirshi.protocol.CommandProto.CameraLiveMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.CameraLiveMessage.class, com.kirshi.protocol.CommandProto.CameraLiveMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.CameraLiveMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                cameraAction_ = 0;
-
-                cameraType_ = 0;
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.CameraLiveMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.CameraLiveMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.CameraLiveMessage build() {
-                com.kirshi.protocol.CommandProto.CameraLiveMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.CameraLiveMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.CameraLiveMessage result = new com.kirshi.protocol.CommandProto.CameraLiveMessage(this);
-                result.cameraAction_ = cameraAction_;
-                result.cameraType_ = cameraType_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.CameraLiveMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.CameraLiveMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.CameraLiveMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.CameraLiveMessage.getDefaultInstance()) return this;
-                if (other.cameraAction_ != 0) {
-                    setCameraActionValue(other.getCameraActionValue());
-                }
-                if (other.cameraType_ != 0) {
-                    setCameraTypeValue(other.getCameraTypeValue());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.CameraLiveMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.CameraLiveMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private int cameraAction_ = 0;
-            /**
-             * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
-             */
-            public int getCameraActionValue() {
-                return cameraAction_;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
-             */
-            public Builder setCameraActionValue(int value) {
-                cameraAction_ = value;
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
-             */
-            public com.kirshi.protocol.CommandProto.CameraAction getCameraAction() {
-                com.kirshi.protocol.CommandProto.CameraAction result = com.kirshi.protocol.CommandProto.CameraAction.valueOf(cameraAction_);
-                return result == null ? com.kirshi.protocol.CommandProto.CameraAction.UNRECOGNIZED : result;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
-             */
-            public Builder setCameraAction(com.kirshi.protocol.CommandProto.CameraAction value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                cameraAction_ = value.getNumber();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CameraAction cameraAction = 1;</code>
-             */
-            public Builder clearCameraAction() {
-
-                cameraAction_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private int cameraType_ = 0;
-            /**
-             * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
-             */
-            public int getCameraTypeValue() {
-                return cameraType_;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
-             */
-            public Builder setCameraTypeValue(int value) {
-                cameraType_ = value;
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
-             */
-            public com.kirshi.protocol.CommandProto.CameraType getCameraType() {
-                com.kirshi.protocol.CommandProto.CameraType result = com.kirshi.protocol.CommandProto.CameraType.valueOf(cameraType_);
-                return result == null ? com.kirshi.protocol.CommandProto.CameraType.UNRECOGNIZED : result;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
-             */
-            public Builder setCameraType(com.kirshi.protocol.CommandProto.CameraType value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                cameraType_ = value.getNumber();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>.com.kirshi.protocol.CameraType cameraType = 2;</code>
-             */
-            public Builder clearCameraType() {
-
-                cameraType_ = 0;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.CameraLiveMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.CameraLiveMessage)
-        private static final com.kirshi.protocol.CommandProto.CameraLiveMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.CameraLiveMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.CameraLiveMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<CameraLiveMessage>
-                PARSER = new com.google.protobuf.AbstractParser<CameraLiveMessage>() {
-            public CameraLiveMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new CameraLiveMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<CameraLiveMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<CameraLiveMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.CameraLiveMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.CameraLiveMessage)
     }
 
-    public interface ScreenTransMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.ScreenTransMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.CameraLiveMessage)
+    private static final CameraLiveMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new CameraLiveMessage();
+    }
 
-        /**
-         * <code>bool swiStatus = 1;</code>
-         */
-        boolean getSwiStatus();
+    public static CameraLiveMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CameraLiveMessage>
+        PARSER = new com.google.protobuf.AbstractParser<CameraLiveMessage>() {
+      public CameraLiveMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CameraLiveMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CameraLiveMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<CameraLiveMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public CameraLiveMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ScreenTransMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.ScreenTransMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool swiStatus = 1;</code>
+     */
+    boolean getSwiStatus();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.ScreenTransMessage}
+   */
+  public  static final class ScreenTransMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.ScreenTransMessage)
+      ScreenTransMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ScreenTransMessage.newBuilder() to construct.
+    private ScreenTransMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ScreenTransMessage() {
+      swiStatus_ = false;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ScreenTransMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              swiStatus_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              ScreenTransMessage.class, Builder.class);
+    }
+
+    public static final int SWISTATUS_FIELD_NUMBER = 1;
+    private boolean swiStatus_;
+    /**
+     * <code>bool swiStatus = 1;</code>
+     */
+    public boolean getSwiStatus() {
+      return swiStatus_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (swiStatus_ != false) {
+        output.writeBool(1, swiStatus_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (swiStatus_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, swiStatus_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof ScreenTransMessage)) {
+        return super.equals(obj);
+      }
+      ScreenTransMessage other = (ScreenTransMessage) obj;
+
+      boolean result = true;
+      result = result && (getSwiStatus()
+          == other.getSwiStatus());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SWISTATUS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSwiStatus());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static ScreenTransMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ScreenTransMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ScreenTransMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ScreenTransMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ScreenTransMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ScreenTransMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ScreenTransMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ScreenTransMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ScreenTransMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static ScreenTransMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static ScreenTransMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static ScreenTransMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(ScreenTransMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.ScreenTransMessage}
      */
-    public  static final class ScreenTransMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.ScreenTransMessage)
-            ScreenTransMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use ScreenTransMessage.newBuilder() to construct.
-        private ScreenTransMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.ScreenTransMessage)
+        ScreenTransMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                ScreenTransMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.ScreenTransMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private ScreenTransMessage() {
-            swiStatus_ = false;
+      }
+      public Builder clear() {
+        super.clear();
+        swiStatus_ = false;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
+      }
+
+      public ScreenTransMessage getDefaultInstanceForType() {
+        return ScreenTransMessage.getDefaultInstance();
+      }
+
+      public ScreenTransMessage build() {
+        ScreenTransMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public ScreenTransMessage buildPartial() {
+        ScreenTransMessage result = new ScreenTransMessage(this);
+        result.swiStatus_ = swiStatus_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof ScreenTransMessage) {
+          return mergeFrom((ScreenTransMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private ScreenTransMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
+      }
 
-                            swiStatus_ = input.readBool();
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(ScreenTransMessage other) {
+        if (other == ScreenTransMessage.getDefaultInstance()) return this;
+        if (other.getSwiStatus() != false) {
+          setSwiStatus(other.getSwiStatus());
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        ScreenTransMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ScreenTransMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.ScreenTransMessage.class, com.kirshi.protocol.CommandProto.ScreenTransMessage.Builder.class);
-        }
+      private boolean swiStatus_ ;
+      /**
+       * <code>bool swiStatus = 1;</code>
+       */
+      public boolean getSwiStatus() {
+        return swiStatus_;
+      }
+      /**
+       * <code>bool swiStatus = 1;</code>
+       */
+      public Builder setSwiStatus(boolean value) {
+        
+        swiStatus_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool swiStatus = 1;</code>
+       */
+      public Builder clearSwiStatus() {
+        
+        swiStatus_ = false;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        public static final int SWISTATUS_FIELD_NUMBER = 1;
-        private boolean swiStatus_;
-        /**
-         * <code>bool swiStatus = 1;</code>
-         */
-        public boolean getSwiStatus() {
-            return swiStatus_;
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (swiStatus_ != false) {
-                output.writeBool(1, swiStatus_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (swiStatus_ != false) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBoolSize(1, swiStatus_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.ScreenTransMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.ScreenTransMessage other = (com.kirshi.protocol.CommandProto.ScreenTransMessage) obj;
-
-            boolean result = true;
-            result = result && (getSwiStatus()
-                    == other.getSwiStatus());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + SWISTATUS_FIELD_NUMBER;
-            hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-                    getSwiStatus());
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.ScreenTransMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.ScreenTransMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.ScreenTransMessage)
-                com.kirshi.protocol.CommandProto.ScreenTransMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.ScreenTransMessage.class, com.kirshi.protocol.CommandProto.ScreenTransMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.ScreenTransMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                swiStatus_ = false;
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.ScreenTransMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.ScreenTransMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.ScreenTransMessage build() {
-                com.kirshi.protocol.CommandProto.ScreenTransMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.ScreenTransMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.ScreenTransMessage result = new com.kirshi.protocol.CommandProto.ScreenTransMessage(this);
-                result.swiStatus_ = swiStatus_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.ScreenTransMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.ScreenTransMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.ScreenTransMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.ScreenTransMessage.getDefaultInstance()) return this;
-                if (other.getSwiStatus() != false) {
-                    setSwiStatus(other.getSwiStatus());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.ScreenTransMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.ScreenTransMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private boolean swiStatus_ ;
-            /**
-             * <code>bool swiStatus = 1;</code>
-             */
-            public boolean getSwiStatus() {
-                return swiStatus_;
-            }
-            /**
-             * <code>bool swiStatus = 1;</code>
-             */
-            public Builder setSwiStatus(boolean value) {
-
-                swiStatus_ = value;
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>bool swiStatus = 1;</code>
-             */
-            public Builder clearSwiStatus() {
-
-                swiStatus_ = false;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.ScreenTransMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.ScreenTransMessage)
-        private static final com.kirshi.protocol.CommandProto.ScreenTransMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.ScreenTransMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.ScreenTransMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<ScreenTransMessage>
-                PARSER = new com.google.protobuf.AbstractParser<ScreenTransMessage>() {
-            public ScreenTransMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new ScreenTransMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<ScreenTransMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<ScreenTransMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.ScreenTransMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.ScreenTransMessage)
     }
 
-    public interface LsMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.LsMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.ScreenTransMessage)
+    private static final ScreenTransMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new ScreenTransMessage();
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        java.lang.String getFilePath();
+    public static ScreenTransMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<ScreenTransMessage>
+        PARSER = new com.google.protobuf.AbstractParser<ScreenTransMessage>() {
+      public ScreenTransMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ScreenTransMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ScreenTransMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<ScreenTransMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public ScreenTransMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LsMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.LsMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    String getFilePath();
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getFilePathBytes();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.LsMessage}
+   */
+  public  static final class LsMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.LsMessage)
+      LsMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LsMessage.newBuilder() to construct.
+    private LsMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LsMessage() {
+      filePath_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LsMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              filePath_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_LsMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              LsMessage.class, Builder.class);
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private volatile Object filePath_;
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public String getFilePath() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof LsMessage)) {
+        return super.equals(obj);
+      }
+      LsMessage other = (LsMessage) obj;
+
+      boolean result = true;
+      result = result && getFilePath()
+          .equals(other.getFilePath());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static LsMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static LsMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static LsMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static LsMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static LsMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static LsMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static LsMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static LsMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static LsMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static LsMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static LsMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static LsMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(LsMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.LsMessage}
      */
-    public  static final class LsMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.LsMessage)
-            LsMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use LsMessage.newBuilder() to construct.
-        private LsMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.LsMessage)
+        LsMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_LsMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                LsMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.LsMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private LsMessage() {
-            filePath_ = "";
+      }
+      public Builder clear() {
+        super.clear();
+        filePath_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_LsMessage_descriptor;
+      }
+
+      public LsMessage getDefaultInstanceForType() {
+        return LsMessage.getDefaultInstance();
+      }
+
+      public LsMessage build() {
+        LsMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public LsMessage buildPartial() {
+        LsMessage result = new LsMessage(this);
+        result.filePath_ = filePath_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof LsMessage) {
+          return mergeFrom((LsMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private LsMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            filePath_ = s;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(LsMessage other) {
+        if (other == LsMessage.getDefaultInstance()) return this;
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_LsMessage_descriptor;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        LsMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (LsMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.LsMessage.class, com.kirshi.protocol.CommandProto.LsMessage.Builder.class);
+      private Object filePath_ = "";
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public String getFilePath() {
+        Object ref = filePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object filePath_;
-
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public java.lang.String getFilePath() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                filePath_ = s;
-                return s;
-            }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder clearFilePath() {
+        
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFilePathBytes() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                filePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.LsMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.LsMessage other = (com.kirshi.protocol.CommandProto.LsMessage) obj;
-
-            boolean result = true;
-            result = result && getFilePath()
-                    .equals(other.getFilePath());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getFilePath().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.LsMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.LsMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.LsMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.LsMessage)
-                com.kirshi.protocol.CommandProto.LsMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_LsMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.LsMessage.class, com.kirshi.protocol.CommandProto.LsMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.LsMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                filePath_ = "";
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_LsMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.LsMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.LsMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.LsMessage build() {
-                com.kirshi.protocol.CommandProto.LsMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.LsMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.LsMessage result = new com.kirshi.protocol.CommandProto.LsMessage(this);
-                result.filePath_ = filePath_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.LsMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.LsMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.LsMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.LsMessage.getDefaultInstance()) return this;
-                if (!other.getFilePath().isEmpty()) {
-                    filePath_ = other.filePath_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.LsMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.LsMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object filePath_ = "";
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public java.lang.String getFilePath() {
-                java.lang.Object ref = filePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    filePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFilePathBytes() {
-                java.lang.Object ref = filePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    filePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder clearFilePath() {
-
-                filePath_ = getDefaultInstance().getFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.LsMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.LsMessage)
-        private static final com.kirshi.protocol.CommandProto.LsMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.LsMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.LsMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<LsMessage>
-                PARSER = new com.google.protobuf.AbstractParser<LsMessage>() {
-            public LsMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new LsMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<LsMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<LsMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.LsMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.LsMessage)
     }
 
-    public interface DownloadMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.DownloadMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.LsMessage)
+    private static final LsMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new LsMessage();
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        java.lang.String getFilePath();
+    public static LsMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<LsMessage>
+        PARSER = new com.google.protobuf.AbstractParser<LsMessage>() {
+      public LsMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LsMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LsMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<LsMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public LsMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DownloadMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.DownloadMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    String getFilePath();
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getFilePathBytes();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.DownloadMessage}
+   */
+  public  static final class DownloadMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.DownloadMessage)
+      DownloadMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DownloadMessage.newBuilder() to construct.
+    private DownloadMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DownloadMessage() {
+      filePath_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DownloadMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              filePath_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              DownloadMessage.class, Builder.class);
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private volatile Object filePath_;
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public String getFilePath() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof DownloadMessage)) {
+        return super.equals(obj);
+      }
+      DownloadMessage other = (DownloadMessage) obj;
+
+      boolean result = true;
+      result = result && getFilePath()
+          .equals(other.getFilePath());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static DownloadMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static DownloadMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static DownloadMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static DownloadMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static DownloadMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static DownloadMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static DownloadMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static DownloadMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static DownloadMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static DownloadMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static DownloadMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static DownloadMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(DownloadMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.DownloadMessage}
      */
-    public  static final class DownloadMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.DownloadMessage)
-            DownloadMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use DownloadMessage.newBuilder() to construct.
-        private DownloadMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.DownloadMessage)
+        DownloadMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                DownloadMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.DownloadMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private DownloadMessage() {
-            filePath_ = "";
+      }
+      public Builder clear() {
+        super.clear();
+        filePath_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
+      }
+
+      public DownloadMessage getDefaultInstanceForType() {
+        return DownloadMessage.getDefaultInstance();
+      }
+
+      public DownloadMessage build() {
+        DownloadMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public DownloadMessage buildPartial() {
+        DownloadMessage result = new DownloadMessage(this);
+        result.filePath_ = filePath_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof DownloadMessage) {
+          return mergeFrom((DownloadMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private DownloadMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            filePath_ = s;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(DownloadMessage other) {
+        if (other == DownloadMessage.getDefaultInstance()) return this;
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        DownloadMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (DownloadMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.DownloadMessage.class, com.kirshi.protocol.CommandProto.DownloadMessage.Builder.class);
+      private Object filePath_ = "";
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public String getFilePath() {
+        Object ref = filePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object filePath_;
-
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public java.lang.String getFilePath() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                filePath_ = s;
-                return s;
-            }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder clearFilePath() {
+        
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFilePathBytes() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                filePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.DownloadMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.DownloadMessage other = (com.kirshi.protocol.CommandProto.DownloadMessage) obj;
-
-            boolean result = true;
-            result = result && getFilePath()
-                    .equals(other.getFilePath());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getFilePath().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.DownloadMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.DownloadMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.DownloadMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.DownloadMessage)
-                com.kirshi.protocol.CommandProto.DownloadMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.DownloadMessage.class, com.kirshi.protocol.CommandProto.DownloadMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.DownloadMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                filePath_ = "";
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.DownloadMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.DownloadMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.DownloadMessage build() {
-                com.kirshi.protocol.CommandProto.DownloadMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.DownloadMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.DownloadMessage result = new com.kirshi.protocol.CommandProto.DownloadMessage(this);
-                result.filePath_ = filePath_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.DownloadMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.DownloadMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.DownloadMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.DownloadMessage.getDefaultInstance()) return this;
-                if (!other.getFilePath().isEmpty()) {
-                    filePath_ = other.filePath_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.DownloadMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.DownloadMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object filePath_ = "";
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public java.lang.String getFilePath() {
-                java.lang.Object ref = filePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    filePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFilePathBytes() {
-                java.lang.Object ref = filePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    filePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder clearFilePath() {
-
-                filePath_ = getDefaultInstance().getFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.DownloadMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.DownloadMessage)
-        private static final com.kirshi.protocol.CommandProto.DownloadMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.DownloadMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.DownloadMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<DownloadMessage>
-                PARSER = new com.google.protobuf.AbstractParser<DownloadMessage>() {
-            public DownloadMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new DownloadMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<DownloadMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<DownloadMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.DownloadMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.DownloadMessage)
     }
 
-    public interface DelMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.DelMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.DownloadMessage)
+    private static final DownloadMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new DownloadMessage();
+    }
 
-        /**
-         * <code>repeated string filename = 1;</code>
-         */
-        java.util.List<java.lang.String>
+    public static DownloadMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DownloadMessage>
+        PARSER = new com.google.protobuf.AbstractParser<DownloadMessage>() {
+      public DownloadMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DownloadMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DownloadMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<DownloadMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public DownloadMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DelMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.DelMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string filename = 1;</code>
+     */
+    java.util.List<String>
         getFilenameList();
-
-        /**
-         * <code>repeated string filename = 1;</code>
-         */
-        int getFilenameCount();
-
-        /**
-         * <code>repeated string filename = 1;</code>
-         */
-        java.lang.String getFilename(int index);
-
-        /**
-         * <code>repeated string filename = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <code>repeated string filename = 1;</code>
+     */
+    int getFilenameCount();
+    /**
+     * <code>repeated string filename = 1;</code>
+     */
+    String getFilename(int index);
+    /**
+     * <code>repeated string filename = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getFilenameBytes(int index);
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.DelMessage}
+   */
+  public  static final class DelMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.DelMessage)
+      DelMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DelMessage.newBuilder() to construct.
+    private DelMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DelMessage() {
+      filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DelMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                filename_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              filename_.add(s);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          filename_ = filename_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_DelMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              DelMessage.class, Builder.class);
+    }
+
+    public static final int FILENAME_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList filename_;
+    /**
+     * <code>repeated string filename = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFilenameList() {
+      return filename_;
+    }
+    /**
+     * <code>repeated string filename = 1;</code>
+     */
+    public int getFilenameCount() {
+      return filename_.size();
+    }
+    /**
+     * <code>repeated string filename = 1;</code>
+     */
+    public String getFilename(int index) {
+      return filename_.get(index);
+    }
+    /**
+     * <code>repeated string filename = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilenameBytes(int index) {
+      return filename_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < filename_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filename_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < filename_.size(); i++) {
+          dataSize += computeStringSizeNoTag(filename_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFilenameList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof DelMessage)) {
+        return super.equals(obj);
+      }
+      DelMessage other = (DelMessage) obj;
+
+      boolean result = true;
+      result = result && getFilenameList()
+          .equals(other.getFilenameList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getFilenameCount() > 0) {
+        hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+        hash = (53 * hash) + getFilenameList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static DelMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static DelMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static DelMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static DelMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static DelMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static DelMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static DelMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static DelMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static DelMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static DelMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static DelMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static DelMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(DelMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.DelMessage}
      */
-    public  static final class DelMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.DelMessage)
-            DelMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use DelMessage.newBuilder() to construct.
-        private DelMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.DelMessage)
+        DelMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_DelMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                DelMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.DelMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private DelMessage() {
-            filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      }
+      public Builder clear() {
+        super.clear();
+        filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_DelMessage_descriptor;
+      }
+
+      public DelMessage getDefaultInstanceForType() {
+        return DelMessage.getDefaultInstance();
+      }
+
+      public DelMessage build() {
+        DelMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public DelMessage buildPartial() {
+        DelMessage result = new DelMessage(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          filename_ = filename_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
-        private DelMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
-                            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                                filename_ = new com.google.protobuf.LazyStringArrayList();
-                                mutable_bitField0_ |= 0x00000001;
-                            }
-                            filename_.add(s);
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                    filename_ = filename_.getUnmodifiableView();
-                }
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+        result.filename_ = filename_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof DelMessage) {
+          return mergeFrom((DelMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DelMessage_descriptor;
+      }
+
+      public Builder mergeFrom(DelMessage other) {
+        if (other == DelMessage.getDefaultInstance()) return this;
+        if (!other.filename_.isEmpty()) {
+          if (filename_.isEmpty()) {
+            filename_ = other.filename_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureFilenameIsMutable();
+            filename_.addAll(other.filename_);
+          }
+          onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.DelMessage.class, com.kirshi.protocol.CommandProto.DelMessage.Builder.class);
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        DelMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (DelMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
+      private int bitField0_;
 
-        public static final int FILENAME_FIELD_NUMBER = 1;
-        private com.google.protobuf.LazyStringList filename_;
-        /**
-         * <code>repeated string filename = 1;</code>
-         */
-        public com.google.protobuf.ProtocolStringList
-        getFilenameList() {
-            return filename_;
-        }
+      private com.google.protobuf.LazyStringList filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFilenameIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          filename_ = new com.google.protobuf.LazyStringArrayList(filename_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string filename = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFilenameList() {
+        return filename_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string filename = 1;</code>
+       */
+      public int getFilenameCount() {
+        return filename_.size();
+      }
+      /**
+       * <code>repeated string filename = 1;</code>
+       */
+      public String getFilename(int index) {
+        return filename_.get(index);
+      }
+      /**
+       * <code>repeated string filename = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilenameBytes(int index) {
+        return filename_.getByteString(index);
+      }
+      /**
+       * <code>repeated string filename = 1;</code>
+       */
+      public Builder setFilename(
+          int index, String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFilenameIsMutable();
+        filename_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string filename = 1;</code>
+       */
+      public Builder addFilename(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFilenameIsMutable();
+        filename_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string filename = 1;</code>
+       */
+      public Builder addAllFilename(
+          Iterable<String> values) {
+        ensureFilenameIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, filename_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string filename = 1;</code>
+       */
+      public Builder clearFilename() {
+        filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string filename = 1;</code>
+       */
+      public Builder addFilenameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureFilenameIsMutable();
+        filename_.add(value);
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        /**
-         * <code>repeated string filename = 1;</code>
-         */
-        public int getFilenameCount() {
-            return filename_.size();
-        }
-
-        /**
-         * <code>repeated string filename = 1;</code>
-         */
-        public java.lang.String getFilename(int index) {
-            return filename_.get(index);
-        }
-
-        /**
-         * <code>repeated string filename = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFilenameBytes(int index) {
-            return filename_.getByteString(index);
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            for (int i = 0; i < filename_.size(); i++) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filename_.getRaw(i));
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            {
-                int dataSize = 0;
-                for (int i = 0; i < filename_.size(); i++) {
-                    dataSize += computeStringSizeNoTag(filename_.getRaw(i));
-                }
-                size += dataSize;
-                size += 1 * getFilenameList().size();
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.DelMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.DelMessage other = (com.kirshi.protocol.CommandProto.DelMessage) obj;
-
-            boolean result = true;
-            result = result && getFilenameList()
-                    .equals(other.getFilenameList());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            if (getFilenameCount() > 0) {
-                hash = (37 * hash) + FILENAME_FIELD_NUMBER;
-                hash = (53 * hash) + getFilenameList().hashCode();
-            }
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.DelMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.DelMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.DelMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.DelMessage)
-                com.kirshi.protocol.CommandProto.DelMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DelMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.DelMessage.class, com.kirshi.protocol.CommandProto.DelMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.DelMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000001);
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_DelMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.DelMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.DelMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.DelMessage build() {
-                com.kirshi.protocol.CommandProto.DelMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.DelMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.DelMessage result = new com.kirshi.protocol.CommandProto.DelMessage(this);
-                int from_bitField0_ = bitField0_;
-                if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                    filename_ = filename_.getUnmodifiableView();
-                    bitField0_ = (bitField0_ & ~0x00000001);
-                }
-                result.filename_ = filename_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.DelMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.DelMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.DelMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.DelMessage.getDefaultInstance()) return this;
-                if (!other.filename_.isEmpty()) {
-                    if (filename_.isEmpty()) {
-                        filename_ = other.filename_;
-                        bitField0_ = (bitField0_ & ~0x00000001);
-                    } else {
-                        ensureFilenameIsMutable();
-                        filename_.addAll(other.filename_);
-                    }
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.DelMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.DelMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-            private int bitField0_;
-
-            private com.google.protobuf.LazyStringList filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-            private void ensureFilenameIsMutable() {
-                if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-                    filename_ = new com.google.protobuf.LazyStringArrayList(filename_);
-                    bitField0_ |= 0x00000001;
-                }
-            }
-            /**
-             * <code>repeated string filename = 1;</code>
-             */
-            public com.google.protobuf.ProtocolStringList
-            getFilenameList() {
-                return filename_.getUnmodifiableView();
-            }
-
-            /**
-             * <code>repeated string filename = 1;</code>
-             */
-            public int getFilenameCount() {
-                return filename_.size();
-            }
-
-            /**
-             * <code>repeated string filename = 1;</code>
-             */
-            public java.lang.String getFilename(int index) {
-                return filename_.get(index);
-            }
-
-            /**
-             * <code>repeated string filename = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFilenameBytes(int index) {
-                return filename_.getByteString(index);
-            }
-
-            /**
-             * <code>repeated string filename = 1;</code>
-             */
-            public Builder setFilename(
-                    int index, java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureFilenameIsMutable();
-                filename_.set(index, value);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated string filename = 1;</code>
-             */
-            public Builder addFilename(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureFilenameIsMutable();
-                filename_.add(value);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated string filename = 1;</code>
-             */
-            public Builder addAllFilename(
-                    java.lang.Iterable<java.lang.String> values) {
-                ensureFilenameIsMutable();
-                com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                        values, filename_);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated string filename = 1;</code>
-             */
-            public Builder clearFilename() {
-                filename_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000001);
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>repeated string filename = 1;</code>
-             */
-            public Builder addFilenameBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-                ensureFilenameIsMutable();
-                filename_.add(value);
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.DelMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.DelMessage)
-        private static final com.kirshi.protocol.CommandProto.DelMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.DelMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.DelMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<DelMessage>
-                PARSER = new com.google.protobuf.AbstractParser<DelMessage>() {
-            public DelMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new DelMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<DelMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<DelMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.DelMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.DelMessage)
     }
 
-    public interface MkDirMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.MkDirMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.DelMessage)
+    private static final DelMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new DelMessage();
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        java.lang.String getFilePath();
+    public static DelMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<DelMessage>
+        PARSER = new com.google.protobuf.AbstractParser<DelMessage>() {
+      public DelMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DelMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DelMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<DelMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public DelMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MkDirMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.MkDirMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    String getFilePath();
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getFilePathBytes();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.MkDirMessage}
+   */
+  public  static final class MkDirMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.MkDirMessage)
+      MkDirMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MkDirMessage.newBuilder() to construct.
+    private MkDirMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MkDirMessage() {
+      filePath_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MkDirMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              filePath_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              MkDirMessage.class, Builder.class);
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private volatile Object filePath_;
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public String getFilePath() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof MkDirMessage)) {
+        return super.equals(obj);
+      }
+      MkDirMessage other = (MkDirMessage) obj;
+
+      boolean result = true;
+      result = result && getFilePath()
+          .equals(other.getFilePath());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static MkDirMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MkDirMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MkDirMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MkDirMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MkDirMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static MkDirMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static MkDirMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MkDirMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MkDirMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static MkDirMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static MkDirMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static MkDirMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(MkDirMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.MkDirMessage}
      */
-    public  static final class MkDirMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.MkDirMessage)
-            MkDirMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use MkDirMessage.newBuilder() to construct.
-        private MkDirMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.MkDirMessage)
+        MkDirMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                MkDirMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.MkDirMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private MkDirMessage() {
-            filePath_ = "";
+      }
+      public Builder clear() {
+        super.clear();
+        filePath_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
+      }
+
+      public MkDirMessage getDefaultInstanceForType() {
+        return MkDirMessage.getDefaultInstance();
+      }
+
+      public MkDirMessage build() {
+        MkDirMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public MkDirMessage buildPartial() {
+        MkDirMessage result = new MkDirMessage(this);
+        result.filePath_ = filePath_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof MkDirMessage) {
+          return mergeFrom((MkDirMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private MkDirMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            filePath_ = s;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(MkDirMessage other) {
+        if (other == MkDirMessage.getDefaultInstance()) return this;
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        MkDirMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (MkDirMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.MkDirMessage.class, com.kirshi.protocol.CommandProto.MkDirMessage.Builder.class);
+      private Object filePath_ = "";
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public String getFilePath() {
+        Object ref = filePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object filePath_;
-
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public java.lang.String getFilePath() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                filePath_ = s;
-                return s;
-            }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder clearFilePath() {
+        
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFilePathBytes() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                filePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.MkDirMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.MkDirMessage other = (com.kirshi.protocol.CommandProto.MkDirMessage) obj;
-
-            boolean result = true;
-            result = result && getFilePath()
-                    .equals(other.getFilePath());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getFilePath().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.MkDirMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.MkDirMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.MkDirMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.MkDirMessage)
-                com.kirshi.protocol.CommandProto.MkDirMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.MkDirMessage.class, com.kirshi.protocol.CommandProto.MkDirMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.MkDirMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                filePath_ = "";
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.MkDirMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.MkDirMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.MkDirMessage build() {
-                com.kirshi.protocol.CommandProto.MkDirMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.MkDirMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.MkDirMessage result = new com.kirshi.protocol.CommandProto.MkDirMessage(this);
-                result.filePath_ = filePath_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.MkDirMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.MkDirMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.MkDirMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.MkDirMessage.getDefaultInstance()) return this;
-                if (!other.getFilePath().isEmpty()) {
-                    filePath_ = other.filePath_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.MkDirMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.MkDirMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object filePath_ = "";
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public java.lang.String getFilePath() {
-                java.lang.Object ref = filePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    filePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFilePathBytes() {
-                java.lang.Object ref = filePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    filePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder clearFilePath() {
-
-                filePath_ = getDefaultInstance().getFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.MkDirMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.MkDirMessage)
-        private static final com.kirshi.protocol.CommandProto.MkDirMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.MkDirMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.MkDirMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<MkDirMessage>
-                PARSER = new com.google.protobuf.AbstractParser<MkDirMessage>() {
-            public MkDirMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new MkDirMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<MkDirMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<MkDirMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.MkDirMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.MkDirMessage)
     }
 
-    public interface TouchMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.TouchMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.MkDirMessage)
+    private static final MkDirMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new MkDirMessage();
+    }
 
-        /**
-         * <code>string newFilePath = 1;</code>
-         */
-        java.lang.String getNewFilePath();
+    public static MkDirMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string newFilePath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<MkDirMessage>
+        PARSER = new com.google.protobuf.AbstractParser<MkDirMessage>() {
+      public MkDirMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new MkDirMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MkDirMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<MkDirMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public MkDirMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TouchMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.TouchMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string newFilePath = 1;</code>
+     */
+    String getNewFilePath();
+    /**
+     * <code>string newFilePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getNewFilePathBytes();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.TouchMessage}
+   */
+  public  static final class TouchMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.TouchMessage)
+      TouchMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use TouchMessage.newBuilder() to construct.
+    private TouchMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TouchMessage() {
+      newFilePath_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TouchMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              newFilePath_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_TouchMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              TouchMessage.class, Builder.class);
+    }
+
+    public static final int NEWFILEPATH_FIELD_NUMBER = 1;
+    private volatile Object newFilePath_;
+    /**
+     * <code>string newFilePath = 1;</code>
+     */
+    public String getNewFilePath() {
+      Object ref = newFilePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        newFilePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string newFilePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNewFilePathBytes() {
+      Object ref = newFilePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        newFilePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNewFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, newFilePath_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNewFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, newFilePath_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof TouchMessage)) {
+        return super.equals(obj);
+      }
+      TouchMessage other = (TouchMessage) obj;
+
+      boolean result = true;
+      result = result && getNewFilePath()
+          .equals(other.getNewFilePath());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + NEWFILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getNewFilePath().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static TouchMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TouchMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TouchMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TouchMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TouchMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static TouchMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static TouchMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TouchMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TouchMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static TouchMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static TouchMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static TouchMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(TouchMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.TouchMessage}
      */
-    public  static final class TouchMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.TouchMessage)
-            TouchMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use TouchMessage.newBuilder() to construct.
-        private TouchMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.TouchMessage)
+        TouchMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_TouchMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                TouchMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.TouchMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private TouchMessage() {
-            newFilePath_ = "";
+      }
+      public Builder clear() {
+        super.clear();
+        newFilePath_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_TouchMessage_descriptor;
+      }
+
+      public TouchMessage getDefaultInstanceForType() {
+        return TouchMessage.getDefaultInstance();
+      }
+
+      public TouchMessage build() {
+        TouchMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public TouchMessage buildPartial() {
+        TouchMessage result = new TouchMessage(this);
+        result.newFilePath_ = newFilePath_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof TouchMessage) {
+          return mergeFrom((TouchMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private TouchMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            newFilePath_ = s;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(TouchMessage other) {
+        if (other == TouchMessage.getDefaultInstance()) return this;
+        if (!other.getNewFilePath().isEmpty()) {
+          newFilePath_ = other.newFilePath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchMessage_descriptor;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        TouchMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (TouchMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.TouchMessage.class, com.kirshi.protocol.CommandProto.TouchMessage.Builder.class);
+      private Object newFilePath_ = "";
+      /**
+       * <code>string newFilePath = 1;</code>
+       */
+      public String getNewFilePath() {
+        Object ref = newFilePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          newFilePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        public static final int NEWFILEPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object newFilePath_;
-
-        /**
-         * <code>string newFilePath = 1;</code>
-         */
-        public java.lang.String getNewFilePath() {
-            java.lang.Object ref = newFilePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                newFilePath_ = s;
-                return s;
-            }
+      }
+      /**
+       * <code>string newFilePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNewFilePathBytes() {
+        Object ref = newFilePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          newFilePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string newFilePath = 1;</code>
+       */
+      public Builder setNewFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        newFilePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string newFilePath = 1;</code>
+       */
+      public Builder clearNewFilePath() {
+        
+        newFilePath_ = getDefaultInstance().getNewFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string newFilePath = 1;</code>
+       */
+      public Builder setNewFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        newFilePath_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        /**
-         * <code>string newFilePath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getNewFilePathBytes() {
-            java.lang.Object ref = newFilePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                newFilePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getNewFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, newFilePath_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getNewFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, newFilePath_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.TouchMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.TouchMessage other = (com.kirshi.protocol.CommandProto.TouchMessage) obj;
-
-            boolean result = true;
-            result = result && getNewFilePath()
-                    .equals(other.getNewFilePath());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + NEWFILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getNewFilePath().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.TouchMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.TouchMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.TouchMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.TouchMessage)
-                com.kirshi.protocol.CommandProto.TouchMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.TouchMessage.class, com.kirshi.protocol.CommandProto.TouchMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.TouchMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                newFilePath_ = "";
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_TouchMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.TouchMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.TouchMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.TouchMessage build() {
-                com.kirshi.protocol.CommandProto.TouchMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.TouchMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.TouchMessage result = new com.kirshi.protocol.CommandProto.TouchMessage(this);
-                result.newFilePath_ = newFilePath_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.TouchMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.TouchMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.TouchMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.TouchMessage.getDefaultInstance()) return this;
-                if (!other.getNewFilePath().isEmpty()) {
-                    newFilePath_ = other.newFilePath_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.TouchMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.TouchMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object newFilePath_ = "";
-
-            /**
-             * <code>string newFilePath = 1;</code>
-             */
-            public java.lang.String getNewFilePath() {
-                java.lang.Object ref = newFilePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    newFilePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string newFilePath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getNewFilePathBytes() {
-                java.lang.Object ref = newFilePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    newFilePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string newFilePath = 1;</code>
-             */
-            public Builder setNewFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                newFilePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string newFilePath = 1;</code>
-             */
-            public Builder clearNewFilePath() {
-
-                newFilePath_ = getDefaultInstance().getNewFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string newFilePath = 1;</code>
-             */
-            public Builder setNewFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                newFilePath_ = value;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.TouchMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.TouchMessage)
-        private static final com.kirshi.protocol.CommandProto.TouchMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.TouchMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.TouchMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<TouchMessage>
-                PARSER = new com.google.protobuf.AbstractParser<TouchMessage>() {
-            public TouchMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new TouchMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<TouchMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<TouchMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.TouchMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.TouchMessage)
     }
 
-    public interface FileEditMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileEditMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.TouchMessage)
+    private static final TouchMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new TouchMessage();
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        java.lang.String getFilePath();
+    public static TouchMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<TouchMessage>
+        PARSER = new com.google.protobuf.AbstractParser<TouchMessage>() {
+      public TouchMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TouchMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TouchMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<TouchMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public TouchMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FileEditMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileEditMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    String getFilePath();
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getFilePathBytes();
 
-        /**
-         * <code>uint32 index = 2;</code>
-         */
-        int getIndex();
+    /**
+     * <code>uint32 index = 2;</code>
+     */
+    int getIndex();
 
-        /**
-         * <code>string content = 3;</code>
-         */
-        java.lang.String getContent();
-
-        /**
-         * <code>string content = 3;</code>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <code>string content = 3;</code>
+     */
+    String getContent();
+    /**
+     * <code>string content = 3;</code>
+     */
+    com.google.protobuf.ByteString
         getContentBytes();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.FileEditMessage}
+   */
+  public  static final class FileEditMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileEditMessage)
+      FileEditMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FileEditMessage.newBuilder() to construct.
+    private FileEditMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FileEditMessage() {
+      filePath_ = "";
+      index_ = 0;
+      content_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FileEditMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              filePath_ = s;
+              break;
+            }
+            case 16: {
+
+              index_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+              String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              FileEditMessage.class, Builder.class);
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private volatile Object filePath_;
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public String getFilePath() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int INDEX_FIELD_NUMBER = 2;
+    private int index_;
+    /**
+     * <code>uint32 index = 2;</code>
+     */
+    public int getIndex() {
+      return index_;
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 3;
+    private volatile Object content_;
+    /**
+     * <code>string content = 3;</code>
+     */
+    public String getContent() {
+      Object ref = content_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string content = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      Object ref = content_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
+      }
+      if (index_ != 0) {
+        output.writeUInt32(2, index_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, content_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
+      }
+      if (index_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, index_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, content_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof FileEditMessage)) {
+        return super.equals(obj);
+      }
+      FileEditMessage other = (FileEditMessage) obj;
+
+      boolean result = true;
+      result = result && getFilePath()
+          .equals(other.getFilePath());
+      result = result && (getIndex()
+          == other.getIndex());
+      result = result && getContent()
+          .equals(other.getContent());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (37 * hash) + INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getIndex();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static FileEditMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileEditMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileEditMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileEditMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileEditMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileEditMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileEditMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileEditMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileEditMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static FileEditMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileEditMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileEditMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(FileEditMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.FileEditMessage}
      */
-    public  static final class FileEditMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileEditMessage)
-            FileEditMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use FileEditMessage.newBuilder() to construct.
-        private FileEditMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileEditMessage)
+        FileEditMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                FileEditMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.FileEditMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private FileEditMessage() {
-            filePath_ = "";
-            index_ = 0;
-            content_ = "";
+      }
+      public Builder clear() {
+        super.clear();
+        filePath_ = "";
+
+        index_ = 0;
+
+        content_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
+      }
+
+      public FileEditMessage getDefaultInstanceForType() {
+        return FileEditMessage.getDefaultInstance();
+      }
+
+      public FileEditMessage build() {
+        FileEditMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public FileEditMessage buildPartial() {
+        FileEditMessage result = new FileEditMessage(this);
+        result.filePath_ = filePath_;
+        result.index_ = index_;
+        result.content_ = content_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof FileEditMessage) {
+          return mergeFrom((FileEditMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private FileEditMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            filePath_ = s;
-                            break;
-                        }
-                        case 16: {
-
-                            index_ = input.readUInt32();
-                            break;
-                        }
-                        case 26: {
-                            java.lang.String s = input.readStringRequireUtf8();
-
-                            content_ = s;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(FileEditMessage other) {
+        if (other == FileEditMessage.getDefaultInstance()) return this;
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
+        if (other.getIndex() != 0) {
+          setIndex(other.getIndex());
         }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.FileEditMessage.class, com.kirshi.protocol.CommandProto.FileEditMessage.Builder.class);
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object filePath_;
+      public final boolean isInitialized() {
+        return true;
+      }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public java.lang.String getFilePath() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                filePath_ = s;
-                return s;
-            }
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        FileEditMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (FileEditMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFilePathBytes() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                filePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      private Object filePath_ = "";
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public String getFilePath() {
+        Object ref = filePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        public static final int INDEX_FIELD_NUMBER = 2;
-        private int index_;
-        /**
-         * <code>uint32 index = 2;</code>
-         */
-        public int getIndex() {
-            return index_;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder clearFilePath() {
+        
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
 
-        public static final int CONTENT_FIELD_NUMBER = 3;
-        private volatile java.lang.Object content_;
+      private int index_ ;
+      /**
+       * <code>uint32 index = 2;</code>
+       */
+      public int getIndex() {
+        return index_;
+      }
+      /**
+       * <code>uint32 index = 2;</code>
+       */
+      public Builder setIndex(int value) {
+        
+        index_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 index = 2;</code>
+       */
+      public Builder clearIndex() {
+        
+        index_ = 0;
+        onChanged();
+        return this;
+      }
 
-        /**
-         * <code>string content = 3;</code>
-         */
-        public java.lang.String getContent() {
-            java.lang.Object ref = content_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                content_ = s;
-                return s;
-            }
+      private Object content_ = "";
+      /**
+       * <code>string content = 3;</code>
+       */
+      public String getContent() {
+        Object ref = content_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        /**
-         * <code>string content = 3;</code>
-         */
-        public com.google.protobuf.ByteString
-        getContentBytes() {
-            java.lang.Object ref = content_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                content_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      }
+      /**
+       * <code>string content = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string content = 3;</code>
+       */
+      public Builder setContent(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 3;</code>
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string content = 3;</code>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
-            }
-            if (index_ != 0) {
-                output.writeUInt32(2, index_);
-            }
-            if (!getContentBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 3, content_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
-            }
-            if (index_ != 0) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeUInt32Size(2, index_);
-            }
-            if (!getContentBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, content_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.FileEditMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.FileEditMessage other = (com.kirshi.protocol.CommandProto.FileEditMessage) obj;
-
-            boolean result = true;
-            result = result && getFilePath()
-                    .equals(other.getFilePath());
-            result = result && (getIndex()
-                    == other.getIndex());
-            result = result && getContent()
-                    .equals(other.getContent());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getFilePath().hashCode();
-            hash = (37 * hash) + INDEX_FIELD_NUMBER;
-            hash = (53 * hash) + getIndex();
-            hash = (37 * hash) + CONTENT_FIELD_NUMBER;
-            hash = (53 * hash) + getContent().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileEditMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileEditMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.FileEditMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileEditMessage)
-                com.kirshi.protocol.CommandProto.FileEditMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.FileEditMessage.class, com.kirshi.protocol.CommandProto.FileEditMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.FileEditMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                filePath_ = "";
-
-                index_ = 0;
-
-                content_ = "";
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileEditMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.FileEditMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.FileEditMessage build() {
-                com.kirshi.protocol.CommandProto.FileEditMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileEditMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.FileEditMessage result = new com.kirshi.protocol.CommandProto.FileEditMessage(this);
-                result.filePath_ = filePath_;
-                result.index_ = index_;
-                result.content_ = content_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.FileEditMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileEditMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.FileEditMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.FileEditMessage.getDefaultInstance()) return this;
-                if (!other.getFilePath().isEmpty()) {
-                    filePath_ = other.filePath_;
-                    onChanged();
-                }
-                if (other.getIndex() != 0) {
-                    setIndex(other.getIndex());
-                }
-                if (!other.getContent().isEmpty()) {
-                    content_ = other.content_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.FileEditMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.FileEditMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object filePath_ = "";
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public java.lang.String getFilePath() {
-                java.lang.Object ref = filePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    filePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFilePathBytes() {
-                java.lang.Object ref = filePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    filePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder clearFilePath() {
-
-                filePath_ = getDefaultInstance().getFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            private int index_ ;
-            /**
-             * <code>uint32 index = 2;</code>
-             */
-            public int getIndex() {
-                return index_;
-            }
-            /**
-             * <code>uint32 index = 2;</code>
-             */
-            public Builder setIndex(int value) {
-
-                index_ = value;
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>uint32 index = 2;</code>
-             */
-            public Builder clearIndex() {
-
-                index_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private java.lang.Object content_ = "";
-
-            /**
-             * <code>string content = 3;</code>
-             */
-            public java.lang.String getContent() {
-                java.lang.Object ref = content_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    content_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string content = 3;</code>
-             */
-            public com.google.protobuf.ByteString
-            getContentBytes() {
-                java.lang.Object ref = content_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    content_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string content = 3;</code>
-             */
-            public Builder setContent(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                content_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string content = 3;</code>
-             */
-            public Builder clearContent() {
-
-                content_ = getDefaultInstance().getContent();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string content = 3;</code>
-             */
-            public Builder setContentBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                content_ = value;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileEditMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileEditMessage)
-        private static final com.kirshi.protocol.CommandProto.FileEditMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileEditMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileEditMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<FileEditMessage>
-                PARSER = new com.google.protobuf.AbstractParser<FileEditMessage>() {
-            public FileEditMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new FileEditMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<FileEditMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<FileEditMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.FileEditMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileEditMessage)
     }
 
-    public interface FileHexEditMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileHexEditMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileEditMessage)
+    private static final FileEditMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new FileEditMessage();
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        java.lang.String getFilePath();
+    public static FileEditMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<FileEditMessage>
+        PARSER = new com.google.protobuf.AbstractParser<FileEditMessage>() {
+      public FileEditMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FileEditMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FileEditMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<FileEditMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public FileEditMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FileHexEditMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileHexEditMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    String getFilePath();
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getFilePathBytes();
 
-        /**
-         * <code>uint32 index = 2;</code>
-         */
-        int getIndex();
+    /**
+     * <code>uint32 index = 2;</code>
+     */
+    int getIndex();
 
-        /**
-         * <code>bytes byteContent = 3;</code>
-         */
-        com.google.protobuf.ByteString getByteContent();
+    /**
+     * <code>bytes byteContent = 3;</code>
+     */
+    com.google.protobuf.ByteString getByteContent();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.FileHexEditMessage}
+   */
+  public  static final class FileHexEditMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileHexEditMessage)
+      FileHexEditMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FileHexEditMessage.newBuilder() to construct.
+    private FileHexEditMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FileHexEditMessage() {
+      filePath_ = "";
+      index_ = 0;
+      byteContent_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FileHexEditMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              filePath_ = s;
+              break;
+            }
+            case 16: {
+
+              index_ = input.readUInt32();
+              break;
+            }
+            case 26: {
+
+              byteContent_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              FileHexEditMessage.class, Builder.class);
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private volatile Object filePath_;
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public String getFilePath() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int INDEX_FIELD_NUMBER = 2;
+    private int index_;
+    /**
+     * <code>uint32 index = 2;</code>
+     */
+    public int getIndex() {
+      return index_;
+    }
+
+    public static final int BYTECONTENT_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString byteContent_;
+    /**
+     * <code>bytes byteContent = 3;</code>
+     */
+    public com.google.protobuf.ByteString getByteContent() {
+      return byteContent_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
+      }
+      if (index_ != 0) {
+        output.writeUInt32(2, index_);
+      }
+      if (!byteContent_.isEmpty()) {
+        output.writeBytes(3, byteContent_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
+      }
+      if (index_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, index_);
+      }
+      if (!byteContent_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, byteContent_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof FileHexEditMessage)) {
+        return super.equals(obj);
+      }
+      FileHexEditMessage other = (FileHexEditMessage) obj;
+
+      boolean result = true;
+      result = result && getFilePath()
+          .equals(other.getFilePath());
+      result = result && (getIndex()
+          == other.getIndex());
+      result = result && getByteContent()
+          .equals(other.getByteContent());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (37 * hash) + INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getIndex();
+      hash = (37 * hash) + BYTECONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getByteContent().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static FileHexEditMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileHexEditMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileHexEditMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileHexEditMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileHexEditMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileHexEditMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileHexEditMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileHexEditMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileHexEditMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static FileHexEditMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileHexEditMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileHexEditMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(FileHexEditMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.FileHexEditMessage}
      */
-    public  static final class FileHexEditMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileHexEditMessage)
-            FileHexEditMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use FileHexEditMessage.newBuilder() to construct.
-        private FileHexEditMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileHexEditMessage)
+        FileHexEditMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                FileHexEditMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.FileHexEditMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private FileHexEditMessage() {
-            filePath_ = "";
-            index_ = 0;
-            byteContent_ = com.google.protobuf.ByteString.EMPTY;
+      }
+      public Builder clear() {
+        super.clear();
+        filePath_ = "";
+
+        index_ = 0;
+
+        byteContent_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
+      }
+
+      public FileHexEditMessage getDefaultInstanceForType() {
+        return FileHexEditMessage.getDefaultInstance();
+      }
+
+      public FileHexEditMessage build() {
+        FileHexEditMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public FileHexEditMessage buildPartial() {
+        FileHexEditMessage result = new FileHexEditMessage(this);
+        result.filePath_ = filePath_;
+        result.index_ = index_;
+        result.byteContent_ = byteContent_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof FileHexEditMessage) {
+          return mergeFrom((FileHexEditMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private FileHexEditMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            filePath_ = s;
-                            break;
-                        }
-                        case 16: {
-
-                            index_ = input.readUInt32();
-                            break;
-                        }
-                        case 26: {
-
-                            byteContent_ = input.readBytes();
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(FileHexEditMessage other) {
+        if (other == FileHexEditMessage.getDefaultInstance()) return this;
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
+        if (other.getIndex() != 0) {
+          setIndex(other.getIndex());
         }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.FileHexEditMessage.class, com.kirshi.protocol.CommandProto.FileHexEditMessage.Builder.class);
+        if (other.getByteContent() != com.google.protobuf.ByteString.EMPTY) {
+          setByteContent(other.getByteContent());
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object filePath_;
+      public final boolean isInitialized() {
+        return true;
+      }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public java.lang.String getFilePath() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                filePath_ = s;
-                return s;
-            }
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        FileHexEditMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (FileHexEditMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFilePathBytes() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                filePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      private Object filePath_ = "";
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public String getFilePath() {
+        Object ref = filePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        public static final int INDEX_FIELD_NUMBER = 2;
-        private int index_;
-        /**
-         * <code>uint32 index = 2;</code>
-         */
-        public int getIndex() {
-            return index_;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder clearFilePath() {
+        
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
 
-        public static final int BYTECONTENT_FIELD_NUMBER = 3;
-        private com.google.protobuf.ByteString byteContent_;
-        /**
-         * <code>bytes byteContent = 3;</code>
-         */
-        public com.google.protobuf.ByteString getByteContent() {
-            return byteContent_;
-        }
+      private int index_ ;
+      /**
+       * <code>uint32 index = 2;</code>
+       */
+      public int getIndex() {
+        return index_;
+      }
+      /**
+       * <code>uint32 index = 2;</code>
+       */
+      public Builder setIndex(int value) {
+        
+        index_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 index = 2;</code>
+       */
+      public Builder clearIndex() {
+        
+        index_ = 0;
+        onChanged();
+        return this;
+      }
 
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
+      private com.google.protobuf.ByteString byteContent_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes byteContent = 3;</code>
+       */
+      public com.google.protobuf.ByteString getByteContent() {
+        return byteContent_;
+      }
+      /**
+       * <code>bytes byteContent = 3;</code>
+       */
+      public Builder setByteContent(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        byteContent_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes byteContent = 3;</code>
+       */
+      public Builder clearByteContent() {
+        
+        byteContent_ = getDefaultInstance().getByteContent();
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
-            }
-            if (index_ != 0) {
-                output.writeUInt32(2, index_);
-            }
-            if (!byteContent_.isEmpty()) {
-                output.writeBytes(3, byteContent_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
-            }
-            if (index_ != 0) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeUInt32Size(2, index_);
-            }
-            if (!byteContent_.isEmpty()) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(3, byteContent_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.FileHexEditMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.FileHexEditMessage other = (com.kirshi.protocol.CommandProto.FileHexEditMessage) obj;
-
-            boolean result = true;
-            result = result && getFilePath()
-                    .equals(other.getFilePath());
-            result = result && (getIndex()
-                    == other.getIndex());
-            result = result && getByteContent()
-                    .equals(other.getByteContent());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getFilePath().hashCode();
-            hash = (37 * hash) + INDEX_FIELD_NUMBER;
-            hash = (53 * hash) + getIndex();
-            hash = (37 * hash) + BYTECONTENT_FIELD_NUMBER;
-            hash = (53 * hash) + getByteContent().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileHexEditMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.FileHexEditMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileHexEditMessage)
-                com.kirshi.protocol.CommandProto.FileHexEditMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.FileHexEditMessage.class, com.kirshi.protocol.CommandProto.FileHexEditMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.FileHexEditMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                filePath_ = "";
-
-                index_ = 0;
-
-                byteContent_ = com.google.protobuf.ByteString.EMPTY;
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileHexEditMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.FileHexEditMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.FileHexEditMessage build() {
-                com.kirshi.protocol.CommandProto.FileHexEditMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileHexEditMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.FileHexEditMessage result = new com.kirshi.protocol.CommandProto.FileHexEditMessage(this);
-                result.filePath_ = filePath_;
-                result.index_ = index_;
-                result.byteContent_ = byteContent_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.FileHexEditMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileHexEditMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.FileHexEditMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.FileHexEditMessage.getDefaultInstance()) return this;
-                if (!other.getFilePath().isEmpty()) {
-                    filePath_ = other.filePath_;
-                    onChanged();
-                }
-                if (other.getIndex() != 0) {
-                    setIndex(other.getIndex());
-                }
-                if (other.getByteContent() != com.google.protobuf.ByteString.EMPTY) {
-                    setByteContent(other.getByteContent());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.FileHexEditMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.FileHexEditMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object filePath_ = "";
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public java.lang.String getFilePath() {
-                java.lang.Object ref = filePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    filePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFilePathBytes() {
-                java.lang.Object ref = filePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    filePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder clearFilePath() {
-
-                filePath_ = getDefaultInstance().getFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            private int index_ ;
-            /**
-             * <code>uint32 index = 2;</code>
-             */
-            public int getIndex() {
-                return index_;
-            }
-            /**
-             * <code>uint32 index = 2;</code>
-             */
-            public Builder setIndex(int value) {
-
-                index_ = value;
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>uint32 index = 2;</code>
-             */
-            public Builder clearIndex() {
-
-                index_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private com.google.protobuf.ByteString byteContent_ = com.google.protobuf.ByteString.EMPTY;
-            /**
-             * <code>bytes byteContent = 3;</code>
-             */
-            public com.google.protobuf.ByteString getByteContent() {
-                return byteContent_;
-            }
-            /**
-             * <code>bytes byteContent = 3;</code>
-             */
-            public Builder setByteContent(com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                byteContent_ = value;
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>bytes byteContent = 3;</code>
-             */
-            public Builder clearByteContent() {
-
-                byteContent_ = getDefaultInstance().getByteContent();
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileHexEditMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileHexEditMessage)
-        private static final com.kirshi.protocol.CommandProto.FileHexEditMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileHexEditMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileHexEditMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<FileHexEditMessage>
-                PARSER = new com.google.protobuf.AbstractParser<FileHexEditMessage>() {
-            public FileHexEditMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new FileHexEditMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<FileHexEditMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<FileHexEditMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.FileHexEditMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileHexEditMessage)
     }
 
-    public interface FileUploadMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileUploadMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileHexEditMessage)
+    private static final FileHexEditMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new FileHexEditMessage();
+    }
 
-        /**
-         * <code>string uploadPath = 1;</code>
-         */
-        java.lang.String getUploadPath();
+    public static FileHexEditMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string uploadPath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<FileHexEditMessage>
+        PARSER = new com.google.protobuf.AbstractParser<FileHexEditMessage>() {
+      public FileHexEditMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FileHexEditMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FileHexEditMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<FileHexEditMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public FileHexEditMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FileUploadMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileUploadMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string uploadPath = 1;</code>
+     */
+    String getUploadPath();
+    /**
+     * <code>string uploadPath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getUploadPathBytes();
 
-        /**
-         * <code>string fileName = 2;</code>
-         */
-        java.lang.String getFileName();
-
-        /**
-         * <code>string fileName = 2;</code>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <code>string fileName = 2;</code>
+     */
+    String getFileName();
+    /**
+     * <code>string fileName = 2;</code>
+     */
+    com.google.protobuf.ByteString
         getFileNameBytes();
 
-        /**
-         * <code>bytes fileRawData = 3;</code>
-         */
-        com.google.protobuf.ByteString getFileRawData();
+    /**
+     * <code>bytes fileRawData = 3;</code>
+     */
+    com.google.protobuf.ByteString getFileRawData();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.FileUploadMessage}
+   */
+  public  static final class FileUploadMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileUploadMessage)
+      FileUploadMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FileUploadMessage.newBuilder() to construct.
+    private FileUploadMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FileUploadMessage() {
+      uploadPath_ = "";
+      fileName_ = "";
+      fileRawData_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FileUploadMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              uploadPath_ = s;
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              fileName_ = s;
+              break;
+            }
+            case 26: {
+
+              fileRawData_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              FileUploadMessage.class, Builder.class);
+    }
+
+    public static final int UPLOADPATH_FIELD_NUMBER = 1;
+    private volatile Object uploadPath_;
+    /**
+     * <code>string uploadPath = 1;</code>
+     */
+    public String getUploadPath() {
+      Object ref = uploadPath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        uploadPath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string uploadPath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUploadPathBytes() {
+      Object ref = uploadPath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        uploadPath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILENAME_FIELD_NUMBER = 2;
+    private volatile Object fileName_;
+    /**
+     * <code>string fileName = 2;</code>
+     */
+    public String getFileName() {
+      Object ref = fileName_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string fileName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      Object ref = fileName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILERAWDATA_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString fileRawData_;
+    /**
+     * <code>bytes fileRawData = 3;</code>
+     */
+    public com.google.protobuf.ByteString getFileRawData() {
+      return fileRawData_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getUploadPathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uploadPath_);
+      }
+      if (!getFileNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fileName_);
+      }
+      if (!fileRawData_.isEmpty()) {
+        output.writeBytes(3, fileRawData_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getUploadPathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uploadPath_);
+      }
+      if (!getFileNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fileName_);
+      }
+      if (!fileRawData_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, fileRawData_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof FileUploadMessage)) {
+        return super.equals(obj);
+      }
+      FileUploadMessage other = (FileUploadMessage) obj;
+
+      boolean result = true;
+      result = result && getUploadPath()
+          .equals(other.getUploadPath());
+      result = result && getFileName()
+          .equals(other.getFileName());
+      result = result && getFileRawData()
+          .equals(other.getFileRawData());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + UPLOADPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getUploadPath().hashCode();
+      hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFileName().hashCode();
+      hash = (37 * hash) + FILERAWDATA_FIELD_NUMBER;
+      hash = (53 * hash) + getFileRawData().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static FileUploadMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileUploadMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileUploadMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileUploadMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileUploadMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileUploadMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileUploadMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileUploadMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileUploadMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static FileUploadMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileUploadMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileUploadMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(FileUploadMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.FileUploadMessage}
      */
-    public  static final class FileUploadMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileUploadMessage)
-            FileUploadMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use FileUploadMessage.newBuilder() to construct.
-        private FileUploadMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileUploadMessage)
+        FileUploadMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                FileUploadMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.FileUploadMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private FileUploadMessage() {
-            uploadPath_ = "";
-            fileName_ = "";
-            fileRawData_ = com.google.protobuf.ByteString.EMPTY;
+      }
+      public Builder clear() {
+        super.clear();
+        uploadPath_ = "";
+
+        fileName_ = "";
+
+        fileRawData_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
+      }
+
+      public FileUploadMessage getDefaultInstanceForType() {
+        return FileUploadMessage.getDefaultInstance();
+      }
+
+      public FileUploadMessage build() {
+        FileUploadMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public FileUploadMessage buildPartial() {
+        FileUploadMessage result = new FileUploadMessage(this);
+        result.uploadPath_ = uploadPath_;
+        result.fileName_ = fileName_;
+        result.fileRawData_ = fileRawData_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof FileUploadMessage) {
+          return mergeFrom((FileUploadMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private FileUploadMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            uploadPath_ = s;
-                            break;
-                        }
-                        case 18: {
-                            java.lang.String s = input.readStringRequireUtf8();
-
-                            fileName_ = s;
-                            break;
-                        }
-                        case 26: {
-
-                            fileRawData_ = input.readBytes();
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(FileUploadMessage other) {
+        if (other == FileUploadMessage.getDefaultInstance()) return this;
+        if (!other.getUploadPath().isEmpty()) {
+          uploadPath_ = other.uploadPath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
+        if (!other.getFileName().isEmpty()) {
+          fileName_ = other.fileName_;
+          onChanged();
         }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.FileUploadMessage.class, com.kirshi.protocol.CommandProto.FileUploadMessage.Builder.class);
+        if (other.getFileRawData() != com.google.protobuf.ByteString.EMPTY) {
+          setFileRawData(other.getFileRawData());
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        public static final int UPLOADPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object uploadPath_;
+      public final boolean isInitialized() {
+        return true;
+      }
 
-        /**
-         * <code>string uploadPath = 1;</code>
-         */
-        public java.lang.String getUploadPath() {
-            java.lang.Object ref = uploadPath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                uploadPath_ = s;
-                return s;
-            }
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        FileUploadMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (FileUploadMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        /**
-         * <code>string uploadPath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getUploadPathBytes() {
-            java.lang.Object ref = uploadPath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                uploadPath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      private Object uploadPath_ = "";
+      /**
+       * <code>string uploadPath = 1;</code>
+       */
+      public String getUploadPath() {
+        Object ref = uploadPath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          uploadPath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        public static final int FILENAME_FIELD_NUMBER = 2;
-        private volatile java.lang.Object fileName_;
-
-        /**
-         * <code>string fileName = 2;</code>
-         */
-        public java.lang.String getFileName() {
-            java.lang.Object ref = fileName_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                fileName_ = s;
-                return s;
-            }
+      }
+      /**
+       * <code>string uploadPath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUploadPathBytes() {
+        Object ref = uploadPath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          uploadPath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string uploadPath = 1;</code>
+       */
+      public Builder setUploadPath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uploadPath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uploadPath = 1;</code>
+       */
+      public Builder clearUploadPath() {
+        
+        uploadPath_ = getDefaultInstance().getUploadPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string uploadPath = 1;</code>
+       */
+      public Builder setUploadPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uploadPath_ = value;
+        onChanged();
+        return this;
+      }
 
-        /**
-         * <code>string fileName = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFileNameBytes() {
-            java.lang.Object ref = fileName_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                fileName_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      private Object fileName_ = "";
+      /**
+       * <code>string fileName = 2;</code>
+       */
+      public String getFileName() {
+        Object ref = fileName_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        public static final int FILERAWDATA_FIELD_NUMBER = 3;
-        private com.google.protobuf.ByteString fileRawData_;
-        /**
-         * <code>bytes fileRawData = 3;</code>
-         */
-        public com.google.protobuf.ByteString getFileRawData() {
-            return fileRawData_;
+      }
+      /**
+       * <code>string fileName = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string fileName = 2;</code>
+       */
+      public Builder setFileName(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fileName = 2;</code>
+       */
+      public Builder clearFileName() {
+        
+        fileName_ = getDefaultInstance().getFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fileName = 2;</code>
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
 
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
+      private com.google.protobuf.ByteString fileRawData_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes fileRawData = 3;</code>
+       */
+      public com.google.protobuf.ByteString getFileRawData() {
+        return fileRawData_;
+      }
+      /**
+       * <code>bytes fileRawData = 3;</code>
+       */
+      public Builder setFileRawData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fileRawData_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes fileRawData = 3;</code>
+       */
+      public Builder clearFileRawData() {
+        
+        fileRawData_ = getDefaultInstance().getFileRawData();
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getUploadPathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uploadPath_);
-            }
-            if (!getFileNameBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fileName_);
-            }
-            if (!fileRawData_.isEmpty()) {
-                output.writeBytes(3, fileRawData_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getUploadPathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uploadPath_);
-            }
-            if (!getFileNameBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fileName_);
-            }
-            if (!fileRawData_.isEmpty()) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(3, fileRawData_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.FileUploadMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.FileUploadMessage other = (com.kirshi.protocol.CommandProto.FileUploadMessage) obj;
-
-            boolean result = true;
-            result = result && getUploadPath()
-                    .equals(other.getUploadPath());
-            result = result && getFileName()
-                    .equals(other.getFileName());
-            result = result && getFileRawData()
-                    .equals(other.getFileRawData());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + UPLOADPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getUploadPath().hashCode();
-            hash = (37 * hash) + FILENAME_FIELD_NUMBER;
-            hash = (53 * hash) + getFileName().hashCode();
-            hash = (37 * hash) + FILERAWDATA_FIELD_NUMBER;
-            hash = (53 * hash) + getFileRawData().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileUploadMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.FileUploadMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileUploadMessage)
-                com.kirshi.protocol.CommandProto.FileUploadMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.FileUploadMessage.class, com.kirshi.protocol.CommandProto.FileUploadMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.FileUploadMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                uploadPath_ = "";
-
-                fileName_ = "";
-
-                fileRawData_ = com.google.protobuf.ByteString.EMPTY;
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileUploadMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.FileUploadMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.FileUploadMessage build() {
-                com.kirshi.protocol.CommandProto.FileUploadMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileUploadMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.FileUploadMessage result = new com.kirshi.protocol.CommandProto.FileUploadMessage(this);
-                result.uploadPath_ = uploadPath_;
-                result.fileName_ = fileName_;
-                result.fileRawData_ = fileRawData_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.FileUploadMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileUploadMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.FileUploadMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.FileUploadMessage.getDefaultInstance()) return this;
-                if (!other.getUploadPath().isEmpty()) {
-                    uploadPath_ = other.uploadPath_;
-                    onChanged();
-                }
-                if (!other.getFileName().isEmpty()) {
-                    fileName_ = other.fileName_;
-                    onChanged();
-                }
-                if (other.getFileRawData() != com.google.protobuf.ByteString.EMPTY) {
-                    setFileRawData(other.getFileRawData());
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.FileUploadMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.FileUploadMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object uploadPath_ = "";
-
-            /**
-             * <code>string uploadPath = 1;</code>
-             */
-            public java.lang.String getUploadPath() {
-                java.lang.Object ref = uploadPath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    uploadPath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string uploadPath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getUploadPathBytes() {
-                java.lang.Object ref = uploadPath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    uploadPath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string uploadPath = 1;</code>
-             */
-            public Builder setUploadPath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                uploadPath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string uploadPath = 1;</code>
-             */
-            public Builder clearUploadPath() {
-
-                uploadPath_ = getDefaultInstance().getUploadPath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string uploadPath = 1;</code>
-             */
-            public Builder setUploadPathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                uploadPath_ = value;
-                onChanged();
-                return this;
-            }
-
-            private java.lang.Object fileName_ = "";
-
-            /**
-             * <code>string fileName = 2;</code>
-             */
-            public java.lang.String getFileName() {
-                java.lang.Object ref = fileName_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    fileName_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string fileName = 2;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFileNameBytes() {
-                java.lang.Object ref = fileName_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    fileName_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string fileName = 2;</code>
-             */
-            public Builder setFileName(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                fileName_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string fileName = 2;</code>
-             */
-            public Builder clearFileName() {
-
-                fileName_ = getDefaultInstance().getFileName();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string fileName = 2;</code>
-             */
-            public Builder setFileNameBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                fileName_ = value;
-                onChanged();
-                return this;
-            }
-
-            private com.google.protobuf.ByteString fileRawData_ = com.google.protobuf.ByteString.EMPTY;
-            /**
-             * <code>bytes fileRawData = 3;</code>
-             */
-            public com.google.protobuf.ByteString getFileRawData() {
-                return fileRawData_;
-            }
-            /**
-             * <code>bytes fileRawData = 3;</code>
-             */
-            public Builder setFileRawData(com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                fileRawData_ = value;
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>bytes fileRawData = 3;</code>
-             */
-            public Builder clearFileRawData() {
-
-                fileRawData_ = getDefaultInstance().getFileRawData();
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileUploadMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileUploadMessage)
-        private static final com.kirshi.protocol.CommandProto.FileUploadMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileUploadMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileUploadMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<FileUploadMessage>
-                PARSER = new com.google.protobuf.AbstractParser<FileUploadMessage>() {
-            public FileUploadMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new FileUploadMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<FileUploadMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<FileUploadMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.FileUploadMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileUploadMessage)
     }
 
-    public interface FileRenameMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileRenameMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileUploadMessage)
+    private static final FileUploadMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new FileUploadMessage();
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        java.lang.String getFilePath();
+    public static FileUploadMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<FileUploadMessage>
+        PARSER = new com.google.protobuf.AbstractParser<FileUploadMessage>() {
+      public FileUploadMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FileUploadMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FileUploadMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<FileUploadMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public FileUploadMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FileRenameMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileRenameMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    String getFilePath();
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getFilePathBytes();
 
-        /**
-         * <code>string newName = 2;</code>
-         */
-        java.lang.String getNewName();
-
-        /**
-         * <code>string newName = 2;</code>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <code>string newName = 2;</code>
+     */
+    String getNewName();
+    /**
+     * <code>string newName = 2;</code>
+     */
+    com.google.protobuf.ByteString
         getNewNameBytes();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.FileRenameMessage}
+   */
+  public  static final class FileRenameMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileRenameMessage)
+      FileRenameMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FileRenameMessage.newBuilder() to construct.
+    private FileRenameMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FileRenameMessage() {
+      filePath_ = "";
+      newName_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FileRenameMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              filePath_ = s;
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              newName_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              FileRenameMessage.class, Builder.class);
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private volatile Object filePath_;
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public String getFilePath() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NEWNAME_FIELD_NUMBER = 2;
+    private volatile Object newName_;
+    /**
+     * <code>string newName = 2;</code>
+     */
+    public String getNewName() {
+      Object ref = newName_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        newName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string newName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNewNameBytes() {
+      Object ref = newName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        newName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
+      }
+      if (!getNewNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, newName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
+      }
+      if (!getNewNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, newName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof FileRenameMessage)) {
+        return super.equals(obj);
+      }
+      FileRenameMessage other = (FileRenameMessage) obj;
+
+      boolean result = true;
+      result = result && getFilePath()
+          .equals(other.getFilePath());
+      result = result && getNewName()
+          .equals(other.getNewName());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (37 * hash) + NEWNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getNewName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static FileRenameMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileRenameMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileRenameMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileRenameMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileRenameMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileRenameMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileRenameMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileRenameMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileRenameMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static FileRenameMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileRenameMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileRenameMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(FileRenameMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.FileRenameMessage}
      */
-    public  static final class FileRenameMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileRenameMessage)
-            FileRenameMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use FileRenameMessage.newBuilder() to construct.
-        private FileRenameMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileRenameMessage)
+        FileRenameMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                FileRenameMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.FileRenameMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private FileRenameMessage() {
-            filePath_ = "";
-            newName_ = "";
+      }
+      public Builder clear() {
+        super.clear();
+        filePath_ = "";
+
+        newName_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
+      }
+
+      public FileRenameMessage getDefaultInstanceForType() {
+        return FileRenameMessage.getDefaultInstance();
+      }
+
+      public FileRenameMessage build() {
+        FileRenameMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public FileRenameMessage buildPartial() {
+        FileRenameMessage result = new FileRenameMessage(this);
+        result.filePath_ = filePath_;
+        result.newName_ = newName_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof FileRenameMessage) {
+          return mergeFrom((FileRenameMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private FileRenameMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            filePath_ = s;
-                            break;
-                        }
-                        case 18: {
-                            java.lang.String s = input.readStringRequireUtf8();
-
-                            newName_ = s;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(FileRenameMessage other) {
+        if (other == FileRenameMessage.getDefaultInstance()) return this;
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
+        if (!other.getNewName().isEmpty()) {
+          newName_ = other.newName_;
+          onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.FileRenameMessage.class, com.kirshi.protocol.CommandProto.FileRenameMessage.Builder.class);
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        FileRenameMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (FileRenameMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object filePath_;
-
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public java.lang.String getFilePath() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                filePath_ = s;
-                return s;
-            }
+      private Object filePath_ = "";
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public String getFilePath() {
+        Object ref = filePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFilePathBytes() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                filePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder clearFilePath() {
+        
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
 
-        public static final int NEWNAME_FIELD_NUMBER = 2;
-        private volatile java.lang.Object newName_;
-
-        /**
-         * <code>string newName = 2;</code>
-         */
-        public java.lang.String getNewName() {
-            java.lang.Object ref = newName_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                newName_ = s;
-                return s;
-            }
+      private Object newName_ = "";
+      /**
+       * <code>string newName = 2;</code>
+       */
+      public String getNewName() {
+        Object ref = newName_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          newName_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        /**
-         * <code>string newName = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-        getNewNameBytes() {
-            java.lang.Object ref = newName_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                newName_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      }
+      /**
+       * <code>string newName = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNewNameBytes() {
+        Object ref = newName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          newName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string newName = 2;</code>
+       */
+      public Builder setNewName(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        newName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string newName = 2;</code>
+       */
+      public Builder clearNewName() {
+        
+        newName_ = getDefaultInstance().getNewName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string newName = 2;</code>
+       */
+      public Builder setNewNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        newName_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
-            }
-            if (!getNewNameBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, newName_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
-            }
-            if (!getNewNameBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, newName_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.FileRenameMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.FileRenameMessage other = (com.kirshi.protocol.CommandProto.FileRenameMessage) obj;
-
-            boolean result = true;
-            result = result && getFilePath()
-                    .equals(other.getFilePath());
-            result = result && getNewName()
-                    .equals(other.getNewName());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getFilePath().hashCode();
-            hash = (37 * hash) + NEWNAME_FIELD_NUMBER;
-            hash = (53 * hash) + getNewName().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileRenameMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.FileRenameMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileRenameMessage)
-                com.kirshi.protocol.CommandProto.FileRenameMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.FileRenameMessage.class, com.kirshi.protocol.CommandProto.FileRenameMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.FileRenameMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                filePath_ = "";
-
-                newName_ = "";
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileRenameMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.FileRenameMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.FileRenameMessage build() {
-                com.kirshi.protocol.CommandProto.FileRenameMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileRenameMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.FileRenameMessage result = new com.kirshi.protocol.CommandProto.FileRenameMessage(this);
-                result.filePath_ = filePath_;
-                result.newName_ = newName_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.FileRenameMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileRenameMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.FileRenameMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.FileRenameMessage.getDefaultInstance()) return this;
-                if (!other.getFilePath().isEmpty()) {
-                    filePath_ = other.filePath_;
-                    onChanged();
-                }
-                if (!other.getNewName().isEmpty()) {
-                    newName_ = other.newName_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.FileRenameMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.FileRenameMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object filePath_ = "";
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public java.lang.String getFilePath() {
-                java.lang.Object ref = filePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    filePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFilePathBytes() {
-                java.lang.Object ref = filePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    filePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder clearFilePath() {
-
-                filePath_ = getDefaultInstance().getFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            private java.lang.Object newName_ = "";
-
-            /**
-             * <code>string newName = 2;</code>
-             */
-            public java.lang.String getNewName() {
-                java.lang.Object ref = newName_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    newName_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string newName = 2;</code>
-             */
-            public com.google.protobuf.ByteString
-            getNewNameBytes() {
-                java.lang.Object ref = newName_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    newName_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string newName = 2;</code>
-             */
-            public Builder setNewName(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                newName_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string newName = 2;</code>
-             */
-            public Builder clearNewName() {
-
-                newName_ = getDefaultInstance().getNewName();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string newName = 2;</code>
-             */
-            public Builder setNewNameBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                newName_ = value;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileRenameMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileRenameMessage)
-        private static final com.kirshi.protocol.CommandProto.FileRenameMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileRenameMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileRenameMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<FileRenameMessage>
-                PARSER = new com.google.protobuf.AbstractParser<FileRenameMessage>() {
-            public FileRenameMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new FileRenameMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<FileRenameMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<FileRenameMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.FileRenameMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileRenameMessage)
     }
 
-    public interface FileZipMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileZipMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileRenameMessage)
+    private static final FileRenameMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new FileRenameMessage();
+    }
 
-        /**
-         * <code>repeated string fileItemPath = 1;</code>
-         */
-        java.util.List<java.lang.String>
+    public static FileRenameMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FileRenameMessage>
+        PARSER = new com.google.protobuf.AbstractParser<FileRenameMessage>() {
+      public FileRenameMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FileRenameMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FileRenameMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<FileRenameMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public FileRenameMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FileZipMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileZipMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string fileItemPath = 1;</code>
+     */
+    java.util.List<String>
         getFileItemPathList();
-
-        /**
-         * <code>repeated string fileItemPath = 1;</code>
-         */
-        int getFileItemPathCount();
-
-        /**
-         * <code>repeated string fileItemPath = 1;</code>
-         */
-        java.lang.String getFileItemPath(int index);
-
-        /**
-         * <code>repeated string fileItemPath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <code>repeated string fileItemPath = 1;</code>
+     */
+    int getFileItemPathCount();
+    /**
+     * <code>repeated string fileItemPath = 1;</code>
+     */
+    String getFileItemPath(int index);
+    /**
+     * <code>repeated string fileItemPath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getFileItemPathBytes(int index);
 
-        /**
-         * <code>string zipName = 2;</code>
-         */
-        java.lang.String getZipName();
-
-        /**
-         * <code>string zipName = 2;</code>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <code>string zipName = 2;</code>
+     */
+    String getZipName();
+    /**
+     * <code>string zipName = 2;</code>
+     */
+    com.google.protobuf.ByteString
         getZipNameBytes();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.FileZipMessage}
+   */
+  public  static final class FileZipMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileZipMessage)
+      FileZipMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FileZipMessage.newBuilder() to construct.
+    private FileZipMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FileZipMessage() {
+      fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      zipName_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FileZipMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                fileItemPath_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              fileItemPath_.add(s);
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              zipName_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          fileItemPath_ = fileItemPath_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              FileZipMessage.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int FILEITEMPATH_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList fileItemPath_;
+    /**
+     * <code>repeated string fileItemPath = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFileItemPathList() {
+      return fileItemPath_;
+    }
+    /**
+     * <code>repeated string fileItemPath = 1;</code>
+     */
+    public int getFileItemPathCount() {
+      return fileItemPath_.size();
+    }
+    /**
+     * <code>repeated string fileItemPath = 1;</code>
+     */
+    public String getFileItemPath(int index) {
+      return fileItemPath_.get(index);
+    }
+    /**
+     * <code>repeated string fileItemPath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFileItemPathBytes(int index) {
+      return fileItemPath_.getByteString(index);
+    }
+
+    public static final int ZIPNAME_FIELD_NUMBER = 2;
+    private volatile Object zipName_;
+    /**
+     * <code>string zipName = 2;</code>
+     */
+    public String getZipName() {
+      Object ref = zipName_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        zipName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string zipName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getZipNameBytes() {
+      Object ref = zipName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        zipName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < fileItemPath_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileItemPath_.getRaw(i));
+      }
+      if (!getZipNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, zipName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < fileItemPath_.size(); i++) {
+          dataSize += computeStringSizeNoTag(fileItemPath_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFileItemPathList().size();
+      }
+      if (!getZipNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, zipName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof FileZipMessage)) {
+        return super.equals(obj);
+      }
+      FileZipMessage other = (FileZipMessage) obj;
+
+      boolean result = true;
+      result = result && getFileItemPathList()
+          .equals(other.getFileItemPathList());
+      result = result && getZipName()
+          .equals(other.getZipName());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getFileItemPathCount() > 0) {
+        hash = (37 * hash) + FILEITEMPATH_FIELD_NUMBER;
+        hash = (53 * hash) + getFileItemPathList().hashCode();
+      }
+      hash = (37 * hash) + ZIPNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getZipName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static FileZipMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileZipMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileZipMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileZipMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileZipMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileZipMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileZipMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileZipMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileZipMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static FileZipMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileZipMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileZipMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(FileZipMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.FileZipMessage}
      */
-    public  static final class FileZipMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileZipMessage)
-            FileZipMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use FileZipMessage.newBuilder() to construct.
-        private FileZipMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileZipMessage)
+        FileZipMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                FileZipMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.FileZipMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private FileZipMessage() {
-            fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-            zipName_ = "";
+      }
+      public Builder clear() {
+        super.clear();
+        fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        zipName_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
+      }
+
+      public FileZipMessage getDefaultInstanceForType() {
+        return FileZipMessage.getDefaultInstance();
+      }
+
+      public FileZipMessage build() {
+        FileZipMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public FileZipMessage buildPartial() {
+        FileZipMessage result = new FileZipMessage(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          fileItemPath_ = fileItemPath_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
-        private FileZipMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
-                            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                                fileItemPath_ = new com.google.protobuf.LazyStringArrayList();
-                                mutable_bitField0_ |= 0x00000001;
-                            }
-                            fileItemPath_.add(s);
-                            break;
-                        }
-                        case 18: {
-                            java.lang.String s = input.readStringRequireUtf8();
+        result.fileItemPath_ = fileItemPath_;
+        result.zipName_ = zipName_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
 
-                            zipName_ = s;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                    fileItemPath_ = fileItemPath_.getUnmodifiableView();
-                }
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof FileZipMessage) {
+          return mergeFrom((FileZipMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
+      }
+
+      public Builder mergeFrom(FileZipMessage other) {
+        if (other == FileZipMessage.getDefaultInstance()) return this;
+        if (!other.fileItemPath_.isEmpty()) {
+          if (fileItemPath_.isEmpty()) {
+            fileItemPath_ = other.fileItemPath_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureFileItemPathIsMutable();
+            fileItemPath_.addAll(other.fileItemPath_);
+          }
+          onChanged();
         }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.FileZipMessage.class, com.kirshi.protocol.CommandProto.FileZipMessage.Builder.class);
+        if (!other.getZipName().isEmpty()) {
+          zipName_ = other.zipName_;
+          onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        private int bitField0_;
-        public static final int FILEITEMPATH_FIELD_NUMBER = 1;
-        private com.google.protobuf.LazyStringList fileItemPath_;
-        /**
-         * <code>repeated string fileItemPath = 1;</code>
-         */
-        public com.google.protobuf.ProtocolStringList
-        getFileItemPathList() {
-            return fileItemPath_;
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        FileZipMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (FileZipMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
+      private int bitField0_;
 
-        /**
-         * <code>repeated string fileItemPath = 1;</code>
-         */
-        public int getFileItemPathCount() {
-            return fileItemPath_.size();
+      private com.google.protobuf.LazyStringList fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFileItemPathIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          fileItemPath_ = new com.google.protobuf.LazyStringArrayList(fileItemPath_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string fileItemPath = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFileItemPathList() {
+        return fileItemPath_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string fileItemPath = 1;</code>
+       */
+      public int getFileItemPathCount() {
+        return fileItemPath_.size();
+      }
+      /**
+       * <code>repeated string fileItemPath = 1;</code>
+       */
+      public String getFileItemPath(int index) {
+        return fileItemPath_.get(index);
+      }
+      /**
+       * <code>repeated string fileItemPath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFileItemPathBytes(int index) {
+        return fileItemPath_.getByteString(index);
+      }
+      /**
+       * <code>repeated string fileItemPath = 1;</code>
+       */
+      public Builder setFileItemPath(
+          int index, String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFileItemPathIsMutable();
+        fileItemPath_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fileItemPath = 1;</code>
+       */
+      public Builder addFileItemPath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFileItemPathIsMutable();
+        fileItemPath_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fileItemPath = 1;</code>
+       */
+      public Builder addAllFileItemPath(
+          Iterable<String> values) {
+        ensureFileItemPathIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, fileItemPath_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fileItemPath = 1;</code>
+       */
+      public Builder clearFileItemPath() {
+        fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string fileItemPath = 1;</code>
+       */
+      public Builder addFileItemPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureFileItemPathIsMutable();
+        fileItemPath_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private Object zipName_ = "";
+      /**
+       * <code>string zipName = 2;</code>
+       */
+      public String getZipName() {
+        Object ref = zipName_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          zipName_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        /**
-         * <code>repeated string fileItemPath = 1;</code>
-         */
-        public java.lang.String getFileItemPath(int index) {
-            return fileItemPath_.get(index);
+      }
+      /**
+       * <code>string zipName = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getZipNameBytes() {
+        Object ref = zipName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          zipName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string zipName = 2;</code>
+       */
+      public Builder setZipName(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        zipName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string zipName = 2;</code>
+       */
+      public Builder clearZipName() {
+        
+        zipName_ = getDefaultInstance().getZipName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string zipName = 2;</code>
+       */
+      public Builder setZipNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        zipName_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        /**
-         * <code>repeated string fileItemPath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFileItemPathBytes(int index) {
-            return fileItemPath_.getByteString(index);
-        }
-
-        public static final int ZIPNAME_FIELD_NUMBER = 2;
-        private volatile java.lang.Object zipName_;
-
-        /**
-         * <code>string zipName = 2;</code>
-         */
-        public java.lang.String getZipName() {
-            java.lang.Object ref = zipName_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                zipName_ = s;
-                return s;
-            }
-        }
-
-        /**
-         * <code>string zipName = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-        getZipNameBytes() {
-            java.lang.Object ref = zipName_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                zipName_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            for (int i = 0; i < fileItemPath_.size(); i++) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileItemPath_.getRaw(i));
-            }
-            if (!getZipNameBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, zipName_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            {
-                int dataSize = 0;
-                for (int i = 0; i < fileItemPath_.size(); i++) {
-                    dataSize += computeStringSizeNoTag(fileItemPath_.getRaw(i));
-                }
-                size += dataSize;
-                size += 1 * getFileItemPathList().size();
-            }
-            if (!getZipNameBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, zipName_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.FileZipMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.FileZipMessage other = (com.kirshi.protocol.CommandProto.FileZipMessage) obj;
-
-            boolean result = true;
-            result = result && getFileItemPathList()
-                    .equals(other.getFileItemPathList());
-            result = result && getZipName()
-                    .equals(other.getZipName());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            if (getFileItemPathCount() > 0) {
-                hash = (37 * hash) + FILEITEMPATH_FIELD_NUMBER;
-                hash = (53 * hash) + getFileItemPathList().hashCode();
-            }
-            hash = (37 * hash) + ZIPNAME_FIELD_NUMBER;
-            hash = (53 * hash) + getZipName().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileZipMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileZipMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.FileZipMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileZipMessage)
-                com.kirshi.protocol.CommandProto.FileZipMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.FileZipMessage.class, com.kirshi.protocol.CommandProto.FileZipMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.FileZipMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000001);
-                zipName_ = "";
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileZipMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.FileZipMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.FileZipMessage build() {
-                com.kirshi.protocol.CommandProto.FileZipMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileZipMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.FileZipMessage result = new com.kirshi.protocol.CommandProto.FileZipMessage(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                    fileItemPath_ = fileItemPath_.getUnmodifiableView();
-                    bitField0_ = (bitField0_ & ~0x00000001);
-                }
-                result.fileItemPath_ = fileItemPath_;
-                result.zipName_ = zipName_;
-                result.bitField0_ = to_bitField0_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.FileZipMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileZipMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.FileZipMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.FileZipMessage.getDefaultInstance()) return this;
-                if (!other.fileItemPath_.isEmpty()) {
-                    if (fileItemPath_.isEmpty()) {
-                        fileItemPath_ = other.fileItemPath_;
-                        bitField0_ = (bitField0_ & ~0x00000001);
-                    } else {
-                        ensureFileItemPathIsMutable();
-                        fileItemPath_.addAll(other.fileItemPath_);
-                    }
-                    onChanged();
-                }
-                if (!other.getZipName().isEmpty()) {
-                    zipName_ = other.zipName_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.FileZipMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.FileZipMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-            private int bitField0_;
-
-            private com.google.protobuf.LazyStringList fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-            private void ensureFileItemPathIsMutable() {
-                if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-                    fileItemPath_ = new com.google.protobuf.LazyStringArrayList(fileItemPath_);
-                    bitField0_ |= 0x00000001;
-                }
-            }
-            /**
-             * <code>repeated string fileItemPath = 1;</code>
-             */
-            public com.google.protobuf.ProtocolStringList
-            getFileItemPathList() {
-                return fileItemPath_.getUnmodifiableView();
-            }
-
-            /**
-             * <code>repeated string fileItemPath = 1;</code>
-             */
-            public int getFileItemPathCount() {
-                return fileItemPath_.size();
-            }
-
-            /**
-             * <code>repeated string fileItemPath = 1;</code>
-             */
-            public java.lang.String getFileItemPath(int index) {
-                return fileItemPath_.get(index);
-            }
-
-            /**
-             * <code>repeated string fileItemPath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFileItemPathBytes(int index) {
-                return fileItemPath_.getByteString(index);
-            }
-
-            /**
-             * <code>repeated string fileItemPath = 1;</code>
-             */
-            public Builder setFileItemPath(
-                    int index, java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureFileItemPathIsMutable();
-                fileItemPath_.set(index, value);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated string fileItemPath = 1;</code>
-             */
-            public Builder addFileItemPath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureFileItemPathIsMutable();
-                fileItemPath_.add(value);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated string fileItemPath = 1;</code>
-             */
-            public Builder addAllFileItemPath(
-                    java.lang.Iterable<java.lang.String> values) {
-                ensureFileItemPathIsMutable();
-                com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                        values, fileItemPath_);
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>repeated string fileItemPath = 1;</code>
-             */
-            public Builder clearFileItemPath() {
-                fileItemPath_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000001);
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>repeated string fileItemPath = 1;</code>
-             */
-            public Builder addFileItemPathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-                ensureFileItemPathIsMutable();
-                fileItemPath_.add(value);
-                onChanged();
-                return this;
-            }
-
-            private java.lang.Object zipName_ = "";
-
-            /**
-             * <code>string zipName = 2;</code>
-             */
-            public java.lang.String getZipName() {
-                java.lang.Object ref = zipName_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    zipName_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string zipName = 2;</code>
-             */
-            public com.google.protobuf.ByteString
-            getZipNameBytes() {
-                java.lang.Object ref = zipName_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    zipName_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string zipName = 2;</code>
-             */
-            public Builder setZipName(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                zipName_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string zipName = 2;</code>
-             */
-            public Builder clearZipName() {
-
-                zipName_ = getDefaultInstance().getZipName();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string zipName = 2;</code>
-             */
-            public Builder setZipNameBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                zipName_ = value;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileZipMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileZipMessage)
-        private static final com.kirshi.protocol.CommandProto.FileZipMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileZipMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileZipMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<FileZipMessage>
-                PARSER = new com.google.protobuf.AbstractParser<FileZipMessage>() {
-            public FileZipMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new FileZipMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<FileZipMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<FileZipMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.FileZipMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileZipMessage)
     }
 
-    public interface FileMoveMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileMoveMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileZipMessage)
+    private static final FileZipMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new FileZipMessage();
+    }
 
-        /**
-         * <code>string rawFilePath = 1;</code>
-         */
-        java.lang.String getRawFilePath();
+    public static FileZipMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string rawFilePath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<FileZipMessage>
+        PARSER = new com.google.protobuf.AbstractParser<FileZipMessage>() {
+      public FileZipMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FileZipMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FileZipMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<FileZipMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public FileZipMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FileMoveMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileMoveMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string rawFilePath = 1;</code>
+     */
+    String getRawFilePath();
+    /**
+     * <code>string rawFilePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getRawFilePathBytes();
 
-        /**
-         * <code>string newFilePath = 2;</code>
-         */
-        java.lang.String getNewFilePath();
-
-        /**
-         * <code>string newFilePath = 2;</code>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <code>string newFilePath = 2;</code>
+     */
+    String getNewFilePath();
+    /**
+     * <code>string newFilePath = 2;</code>
+     */
+    com.google.protobuf.ByteString
         getNewFilePathBytes();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.FileMoveMessage}
+   */
+  public  static final class FileMoveMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileMoveMessage)
+      FileMoveMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FileMoveMessage.newBuilder() to construct.
+    private FileMoveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FileMoveMessage() {
+      rawFilePath_ = "";
+      newFilePath_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FileMoveMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              rawFilePath_ = s;
+              break;
+            }
+            case 18: {
+              String s = input.readStringRequireUtf8();
+
+              newFilePath_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              FileMoveMessage.class, Builder.class);
+    }
+
+    public static final int RAWFILEPATH_FIELD_NUMBER = 1;
+    private volatile Object rawFilePath_;
+    /**
+     * <code>string rawFilePath = 1;</code>
+     */
+    public String getRawFilePath() {
+      Object ref = rawFilePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        rawFilePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string rawFilePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRawFilePathBytes() {
+      Object ref = rawFilePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        rawFilePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NEWFILEPATH_FIELD_NUMBER = 2;
+    private volatile Object newFilePath_;
+    /**
+     * <code>string newFilePath = 2;</code>
+     */
+    public String getNewFilePath() {
+      Object ref = newFilePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        newFilePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string newFilePath = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNewFilePathBytes() {
+      Object ref = newFilePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        newFilePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getRawFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, rawFilePath_);
+      }
+      if (!getNewFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, newFilePath_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getRawFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, rawFilePath_);
+      }
+      if (!getNewFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, newFilePath_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof FileMoveMessage)) {
+        return super.equals(obj);
+      }
+      FileMoveMessage other = (FileMoveMessage) obj;
+
+      boolean result = true;
+      result = result && getRawFilePath()
+          .equals(other.getRawFilePath());
+      result = result && getNewFilePath()
+          .equals(other.getNewFilePath());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RAWFILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getRawFilePath().hashCode();
+      hash = (37 * hash) + NEWFILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getNewFilePath().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static FileMoveMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileMoveMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileMoveMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileMoveMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileMoveMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileMoveMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileMoveMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileMoveMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileMoveMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static FileMoveMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileMoveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileMoveMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(FileMoveMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.FileMoveMessage}
      */
-    public  static final class FileMoveMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileMoveMessage)
-            FileMoveMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use FileMoveMessage.newBuilder() to construct.
-        private FileMoveMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileMoveMessage)
+        FileMoveMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                FileMoveMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.FileMoveMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private FileMoveMessage() {
-            rawFilePath_ = "";
-            newFilePath_ = "";
+      }
+      public Builder clear() {
+        super.clear();
+        rawFilePath_ = "";
+
+        newFilePath_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
+      }
+
+      public FileMoveMessage getDefaultInstanceForType() {
+        return FileMoveMessage.getDefaultInstance();
+      }
+
+      public FileMoveMessage build() {
+        FileMoveMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public FileMoveMessage buildPartial() {
+        FileMoveMessage result = new FileMoveMessage(this);
+        result.rawFilePath_ = rawFilePath_;
+        result.newFilePath_ = newFilePath_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof FileMoveMessage) {
+          return mergeFrom((FileMoveMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private FileMoveMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            rawFilePath_ = s;
-                            break;
-                        }
-                        case 18: {
-                            java.lang.String s = input.readStringRequireUtf8();
-
-                            newFilePath_ = s;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(FileMoveMessage other) {
+        if (other == FileMoveMessage.getDefaultInstance()) return this;
+        if (!other.getRawFilePath().isEmpty()) {
+          rawFilePath_ = other.rawFilePath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
+        if (!other.getNewFilePath().isEmpty()) {
+          newFilePath_ = other.newFilePath_;
+          onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.FileMoveMessage.class, com.kirshi.protocol.CommandProto.FileMoveMessage.Builder.class);
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        FileMoveMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (FileMoveMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        public static final int RAWFILEPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object rawFilePath_;
-
-        /**
-         * <code>string rawFilePath = 1;</code>
-         */
-        public java.lang.String getRawFilePath() {
-            java.lang.Object ref = rawFilePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                rawFilePath_ = s;
-                return s;
-            }
+      private Object rawFilePath_ = "";
+      /**
+       * <code>string rawFilePath = 1;</code>
+       */
+      public String getRawFilePath() {
+        Object ref = rawFilePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          rawFilePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        /**
-         * <code>string rawFilePath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getRawFilePathBytes() {
-            java.lang.Object ref = rawFilePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                rawFilePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      }
+      /**
+       * <code>string rawFilePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRawFilePathBytes() {
+        Object ref = rawFilePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          rawFilePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string rawFilePath = 1;</code>
+       */
+      public Builder setRawFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        rawFilePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string rawFilePath = 1;</code>
+       */
+      public Builder clearRawFilePath() {
+        
+        rawFilePath_ = getDefaultInstance().getRawFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string rawFilePath = 1;</code>
+       */
+      public Builder setRawFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        rawFilePath_ = value;
+        onChanged();
+        return this;
+      }
 
-        public static final int NEWFILEPATH_FIELD_NUMBER = 2;
-        private volatile java.lang.Object newFilePath_;
-
-        /**
-         * <code>string newFilePath = 2;</code>
-         */
-        public java.lang.String getNewFilePath() {
-            java.lang.Object ref = newFilePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                newFilePath_ = s;
-                return s;
-            }
+      private Object newFilePath_ = "";
+      /**
+       * <code>string newFilePath = 2;</code>
+       */
+      public String getNewFilePath() {
+        Object ref = newFilePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          newFilePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        /**
-         * <code>string newFilePath = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-        getNewFilePathBytes() {
-            java.lang.Object ref = newFilePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                newFilePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      }
+      /**
+       * <code>string newFilePath = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNewFilePathBytes() {
+        Object ref = newFilePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          newFilePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
+      }
+      /**
+       * <code>string newFilePath = 2;</code>
+       */
+      public Builder setNewFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        newFilePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string newFilePath = 2;</code>
+       */
+      public Builder clearNewFilePath() {
+        
+        newFilePath_ = getDefaultInstance().getNewFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string newFilePath = 2;</code>
+       */
+      public Builder setNewFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        newFilePath_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getRawFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, rawFilePath_);
-            }
-            if (!getNewFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 2, newFilePath_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getRawFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, rawFilePath_);
-            }
-            if (!getNewFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, newFilePath_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.FileMoveMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.FileMoveMessage other = (com.kirshi.protocol.CommandProto.FileMoveMessage) obj;
-
-            boolean result = true;
-            result = result && getRawFilePath()
-                    .equals(other.getRawFilePath());
-            result = result && getNewFilePath()
-                    .equals(other.getNewFilePath());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + RAWFILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getRawFilePath().hashCode();
-            hash = (37 * hash) + NEWFILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getNewFilePath().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileMoveMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.FileMoveMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileMoveMessage)
-                com.kirshi.protocol.CommandProto.FileMoveMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.FileMoveMessage.class, com.kirshi.protocol.CommandProto.FileMoveMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.FileMoveMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                rawFilePath_ = "";
-
-                newFilePath_ = "";
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileMoveMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.FileMoveMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.FileMoveMessage build() {
-                com.kirshi.protocol.CommandProto.FileMoveMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileMoveMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.FileMoveMessage result = new com.kirshi.protocol.CommandProto.FileMoveMessage(this);
-                result.rawFilePath_ = rawFilePath_;
-                result.newFilePath_ = newFilePath_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.FileMoveMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileMoveMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.FileMoveMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.FileMoveMessage.getDefaultInstance()) return this;
-                if (!other.getRawFilePath().isEmpty()) {
-                    rawFilePath_ = other.rawFilePath_;
-                    onChanged();
-                }
-                if (!other.getNewFilePath().isEmpty()) {
-                    newFilePath_ = other.newFilePath_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.FileMoveMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.FileMoveMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object rawFilePath_ = "";
-
-            /**
-             * <code>string rawFilePath = 1;</code>
-             */
-            public java.lang.String getRawFilePath() {
-                java.lang.Object ref = rawFilePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    rawFilePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string rawFilePath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getRawFilePathBytes() {
-                java.lang.Object ref = rawFilePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    rawFilePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string rawFilePath = 1;</code>
-             */
-            public Builder setRawFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                rawFilePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string rawFilePath = 1;</code>
-             */
-            public Builder clearRawFilePath() {
-
-                rawFilePath_ = getDefaultInstance().getRawFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string rawFilePath = 1;</code>
-             */
-            public Builder setRawFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                rawFilePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            private java.lang.Object newFilePath_ = "";
-
-            /**
-             * <code>string newFilePath = 2;</code>
-             */
-            public java.lang.String getNewFilePath() {
-                java.lang.Object ref = newFilePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    newFilePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string newFilePath = 2;</code>
-             */
-            public com.google.protobuf.ByteString
-            getNewFilePathBytes() {
-                java.lang.Object ref = newFilePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    newFilePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string newFilePath = 2;</code>
-             */
-            public Builder setNewFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                newFilePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string newFilePath = 2;</code>
-             */
-            public Builder clearNewFilePath() {
-
-                newFilePath_ = getDefaultInstance().getNewFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string newFilePath = 2;</code>
-             */
-            public Builder setNewFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                newFilePath_ = value;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileMoveMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileMoveMessage)
-        private static final com.kirshi.protocol.CommandProto.FileMoveMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileMoveMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileMoveMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<FileMoveMessage>
-                PARSER = new com.google.protobuf.AbstractParser<FileMoveMessage>() {
-            public FileMoveMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new FileMoveMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<FileMoveMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<FileMoveMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.FileMoveMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileMoveMessage)
     }
 
-    public interface FileDetailMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileDetailMessage)
-            com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileMoveMessage)
+    private static final FileMoveMessage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new FileMoveMessage();
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        java.lang.String getFilePath();
+    public static FileMoveMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
 
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        com.google.protobuf.ByteString
+    private static final com.google.protobuf.Parser<FileMoveMessage>
+        PARSER = new com.google.protobuf.AbstractParser<FileMoveMessage>() {
+      public FileMoveMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FileMoveMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FileMoveMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<FileMoveMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public FileMoveMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FileDetailMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.kirshi.protocol.FileDetailMessage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    String getFilePath();
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
         getFilePathBytes();
+  }
+  /**
+   * Protobuf type {@code com.kirshi.protocol.FileDetailMessage}
+   */
+  public  static final class FileDetailMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileDetailMessage)
+      FileDetailMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use FileDetailMessage.newBuilder() to construct.
+    private FileDetailMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FileDetailMessage() {
+      filePath_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FileDetailMessage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              filePath_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              FileDetailMessage.class, Builder.class);
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private volatile Object filePath_;
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public String getFilePath() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string filePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      Object ref = filePath_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof FileDetailMessage)) {
+        return super.equals(obj);
+      }
+      FileDetailMessage other = (FileDetailMessage) obj;
+
+      boolean result = true;
+      result = result && getFilePath()
+          .equals(other.getFilePath());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static FileDetailMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileDetailMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileDetailMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileDetailMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileDetailMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static FileDetailMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static FileDetailMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileDetailMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileDetailMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static FileDetailMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static FileDetailMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static FileDetailMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(FileDetailMessage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
     /**
      * Protobuf type {@code com.kirshi.protocol.FileDetailMessage}
      */
-    public  static final class FileDetailMessage extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.kirshi.protocol.FileDetailMessage)
-            FileDetailMessageOrBuilder {
-        private static final long serialVersionUID = 0L;
-        // Use FileDetailMessage.newBuilder() to construct.
-        private FileDetailMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileDetailMessage)
+        FileDetailMessageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                FileDetailMessage.class, Builder.class);
+      }
+
+      // Construct using com.kirshi.protocol.CommandProto.FileDetailMessage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
-        private FileDetailMessage() {
-            filePath_ = "";
+      }
+      public Builder clear() {
+        super.clear();
+        filePath_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
+      }
+
+      public FileDetailMessage getDefaultInstanceForType() {
+        return FileDetailMessage.getDefaultInstance();
+      }
+
+      public FileDetailMessage build() {
+        FileDetailMessage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public FileDetailMessage buildPartial() {
+        FileDetailMessage result = new FileDetailMessage(this);
+        result.filePath_ = filePath_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof FileDetailMessage) {
+          return mergeFrom((FileDetailMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
-        private FileDetailMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            if (extensionRegistry == null) {
-                throw new java.lang.NullPointerException();
-            }
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownFieldProto3(
-                                    input, unknownFields, extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            java.lang.String s = input.readStringRequireUtf8();
+      }
 
-                            filePath_ = s;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+      public Builder mergeFrom(FileDetailMessage other) {
+        if (other == FileDetailMessage.getDefaultInstance()) return this;
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          onChanged();
         }
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        FileDetailMessage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (FileDetailMessage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            com.kirshi.protocol.CommandProto.FileDetailMessage.class, com.kirshi.protocol.CommandProto.FileDetailMessage.Builder.class);
+      private Object filePath_ = "";
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public String getFilePath() {
+        Object ref = filePath_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (String) ref;
         }
-
-        public static final int FILEPATH_FIELD_NUMBER = 1;
-        private volatile java.lang.Object filePath_;
-
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public java.lang.String getFilePath() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                filePath_ = s;
-                return s;
-            }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
-
-        /**
-         * <code>string filePath = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-        getFilePathBytes() {
-            java.lang.Object ref = filePath_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                filePath_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePath(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder clearFilePath() {
+        
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePathBytes(
+              com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
+        checkByteStringIsUtf8(value);
 
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
 
-            memoizedIsInitialized = 1;
-            return true;
-        }
+      public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
 
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (!getFilePathBytes().isEmpty()) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
-            }
-            unknownFields.writeTo(output);
-        }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (!getFilePathBytes().isEmpty()) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof com.kirshi.protocol.CommandProto.FileDetailMessage)) {
-                return super.equals(obj);
-            }
-            com.kirshi.protocol.CommandProto.FileDetailMessage other = (com.kirshi.protocol.CommandProto.FileDetailMessage) obj;
-
-            boolean result = true;
-            result = result && getFilePath()
-                    .equals(other.getFilePath());
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
-            hash = (53 * hash) + getFilePath().hashCode();
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
-                java.nio.ByteBuffer data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
-                java.nio.ByteBuffer data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(com.kirshi.protocol.CommandProto.FileDetailMessage prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-        /**
-         * Protobuf type {@code com.kirshi.protocol.FileDetailMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.kirshi.protocol.FileDetailMessage)
-                com.kirshi.protocol.CommandProto.FileDetailMessageOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                com.kirshi.protocol.CommandProto.FileDetailMessage.class, com.kirshi.protocol.CommandProto.FileDetailMessage.Builder.class);
-            }
-
-            // Construct using com.kirshi.protocol.CommandProto.FileDetailMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-            public Builder clear() {
-                super.clear();
-                filePath_ = "";
-
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return com.kirshi.protocol.CommandProto.internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileDetailMessage getDefaultInstanceForType() {
-                return com.kirshi.protocol.CommandProto.FileDetailMessage.getDefaultInstance();
-            }
-
-            public com.kirshi.protocol.CommandProto.FileDetailMessage build() {
-                com.kirshi.protocol.CommandProto.FileDetailMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public com.kirshi.protocol.CommandProto.FileDetailMessage buildPartial() {
-                com.kirshi.protocol.CommandProto.FileDetailMessage result = new com.kirshi.protocol.CommandProto.FileDetailMessage(this);
-                result.filePath_ = filePath_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof com.kirshi.protocol.CommandProto.FileDetailMessage) {
-                    return mergeFrom((com.kirshi.protocol.CommandProto.FileDetailMessage) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(com.kirshi.protocol.CommandProto.FileDetailMessage other) {
-                if (other == com.kirshi.protocol.CommandProto.FileDetailMessage.getDefaultInstance()) return this;
-                if (!other.getFilePath().isEmpty()) {
-                    filePath_ = other.filePath_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                com.kirshi.protocol.CommandProto.FileDetailMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (com.kirshi.protocol.CommandProto.FileDetailMessage) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private java.lang.Object filePath_ = "";
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public java.lang.String getFilePath() {
-                java.lang.Object ref = filePath_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    filePath_ = s;
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public com.google.protobuf.ByteString
-            getFilePathBytes() {
-                java.lang.Object ref = filePath_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    filePath_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePath(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder clearFilePath() {
-
-                filePath_ = getDefaultInstance().getFilePath();
-                onChanged();
-                return this;
-            }
-            /**
-             * <code>string filePath = 1;</code>
-             */
-            public Builder setFilePathBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                checkByteStringIsUtf8(value);
-
-                filePath_ = value;
-                onChanged();
-                return this;
-            }
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFieldsProto3(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
+      public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
 
 
-            // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileDetailMessage)
-        }
-
-        // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileDetailMessage)
-        private static final com.kirshi.protocol.CommandProto.FileDetailMessage DEFAULT_INSTANCE;
-        static {
-            DEFAULT_INSTANCE = new com.kirshi.protocol.CommandProto.FileDetailMessage();
-        }
-
-        public static com.kirshi.protocol.CommandProto.FileDetailMessage getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<FileDetailMessage>
-                PARSER = new com.google.protobuf.AbstractParser<FileDetailMessage>() {
-            public FileDetailMessage parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new FileDetailMessage(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<FileDetailMessage> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<FileDetailMessage> getParserForType() {
-            return PARSER;
-        }
-
-        public com.kirshi.protocol.CommandProto.FileDetailMessage getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+      // @@protoc_insertion_point(builder_scope:com.kirshi.protocol.FileDetailMessage)
     }
 
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_TouchPoint_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_LsMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_DelMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_TouchMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable;
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable;
+    // @@protoc_insertion_point(class_scope:com.kirshi.protocol.FileDetailMessage)
+    private static final FileDetailMessage DEFAULT_INSTANCE;
 
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-    private static  com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
     static {
-        java.lang.String[] descriptorData = {
-                "\n\rCommand.proto\022\023com.kirshi.protocol\032\tCm" +
-                        "d.proto\032\031google/protobuf/any.proto\"e\n\022Ba" +
-                        "seCommandMessage\022+\n\003cmd\030\001 \001(\0162\036.com.kirs" +
-                        "hi.protocol.CmdAction\022\"\n\004data\030\002 \001(\0132\024.go" +
-                        "ogle.protobuf.Any\"\177\n\021BizCommandMessage\0221" +
-                        "\n\007command\030\001 \001(\0162 .com.kirshi.protocol.Co" +
-                        "mmandInfo\022\022\n\nsubcommand\030\002 \001(\t\022#\n\005extra\030\003" +
-                        " \001(\0132\024.google.protobuf.Any\"\177\n\024ScreenCont" +
-                        "rolMessage\0221\n\ttouchType\030\001 \001(\0162\036.com.kirs" +
-                        "hi.protocol.TouchType\0224\n\013touchPoints\030\002 \003" +
-                        "(\0132\037.com.kirshi.protocol.TouchPoint\"0\n\nT" +
-                        "ouchPoint\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\014\n\004time\030" +
-                        "\003 \001(\003\"%\n\020AudioLiveMessage\022\021\n\tswiStatus\030\001" +
-                        " \001(\010\"\201\001\n\021CameraLiveMessage\0227\n\014cameraActi" +
-                        "on\030\001 \001(\0162!.com.kirshi.protocol.CameraAct" +
-                        "ion\0223\n\ncameraType\030\002 \001(\0162\037.com.kirshi.pro" +
-                        "tocol.CameraType\"\'\n\022ScreenTransMessage\022\021" +
-                        "\n\tswiStatus\030\001 \001(\010\"\035\n\tLsMessage\022\020\n\010filePa" +
-                        "th\030\001 \001(\t\"#\n\017DownloadMessage\022\020\n\010filePath\030" +
-                        "\001 \001(\t\"\036\n\nDelMessage\022\020\n\010filename\030\001 \003(\t\" \n" +
-                        "\014MkDirMessage\022\020\n\010filePath\030\001 \001(\t\"#\n\014Touch" +
-                        "Message\022\023\n\013newFilePath\030\001 \001(\t\"C\n\017FileEdit" +
-                        "Message\022\020\n\010filePath\030\001 \001(\t\022\r\n\005index\030\002 \001(\r" +
-                        "\022\017\n\007content\030\003 \001(\t\"J\n\022FileHexEditMessage\022" +
-                        "\020\n\010filePath\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\022\023\n\013byte" +
-                        "Content\030\003 \001(\014\"N\n\021FileUploadMessage\022\022\n\nup" +
-                        "loadPath\030\001 \001(\t\022\020\n\010fileName\030\002 \001(\t\022\023\n\013file" +
-                        "RawData\030\003 \001(\014\"6\n\021FileRenameMessage\022\020\n\010fi" +
-                        "lePath\030\001 \001(\t\022\017\n\007newName\030\002 \001(\t\"7\n\016FileZip" +
-                        "Message\022\024\n\014fileItemPath\030\001 \003(\t\022\017\n\007zipName" +
-                        "\030\002 \001(\t\";\n\017FileMoveMessage\022\023\n\013rawFilePath" +
-                        "\030\001 \001(\t\022\023\n\013newFilePath\030\002 \001(\t\"%\n\021FileDetai" +
-                        "lMessage\022\020\n\010filePath\030\001 \001(\t*\372\001\n\013CommandIn" +
-                        "fo\022\025\n\021COMMAND_FILETRANS\020\000\022\027\n\023COMMAND_SCR" +
-                        "EENTRANS\020\001\022\026\n\022COMMAND_CAMERALIVE\020\002\022\025\n\021CO" +
-                        "MMAND_AUDIOLIVE\020\003\022\033\n\027COMMAND_FILETRANS_A" +
-                        "HEAD\020\004\022\023\n\017SPC_COMMAND_AAC\020\005\022\024\n\020SPC_COMMA" +
-                        "ND_H264\020\006\022\026\n\022ERR_COMMAND_COMMON\020\007\022\021\n\rCOM" +
-                        "MAND_TOUCH\020\010\022\031\n\025COMMAND_SCREENCONTROL\020\t*" +
-                        "\327\001\n\tTouchType\022\013\n\007GESTURE\020\000\022\014\n\010GESTURES\020\001" +
-                        "\022\t\n\005FLING\020\002\022\007\n\003TAP\020\003\022\013\n\007LONGTAP\020\004\022\t\n\005PRE" +
-                        "SS\020\005\022\010\n\004HOME\020\006\022\013\n\007RECENTS\020\007\022\t\n\005BACKS\020\010\022\021" +
-                        "\n\rQUICKSETTINGS\020\t\022\017\n\013SPLITSCREEN\020\n\022\t\n\005PO" +
-                        "WER\020\013\022\017\n\013LOCK_SCREEN\020\014\022\016\n\nSCREENSHOT\020\r\022\021" +
-                        "\n\rNOTIFICATIONS\020\016*/\n\014CameraAction\022\t\n\005STA" +
-                        "RT\020\000\022\010\n\004STOP\020\001\022\n\n\006SWITCH\020\002* \n\nCameraType" +
-                        "\022\010\n\004FONT\020\000\022\010\n\004BACK\020\001B\016B\014CommandProtob\006pr" +
-                        "oto3"
-        };
-        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-                new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
-                            com.google.protobuf.Descriptors.FileDescriptor root) {
-                        descriptor = root;
-                        return null;
-                    }
-                };
-        com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[] {
-                                com.kirshi.protocol.CmdProto.getDescriptor(),
-                                com.google.protobuf.AnyProto.getDescriptor(),
-                        }, assigner);
-        internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor,
-                new java.lang.String[]{"Cmd", "Data",});
-        internal_static_com_kirshi_protocol_BizCommandMessage_descriptor =
-                getDescriptor().getMessageTypes().get(1);
-        internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_BizCommandMessage_descriptor,
-                new java.lang.String[]{"Command", "Subcommand", "Extra",});
-        internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor =
-                getDescriptor().getMessageTypes().get(2);
-        internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor,
-                new java.lang.String[]{"TouchType", "TouchPoints",});
-        internal_static_com_kirshi_protocol_TouchPoint_descriptor =
-                getDescriptor().getMessageTypes().get(3);
-        internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_TouchPoint_descriptor,
-                new java.lang.String[]{"X", "Y", "Time",});
-        internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor =
-                getDescriptor().getMessageTypes().get(4);
-        internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor,
-                new java.lang.String[]{"SwiStatus",});
-        internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor =
-                getDescriptor().getMessageTypes().get(5);
-        internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor,
-                new java.lang.String[]{"CameraAction", "CameraType",});
-        internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor =
-                getDescriptor().getMessageTypes().get(6);
-        internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor,
-                new java.lang.String[]{"SwiStatus",});
-        internal_static_com_kirshi_protocol_LsMessage_descriptor =
-                getDescriptor().getMessageTypes().get(7);
-        internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_LsMessage_descriptor,
-                new java.lang.String[]{"FilePath",});
-        internal_static_com_kirshi_protocol_DownloadMessage_descriptor =
-                getDescriptor().getMessageTypes().get(8);
-        internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_DownloadMessage_descriptor,
-                new java.lang.String[]{"FilePath",});
-        internal_static_com_kirshi_protocol_DelMessage_descriptor =
-                getDescriptor().getMessageTypes().get(9);
-        internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_DelMessage_descriptor,
-                new java.lang.String[]{"Filename",});
-        internal_static_com_kirshi_protocol_MkDirMessage_descriptor =
-                getDescriptor().getMessageTypes().get(10);
-        internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_MkDirMessage_descriptor,
-                new java.lang.String[]{"FilePath",});
-        internal_static_com_kirshi_protocol_TouchMessage_descriptor =
-                getDescriptor().getMessageTypes().get(11);
-        internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_TouchMessage_descriptor,
-                new java.lang.String[]{"NewFilePath",});
-        internal_static_com_kirshi_protocol_FileEditMessage_descriptor =
-                getDescriptor().getMessageTypes().get(12);
-        internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_FileEditMessage_descriptor,
-                new java.lang.String[]{"FilePath", "Index", "Content",});
-        internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor =
-                getDescriptor().getMessageTypes().get(13);
-        internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor,
-                new java.lang.String[]{"FilePath", "Index", "ByteContent",});
-        internal_static_com_kirshi_protocol_FileUploadMessage_descriptor =
-                getDescriptor().getMessageTypes().get(14);
-        internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_FileUploadMessage_descriptor,
-                new java.lang.String[]{"UploadPath", "FileName", "FileRawData",});
-        internal_static_com_kirshi_protocol_FileRenameMessage_descriptor =
-                getDescriptor().getMessageTypes().get(15);
-        internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_FileRenameMessage_descriptor,
-                new java.lang.String[]{"FilePath", "NewName",});
-        internal_static_com_kirshi_protocol_FileZipMessage_descriptor =
-                getDescriptor().getMessageTypes().get(16);
-        internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_FileZipMessage_descriptor,
-                new java.lang.String[]{"FileItemPath", "ZipName",});
-        internal_static_com_kirshi_protocol_FileMoveMessage_descriptor =
-                getDescriptor().getMessageTypes().get(17);
-        internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_FileMoveMessage_descriptor,
-                new java.lang.String[]{"RawFilePath", "NewFilePath",});
-        internal_static_com_kirshi_protocol_FileDetailMessage_descriptor =
-                getDescriptor().getMessageTypes().get(18);
-        internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_com_kirshi_protocol_FileDetailMessage_descriptor,
-                new java.lang.String[]{"FilePath",});
-        com.kirshi.protocol.CmdProto.getDescriptor();
-        com.google.protobuf.AnyProto.getDescriptor();
+      DEFAULT_INSTANCE = new FileDetailMessage();
     }
 
-    // @@protoc_insertion_point(outer_class_scope)
+    public static FileDetailMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FileDetailMessage>
+            PARSER = new com.google.protobuf.AbstractParser<FileDetailMessage>() {
+      public FileDetailMessage parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FileDetailMessage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FileDetailMessage> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<FileDetailMessage> getParserForType() {
+      return PARSER;
+    }
+
+    public FileDetailMessage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_com_kirshi_protocol_BizCommandMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_TouchPoint_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_LsMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_DownloadMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_DelMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_MkDirMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_kirshi_protocol_TouchMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_com_kirshi_protocol_FileEditMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_com_kirshi_protocol_FileUploadMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_com_kirshi_protocol_FileRenameMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_com_kirshi_protocol_FileZipMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_com_kirshi_protocol_FileMoveMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_com_kirshi_protocol_FileDetailMessage_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable;
+
+  public static com.google.protobuf.Descriptors.FileDescriptor
+  getDescriptor() {
+    return descriptor;
+  }
+
+  private static com.google.protobuf.Descriptors.FileDescriptor
+          descriptor;
+
+  static {
+    String[] descriptorData = {
+            "\n\rCommand.proto\022\023com.kirshi.protocol\032\tCm" +
+                    "d.proto\032\031google/protobuf/any.proto\"e\n\022Ba" +
+                    "seCommandMessage\022+\n\003cmd\030\001 \001(\0162\036.com.kirs" +
+                    "hi.protocol.CmdAction\022\"\n\004data\030\002 \001(\0132\024.go" +
+                    "ogle.protobuf.Any\"\177\n\021BizCommandMessage\0221" +
+                    "\n\007command\030\001 \001(\0162 .com.kirshi.protocol.Co" +
+                    "mmandInfo\022\022\n\nsubcommand\030\002 \001(\t\022#\n\005extra\030\003" +
+                    " \001(\0132\024.google.protobuf.Any\"\177\n\024ScreenCont" +
+                    "rolMessage\0221\n\ttouchType\030\001 \001(\0162\036.com.kirs" +
+                    "hi.protocol.TouchType\0224\n\013touchPoints\030\002 \003" +
+                    "(\0132\037.com.kirshi.protocol.TouchPoint\"0\n\nT" +
+                    "ouchPoint\022\t\n\001x\030\001 \001(\001\022\t\n\001y\030\002 \001(\001\022\014\n\004time\030" +
+                    "\003 \001(\003\"%\n\020AudioLiveMessage\022\021\n\tswiStatus\030\001" +
+                    " \001(\010\"\201\001\n\021CameraLiveMessage\0227\n\014cameraActi" +
+                    "on\030\001 \001(\0162!.com.kirshi.protocol.CameraAct" +
+                    "ion\0223\n\ncameraType\030\002 \001(\0162\037.com.kirshi.pro" +
+                    "tocol.CameraType\"\'\n\022ScreenTransMessage\022\021" +
+                    "\n\tswiStatus\030\001 \001(\010\"\035\n\tLsMessage\022\020\n\010filePa" +
+                    "th\030\001 \001(\t\"#\n\017DownloadMessage\022\020\n\010filePath\030" +
+                    "\001 \001(\t\"\036\n\nDelMessage\022\020\n\010filename\030\001 \003(\t\" \n" +
+                    "\014MkDirMessage\022\020\n\010filePath\030\001 \001(\t\"#\n\014Touch" +
+                    "Message\022\023\n\013newFilePath\030\001 \001(\t\"C\n\017FileEdit" +
+                    "Message\022\020\n\010filePath\030\001 \001(\t\022\r\n\005index\030\002 \001(\r" +
+                    "\022\017\n\007content\030\003 \001(\t\"J\n\022FileHexEditMessage\022" +
+                    "\020\n\010filePath\030\001 \001(\t\022\r\n\005index\030\002 \001(\r\022\023\n\013byte" +
+                    "Content\030\003 \001(\014\"N\n\021FileUploadMessage\022\022\n\nup" +
+                    "loadPath\030\001 \001(\t\022\020\n\010fileName\030\002 \001(\t\022\023\n\013file" +
+                    "RawData\030\003 \001(\014\"6\n\021FileRenameMessage\022\020\n\010fi" +
+                    "lePath\030\001 \001(\t\022\017\n\007newName\030\002 \001(\t\"7\n\016FileZip" +
+                    "Message\022\024\n\014fileItemPath\030\001 \003(\t\022\017\n\007zipName" +
+                    "\030\002 \001(\t\";\n\017FileMoveMessage\022\023\n\013rawFilePath" +
+                    "\030\001 \001(\t\022\023\n\013newFilePath\030\002 \001(\t\"%\n\021FileDetai" +
+                    "lMessage\022\020\n\010filePath\030\001 \001(\t*\372\001\n\013CommandIn" +
+                    "fo\022\025\n\021COMMAND_FILETRANS\020\000\022\027\n\023COMMAND_SCR" +
+                    "EENTRANS\020\001\022\026\n\022COMMAND_CAMERALIVE\020\002\022\025\n\021CO" +
+                    "MMAND_AUDIOLIVE\020\003\022\033\n\027COMMAND_FILETRANS_A" +
+                    "HEAD\020\004\022\023\n\017SPC_COMMAND_AAC\020\005\022\024\n\020SPC_COMMA" +
+                    "ND_H264\020\006\022\026\n\022ERR_COMMAND_COMMON\020\007\022\021\n\rCOM" +
+                    "MAND_TOUCH\020\010\022\031\n\025COMMAND_SCREENCONTROL\020\t*" +
+                    "\327\001\n\tTouchType\022\013\n\007GESTURE\020\000\022\014\n\010GESTURES\020\001" +
+                    "\022\t\n\005FLING\020\002\022\007\n\003TAP\020\003\022\013\n\007LONGTAP\020\004\022\t\n\005PRE" +
+                    "SS\020\005\022\010\n\004HOME\020\006\022\013\n\007RECENTS\020\007\022\t\n\005BACKS\020\010\022\021" +
+                    "\n\rQUICKSETTINGS\020\t\022\017\n\013SPLITSCREEN\020\n\022\t\n\005PO" +
+                    "WER\020\013\022\017\n\013LOCK_SCREEN\020\014\022\016\n\nSCREENSHOT\020\r\022\021" +
+                    "\n\rNOTIFICATIONS\020\016*/\n\014CameraAction\022\t\n\005STA" +
+                    "RT\020\000\022\010\n\004STOP\020\001\022\n\n\006SWITCH\020\002* \n\nCameraType" +
+                    "\022\010\n\004FONT\020\000\022\010\n\004BACK\020\001B\016B\014CommandProtob\006pr" +
+                    "oto3"
+    };
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+            new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+              public com.google.protobuf.ExtensionRegistry assignDescriptors(
+                      com.google.protobuf.Descriptors.FileDescriptor root) {
+                descriptor = root;
+                return null;
+              }
+            };
+    com.google.protobuf.Descriptors.FileDescriptor
+            .internalBuildGeneratedFileFrom(descriptorData,
+                    new com.google.protobuf.Descriptors.FileDescriptor[]{
+                            CmdProto.getDescriptor(),
+                            com.google.protobuf.AnyProto.getDescriptor(),
+                    }, assigner);
+    internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor =
+            getDescriptor().getMessageTypes().get(0);
+    internal_static_com_kirshi_protocol_BaseCommandMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_BaseCommandMessage_descriptor,
+            new String[]{"Cmd", "Data",});
+    internal_static_com_kirshi_protocol_BizCommandMessage_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+    internal_static_com_kirshi_protocol_BizCommandMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_BizCommandMessage_descriptor,
+            new String[]{"Command", "Subcommand", "Extra",});
+    internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+    internal_static_com_kirshi_protocol_ScreenControlMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_ScreenControlMessage_descriptor,
+            new String[]{"TouchType", "TouchPoints",});
+    internal_static_com_kirshi_protocol_TouchPoint_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+    internal_static_com_kirshi_protocol_TouchPoint_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_TouchPoint_descriptor,
+            new String[]{"X", "Y", "Time",});
+    internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+    internal_static_com_kirshi_protocol_AudioLiveMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_AudioLiveMessage_descriptor,
+            new String[]{"SwiStatus",});
+    internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+    internal_static_com_kirshi_protocol_CameraLiveMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_CameraLiveMessage_descriptor,
+            new String[]{"CameraAction", "CameraType",});
+    internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+    internal_static_com_kirshi_protocol_ScreenTransMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_ScreenTransMessage_descriptor,
+            new String[]{"SwiStatus",});
+    internal_static_com_kirshi_protocol_LsMessage_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+    internal_static_com_kirshi_protocol_LsMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_LsMessage_descriptor,
+            new String[]{"FilePath",});
+    internal_static_com_kirshi_protocol_DownloadMessage_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+    internal_static_com_kirshi_protocol_DownloadMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_DownloadMessage_descriptor,
+            new String[]{"FilePath",});
+    internal_static_com_kirshi_protocol_DelMessage_descriptor =
+            getDescriptor().getMessageTypes().get(9);
+    internal_static_com_kirshi_protocol_DelMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_DelMessage_descriptor,
+            new String[]{"Filename",});
+    internal_static_com_kirshi_protocol_MkDirMessage_descriptor =
+            getDescriptor().getMessageTypes().get(10);
+    internal_static_com_kirshi_protocol_MkDirMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_MkDirMessage_descriptor,
+            new String[]{"FilePath",});
+    internal_static_com_kirshi_protocol_TouchMessage_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+    internal_static_com_kirshi_protocol_TouchMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_TouchMessage_descriptor,
+            new String[]{"NewFilePath",});
+    internal_static_com_kirshi_protocol_FileEditMessage_descriptor =
+            getDescriptor().getMessageTypes().get(12);
+    internal_static_com_kirshi_protocol_FileEditMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_FileEditMessage_descriptor,
+            new String[]{"FilePath", "Index", "Content",});
+    internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor =
+            getDescriptor().getMessageTypes().get(13);
+    internal_static_com_kirshi_protocol_FileHexEditMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_FileHexEditMessage_descriptor,
+            new String[]{"FilePath", "Index", "ByteContent",});
+    internal_static_com_kirshi_protocol_FileUploadMessage_descriptor =
+            getDescriptor().getMessageTypes().get(14);
+    internal_static_com_kirshi_protocol_FileUploadMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_FileUploadMessage_descriptor,
+            new String[]{"UploadPath", "FileName", "FileRawData",});
+    internal_static_com_kirshi_protocol_FileRenameMessage_descriptor =
+            getDescriptor().getMessageTypes().get(15);
+    internal_static_com_kirshi_protocol_FileRenameMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+            internal_static_com_kirshi_protocol_FileRenameMessage_descriptor,
+            new String[]{"FilePath", "NewName", });
+    internal_static_com_kirshi_protocol_FileZipMessage_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_com_kirshi_protocol_FileZipMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_kirshi_protocol_FileZipMessage_descriptor,
+        new String[] { "FileItemPath", "ZipName", });
+    internal_static_com_kirshi_protocol_FileMoveMessage_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_com_kirshi_protocol_FileMoveMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_kirshi_protocol_FileMoveMessage_descriptor,
+        new String[] { "RawFilePath", "NewFilePath", });
+    internal_static_com_kirshi_protocol_FileDetailMessage_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_com_kirshi_protocol_FileDetailMessage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_kirshi_protocol_FileDetailMessage_descriptor,
+        new String[] { "FilePath", });
+    CmdProto.getDescriptor();
+    com.google.protobuf.AnyProto.getDescriptor();
+  }
+
+  // @@protoc_insertion_point(outer_class_scope)
 }

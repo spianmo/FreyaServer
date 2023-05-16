@@ -46,19 +46,19 @@ public class ClientIOCallback implements IClientIOCallback {
             //Log.i("\n原始报文："+msg_command.toString());
             switch (msg_command.getCmd()) {
                 case TK_ACTION_HANDSHAKE:
-                    HandShakeProto.HandShakeMessage msg_handShake = msg_command.getData().unpack(HandShakeProto.HandShakeMessage.class);
-                    mClientInfoBean.setScode(msg_handShake.getScode());
-                    mClientInfoBean.setUid(msg_handShake.getUid());
-                    mClientInfoBean.setType(msg_handShake.getType());
+                    HandShakeProto.HandShakeMessage handShakeMessage = msg_command.getData().unpack(HandShakeProto.HandShakeMessage.class);
+                    mClientInfoBean.setScode(handShakeMessage.getScode());
+                    mClientInfoBean.setUid(handShakeMessage.getUid());
+                    mClientInfoBean.setType(handShakeMessage.getType());
                     mClientInfoBean.setHandShakeTime(System.currentTimeMillis());
                     mClientInfoBean.setConnected(false);
                     mClientInfoBean.setUniqueTag(client.getUniqueTag());
-                    if (msg_handShake.getType() == HandShakeProto.Type.CLIENT) {
+                    if (handShakeMessage.getType() == HandShakeProto.Type.CLIENT) {
                         if (!isInClientPool()) {
                             mClientInfoBeanList.put(client.getUniqueTag(), mClientInfoBean);
                             Log.i("\n被控端：" + mClientInfoBean.getUniqueTag() + "上线\nscode:" + mClientInfoBean.getScode() + "\nuid:" + mClientInfoBean.getUid() + "\n此时被控端总数为" + mClientInfoBeanList.size() + "\n");
                         }
-                    } else if (msg_handShake.getType() == HandShakeProto.Type.MASTER) {
+                    } else if (handShakeMessage.getType() == HandShakeProto.Type.MASTER) {
                         Log.i("======> HandShakeProto.Type.MASTER");
                         switch (doHandShake()) {
                             case SUCCESS:
@@ -66,15 +66,15 @@ public class ClientIOCallback implements IClientIOCallback {
                                 byte[] packet_success = CommandProto.BaseCommandMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setData(Any.pack(HandShakeProto.HandShakeRespMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setMsg("被控端连接成功").setStatus(HandShakeProto.HandShakeStatus.SUCCESS).build())).build().toByteArray();
                                 client.send(new BaseProtoPacket(packet_success));
                                 break;
-                            case DEVICEBUSY:
+                            case DEVICE_BUSY:
                                 Log.i("======> HandShakeProto.Type.MASTER 被控端已被占线");
                                 byte[] packet_busy = CommandProto.BaseCommandMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setData(Any.pack(HandShakeProto.HandShakeRespMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setMsg("被控端已被占线").setStatus(HandShakeProto.HandShakeStatus.DEVICEBUSY).build())).build().toByteArray();
                                 client.send(new BaseProtoPacket(packet_busy));
                                 break;
-                            case DEVICEOFFINE:
+                            case DEVICE_OFFLINE:
                                 Log.i("======> HandShakeProto.Type.MASTER 被控端不在线");
-                                byte[] packet_offine = CommandProto.BaseCommandMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setData(Any.pack(HandShakeProto.HandShakeRespMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setMsg("被控端不在线").setStatus(HandShakeProto.HandShakeStatus.DEVICEOFFINE).build())).build().toByteArray();
-                                client.send(new BaseProtoPacket(packet_offine));
+                                byte[] packet_offline = CommandProto.BaseCommandMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setData(Any.pack(HandShakeProto.HandShakeRespMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setMsg("被控端不在线").setStatus(HandShakeProto.HandShakeStatus.DEVICEOFFINE).build())).build().toByteArray();
+                                client.send(new BaseProtoPacket(packet_offline));
                                 break;
                         }
                     }
@@ -88,13 +88,20 @@ public class ClientIOCallback implements IClientIOCallback {
                     client.send(new BaseProtoPacket(originalData.getBodyBytes()));
                     break;
                 case TK_ACTION_COMMAND:
-                    //Log.i("======> TK_ACTION_COMMAND " + CommandProto.BizCommandMessage.parseFrom(originalData.getBodyBytes()).getCommand().toString());
-                    SendToClient(new BaseProtoPacket(originalData.getBodyBytes()));
+//                    Log.i("======> TK_ACTION_COMMAND " + CommandProto.BaseCommandMessage
+//                            .parseFrom(originalData.getBodyBytes())
+//                            .getData()
+//                            .unpack(BizResponseProto.ResponseMessage.class)
+//                            .getCommand());
+                    sendToClient(new BaseProtoPacket(originalData.getBodyBytes()));
                     break;
                 case TK_ACTION_COMMAND_RESULT:
-                    Log.i("======> TK_ACTION_COMMAND_RESULT " + BizResponseProto.ResponseMessage.parseFrom(originalData.getBodyBytes()).getCommand().toString());
-                    Log.i("======> DATA: " + BizResponseProto.ResponseMessage.parseFrom(originalData.getBodyBytes()).toString());
-                    SendToMaster(new BaseProtoPacket(originalData.getBodyBytes()));
+                    Log.i("======> TK_ACTION_COMMAND_RESULT " + CommandProto.BaseCommandMessage
+                            .parseFrom(originalData.getBodyBytes())
+                            .getData()
+                            .unpack(BizResponseProto.ResponseMessage.class)
+                            .getCommand());
+                    sendToMaster(new BaseProtoPacket(originalData.getBodyBytes()));
                     break;
                 default:
                     client.disconnect();
@@ -122,9 +129,13 @@ public class ClientIOCallback implements IClientIOCallback {
     }
 
     enum HandShakeStatus {
-        DEVICEBUSY, SUCCESS, DEVICEOFFINE
+        DEVICE_BUSY, SUCCESS, DEVICE_OFFLINE
     }
 
+    /**
+     * 主控与被控握手
+     * @return
+     */
     private HandShakeStatus doHandShake() {
         for (ConcurrentHashMap.Entry<String, ClientInfoBean> entry : mClientInfoBeanList.entrySet()) {
             if (entry.getValue().getScode().equals(mClientInfoBean.getScode()) && !entry.getValue().getUniqueTag().equals(mClientInfoBean.getUniqueTag())) {
@@ -132,33 +143,33 @@ public class ClientIOCallback implements IClientIOCallback {
                     entry.getValue().setPeerIClient(mClientInfoBean.getIClient());
                     entry.getValue().setPeerUniqueTag(mClientInfoBean.getUniqueTag());
                     entry.getValue().setConnected(true);
+                    mClientInfoBean.setPeerIClient(entry.getValue().getIClient());
+                    mClientInfoBean.setPeerUniqueTag(entry.getValue().getUniqueTag());
+                    mClientInfoBean.setConnected(true);
                     return HandShakeStatus.SUCCESS;
                 } else {
-                    return HandShakeStatus.DEVICEBUSY;
+                    return HandShakeStatus.DEVICE_BUSY;
                 }
             }
         }
-        return HandShakeStatus.DEVICEOFFINE;
+        return HandShakeStatus.DEVICE_OFFLINE;
     }
 
-    private void SendToClient(ISendable packet) {
-        for (ConcurrentHashMap.Entry<String, ClientInfoBean> entry : mClientInfoBeanList.entrySet()) {
-            if (mClientInfoBean.getUniqueTag().equals(entry.getValue().getPeerUniqueTag())) {
-                entry.getValue().getIClient().send(packet);
-            }
-        }
+    /**
+     * 主控发包给被控，遍历被控列表匹配对端的UniqueTag，如果和主控的UniqueTag相同则取出被控Client对象发包
+     * @param packet
+     */
+    private void sendToClient(ISendable packet) {
+        mClientInfoBean.getPeerIClient().send(packet);
     }
 
-    private void SendToMaster(ISendable packet) {
-        Log.i("====> SendToMaster\n" + mClientInfoBean.getPeerUniqueTag() + "\n" + mClientInfoBean.getType().toString() + "\n" + mClientInfoBean.getUniqueTag());
-        for (ConcurrentHashMap.Entry<String, ClientInfoBean> entry : mClientInfoBeanList.entrySet()) {
-            Log.i("====> 遍历一次" + mClientInfoBean.getUniqueTag() + " " + entry.getValue().getUniqueTag());
-            if (mClientInfoBean.getUniqueTag().equals(entry.getValue().getUniqueTag())) {
-                if (mClientInfoBean.isConnected()) {
-                    Log.i("====> 根据Client " + mClientInfoBean.getUniqueTag() + " 匹配到对端并发送给Master " + entry.getValue().getPeerIClient().getUniqueTag());
-                    entry.getValue().getPeerIClient().send(packet);
-                }
-            }
+    /**
+     * 被控发包给主控，遍历被控列表匹配对端的UniqueTag，如果和被控的UniqueTag相同则取出主控Client对象发包
+     * @param packet
+     */
+    private void sendToMaster(ISendable packet) {
+        if (mClientInfoBeanList.get(mClientInfoBean.getUniqueTag()) != null && mClientInfoBeanList.get(mClientInfoBean.getUniqueTag()).getPeerIClient() != null) {
+            mClientInfoBeanList.get(mClientInfoBean.getUniqueTag()).getPeerIClient().send(packet);
         }
     }
 }

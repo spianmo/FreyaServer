@@ -21,6 +21,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Copyright (c) 2023
+ *
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:ServerReceiver.java
@@ -34,6 +35,9 @@ public class ServerReceiver implements IServerActionListener {
 
     private volatile int mPort;
 
+    /**
+     * 被控端列表
+     */
     public static ConcurrentHashMap<String, ClientInfoBean> mClientInfoBeanList = new ConcurrentHashMap<>();
 
     private WatchdogThread mWatchdogThread = null;
@@ -70,16 +74,26 @@ public class ServerReceiver implements IServerActionListener {
 
     @Override
     public void onClientDisconnected(IClient client, int serverPort, IClientPool clientPool) {
-        byte[] packet_offine = CommandProto.BaseCommandMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setData(Any.pack(HandShakeProto.HandShakeRespMessage.newBuilder().setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE).setMsg("被控端已离线").setStatus(HandShakeProto.HandShakeStatus.DEVICEOFFINE).build())).build().toByteArray();
-        CancelLock(client);
+        cancelLock(client);
         if (mClientInfoBeanList.get(client.getUniqueTag()) != null && mClientInfoBeanList.get(client.getUniqueTag()).getPeerIClient() != null) {
-            mClientInfoBeanList.get(client.getUniqueTag()).getPeerIClient().send(new BaseProtoPacket(packet_offine));
+            byte[] offlinePacket = CommandProto.BaseCommandMessage.newBuilder()
+                    .setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE)
+                    .setData(
+                            Any.pack(
+                                    HandShakeProto.HandShakeRespMessage.newBuilder()
+                                            .setCmd(CmdProto.CmdAction.TK_ACTION_HANDSHAKE)
+                                            .setMsg("被控端已离线")
+                                            .setStatus(HandShakeProto.HandShakeStatus.DEVICEOFFINE)
+                                            .build()
+                            ))
+                    .build().toByteArray();
+            mClientInfoBeanList.get(client.getUniqueTag()).getPeerIClient().send(new BaseProtoPacket(offlinePacket));
         }
         client.removeAllIOCallback();
         if (mClientInfoBeanList.get(client.getUniqueTag()) != null && mClientInfoBeanList.get(client.getUniqueTag()).getType() == HandShakeProto.Type.CLIENT) {
             redis.setRemove(RedisConstant.SessionKeys, mClientInfoBeanList.get(client.getUniqueTag()).getScode());
+            mClientInfoBeanList.remove(client.getUniqueTag());
         }
-        mClientInfoBeanList.remove(client.getUniqueTag());
         Log.i(client.getUniqueTag() + " 下线,被控端数量:" + getClientNum());
     }
 
@@ -115,10 +129,13 @@ public class ServerReceiver implements IServerActionListener {
         return num;
     }
 
-    public void CancelLock(IClient client) {
+    /**
+     * 主控离线时解除被控的控制锁定
+     * @param client 主控端
+     */
+    public void cancelLock(IClient client) {
         for (ConcurrentHashMap.Entry<String, ClientInfoBean> entry : mClientInfoBeanList.entrySet()) {
             if (client.getUniqueTag().equals(entry.getValue().getPeerUniqueTag())) {
-                client.send(new BaseProtoPacket(HandShakeProto.HandShakeRespMessage.newBuilder().setStatus(HandShakeProto.HandShakeStatus.DEVICEOFFINE).setCmd(CmdProto.CmdAction.TK_ACTION_COMMAND).setMsg("被控端已离线").build().toByteArray()));
                 entry.getValue().getIClient().send(
                         new BaseProtoPacket(
                                 CommandProto.BaseCommandMessage.newBuilder()
