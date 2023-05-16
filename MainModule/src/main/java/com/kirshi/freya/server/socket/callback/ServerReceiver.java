@@ -76,7 +76,9 @@ public class ServerReceiver implements IServerActionListener {
             mClientInfoBeanList.get(client.getUniqueTag()).getPeerIClient().send(new BaseProtoPacket(packet_offine));
         }
         client.removeAllIOCallback();
-        redis.setRemove(RedisConstant.SessionKeys, mClientInfoBeanList.get(client.getUniqueTag()).getScode());
+        if (mClientInfoBeanList.get(client.getUniqueTag()) != null && mClientInfoBeanList.get(client.getUniqueTag()).getType() == HandShakeProto.Type.CLIENT) {
+            redis.setRemove(RedisConstant.SessionKeys, mClientInfoBeanList.get(client.getUniqueTag()).getScode());
+        }
         mClientInfoBeanList.remove(client.getUniqueTag());
         Log.i(client.getUniqueTag() + " 下线,被控端数量:" + getClientNum());
     }
