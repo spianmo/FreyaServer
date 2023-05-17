@@ -22,6 +22,7 @@ import static com.kirshi.freya.server.socket.callback.ServerReceiver.mClientInfo
 
 /**
  * Copyright (c) 2021
+ *
  * @Project:FreyaServer
  * @Author:Finger
  * @FileName:ClientIOCallback.java
@@ -134,6 +135,7 @@ public class ClientIOCallback implements IClientIOCallback {
 
     /**
      * 主控与被控握手
+     *
      * @return
      */
     private HandShakeStatus doHandShake() {
@@ -157,6 +159,7 @@ public class ClientIOCallback implements IClientIOCallback {
 
     /**
      * 主控发包给被控，遍历被控列表匹配对端的UniqueTag，如果和主控的UniqueTag相同则取出被控Client对象发包
+     *
      * @param packet
      */
     private void sendToClient(ISendable packet) {
@@ -165,11 +168,54 @@ public class ClientIOCallback implements IClientIOCallback {
 
     /**
      * 被控发包给主控，遍历被控列表匹配对端的UniqueTag，如果和被控的UniqueTag相同则取出主控Client对象发包
+     *
      * @param packet
      */
     private void sendToMaster(ISendable packet) {
-        if (mClientInfoBeanList.get(mClientInfoBean.getUniqueTag()) != null && mClientInfoBeanList.get(mClientInfoBean.getUniqueTag()).getPeerIClient() != null) {
-            mClientInfoBeanList.get(mClientInfoBean.getUniqueTag()).getPeerIClient().send(packet);
+        ClientInfoBean clientInfo = mClientInfoBeanList.get(mClientInfoBean.getUniqueTag());
+        if (clientInfo == null) return;
+        if (!clientInfo.isConnected()) {
+            sendCloseSignal(clientInfo);
         }
+        if (clientInfo.getPeerIClient() != null) {
+            clientInfo.getPeerIClient().send(packet);
+        }
+    }
+
+    /**
+     * 关闭实时流推送
+     * @param clientInfo
+     */
+    public static void sendCloseSignal(ClientInfoBean clientInfo) {
+        clientInfo.getIClient().send(
+                new BaseProtoPacket(
+                        CommandProto.BaseCommandMessage.newBuilder()
+                                .setCmd(CmdProto.CmdAction.TK_ACTION_COMMAND)
+                                .setData(Any.pack(CommandProto.BizCommandMessage.newBuilder()
+                                        .setCommand(CommandProto.CommandInfo.COMMAND_SCREENTRANS)
+                                        .setExtra(Any.pack(CommandProto.ScreenTransMessage.newBuilder().setSwiStatus(false).build()))
+                                        .build()))
+                                .build().toByteArray())
+        );
+        clientInfo.getIClient().send(
+                new BaseProtoPacket(
+                        CommandProto.BaseCommandMessage.newBuilder()
+                                .setCmd(CmdProto.CmdAction.TK_ACTION_COMMAND)
+                                .setData(Any.pack(CommandProto.BizCommandMessage.newBuilder()
+                                        .setCommand(CommandProto.CommandInfo.COMMAND_AUDIOLIVE)
+                                        .setExtra(Any.pack(CommandProto.AudioLiveMessage.newBuilder().setSwiStatus(false).build()))
+                                        .build()))
+                                .build().toByteArray())
+        );
+        clientInfo.getIClient().send(
+                new BaseProtoPacket(
+                        CommandProto.BaseCommandMessage.newBuilder()
+                                .setCmd(CmdProto.CmdAction.TK_ACTION_COMMAND)
+                                .setData(Any.pack(CommandProto.BizCommandMessage.newBuilder()
+                                        .setCommand(CommandProto.CommandInfo.COMMAND_CAMERALIVE)
+                                        .setExtra(Any.pack(CommandProto.CameraLiveMessage.newBuilder().setCameraAction(CommandProto.CameraAction.STOP).build()))
+                                        .build()))
+                                .build().toByteArray())
+        );
     }
 }

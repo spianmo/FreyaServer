@@ -136,36 +136,7 @@ public class ServerReceiver implements IServerActionListener {
     public void cancelLock(IClient client) {
         for (ConcurrentHashMap.Entry<String, ClientInfoBean> entry : mClientInfoBeanList.entrySet()) {
             if (client.getUniqueTag().equals(entry.getValue().getPeerUniqueTag())) {
-                entry.getValue().getIClient().send(
-                        new BaseProtoPacket(
-                                CommandProto.BaseCommandMessage.newBuilder()
-                                        .setCmd(CmdProto.CmdAction.TK_ACTION_COMMAND)
-                                        .setData(Any.pack(CommandProto.BizCommandMessage.newBuilder()
-                                                .setCommand(CommandProto.CommandInfo.COMMAND_SCREENTRANS)
-                                                .setExtra(Any.pack(CommandProto.ScreenTransMessage.newBuilder().setSwiStatus(false).build()))
-                                                .build()))
-                                        .build().toByteArray())
-                );
-                entry.getValue().getIClient().send(
-                        new BaseProtoPacket(
-                                CommandProto.BaseCommandMessage.newBuilder()
-                                        .setCmd(CmdProto.CmdAction.TK_ACTION_COMMAND)
-                                        .setData(Any.pack(CommandProto.BizCommandMessage.newBuilder()
-                                                .setCommand(CommandProto.CommandInfo.COMMAND_AUDIOLIVE)
-                                                .setExtra(Any.pack(CommandProto.AudioLiveMessage.newBuilder().setSwiStatus(false).build()))
-                                                .build()))
-                                        .build().toByteArray())
-                );
-                entry.getValue().getIClient().send(
-                        new BaseProtoPacket(
-                                CommandProto.BaseCommandMessage.newBuilder()
-                                        .setCmd(CmdProto.CmdAction.TK_ACTION_COMMAND)
-                                        .setData(Any.pack(CommandProto.BizCommandMessage.newBuilder()
-                                                .setCommand(CommandProto.CommandInfo.COMMAND_CAMERALIVE)
-                                                .setExtra(Any.pack(CommandProto.CameraLiveMessage.newBuilder().setCameraAction(CommandProto.CameraAction.STOP).build()))
-                                                .build()))
-                                        .build().toByteArray())
-                );
+                ClientIOCallback.sendCloseSignal(entry.getValue());
                 Log.i("======> 主控端离线，已向被控发送stream关闭命令");
                 entry.getValue().setPeerUniqueTag("");
                 entry.getValue().setPeerIClient(null);
