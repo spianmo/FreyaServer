@@ -69,7 +69,7 @@ public class ServerReceiver implements IServerActionListener {
         bean.setCreateTime(System.currentTimeMillis());
         client.addIOCallback(new ClientIOCallback(bean));
 
-        Log.i(client.getUniqueTag() + " 上线,被控端数量:" + getClientNum());
+        Log.i(client.getUniqueTag() + " 上线");
     }
 
     @Override
@@ -94,7 +94,7 @@ public class ServerReceiver implements IServerActionListener {
             redis.setRemove(RedisConstant.SessionKeys, mClientInfoBeanList.get(client.getUniqueTag()).getScode());
             mClientInfoBeanList.remove(client.getUniqueTag());
         }
-        Log.i(client.getUniqueTag() + " 下线,被控端数量:" + getClientNum());
+        Log.i(client.getUniqueTag() + " 下线");
     }
 
     @Override
